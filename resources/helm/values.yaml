@@ -164,22 +164,54 @@ secretProviderClass:
   provider: azure
 
 extraManifests:
-- apiVersion: networking.istio.io/vibeta1
+- apiVersion: networking.istio.io/v1alpha3
+  kind: Gateway
+  metadata:
+    name: component-feedback-hub
+  spec:
+    selector:
+      istio: aks-istio-ingressgateway-internal
+    servers:
+      - port:
+          number: 80
+          name: http
+          protocol: HTTP
+        hosts:
+          - "api.ndev.az.vzp.cz"
+      # - port:
+      #     number: 443
+      #     name: https
+      #     protocol: HTTPS
+      #   tls:
+      #     mode: SIMPLE
+      #     credentialName: api-ingress-tls
+      #   hosts:
+      #     - "api.ndev.az.vzp.cz"
+- apiVersion: networking.istio.io/v1alpha3
   kind: VirtualService
   metadata:
     name: component-feedback-hub
   spec:
     hosts:
+      - "api.ndev.az.vzp.cz"
+    gateways:
       - component-feedback-hub
-      - component-feedback-hub.nis.svc.cluster.local
-    gataways:
-      - nis
     http:
       - match:
-        - url:
-            prefix: /feedback-hub
+          - uri:
+              prefix: /feedback-hub/
         rewrite:
-          url: /
+          uri: /
+        route:
+          - destination:
+              host: component-feedback-hub
+              port:
+                number: 8080
+      - match:
+          - uri:
+              exact: /feedback-hub
+        rewrite:
+          uri: /
         route:
           - destination:
               host: component-feedback-hub
