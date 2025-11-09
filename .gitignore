@@ -1,0 +1,14 @@
+# IGNORE HIDDEN FILES
+**/.*
+
+# IGNORE BUILD RESULTS
+**/obj
+**/bin
+
+# ALLOW CRUCIAL FILES
+!.gitignore
+!.editorconfig
+!.gitattributes
+
+# IGNORE LOCAL USERS SETTINGS
+/src/Vzp.CodeLists.Api/Vzp.CodeLists.Api.csproj.user

@@ -1,0 +1,21 @@
+pool:
+  vmImage: 'ubuntu-24.04'
+
+trigger: none
+
+pr:
+- main
+
+variables: 
+  buildConfiguration: 'Release' 
+ 
+resources:
+  repositories:
+    - repository: workspace
+      type: git
+      name: workspace
+      ref: main
+
+steps: 
+- checkout: workspace
+- template: resources/pipelines/steps/dotnet-build.yaml@workspace

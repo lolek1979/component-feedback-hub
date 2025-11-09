@@ -1,0 +1,288 @@
+# Default values for nis.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# This will set the replicaset count more information can be found here: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
+replicaCount: 1
+
+# This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
+image:
+  repository: acrvzpdev2weaks001.azurecr.io/nis/component-feedback-hub
+  # This sets the pull policy for images.
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+
+# This is for the secretes for pulling an image from a private repository more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+imagePullSecrets: []
+# This is to override the chart name.
+nameOverride: ""
+fullnameOverride: "component-feedback-hub"
+
+#This section builds out the service account more information can be found here: https://kubernetes.io/docs/concepts/security/service-accounts/
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: false
+  # Automatically mount a ServiceAccount's API credentials?
+  automount: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+# This is for setting Kubernetes Annotations to a Pod.
+# For more information checkout: https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/ 
+podAnnotations: {}
+# This is for setting Kubernetes Labels to a Pod.
+# For more information checkout: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+podLabels: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+# This is for setting up a service more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/
+service:
+  # This sets the service type more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services-service-types
+  type: ClusterIP
+  # This sets the ports more information can be found here: https://kubernetes.io/docs/concepts/services-networking/service/#field-spec-ports
+  port: 8080
+
+# This block is for setting up the ingress for more information can be found here: https://kubernetes.io/docs/concepts/services-networking/ingress/
+ingress:
+  enabled: true
+  # className: webapprouting.kubernetes.azure.com
+  annotations:
+    kubernetes.azure.com/tls-cert-keyvault-uri: https://vzp-dev1-aks-001.vault.azure.net/certificates/api-ingress-tls/70ba903009854707bf30f75fbd9e4f1d
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/use-regex: "true"
+    kubernetes.io/ingress.class: addon-http-application-routing
+  hosts:
+    - host: api.ndev2.vzpdev.cz
+      paths:
+        - path: /feedback-hub(/|$)(.*)
+          pathType: Prefix
+  tls:
+  #  - secretName: keyvault-api-ingress-tls
+   - secretName: api-ingress-tls
+     hosts:
+       - api.ndev2.vzpdev.cz
+
+resources: {}
+  # We usually recommend not to specify default resources and to leave this as a conscious
+  # choice for the user. This also increases chances charts run on environments with little
+  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+# This is to setup the liveness and readiness probes more information can be found here: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
+# livenessProbe:
+#   httpGet:
+#     path: /health
+#     port: http
+readinessProbe:
+  httpGet:
+    path: /health
+    port: http
+  initialDelaySeconds: 5
+  periodSeconds: 30
+
+#This section is for setting up autoscaling more information can be found here: https://kubernetes.io/docs/concepts/workloads/autoscaling/
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+
+# Additional volumes on the output Deployment definition.
+volumes:
+- name: secrets-configuration
+  csi:
+    driver: secrets-store.csi.k8s.io
+    readOnly: true
+    volumeAttributes:
+      secretProviderClass: "component-feedback-hub"
+- name: secrets-store-inline
+  csi:
+    driver: secrets-store.csi.k8s.io
+    readOnly: true
+    volumeAttributes:
+      secretProviderClass: "api-ingress-tls"
+- name: certificates
+  configMap:
+    name: component-feedback-hub-certificates
+    defaultMode: 420
+
+# Additional volumeMounts on the output Deployment definition.
+volumeMounts:
+- name: secrets-configuration
+  mountPath: /app/appsettings.json
+  subPath: component-feedback-hub-appsettings
+  readOnly: true
+- name: secrets-store-inline
+  mountPath: "/mnt/secrets-store"
+  readOnly: true
+- name: certificates
+  mountPath: /usr/local/share/ca-certificates
+  readOnly: true
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+secretProviderClass:
+  enabled: true
+  parameters:
+    cloudName: ''
+    keyvaultName: kv-vzp-dev2-we-aks-001
+    objects: |
+      array:
+        - |
+          objectName: component-feedback-hub-appsettings
+          objectType: secret
+          objectVersion: ""
+    tenantId: 1174b7b3-9af8-43df-a3b2-06d8ee22d679
+    usePodIdentity: 'false'
+    useVMManagedIdentity: 'true'
+    userAssignedIdentityID: 5d965d13-dc07-4a2f-a651-06be7037674f
+  provider: azure
+
+extraManifests:
+- apiVersion: v1
+  data:
+    VZP-Intranet-CA2-2035-09-02.crt: |
+      -----BEGIN CERTIFICATE-----
+      MIIE+TCCA+GgAwIBAgITeAAAAAwWEQnfu3Pc6QAAAAAADDANBgkqhkiG9w0BAQsF
+      ADBfMQswCQYDVQQGEwJDWjE3MDUGA1UEChMuVnNlb2JlY25hIHpkcmF2b3RuaSBw
+      b2ppc3Rvdm5hIENlc2tlIHJlcHVibGlreTEXMBUGA1UEAxMOVlpQLVBvbGljeS1D
+      QTIwHhcNMjUwOTAxMjIyMTQ0WhcNMzUwOTAxMjIzMTQ0WjBhMQswCQYDVQQGEwJD
+      WjE3MDUGA1UEChMuVnNlb2JlY25hIHpkcmF2b3RuaSBwb2ppc3Rvdm5hIENlc2tl
+      IHJlcHVibGlreTEZMBcGA1UEAxMQVlpQLUludHJhbmV0LUNBMjCCASIwDQYJKoZI
+      hvcNAQEBBQADggEPADCCAQoCggEBAMYy4Ijt0cMJSyK7f7++698cFUwaNka1jO17
+      zLyq3FP448CVNtxEI6feKoAKuFiL2hqVgE8VqULt7ifZmwBOFsuitkyFuxqejr4l
+      stvKHgSijn5wsLCs1wq56fLshlLAPNvw/86kHXmE041T8OQYOuyuTzbINgMWylj2
+      d8P4bgchXG7d/xRLm72c5Quofx/H8hl0zJOqSDHRnQBlTg7YB7wTi2bpDsuQPwXu
+      0/Fux8Gts0f/dH0Prh6V2dYrL4F88rmvel8OlRbnQG6zJr8MaGAC6H17y5Kbjm0p
+      KK7sEBrgFjwnK7RpQzLwKfLKV0M+nc5GCBSaRk55eI/L8e7FhJcCAwEAAaOCAaow
+      ggGmMBIGCSsGAQQBgjcVAQQFAgMBAAEwIwYJKwYBBAGCNxUCBBYEFMnr8Apbh3V9
+      oAM8psfzBy7KnT3dMB0GA1UdDgQWBBRJoGecmrO9XD+FeN8f3zGHbwNM+zAZBgkr
+      BgEEAYI3FAIEDB4KAFMAdQBiAEMAQTALBgNVHQ8EBAMCAYYwDwYDVR0TAQH/BAUw
+      AwEB/zAfBgNVHSMEGDAWgBTbr+Mesl2G1Q1yurBZ2WNP+fh1jTBsBgNVHR8EZTBj
+      MGGgX6BdhixodHRwOi8vY2EudnpwLmN6L2NlcnRkYXRhL1ZaUC1Qb2xpY3ktQ0Ey
+      LmNybIYtaHR0cDovL3BraS52enAuY3ovY2VydGRhdGEvVlpQLVBvbGljeS1DQTIu
+      Y3JsMIGDBggrBgEFBQcBAQR3MHUwOAYIKwYBBQUHMAKGLGh0dHA6Ly9jYS52enAu
+      Y3ovY2VydGRhdGEvVlpQLVBvbGljeS1DQTIuY3J0MDkGCCsGAQUFBzAChi1odHRw
+      Oi8vcGtpLnZ6cC5jei9jZXJ0ZGF0YS9WWlAtUG9saWN5LUNBMi5jcnQwDQYJKoZI
+      hvcNAQELBQADggEBAAT9Nqq02SZ/iDF10FXAeWEGVpNPdhtGDk5ySmmk6IGMbv4i
+      5sDyp0yIlxZu/ETw92SjUxhsceI0p2jD7i5q0nMpXGKdf4Ui6PPLzWzHe+gcVrPW
+      4e8aWvQu/XberY6q880tlCk9z9pT8/p2dQwHADSmdVaczgSXiI7PWhXt6+tErKpa
+      P3W0GRWgk9XG3ljRAnElOiWXyYZqGFkIgKnV35UdsyiAkw89Oh5xdgDV7fNgnkLE
+      q7i0CWJD7apz53u//i5t2jXSYPf1MsrsTIRTm42hzA7cBTsF3UgZ5lc9QywIL+dK
+      GE45HkF9WVEenb9qK9J0oNOZhE6zuxAGaVzUADo=
+      -----END CERTIFICATE-----
+    VZP-Intranet-CA2.crt: |
+      -----BEGIN CERTIFICATE-----
+      MIIE0jCCA7qgAwIBAgITeAAAAAOoZcGnh/mA/wAAAAAAAzANBgkqhkiG9w0BAQsF
+      ADBfMQswCQYDVQQGEwJDWjE3MDUGA1UEChMuVnNlb2JlY25hIHpkcmF2b3RuaSBw
+      b2ppc3Rvdm5hIENlc2tlIHJlcHVibGlreTEXMBUGA1UEAxMOVlpQLVBvbGljeS1D
+      QTIwHhcNMTcwNzAyMTQxMzE1WhcNMjcwNzAyMTQyMzE1WjBhMQswCQYDVQQGEwJD
+      WjE3MDUGA1UEChMuVnNlb2JlY25hIHpkcmF2b3RuaSBwb2ppc3Rvdm5hIENlc2tl
+      IHJlcHVibGlreTEZMBcGA1UEAxMQVlpQLUludHJhbmV0LUNBMjCCASIwDQYJKoZI
+      hvcNAQEBBQADggEPADCCAQoCggEBALd9VQMKJVBNM0DB6x/1D3nlLuFg2F7pDPHK
+      6DYyKWDH1G6SMr2JMNrKd/Z4ysdAn3KqYjqOCKAGC3F2TNHb/Ec00IuMqbCvkgn0
+      yFnarYP40hWTKYn6S3p7CO7Ji6Fx7RJN/l8KkMwzixN7wUmNWG6LSst36jAm7f9V
+      0EcToyRy9f2Gel4nmOOo9rRxpp11jLk2AWffCb+dI1NuOCeAgN/vf7+pxSJNZQS4
+      vZdA6wJYzCsJUqAoQt2BrR+bfclFvq1DCz1Fm25yiv8kGdJpNXLPFJ7fAaKbmywM
+      7rgFDgt9dCveBkipLCuOyVNGcw1e0UZeaD94IrwN7s59Ntd8t5MCAwEAAaOCAYMw
+      ggF/MBAGCSsGAQQBgjcVAQQDAgEAMB0GA1UdDgQWBBRTRhAhJHbiSEtiFMqINxgV
+      KukhajAZBgkrBgEEAYI3FAIEDB4KAFMAdQBiAEMAQTALBgNVHQ8EBAMCAYYwDwYD
+      VR0TAQH/BAUwAwEB/zAfBgNVHSMEGDAWgBTbr+Mesl2G1Q1yurBZ2WNP+fh1jTBs
+      BgNVHR8EZTBjMGGgX6BdhixodHRwOi8vY2EudnpwLmN6L2NlcnRkYXRhL1ZaUC1Q
+      b2xpY3ktQ0EyLmNybIYtaHR0cDovL3BraS52enAuY3ovY2VydGRhdGEvVlpQLVBv
+      bGljeS1DQTIuY3JsMIGDBggrBgEFBQcBAQR3MHUwOAYIKwYBBQUHMAKGLGh0dHA6
+      Ly9jYS52enAuY3ovY2VydGRhdGEvVlpQLVBvbGljeS1DQTIuY3J0MDkGCCsGAQUF
+      BzAChi1odHRwOi8vcGtpLnZ6cC5jei9jZXJ0ZGF0YS9WWlAtUG9saWN5LUNBMi5j
+      cnQwDQYJKoZIhvcNAQELBQADggEBAJDBzFOSVAtL0Uqb1PJnfzhvrImFyni0fF0+
+      1+08KO2qw67HEpWxR/gj+U822kvkMM63+QQpKVm3IXH8onSUGGeSavoh4bE6cxr5
+      ZVNBMZxVERvGcwBCVqpyxeVlvMR1JOSkd6u21mcf3gFjonPNCHoyZvKuce+jG3sT
+      Rd/roIsxdpSuhzxAqqw9x+uR2FsWaPtjzrZl/FA9yxWWLvWuSMnAR1WBdkamdp94
+      i2s6gtztJ6GsJA+3HhUWFQPhRrEmz0ZqQA1YSXz50aizHCq092c0fzJRjDbITsTh
+      RAEXUzHLLQXgv6on0H+ZbV82QFZ3dTicx7DH631R1Y7YOHXJUbU=
+      -----END CERTIFICATE-----
+    VZP-Policy-CA2.crt: |
+      -----BEGIN CERTIFICATE-----
+      MIIFpTCCBI2gAwIBAgITSgAAAAKH/EpLRohkVQAAAAAAAjANBgkqhkiG9w0BAQsF
+      ADBdMQswCQYDVQQGEwJDWjE3MDUGA1UEChMuVnNlb2JlY25hIHpkcmF2b3RuaSBw
+      b2ppc3Rvdm5hIENlc2tlIHJlcHVibGlreTEVMBMGA1UEAxMMVlpQLVJvb3QtQ0Ey
+      MB4XDTE3MDcwMjExNDE1NVoXDTM3MDcwMjExNTE1NVowXzELMAkGA1UEBhMCQ1ox
+      NzA1BgNVBAoTLlZzZW9iZWNuYSB6ZHJhdm90bmkgcG9qaXN0b3ZuYSBDZXNrZSBy
+      ZXB1Ymxpa3kxFzAVBgNVBAMTDlZaUC1Qb2xpY3ktQ0EyMIIBIjANBgkqhkiG9w0B
+      AQEFAAOCAQ8AMIIBCgKCAQEAqWhIEnol+AzTRJrZoUkUgr0Umy4u19PL7wGsTnKz
+      xH/GmNq53rbbaOqkLfwQi68yFwoICbJfRo3Fn7lXM63PZpphod2wMA/WsWU2+vUT
+      7hBGSbxtuls3MFK2x3p5ukGFwArujMKzGoX9P2+9aS4+JGom6nkY/MFryN9C0UAR
+      I06vzZMjOczMqZADfbPyIz82iSi/USKm6QSNliQedFvYA0RnotWqAHsC3hLzAUJ0
+      0eadyPwaJ7ZZ84brD3M4K3t6VtZinb1o8i7h6n8NcvhVv7YTL1xIX/KrnRLI9mUF
+      wma/yhfAfpRRzWkK5rOZbBrhhM5vAKvJq88qr6d9PjPWTwIDAQABo4ICWjCCAlYw
+      EAYJKwYBBAGCNxUBBAMCAQAwHQYDVR0OBBYEFNuv4x6yXYbVDXK6sFnZY0/5+HWN
+      MIHdBgNVHSAEgdUwgdIwgc8GCyuBGpPSv04CAQEAMIG/MIGKBggrBgEFBQcCAjB+
+      HnwAQwBlAHIAdABpAGYAaQBrAGEAYwBuAGkAIABwAHIAbwB2AGEAZABlAGMAaQAg
+      AHMAbQBlAHIAbgBpAGMAZQAgAFYAcwBlAG8AYgBlAGMAbgBlACAAegBkAHIAYQB2
+      AG8AdABuAGkAIABwAG8AagBpAHMAdABvAHYAbgB5MDAGCCsGAQUFBwIBFiRodHRw
+      Oi8vcGtpLnZ6cC5jei9jZXJ0ZGF0YS9DUFMyLmh0bWwwGQYJKwYBBAGCNxQCBAwe
+      CgBTAHUAYgBDAEEwCwYDVR0PBAQDAgGGMA8GA1UdEwEB/wQFMAMBAf8wHwYDVR0j
+      BBgwFoAU8h8bI8a9IJTA4kU2H+1Nuf1WNXwwaAYDVR0fBGEwXzBdoFugWYYqaHR0
+      cDovL2NhLnZ6cC5jei9jZXJ0ZGF0YS9WWlAtUm9vdC1DQTIuY3JshitodHRwOi8v
+      cGtpLnZ6cC5jei9jZXJ0ZGF0YS9WWlAtUm9vdC1DQTIuY3JsMH8GCCsGAQUFBwEB
+      BHMwcTA2BggrBgEFBQcwAoYqaHR0cDovL2NhLnZ6cC5jei9jZXJ0ZGF0YS9WWlAt
+      Um9vdC1DQTIuY3J0MDcGCCsGAQUFBzAChitodHRwOi8vcGtpLnZ6cC5jei9jZXJ0
+      ZGF0YS9WWlAtUm9vdC1DQTIuY3J0MA0GCSqGSIb3DQEBCwUAA4IBAQA5A1ZJ9eU+
+      cAXemTc/+CSqW7HCwB5v1WdDvFwembelvEHveLNZYyRdnKYKx4RWOSdAKHRzyy62
+      YLAmTWK3l1AByHcy7b+eMx3u66f5WH0CLSQrTOV8hQAstovyPiHX11TGu0nKLZow
+      u8ICcU0ryvPjxP/0CX+xL3+UZUnP5LJOCsWYS1vDm8HY9xmJWOiXaWBV7b6bQo5y
+      UJu9SEWokQk8usuO85UetRkR9je2RL1SkDUfD+azqhNylAcmMwyRyK8mHOgMlNjP
+      7nKrzHRRbRG7NQodYXs/THCFPC8zvuDZsIWV3i2BkSUJ8egRsxZ7z4Loj84ZuMR8
+      OK6oYslGT5ei
+      -----END CERTIFICATE-----
+    VZP-Root-CA2.crt: |
+      -----BEGIN CERTIFICATE-----
+      MIIDlzCCAn+gAwIBAgIQZhl31blRg6pHTyqAPREY0jANBgkqhkiG9w0BAQsFADBd
+      MQswCQYDVQQGEwJDWjE3MDUGA1UEChMuVnNlb2JlY25hIHpkcmF2b3RuaSBwb2pp
+      c3Rvdm5hIENlc2tlIHJlcHVibGlreTEVMBMGA1UEAxMMVlpQLVJvb3QtQ0EyMCAX
+      DTE3MDcwMjEwNTY0OVoYDzIwNTcwNzAyMTEwNjQ5WjBdMQswCQYDVQQGEwJDWjE3
+      MDUGA1UEChMuVnNlb2JlY25hIHpkcmF2b3RuaSBwb2ppc3Rvdm5hIENlc2tlIHJl
+      cHVibGlreTEVMBMGA1UEAxMMVlpQLVJvb3QtQ0EyMIIBIjANBgkqhkiG9w0BAQEF
+      AAOCAQ8AMIIBCgKCAQEA6HzgvVqFi6up8PAlt8Kcsgyo3HzQxOYwP2PpGEvfOrSq
+      LduIBYFC9QNwPSAhMmtStkOvAkh1zj3K9Otzda6wsL0xGDNwoKA7fH464sERg+Fr
+      b2wf/K3Hm5Sdusrom01yoIJypo5IyABXzDsi5N2dj/BhxEfczJ9prMsI2bUYKVi4
+      FXacGRXbTQ2YI/HdE4v4TyaWPPvdzLcObRsmfUJfnYf/vt+GD1qKeLqplRQXQqqW
+      amXkr+2taHxafKhfAL0bkR1YTMFlT6JI+40/5YKcA9MJ+QeO9HJyP/FW90sYTXfX
+      iMwocCruBJP7zIjDdRBRCn5YVaZqn4yn+Ql11quyRwIDAQABo1EwTzALBgNVHQ8E
+      BAMCAYYwDwYDVR0TAQH/BAUwAwEB/zAdBgNVHQ4EFgQU8h8bI8a9IJTA4kU2H+1N
+      uf1WNXwwEAYJKwYBBAGCNxUBBAMCAQAwDQYJKoZIhvcNAQELBQADggEBALHv+nW0
+      nWxbnigK4C2Ew6q5RTLOdgAv4Y5/lDVUeK4yiqmr1eCodcC60/ilFRO/66Hr9OwQ
+      9dUlKGy/KmN2TU2n8CNAx5Gik0XUIBc3/VUYos1YdGnjB/yUW2ZzNRi//Qfo0NlH
+      GXMP/CqoT/GuD5SXShPH2dex8yARdm1svkbOL6SUdjVKgRad334FfVrqFrJdzJ4k
+      cseXyRno7V7AoFntJRCJ/612Z+NF1PeAT4LsvadcrFVBUz0ZSsCE/umtp7D9zddh
+      k0mkJksqmeQizRIVgo65zWpXyOiyKlngT0szH4fywa5FMfEqC7HNOiG6GLMUxmJ8
+      2dkfnMrl51qjDHs=
+      -----END CERTIFICATE-----
+  kind: ConfigMap
+  metadata:
+    creationTimestamp: null
+    name: component-feedback-hub-certificates

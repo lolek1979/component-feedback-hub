@@ -1,0 +1,9 @@
+{
+  "ComponentInfo": {
+    "Application": "NIS",
+    "ComponentName": "Feedback Hub",
+    "ComponentCode": "FHUB",
+    "Domain": "Systém",
+    "Repository": "component-feedback-hub"
+  }
+}
