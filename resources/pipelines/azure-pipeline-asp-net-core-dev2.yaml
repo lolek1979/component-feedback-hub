@@ -110,5 +110,5 @@ stages:
               chartType: 'FilePath'
               chartPath: '$(Pipeline.Workspace)/helm/nis/'
               releaseName: '$(Build.Repository.Name)'
-              overrideValues: 'image.repository=$(containerRegistry)/$(imageRepository),image.tag=$(tag),secretProviderClass.parameters.keyvaultName=$(secretProviderClassParametersKeyvaultName),secretProviderClass.parameters.tenantId=$(secretProviderClassParametersTenantId),secretProviderClass.parameters.userAssignedIdentityID=$(secretProviderClassParametersUserAssignedIdentityID)'
+              overrideValues: 'image.repository=$(containerRegistry)/$(imageRepository),image.tag=$(tag),ingress.annotations.kubernetes\.azure\.com/tls-cert-keyvault-uri=$(ingressAnnotationsKubernetesAzureComTlsCertKeyvaultUri),secretProviderClass.parameters.keyvaultName=$(secretProviderClassParametersKeyvaultName),secretProviderClass.parameters.tenantId=$(secretProviderClassParametersTenantId),secretProviderClass.parameters.userAssignedIdentityID=$(secretProviderClassParametersUserAssignedIdentityID)'
               valueFile: '$(Pipeline.Workspace)/values/values-dev2.yaml'

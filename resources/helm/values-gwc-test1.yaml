@@ -7,7 +7,7 @@ replicaCount: 1
 
 # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
 image:
-  repository: acrnisalzdev100.azurecr.io/nis/component-feedback-hub
+  repository: acrnisalztest100.azurecr.io/nis/component-feedback-hub
   # This sets the pull policy for images.
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
@@ -61,12 +61,12 @@ ingress:
   enabled: false
   # className: webapprouting.kubernetes.azure.com
   annotations:
-    kubernetes.azure.com/tls-cert-keyvault-uri: https://kv-vzp-dev1-we-aks-001.vault.azure.net/certificates/api-ingress-tls/1c1c80ad2df440ad82745868f11bb659
+    kubernetes.azure.com/tls-cert-keyvault-uri: https://kv-vzp-test1-we-aks-001.vault.azure.net/certificates/api-ingress-tls/d077146d8938478cb8d32ac269d409dd
     nginx.ingress.kubernetes.io/rewrite-target: /$2
     nginx.ingress.kubernetes.io/use-regex: "true"
     kubernetes.io/ingress.class: addon-http-application-routing
   hosts:
-    - host: api.ndev1.vzpdev.cz
+    - host: api.ntest1.vzpdev.cz
       paths:
         - path: /feedback-hub(/|$)(.*)
           pathType: Prefix
@@ -74,7 +74,7 @@ ingress:
   #  - secretName: keyvault-api-ingress-tls
    - secretName: api-ingress-tls
      hosts:
-       - api.ndev1.vzpdev.cz
+       - api.ntest1.vzpdev.cz
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
@@ -141,7 +141,7 @@ secretProviderClass:
   enabled: true
   parameters:
     cloudName: ''
-    keyvaultName: kv-nis-apl-dev1-00 #TODO
+    keyvaultName: kv-nis-apl-test1-00
     objects: |
       array:
         - |
@@ -151,7 +151,7 @@ secretProviderClass:
     tenantId: 1174b7b3-9af8-43df-a3b2-06d8ee22d679
     usePodIdentity: 'false'
     useVMManagedIdentity: 'true'
-    userAssignedIdentityID: 8b188852-0b41-446e-a3e4-73c6998f9e09 #TODO
+    userAssignedIdentityID: efeb331f-a712-4f15-9bde-761159d11fcc #TODO
   provider: azure
 
 extraManifests:
@@ -161,7 +161,7 @@ extraManifests:
     name: component-feedback-hub
   spec:
     hosts:
-      - "api.ndev1.az.vzp.cz"
+      - "api.ntest1.az.vzp.cz"
     gateways:
       - nis
     http:
@@ -185,7 +185,7 @@ extraManifests:
               host: component-feedback-hub
               port:
                 number: 8080
-                
+                           
 - apiVersion: v1
   data:
     VZP-Intranet-CA2-2035-09-02.crt: |

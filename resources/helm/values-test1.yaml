@@ -163,7 +163,7 @@ secretProviderClass:
     userAssignedIdentityID: efeb331f-a712-4f15-9bde-761159d11fcc
   provider: azure
 
-extraManifests:               
+extraManifests:
 - apiVersion: v1
   data:
     VZP-Intranet-CA2-2035-09-02.crt: |

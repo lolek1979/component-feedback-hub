@@ -38,7 +38,7 @@ resources:
 stages:
 
 - stage: build
-  pool: 'NisDev1'
+  pool: 'DWH.Unity.Prod'
   displayName: Build
   isSkippable: false
 
@@ -60,20 +60,24 @@ stages:
       artifact: values
       displayName: 'Publish values artifact'
   - job: build_image_we
-      variables:
-        group: aks-vzp-dev1-we-001
+    displayName: Build image on WE
+    variables:
+      group: aks-vzp-dev1-we-001
     steps:
     - template: resources/pipelines/steps/dotnet-docker.yaml@workspace
   - job: build_image_gwc
-      variables:
-        group: aks-nis-apl-dev1-00
+    displayName: Build image on GWC
+    variables:
+      group: aks-nis-apl-dev1-00
     steps:
     - template: resources/pipelines/steps/dotnet-docker.yaml@workspace
 
 - stage: deploy_dev1_we
   pool: 'NisDev1'
   displayName: Deploy to aks-vzp-dev1-we-001
-  dependsOn: build
+  dependsOn: 
+  - build
+  - build_image_we
   condition: succeeded()
   variables:
     - name: tag
@@ -117,9 +121,11 @@ stages:
               valueFile: '$(Pipeline.Workspace)/values/values.yaml'
 
 - stage: deploy_dev1_gwc
-  pool: 'NisDev1' # TODO
+  pool: 'DWH.Unity.Prod' # TODO
   displayName: Deploy to aks-nis-apl-dev1-00
-  dependsOn: build
+  dependsOn: 
+  - build
+  - build_image_gwc
   condition: succeeded()
   variables:
     - name: tag
@@ -162,12 +168,12 @@ stages:
               overrideValues: 'image.repository=$(containerRegistry)/$(imageRepository),image.tag=$(tag),secretProviderClass.parameters.keyvaultName=$(secretProviderClassParametersKeyvaultName),secretProviderClass.parameters.tenantId=$(secretProviderClassParametersTenantId),secretProviderClass.parameters.userAssignedIdentityID=$(secretProviderClassParametersUserAssignedIdentityID)'
               valueFile: '$(Pipeline.Workspace)/values/values-gwc.yaml'
               
-- stage: deploy_test1
+- stage: deploy_test1_we
   pool: 'NisTest1'
   displayName: Deploy to aks-vzp-test1-we-001
   dependsOn:
   - build
-  - deploy_dev1
+  - deploy_dev1_we
   condition: succeeded()
   variables:
     - name: tag
@@ -230,3 +236,72 @@ stages:
               releaseName: '$(Build.Repository.Name)'
               overrideValues: 'image.repository=$(containerRegistry)/$(imageRepository),image.tag=$(tag),ingress.annotations.kubernetes\.azure\.com/tls-cert-keyvault-uri=$(ingressAnnotationsKubernetesAzureComTlsCertKeyvaultUri),secretProviderClass.parameters.keyvaultName=$(secretProviderClassParametersKeyvaultName),secretProviderClass.parameters.tenantId=$(secretProviderClassParametersTenantId),secretProviderClass.parameters.userAssignedIdentityID=$(secretProviderClassParametersUserAssignedIdentityID)'
               valueFile: '$(Pipeline.Workspace)/values/values-test1.yaml'
+
+- stage: deploy_test1_gwc
+  pool: 'DWH.Unity.Prod'
+  displayName: Deploy to aks-nis-apl-test1-00
+  dependsOn:
+  - build
+  - deploy_dev1_gwc
+  condition: succeeded()
+  variables:
+    - name: tag
+      value: $[ stageDependencies.build.build.outputs['GitVersionExecute.SemVer'] ]
+    - group: aks-nis-apl-test1-00
+    
+  jobs:
+  - deployment: deploy
+    displayName: Deploy
+    environment: aks-nis-apl-test1-00
+    variables:
+    - group: aks-nis-apl-test1-00-component-feedback-hub
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+
+          - checkout: none
+
+          - download: current
+            artifact: helm
+            displayName: 'Download helm artifact'
+
+          - download: current
+            artifact: values
+            displayName: 'Download values artifact'
+
+          - task: Docker@2
+            displayName: "Docker login for pull"
+            inputs:
+              containerRegistry: '$(dockerRegistryServiceConnectionPull)'
+              command: login
+
+          - script: |
+              docker pull $(containerRegistryPull)/$(imageRepository):$(tag)
+              docker tag $(containerRegistryPull)/$(imageRepository):$(tag) $(containerRegistry)/$(imageRepository):$(tag)
+            displayName: Docker pull and tag
+
+          - task: Docker@2
+            displayName: "Docker login for push"
+            inputs:
+              containerRegistry: '$(dockerRegistryServiceConnection)'
+              command: login
+  
+          - script: |
+              docker push $(containerRegistry)/$(imageRepository):$(tag)
+            displayName: Docker push
+
+          - task: HelmDeploy@1
+            displayName: Helm upgrade
+            inputs:
+              connectionType: 'Azure Resource Manager'
+              azureSubscription: $(azureSubscriptionConnection)
+              azureResourceGroup: $(azureResourceGroup)
+              kubernetesCluster: $(kubernetesCluster)   
+              namespace: $(namespace)
+              command: 'upgrade'
+              chartType: 'FilePath'
+              chartPath: '$(Pipeline.Workspace)/helm/nis/'
+              releaseName: '$(Build.Repository.Name)'
+              overrideValues: 'image.repository=$(containerRegistry)/$(imageRepository),image.tag=$(tag),secretProviderClass.parameters.keyvaultName=$(secretProviderClassParametersKeyvaultName),secretProviderClass.parameters.tenantId=$(secretProviderClassParametersTenantId),secretProviderClass.parameters.userAssignedIdentityID=$(secretProviderClassParametersUserAssignedIdentityID)'
+              valueFile: '$(Pipeline.Workspace)/values/values-gwc-test1.yaml'

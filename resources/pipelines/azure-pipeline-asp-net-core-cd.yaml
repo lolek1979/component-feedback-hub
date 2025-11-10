@@ -81,7 +81,7 @@ stages:
               chartType: 'FilePath'
               chartPath: '$(Pipeline.Workspace)/source-pipeline/helm/nis/'
               releaseName: '$(Build.Repository.Name)'
-              overrideValues: 'image.repository=$(containerRegistry)/$(imageRepository),image.tag=$(tag),secretProviderClass.parameters.keyvaultName=$(secretProviderClassParametersKeyvaultName),secretProviderClass.parameters.tenantId=$(secretProviderClassParametersTenantId),secretProviderClass.parameters.userAssignedIdentityID=$(secretProviderClassParametersUserAssignedIdentityID)'
+              overrideValues: 'image.repository=$(containerRegistry)/$(imageRepository),image.tag=$(tag),ingress.annotations.kubernetes\.azure\.com/tls-cert-keyvault-uri=$(ingressAnnotationsKubernetesAzureComTlsCertKeyvaultUri),secretProviderClass.parameters.keyvaultName=$(secretProviderClassParametersKeyvaultName),secretProviderClass.parameters.tenantId=$(secretProviderClassParametersTenantId),secretProviderClass.parameters.userAssignedIdentityID=$(secretProviderClassParametersUserAssignedIdentityID)'
               valueFile: '$(Pipeline.Workspace)/source-pipeline/values/values-stage.yaml'
 
 - stage: deploy_prod
@@ -147,5 +147,5 @@ stages:
               chartType: 'FilePath'
               chartPath: '$(Pipeline.Workspace)/source-pipeline/helm/nis/'
               releaseName: '$(Build.Repository.Name)'
-              overrideValues: 'image.repository=$(containerRegistry)/$(imageRepository),image.tag=$(tag),secretProviderClass.parameters.keyvaultName=$(secretProviderClassParametersKeyvaultName),secretProviderClass.parameters.tenantId=$(secretProviderClassParametersTenantId),secretProviderClass.parameters.userAssignedIdentityID=$(secretProviderClassParametersUserAssignedIdentityID)'
+              overrideValues: 'image.repository=$(containerRegistry)/$(imageRepository),image.tag=$(tag),ingress.annotations.kubernetes\.azure\.com/tls-cert-keyvault-uri=$(ingressAnnotationsKubernetesAzureComTlsCertKeyvaultUri),secretProviderClass.parameters.keyvaultName=$(secretProviderClassParametersKeyvaultName),secretProviderClass.parameters.tenantId=$(secretProviderClassParametersTenantId),secretProviderClass.parameters.userAssignedIdentityID=$(secretProviderClassParametersUserAssignedIdentityID)'
               valueFile: '$(Pipeline.Workspace)/source-pipeline/values/values-prod.yaml'

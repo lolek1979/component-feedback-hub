@@ -7,7 +7,7 @@ replicaCount: 1
 
 # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
 image:
-  repository: acrvzpdev2weaks001.azurecr.io/nis/component-feedback-hub #TODO
+  repository: acrnisalzdev200.azurecr.io/nis/component-feedback-hub #TODO
   # This sets the pull policy for images.
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
@@ -141,7 +141,7 @@ secretProviderClass:
   enabled: true
   parameters:
     cloudName: ''
-    keyvaultName: kv-vzp-dev2-we-aks-001
+    keyvaultName: kv-nis-apl-dev2-00
     objects: |
       array:
         - |
