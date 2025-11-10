@@ -7,7 +7,7 @@ replicaCount: 1
 
 # This sets the container image more information can be found here: https://kubernetes.io/docs/concepts/containers/images/
 image:
-  repository: acrvzpstageweaks001.azurecr.io/nis/component-feedback-hub
+  repository: acrvzpdev2weaks001.azurecr.io/nis/component-feedback-hub #TODO
   # This sets the pull policy for images.
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
@@ -58,23 +58,23 @@ service:
 
 # This block is for setting up the ingress for more information can be found here: https://kubernetes.io/docs/concepts/services-networking/ingress/
 ingress:
-  enabled: true
+  enabled: false
   # className: webapprouting.kubernetes.azure.com
   annotations:
-    kubernetes.azure.com/tls-cert-keyvault-uri: https://kv-vzp-stage-we-aks-001.vault.azure.net/certificates/app-ingress-tls/9bc8164fcd7a4d5ab164351da3df9c85
+    kubernetes.azure.com/tls-cert-keyvault-uri: https://vzp-dev1-aks-001.vault.azure.net/certificates/api-ingress-tls/70ba903009854707bf30f75fbd9e4f1d
     nginx.ingress.kubernetes.io/rewrite-target: /$2
     nginx.ingress.kubernetes.io/use-regex: "true"
     kubernetes.io/ingress.class: addon-http-application-routing
   hosts:
-    - host: api.nstage.vzpdev.cz
+    - host: api.ndev2.vzpdev.cz
       paths:
         - path: /feedback-hub(/|$)(.*)
           pathType: Prefix
   tls:
   #  - secretName: keyvault-api-ingress-tls
-   - secretName: app-ingress-tls
+   - secretName: api-ingress-tls
      hosts:
-       - api.nstage.vzpdev.cz
+       - api.ndev2.vzpdev.cz
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
@@ -116,12 +116,6 @@ volumes:
     readOnly: true
     volumeAttributes:
       secretProviderClass: "component-feedback-hub"
-- name: secrets-store-inline
-  csi:
-    driver: secrets-store.csi.k8s.io
-    readOnly: true
-    volumeAttributes:
-      secretProviderClass: "app-ingress-tls"
 - name: certificates
   configMap:
     name: component-feedback-hub-certificates
@@ -132,9 +126,6 @@ volumeMounts:
 - name: secrets-configuration
   mountPath: /app/appsettings.json
   subPath: component-feedback-hub-appsettings
-  readOnly: true
-- name: secrets-store-inline
-  mountPath: "/mnt/secrets-store"
   readOnly: true
 - name: certificates
   mountPath: /usr/local/share/ca-certificates
@@ -150,7 +141,7 @@ secretProviderClass:
   enabled: true
   parameters:
     cloudName: ''
-    keyvaultName: kv-vzp-stage-we-aks-001
+    keyvaultName: kv-vzp-dev2-we-aks-001
     objects: |
       array:
         - |
@@ -160,10 +151,41 @@ secretProviderClass:
     tenantId: 1174b7b3-9af8-43df-a3b2-06d8ee22d679
     usePodIdentity: 'false'
     useVMManagedIdentity: 'true'
-    userAssignedIdentityID: e49445cc-3f55-4400-bdfd-77b908d685aa
+    userAssignedIdentityID: 5d965d13-dc07-4a2f-a651-06be7037674f
   provider: azure
 
 extraManifests:
+- apiVersion: networking.istio.io/v1alpha3
+  kind: VirtualService
+  metadata:
+    name: component-feedback-hub
+  spec:
+    hosts:
+      - "api.ndev2.az.vzp.cz"
+    gateways:
+      - nis
+    http:
+      - match:
+          - uri:
+              prefix: /feedback-hub/
+        rewrite:
+          uri: /
+        route:
+          - destination:
+              host: component-feedback-hub
+              port:
+                number: 8080
+      - match:
+          - uri:
+              exact: /feedback-hub
+        rewrite:
+          uri: /
+        route:
+          - destination:
+              host: component-feedback-hub
+              port:
+                number: 8080
+   
 - apiVersion: v1
   data:
     VZP-Intranet-CA2-2035-09-02.crt: |

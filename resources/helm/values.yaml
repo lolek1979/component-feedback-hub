@@ -58,7 +58,7 @@ service:
 
 # This block is for setting up the ingress for more information can be found here: https://kubernetes.io/docs/concepts/services-networking/ingress/
 ingress:
-  enabled: false
+  enabled: true
   # className: webapprouting.kubernetes.azure.com
   annotations:
     kubernetes.azure.com/tls-cert-keyvault-uri: https://kv-vzp-dev1-we-aks-001.vault.azure.net/certificates/api-ingress-tls/1c1c80ad2df440ad82745868f11bb659
@@ -163,61 +163,7 @@ secretProviderClass:
     userAssignedIdentityID: 8b188852-0b41-446e-a3e4-73c6998f9e09
   provider: azure
 
-extraManifests:
-- apiVersion: networking.istio.io/v1alpha3
-  kind: Gateway
-  metadata:
-    name: component-feedback-hub
-  spec:
-    selector:
-      istio: aks-istio-ingressgateway-internal
-    servers:
-      - port:
-          number: 80
-          name: http
-          protocol: HTTP
-        hosts:
-          - "api.ndev.az.vzp.cz"
-      # - port:
-      #     number: 443
-      #     name: https
-      #     protocol: HTTPS
-      #   tls:
-      #     mode: SIMPLE
-      #     credentialName: api-ingress-tls
-      #   hosts:
-      #     - "api.ndev.az.vzp.cz"
-- apiVersion: networking.istio.io/v1alpha3
-  kind: VirtualService
-  metadata:
-    name: component-feedback-hub
-  spec:
-    hosts:
-      - "api.ndev.az.vzp.cz"
-    gateways:
-      - component-feedback-hub
-    http:
-      - match:
-          - uri:
-              prefix: /feedback-hub/
-        rewrite:
-          uri: /
-        route:
-          - destination:
-              host: component-feedback-hub
-              port:
-                number: 8080
-      - match:
-          - uri:
-              exact: /feedback-hub
-        rewrite:
-          uri: /
-        route:
-          - destination:
-              host: component-feedback-hub
-              port:
-                number: 8080
-                
+extraManifests: 
 - apiVersion: v1
   data:
     VZP-Intranet-CA2-2035-09-02.crt: |

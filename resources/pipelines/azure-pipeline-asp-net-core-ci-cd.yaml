@@ -51,7 +51,6 @@ stages:
     - template: resources/pipelines/steps/dotnet-build.yaml@workspace
     - template: resources/pipelines/steps/dotnet-documentation.yaml@workspace
     - template: resources/pipelines/steps/dotnet-package.yaml@workspace
-    - template: resources/pipelines/steps/dotnet-docker.yaml@workspace
 
     - publish: $(Agent.BuildDirectory)/s/workspace/resources/helm
       artifact: helm
@@ -60,8 +59,18 @@ stages:
     - publish: $(Agent.BuildDirectory)/s/$(Build.Repository.Name)/resources/helm
       artifact: values
       displayName: 'Publish values artifact'
+  - job: build_image_we
+      variables:
+        group: aks-vzp-dev1-we-001
+    steps:
+    - template: resources/pipelines/steps/dotnet-docker.yaml@workspace
+  - job: build_image_gwc
+      variables:
+        group: aks-nis-apl-dev1-00
+    steps:
+    - template: resources/pipelines/steps/dotnet-docker.yaml@workspace
 
-- stage: deploy_dev1
+- stage: deploy_dev1_we
   pool: 'NisDev1'
   displayName: Deploy to aks-vzp-dev1-we-001
   dependsOn: build
@@ -104,9 +113,55 @@ stages:
               chartType: 'FilePath'
               chartPath: '$(Pipeline.Workspace)/helm/nis/'
               releaseName: '$(Build.Repository.Name)'
-              overrideValues: 'image.repository=$(containerRegistry)/$(imageRepository),image.tag=$(tag),secretProviderClass.parameters.keyvaultName=$(secretProviderClassParametersKeyvaultName),secretProviderClass.parameters.tenantId=$(secretProviderClassParametersTenantId),secretProviderClass.parameters.userAssignedIdentityID=$(secretProviderClassParametersUserAssignedIdentityID)'
+              overrideValues: 'image.repository=$(containerRegistry)/$(imageRepository),image.tag=$(tag),ingress.annotations.kubernetes\.azure\.com/tls-cert-keyvault-uri=$(ingressAnnotationsKubernetesAzureComTlsCertKeyvaultUri),secretProviderClass.parameters.keyvaultName=$(secretProviderClassParametersKeyvaultName),secretProviderClass.parameters.tenantId=$(secretProviderClassParametersTenantId),secretProviderClass.parameters.userAssignedIdentityID=$(secretProviderClassParametersUserAssignedIdentityID)'
               valueFile: '$(Pipeline.Workspace)/values/values.yaml'
 
+- stage: deploy_dev1_gwc
+  pool: 'NisDev1' # TODO
+  displayName: Deploy to aks-nis-apl-dev1-00
+  dependsOn: build
+  condition: succeeded()
+  variables:
+    - name: tag
+      value: $[ stageDependencies.build.build.outputs['GitVersionExecute.SemVer'] ]
+    - group: aks-nis-apl-dev1-00
+    
+  jobs:
+  - deployment: deploy
+    displayName: Deploy
+    environment: aks-nis-apl-dev1-00
+    variables:
+    - group: aks-nis-apl-dev1-00-component-feedback-hub
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+
+          - checkout: none
+
+          - download: current
+            artifact: helm
+            displayName: 'Download helm artifact'
+
+          - download: current
+            artifact: values
+            displayName: 'Download values artifact'
+
+          - task: HelmDeploy@1
+            displayName: Helm upgrade
+            inputs:
+              connectionType: 'Azure Resource Manager'
+              azureSubscription: $(azureSubscriptionConnection)
+              azureResourceGroup: $(azureResourceGroup)
+              kubernetesCluster: $(kubernetesCluster)   
+              namespace: $(namespace)
+              command: 'upgrade'
+              chartType: 'FilePath'
+              chartPath: '$(Pipeline.Workspace)/helm/nis/'
+              releaseName: '$(Build.Repository.Name)'
+              overrideValues: 'image.repository=$(containerRegistry)/$(imageRepository),image.tag=$(tag),secretProviderClass.parameters.keyvaultName=$(secretProviderClassParametersKeyvaultName),secretProviderClass.parameters.tenantId=$(secretProviderClassParametersTenantId),secretProviderClass.parameters.userAssignedIdentityID=$(secretProviderClassParametersUserAssignedIdentityID)'
+              valueFile: '$(Pipeline.Workspace)/values/values-gwc.yaml'
+              
 - stage: deploy_test1
   pool: 'NisTest1'
   displayName: Deploy to aks-vzp-test1-we-001
@@ -173,5 +228,5 @@ stages:
               chartType: 'FilePath'
               chartPath: '$(Pipeline.Workspace)/helm/nis/'
               releaseName: '$(Build.Repository.Name)'
-              overrideValues: 'image.repository=$(containerRegistry)/$(imageRepository),image.tag=$(tag),secretProviderClass.parameters.keyvaultName=$(secretProviderClassParametersKeyvaultName),secretProviderClass.parameters.tenantId=$(secretProviderClassParametersTenantId),secretProviderClass.parameters.userAssignedIdentityID=$(secretProviderClassParametersUserAssignedIdentityID)'
+              overrideValues: 'image.repository=$(containerRegistry)/$(imageRepository),image.tag=$(tag),ingress.annotations.kubernetes\.azure\.com/tls-cert-keyvault-uri=$(ingressAnnotationsKubernetesAzureComTlsCertKeyvaultUri),secretProviderClass.parameters.keyvaultName=$(secretProviderClassParametersKeyvaultName),secretProviderClass.parameters.tenantId=$(secretProviderClassParametersTenantId),secretProviderClass.parameters.userAssignedIdentityID=$(secretProviderClassParametersUserAssignedIdentityID)'
               valueFile: '$(Pipeline.Workspace)/values/values-test1.yaml'
