@@ -65,9 +65,9 @@ stages:
   pool: 'DWH.Unity.Prod'
   displayName: Build for GWC
   isSkippable: false
+  dependsOn: []
   variables:
     - group: aks-nis-apl-dev1-00
-  dependsOn: []
   jobs:
   - job: build
     displayName: Build
