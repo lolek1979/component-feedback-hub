@@ -22,7 +22,6 @@ variables:
   value: 'nis/component-feedback-hub'
 - name: namespace
   value: nis
-
 resources:
   repositories:
     - repository: workspace
@@ -41,7 +40,8 @@ stages:
   displayName: Build
   isSkippable: false
   variables:
-  - group: aks-vzp-dev1-we-001
+    - group: aks-vzp-dev1-we-001
+  
   jobs:
   - job: build
     displayName: Build
@@ -66,7 +66,7 @@ stages:
   displayName: Build for GWC
   isSkippable: false
   variables:
-  - group: aks-nis-apl-dev1-00
+    - group: aks-nis-apl-dev1-00
   dependsOn: []
   jobs:
   - job: build
@@ -94,16 +94,16 @@ stages:
   - build
   condition: succeeded()
   variables:
-  - name: tag
-    value: $[ stageDependencies.build.build.outputs['GitVersionExecute.SemVer'] ]
-  - group: aks-vzp-dev1-we-001
+    - name: tag
+      value: $[ stageDependencies.build.build.outputs['GitVersionExecute.SemVer'] ]
+    - group: aks-vzp-dev1-we-001
     
   jobs:
   - deployment: deploy
     displayName: Deploy
     environment: aks-vzp-dev1-we-001
     variables:
-    - group: aks-vzp-dev1-we-001-component-feedback-hub
+      - group: aks-vzp-dev1-we-001-component-feedback-hub
     strategy:
       runOnce:
         deploy:
@@ -141,16 +141,16 @@ stages:
   - build_gwc
   condition: succeeded()
   variables:
-  - name: tag
-    value: $[ stageDependencies.build_gwc.build.outputs['GitVersionExecute.SemVer'] ]
-  - group: aks-nis-apl-dev1-00
+    - name: tag
+      value: $[ stageDependencies.build_gwc.build.outputs['GitVersionExecute.SemVer'] ]
+    - group: aks-nis-apl-dev1-00
     
   jobs:
   - deployment: deploy
     displayName: Deploy
     environment: aks-nis-apl-dev1-00
     variables:
-    - group: aks-nis-apl-dev1-00-component-feedback-hub
+      - group: aks-nis-apl-dev1-00-component-feedback-hub
     strategy:
       runOnce:
         deploy:
@@ -189,16 +189,16 @@ stages:
   - deploy_dev1
   condition: succeeded()
   variables:
-  - name: tag
-    value: $[ stageDependencies.build.build.outputs['GitVersionExecute.SemVer'] ]
-  - group: aks-vzp-test1-we-001
+    - name: tag
+      value: $[ stageDependencies.build.build.outputs['GitVersionExecute.SemVer'] ]
+    - group: aks-vzp-test1-we-001
     
   jobs:
   - deployment: deploy
     displayName: Deploy
     environment: aks-vzp-test1-we-001
     variables:
-    - group: aks-vzp-test1-we-001-component-feedback-hub
+      - group: aks-vzp-test1-we-001-component-feedback-hub
     strategy:
       runOnce:
         deploy:
@@ -258,16 +258,16 @@ stages:
   - deploy_dev1_gwc
   condition: succeeded()
   variables:
-  - name: tag
-    value: $[ stageDependencies.build.build.outputs['GitVersionExecute.SemVer'] ]
-  - group: aks-nis-apl-test1-00
+    - name: tag
+      value: $[ stageDependencies.build.build.outputs['GitVersionExecute.SemVer'] ]
+    - group: aks-nis-apl-test1-00
     
   jobs:
   - deployment: deploy
     displayName: Deploy
     environment: aks-nis-apl-test1-00
     variables:
-    - group: aks-nis-apl-test1-00-component-feedback-hub
+      - group: aks-nis-apl-test1-00-component-feedback-hub
     strategy:
       runOnce:
         deploy:
