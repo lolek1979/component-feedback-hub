@@ -151,7 +151,7 @@ secretProviderClass:
     tenantId: 1174b7b3-9af8-43df-a3b2-06d8ee22d679
     usePodIdentity: 'false'
     useVMManagedIdentity: 'true'
-    userAssignedIdentityID: e49445cc-3f55-4400-bdfd-77b908d685aa #TODO
+    userAssignedIdentityID: 8dd45822-fa18-4c23-b20e-bf1f295d7eae
   provider: azure
 
 extraManifests:
@@ -163,7 +163,7 @@ extraManifests:
     hosts:
       - "api.nstage.az.vzp.cz"
     gateways:
-      - nis
+      - api
     http:
       - match:
           - uri:

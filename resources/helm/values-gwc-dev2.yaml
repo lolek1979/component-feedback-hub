@@ -163,7 +163,7 @@ extraManifests:
     hosts:
       - "api.ndev2.az.vzp.cz"
     gateways:
-      - nis
+      - api
     http:
       - match:
           - uri:

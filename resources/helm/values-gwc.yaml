@@ -141,7 +141,8 @@ secretProviderClass:
   enabled: true
   parameters:
     cloudName: ''
-    keyvaultName: kv-nis-apl-dev1-00 #TODO
+    keyvaultName: kv-nis-apl-dev1-apl0
+ 
     objects: |
       array:
         - |
@@ -151,7 +152,7 @@ secretProviderClass:
     tenantId: 1174b7b3-9af8-43df-a3b2-06d8ee22d679
     usePodIdentity: 'false'
     useVMManagedIdentity: 'true'
-    userAssignedIdentityID: 8b188852-0b41-446e-a3e4-73c6998f9e09 #TODO
+    userAssignedIdentityID: a73bfb22-e222-45b8-a040-f63f415b2ee8
   provider: azure
 
 extraManifests:
@@ -163,7 +164,7 @@ extraManifests:
     hosts:
       - "api.ndev1.az.vzp.cz"
     gateways:
-      - nis
+      - api
     http:
       - match:
           - uri:

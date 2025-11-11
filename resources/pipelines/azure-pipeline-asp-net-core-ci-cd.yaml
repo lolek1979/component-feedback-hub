@@ -22,7 +22,6 @@ variables:
   value: 'nis/component-feedback-hub'
 - name: namespace
   value: nis
-- group: aks-vzp-dev1-we-001
 
 resources:
   repositories:
@@ -38,10 +37,11 @@ resources:
 stages:
 
 - stage: build
-  pool: 'DWH.Unity.Prod'
+  pool: 'NisDev1'
   displayName: Build
   isSkippable: false
-
+  variables:
+  - group: aks-vzp-dev1-we-001
   jobs:
   - job: build
     displayName: Build
@@ -51,6 +51,7 @@ stages:
     - template: resources/pipelines/steps/dotnet-build.yaml@workspace
     - template: resources/pipelines/steps/dotnet-documentation.yaml@workspace
     - template: resources/pipelines/steps/dotnet-package.yaml@workspace
+    - template: resources/pipelines/steps/dotnet-docker.yaml@workspace
 
     - publish: $(Agent.BuildDirectory)/s/workspace/resources/helm
       artifact: helm
@@ -59,30 +60,43 @@ stages:
     - publish: $(Agent.BuildDirectory)/s/$(Build.Repository.Name)/resources/helm
       artifact: values
       displayName: 'Publish values artifact'
-  - job: build_image_we
-    displayName: Build image on WE
-    variables:
-      group: aks-vzp-dev1-we-001
-    steps:
-    - template: resources/pipelines/steps/dotnet-docker.yaml@workspace
-  - job: build_image_gwc
-    displayName: Build image on GWC
-    variables:
-      group: aks-nis-apl-dev1-00
-    steps:
+
+- stage: build_gwc
+  pool: 'DWH.Unity.Prod'
+  displayName: Build for GWC
+  isSkippable: false
+  variables:
+  - group: aks-nis-apl-dev1-00
+  dependsOn: []
+  jobs:
+  - job: build
+    displayName: Build
+
+    steps: 
+    - checkout: workspace
+    - template: resources/pipelines/steps/dotnet-build.yaml@workspace
+    - template: resources/pipelines/steps/dotnet-documentation.yaml@workspace
+    - template: resources/pipelines/steps/dotnet-package.yaml@workspace
     - template: resources/pipelines/steps/dotnet-docker.yaml@workspace
 
-- stage: deploy_dev1_we
+    - publish: $(Agent.BuildDirectory)/s/workspace/resources/helm
+      artifact: helm
+      displayName: 'Publish helm artifact'
+
+    - publish: $(Agent.BuildDirectory)/s/$(Build.Repository.Name)/resources/helm
+      artifact: values
+      displayName: 'Publish values artifact'
+
+- stage: deploy_dev1
   pool: 'NisDev1'
   displayName: Deploy to aks-vzp-dev1-we-001
   dependsOn: 
   - build
-  - build_image_we
   condition: succeeded()
   variables:
-    - name: tag
-      value: $[ stageDependencies.build.build.outputs['GitVersionExecute.SemVer'] ]
-    - group: aks-vzp-dev1-we-001
+  - name: tag
+    value: $[ stageDependencies.build.build.outputs['GitVersionExecute.SemVer'] ]
+  - group: aks-vzp-dev1-we-001
     
   jobs:
   - deployment: deploy
@@ -121,16 +135,15 @@ stages:
               valueFile: '$(Pipeline.Workspace)/values/values.yaml'
 
 - stage: deploy_dev1_gwc
-  pool: 'DWH.Unity.Prod' # TODO
+  pool: 'DWH.Unity.Prod'
   displayName: Deploy to aks-nis-apl-dev1-00
   dependsOn: 
-  - build
-  - build_image_gwc
+  - build_gwc
   condition: succeeded()
   variables:
-    - name: tag
-      value: $[ stageDependencies.build.build.outputs['GitVersionExecute.SemVer'] ]
-    - group: aks-nis-apl-dev1-00
+  - name: tag
+    value: $[ stageDependencies.build_gwc.build.outputs['GitVersionExecute.SemVer'] ]
+  - group: aks-nis-apl-dev1-00
     
   jobs:
   - deployment: deploy
@@ -168,17 +181,17 @@ stages:
               overrideValues: 'image.repository=$(containerRegistry)/$(imageRepository),image.tag=$(tag),secretProviderClass.parameters.keyvaultName=$(secretProviderClassParametersKeyvaultName),secretProviderClass.parameters.tenantId=$(secretProviderClassParametersTenantId),secretProviderClass.parameters.userAssignedIdentityID=$(secretProviderClassParametersUserAssignedIdentityID)'
               valueFile: '$(Pipeline.Workspace)/values/values-gwc.yaml'
               
-- stage: deploy_test1_we
+- stage: deploy_test1
   pool: 'NisTest1'
   displayName: Deploy to aks-vzp-test1-we-001
   dependsOn:
   - build
-  - deploy_dev1_we
+  - deploy_dev1
   condition: succeeded()
   variables:
-    - name: tag
-      value: $[ stageDependencies.build.build.outputs['GitVersionExecute.SemVer'] ]
-    - group: aks-vzp-test1-we-001
+  - name: tag
+    value: $[ stageDependencies.build.build.outputs['GitVersionExecute.SemVer'] ]
+  - group: aks-vzp-test1-we-001
     
   jobs:
   - deployment: deploy
@@ -241,13 +254,13 @@ stages:
   pool: 'DWH.Unity.Prod'
   displayName: Deploy to aks-nis-apl-test1-00
   dependsOn:
-  - build
+  - build_gwc
   - deploy_dev1_gwc
   condition: succeeded()
   variables:
-    - name: tag
-      value: $[ stageDependencies.build.build.outputs['GitVersionExecute.SemVer'] ]
-    - group: aks-nis-apl-test1-00
+  - name: tag
+    value: $[ stageDependencies.build.build.outputs['GitVersionExecute.SemVer'] ]
+  - group: aks-nis-apl-test1-00
     
   jobs:
   - deployment: deploy
