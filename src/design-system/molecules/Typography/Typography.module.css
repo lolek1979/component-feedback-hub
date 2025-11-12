@@ -1,0 +1,274 @@
+.typography {
+  font-family: var(--font-inter), serif;
+  color: inherit;
+}
+
+.alignCenter {
+  text-align: center;
+}
+
+.alignInherit {
+  text-align: inherit;
+}
+
+.alignJustify {
+  text-align: justify;
+}
+
+.alignLeft {
+  text-align: left;
+}
+
+.alignRight {
+  text-align: right;
+}
+
+.h1Bold {
+  font-size: var(--size-48);
+  font-weight: var(--font-weight-700);
+  line-height: var(--line-height-64);
+}
+
+.h1Regular {
+  font-size: var(--size-48);
+  font-weight: var(--font-weight-400);
+  line-height: var(--line-height-64);
+}
+
+.h2Bold {
+  font-size: var(--size-40);
+  font-weight: var(--font-weight-700);
+  line-height: 1.2;
+}
+
+.h2Regular {
+  font-size: var(--size-40);
+  font-weight: var(--font-weight-400);
+  line-height: 1.2;
+}
+
+.h3Bold {
+  font-size: var(--size-32);
+  font-weight: var(--font-weight-600);
+  line-height: var(--line-height-40);
+}
+
+.h3Regular {
+  font-size: var(--size-32);
+  font-weight: var(--font-weight-400);
+  line-height: var(--line-height-40);
+}
+
+.h4Bold {
+  font-size: var(--size-24);
+  font-weight: var(--font-weight-600);
+  line-height: var(--line-height-32);
+}
+
+.h4Regular {
+  font-size: var(--size-24);
+  font-weight: var(--font-weight-400);
+  line-height: var(--line-height-32);
+}
+
+.h4Light {
+  font-size: var(--size-24);
+  font-weight: var(--font-weight-300);
+  line-height: var(--line-height-32);
+}
+
+.h4LinkInline {
+  font-size: var(--size-24);
+  font-weight: var(--font-weight-600);
+  line-height: var(--line-height-32);
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: var(--units-1);
+  text-underline-offset: var(--units-2);
+  text-underline-position: auto;
+}
+
+.headlineBold {
+  font-size: var(--size-20);
+  font-weight: var(--font-weight-600);
+  line-height: var(--line-height-24);
+}
+
+.headlineRegular {
+  font-size: var(--size-20);
+  font-weight: var(--font-weight-400);
+  line-height: var(--line-height-24);
+}
+
+.headlineLight {
+  font-size: var(--size-20);
+  font-weight: var(--font-weight-300);
+  line-height: var(--line-height-24);
+}
+
+.headlineLinkInline {
+  font-size: var(--size-20);
+  font-weight: var(--font-weight-600);
+  line-height: var(--line-height-24);
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: var(--units-1);
+  text-underline-offset: var(--units-2);
+  text-underline-position: auto;
+}
+
+.bodyBold {
+  font-size: var(--size-16);
+  font-weight: var(--font-weight-600);
+  line-height: var(--line-height-24);
+}
+
+.bodyRegular {
+  font-size: var(--size-16);
+  font-weight: var(--font-weight-400);
+  line-height: var(--line-height-24);
+}
+
+.bodyLight {
+  font-size: var(--size-16);
+  font-weight: var(--font-weight-300);
+  line-height: var(--line-height-24);
+}
+
+.bodyLinkInline {
+  font-size: var(--size-16);
+  font-weight: var(--font-weight-600);
+  line-height: var(--line-height-24);
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: var(--units-1);
+  text-underline-offset: var(--units-2);
+  text-underline-position: auto;
+}
+
+.subtitleBold {
+  font-size: var(--size-14);
+  font-weight: var(--font-weight-600);
+  line-height: var(--line-height-20);
+}
+
+.subtitleRegular {
+  font-size: var(--size-14);
+  font-weight: var(--font-weight-400);
+  line-height: var(--line-height-20);
+}
+
+.subtitleLinkInline {
+  font-size: var(--size-14);
+  font-weight: var(--font-weight-600);
+  line-height: var(--line-height-20);
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: var(--units-1);
+  text-underline-offset: var(--units-2);
+  text-underline-position: auto;
+}
+
+.subtitleLinkDottedRegular {
+  font-size: var(--size-14);
+  font-weight: var(--font-weight-400);
+  line-height: var(--line-height-20);
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: var(--units-1);
+  text-underline-offset: var(--units-2);
+  text-underline-position: under;
+}
+
+.subtitleLinkDottedBold {
+  font-size: var(--size-14);
+  font-weight: var(--font-weight-600);
+  line-height: var(--line-height-20);
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: var(--units-1);
+  text-underline-offset: var(--units-2);
+  text-underline-position: under;
+}
+
+.captionRegular {
+  font-size: var(--size-12);
+  font-weight: var(--font-weight-400);
+  line-height: var(--line-height-18);
+}
+
+.captionBold {
+  font-size: var(--size-12);
+  font-weight: var(--font-weight-600);
+  line-height: var(--line-height-18);
+}
+
+.captionLinkInline {
+  font-size: var(--size-12);
+  font-weight: var(--font-weight-600);
+  line-height: var(--line-height-18);
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: var(--units-1);
+  text-underline-offset: var(--units-2);
+  text-underline-position: auto;
+}
+
+.captionLinkDottedRegular {
+  font-size: var(--size-12);
+  font-weight: var(--font-weight-400);
+  line-height: var(--line-height-18);
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: var(--units-1);
+  text-underline-offset: var(--units-2);
+  text-underline-position: under;
+}
+
+.captionLinkDottedBold {
+  font-size: var(--size-12);
+  font-weight: var(--font-weight-600);
+  line-height: var(--line-height-18);
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: var(--units-1);
+  text-underline-offset: var(--units-2);
+  text-underline-position: under;
+}
+
+.footnoteBold {
+  font-size: var(--size-10);
+  font-weight: var(--font-weight-500);
+  line-height: var(--line-height-12);
+}
+
+.footnoteRegular {
+  font-size: var(--size-10);
+  font-weight: var(--font-weight-400);
+  line-height: var(--line-height-12);
+}
+
+.footnoteLinkInline {
+  font-size: var(--size-10);
+  font-weight: var(--font-weight-500);
+  line-height: var(--line-height-12);
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: var(--units-1);
+  text-underline-offset: var(--units-2);
+  text-underline-position: auto;
+}
+
+:global(.dark) .typography {
+  color: var(--text-on-color);
+}

@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s);
+  padding: var(--page-spacing);
+  padding-top: 0;
+}
+
+.searchWrapper {
+  width: 240px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .searchWrapper {
+    width: 100%;
+  }
+}

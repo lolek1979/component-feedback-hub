@@ -1,0 +1,148 @@
+# AttachmentsUpload
+
+A specialized file upload component for attachments that allows users to upload multiple files with drag-and-drop support. The component validates file types, size limits, and displays a list of uploaded files with the ability to remove them.
+
+## Features
+
+- **Multiple file upload**: Support for up to 5 files by default
+- **Drag and drop**: Files can be dragged and dropped into the upload area
+- **File validation**: Validates file types (PDF, JPG, PNG, GIF) and size limits (10MB default)
+- **File list**: Displays uploaded files with name and size
+- **Remove files**: Individual files can be removed from the list
+- **Localized**: All texts are localized using next-intl
+- **Error handling**: Shows validation errors for unsupported formats or size limits
+
+## Usage
+
+```tsx
+import { AttachmentsUpload } from '@/domains/limits-copayments-center/components/AttachmentsUpload';
+
+function MyComponent() {
+  const handleFilesChange = (files: File[]) => {
+    console.log('Selected files:', files);
+  };
+
+  return (
+    <AttachmentsUpload
+      onFilesChange={handleFilesChange}
+      maxFiles={5}
+      maxFileSize={10}
+      acceptedFileTypes={['.pdf', '.jpg', '.jpeg', '.png', '.gif']}
+    />
+  );
+}
+```
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  width: 100%;
+}
+
+.uploadBox {
+  display: flex;
+  padding: var(--spacing-l, 33px) 32px var(--spacing-l, 35px) 32px;
+  justify-content: center;
+  align-items: center;
+  flex: 1 0 0;
+  align-self: stretch;
+  border-radius: var(--radius-l, 16px);
+  border: var(--border-s, 1px) dashed var(--border-prominent, #686873);
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  transition: border-color 0.3s;
+}
+
+.uploadBox.dragOver {
+  border-color: var(--border-prominent);
+}
+
+.uploadInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-3xs);
+  text-align: center;
+}
+
+.limitLabel {
+  color: var(--text-tertiary, #70707B);
+  text-align: center;
+  font-family: var(--family-Inter, Inter);
+  font-size: var(--size-14, 14px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: var(--line-height-20, 20px);
+}
+
+.warning {
+  color: var(--text-brand);
+  margin-top: var(--units-10);
+}
+
+.fileList {
+  margin-top: var(--spacing-xs);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xs);
+  overflow: visible;
+}
+
+.fileItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3xs);
+  padding: var(--spacing-xs) var(--spacing-3xs);
+  border-radius: var(--radius-xs);
+  background-color: var(--table-secondary-hover);
+  position: relative;
+}
+
+.fileInfo {
+  flex-shrink: 0;
+}
+
+.fileName {
+  color: var(--link-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.removeButton {
+  margin-left: auto;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.removeButton:hover {
+  opacity: 0.7;
+}
+
+:global(.dark) .fileList {
+  .removeButton {
+    path {
+      fill: var(--icon-on-color);
+    }
+  }
+
+  .fileItem {
+    background-color: var(--palette-grey-900);
+
+    .fileInfo {
+      p {
+        color: var(--text-on-color);
+      }
+    }
+  }
+}
+```
+</details>

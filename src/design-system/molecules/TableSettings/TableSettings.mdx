@@ -1,0 +1,77 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+
+import TableSettings, { Default } from './TableSettings.stories';
+
+<Meta of={TableSettings} />
+
+
+#### Design: <a href="https://www.figma.com/design/X6VaqX3yF7GOyaVg2qLbdY/MVP-design?node-id=2553-9319&t=jp9hmVD7HRqYGjuQ-4" target="_blank" rel="noopener">Figma</a>
+
+# TableSettings
+
+The `TableSettings` component allows users to customize the visibility of table columns.
+Users can select which columns to display using checkboxes.
+The component also provides a reset button to revert to the default column visibility settings.
+
+<Canvas of={Default} />
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+
+### Default
+<Canvas of={Default} />
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.tableSettings {
+  padding: 5px;
+  max-height: 250px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 10px;
+    gap: var(--spacing-2xs);
+  }
+
+  .filterButton {
+    height: 32px;
+    padding: 0 12px;
+    background-color: var(--color-black-50);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--color-black-100);
+    }
+  }
+
+  .items {
+    margin-bottom: 10px;
+  }
+
+  .item {
+    display: flex;
+    width: 100%;
+    height: 32px;
+    padding: 11px 8px;
+    gap: 10px;
+    align-items: center;
+  }
+}
+
+```
+</details>

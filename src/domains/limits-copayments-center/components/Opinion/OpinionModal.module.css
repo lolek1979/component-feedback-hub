@@ -1,0 +1,64 @@
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s);
+  padding: var(--spacing-3xs) 0;
+}
+
+.radioSection {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-s);
+  align-items: flex-start;
+}
+
+.sectionLabel {
+  flex-shrink: 0;
+  min-width: 181px;
+}
+
+.radioGroupWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  flex: 1;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.radioGroupCustom {
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+}
+
+.radioGroupCustom > div {
+  align-items: flex-start !important;
+}
+
+.radioGroupCustom > div > div {
+  justify-content: flex-start !important;
+}
+
+.textareaRow {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-s);
+  align-items: flex-start;
+}
+
+.textareaRow > div {
+  flex: 1;
+}
+
+.textareaLabel {
+  flex-shrink: 0;
+  min-width: 181px;
+  padding-top: var(--spacing-3xs);
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-2xs);
+  margin-top: var(--spacing-3xs);
+}

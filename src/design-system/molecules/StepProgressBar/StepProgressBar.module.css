@@ -1,0 +1,97 @@
+.stepProgressBar {
+  display: flex;
+  align-items: center;
+}
+
+.stepsList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  width: 100%;
+}
+
+.horizontal .stepsList {
+  flex-direction: row;
+  align-items: center;
+}
+
+.vertical .stepsList {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.horizontal {
+  flex-direction: row;
+}
+
+.vertical {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.stepIconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: var(--spacing-s);
+  min-height: var(--spacing-s);
+}
+
+.horizontal .stepIconWrapper {
+  flex-direction: column;
+}
+
+.vertical .stepIconWrapper {
+  flex-direction: row;
+}
+
+.stepIcon {
+  width: var(--spacing-s);
+  height: var(--spacing-s);
+  display: block;
+}
+
+.horizontal .stepLabel {
+  margin-top: var(--spacing-4xs);
+}
+
+.vertical .stepLabel {
+  margin-left: var(--spacing-3xs);
+  margin-top: 0;
+}
+
+.divider {
+  background: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.horizontal .divider {
+  position: relative;
+  bottom: var(--spacing-4xs);
+  width: var(--spacing-2xs);
+  height: var(--units-1);
+  margin: 0 var(--spacing-4xs);
+}
+
+.vertical .divider {
+  width: var(--spacing-5xs);
+  height: var(--spacing-3xs);
+  margin: var(--spacing-4xs) 0;
+  align-self: flex-start;
+  margin-left: var(--spacing-3xs);
+}
+
+.withLabels.horizontal .divider {
+  top: calc(-1 * var(--spacing-2xs));
+  width: var(--spacing-2xs);
+  margin-inline: var(--units-1);
+}
+
+.withLabels.vertical .divider {
+  height: var(--spacing-m);
+  align-self: flex-start;
+  margin-left: var(--spacing-3xs);
+}

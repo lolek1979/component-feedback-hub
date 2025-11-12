@@ -1,0 +1,80 @@
+.csMainInfoWrapper {
+  height: 80px;
+  padding: 0 32px;
+
+  .csInfoList,
+  .subList,
+  .subListValidity,
+  .guarantorList {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .subList {
+    margin-top: 10px;
+  }
+
+  .subListValidity {
+    margin-top: 15px;
+  }
+
+  .subListItem,
+  .listValue {
+    margin-top: 10px;
+  }
+
+  .listValue {
+    margin-top: 15px;
+  }
+
+  .title {
+    max-width: 220px;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    height: 30px;
+  }
+
+  .badgeType {
+    height: 32px;
+    margin-right: 10px;
+  }
+
+  .validity {
+    width: 225px;
+  }
+
+  .guarantorList {
+    justify-content: center;
+  }
+
+  .guarantorFullname {
+    margin: 5px;
+    border-bottom: 1.5px dotted var(--color-black-950);
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+  }
+
+  .avatarTest {
+    height: 32px;
+    width: 32px;
+  }
+
+  .moreGuarantors {
+    cursor: pointer;
+  }
+}
+
+:global(.dark) .csMainInfoWrapper {
+  li {
+    color: var(--color-white);
+  }
+
+  .listValue {
+    color: var(--color-white);
+  }
+}

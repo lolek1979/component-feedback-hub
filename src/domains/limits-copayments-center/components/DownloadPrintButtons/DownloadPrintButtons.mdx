@@ -1,0 +1,142 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+import DownloadPrintButtons, {Default, Loading} from './DownloadPrintButtons.stories';
+
+<Meta of={DownloadPrintButtons} />
+
+#### Design: <a href="https://www.figma.com/design/X6VaqX3yF7GOyaVg2qLbdY/MVP-design?node-id=652-1189&t=7WHI9jTiJ8qD29hU-4" target="_blank" rel="noopener">Figma</a>
+
+# DownloadPrintButtons
+
+A component that provides buttons for downloading PDF and printing functionality.
+
+<Canvas of={Default} />
+
+## Features
+- Download PDF button with icon
+- Print button with icon
+- Loading state support
+- Responsive design
+- Accessibility support
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+
+### Default
+<Canvas of={Default} />
+
+### Loading
+<Canvas of={Loading} />
+
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.wrapper {
+  display: flex;
+  gap: var(--spacing-2xs);
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.button {
+  white-space: nowrap;
+  height: var(--units-40);
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .download-button,
+  .print-button {
+    flex: 1;
+    min-width: auto;
+  }
+}
+
+.print-button-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.print-menu {
+  position: absolute;
+  top: calc(100% + var(--spacing-4xs));
+  right: 0;
+  width: 100%;
+  min-width: 100%;
+  background: var(--background-elevated);
+  border: var(--border-s) solid var(--border-subtle);
+  border-radius: var(--radius-s);
+  padding: var(--spacing-4xs);
+}
+
+.print-menu-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--spacing-3xs);
+  width: 100%;
+  padding: var(--spacing-3xs);
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.print-menu-item:first-child {
+  border-radius: var(--radius-xs) var(--radius-xs) 0 0;
+}
+
+.print-menu-item:last-child {
+  border-radius: 0 0 var(--radius-xs) var(--radius-xs);
+}
+
+.print-menu-item:hover {
+  background-color: var(--table-secondary-hover);
+}
+
+.orientation-icon {
+  width: var(--units-16);
+  height: var(--units-16);
+  color: var(--icon-secondary);
+  flex-shrink: 0;
+}
+
+:global(.dark) .print-menu {
+  background: var(--background-elevated);
+  border: var(--border-s) solid var(--border-primary);
+}
+
+:global(.dark) .print-menu-item {
+  color: var(--text-primary);
+}
+
+:global(.dark) .print-menu-item:hover {
+  background-color: var(--table-secondary-hover);
+}
+
+:global(.dark) .print-menu-item svg {
+  fill: var(--icon-primary);
+}
+
+:global(.dark) .print-menu-item svg path {
+  fill: var(--icon-primary);
+}
+
+:global(.dark) .print-menu-item svg * {
+  fill: var(--icon-primary) !important;
+}
+
+```
+</details>

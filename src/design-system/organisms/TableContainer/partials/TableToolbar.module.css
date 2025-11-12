@@ -1,0 +1,24 @@
+.toolbarContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .textContainer {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .title {
+    color: var(--color-text-default);
+    margin-bottom: 4px;
+  }
+
+  .description {
+    color: var(--color-black-700);
+  }
+
+  .buttonsContainer {
+    display: flex;
+    gap: 8px;
+  }
+}

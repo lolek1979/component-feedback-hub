@@ -1,0 +1,27 @@
+@import './partials/_colors.css';
+@import './partials/_fonts.css';
+@import './partials/_common.css';
+@import './partials/_tooltip.css';
+@import './partials/_icon-colors.css';
+@import './partials/design-system/_colors-dark.css';
+@import './partials/design-system/_colors-light.css';
+@import './partials/design-system/_fonts-default.css';
+@import './partials/design-system/_scales-default.css';
+@import './partials/_icon-scales.css';
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.icon-scale-150 {
+  transform: scale(150%);
+  transform-origin: center center;
+}

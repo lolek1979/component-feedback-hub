@@ -1,0 +1,65 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+
+import EPrescriptionHeader, { Default } from './EPrescriptionHeader.stories';
+
+<Meta of={EPrescriptionHeader} />
+
+
+#### Design: <a href="https://www.figma.com/design/X6VaqX3yF7GOyaVg2qLbdY/MVP-design?node-id=975-1021&t=sfQBRljNedqLRDYl-4" target="_blank" rel="noopener">Figma</a>
+
+# EPrescriptionHeader
+
+EPrescriptionHeader is a header for a table of prescriptions.
+
+<Canvas of={Default} />
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+
+### Default
+<Canvas of={Default} />
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.prescription-header {
+  display: flex;
+  overflow-x: auto;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: var(--spacing-xs) 0 var(--units-10);
+  width: inherit;
+}
+
+.code-container {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3xs);
+}
+
+.content-column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4xs);
+}
+
+.over-paid {
+  margin-bottom: -30px;
+}
+
+@media print {
+  .date-header {
+    font-family: Roboto, sans-serif !important;
+    font-weight: var(--font-weight-100) !important;
+    font-size: var(--size-14) !important;
+  }
+}
+
+```
+</details>

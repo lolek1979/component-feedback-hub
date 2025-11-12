@@ -1,0 +1,78 @@
+.detailHeaderWrapper {
+  display: flex;
+  padding: 0;
+  align-items: center;
+  gap: var(--spacing-m);
+  align-self: stretch;
+  width: 100%;
+}
+
+.detailInfoList {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-2xs);
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.detailInfoList li {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1 0 0;
+  font-size: var(--size-14);
+}
+
+.detailInfoList li > [id^='header'] {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  gap: var(--units-10);
+  align-self: stretch;
+  font-size: var(--size-14);
+}
+
+.listValue {
+  display: flex;
+  height: var(--units-48);
+  align-items: center;
+  gap: var(--units-10);
+  align-self: stretch;
+  font-size: var(--size-14);
+}
+
+.title {
+  max-width: 220px;
+  width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+:global(.dark) .detailHeaderWrapper {
+  li {
+    color: var(--text-on-color);
+  }
+
+  .listValue {
+    color: var(--text-on-color);
+  }
+}
+
+.user {
+  height: var(--units-32);
+  width: var(--units-32);
+}
+
+.userContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3xs);
+}
+
+.noUserText {
+  color: var(--text-disabled);
+  font-style: italic;
+}

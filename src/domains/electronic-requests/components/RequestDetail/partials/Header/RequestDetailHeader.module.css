@@ -1,0 +1,73 @@
+.overviewHeaderCont {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.detailHeaderCont {
+  display: flex;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-3xs, var(--spacing-3xs));
+  align-self: stretch;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.pageBreadCrumbs {
+  margin-left: calc(-1 * var(--spacing-3xs));
+}
+
+.titleRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.pageTitle {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-xs);
+}
+
+.buttonContainer {
+  display: flex;
+  gap: var(--spacing-2xs);
+}
+
+.processDetailContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-s);
+  align-self: stretch;
+}
+
+.requestCauseContainer {
+  padding-top: var(--spacing-s);
+  padding-bottom: var(--spacing-3xs);
+}
+
+.submitModalButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: var(--spacing-2xs);
+  padding-top: var(--spacing-xs);
+}
+
+.approverButtonsContainer {
+  display: flex;
+  gap: var(--units-16);
+}
+
+.requestCauseTextarea {
+  min-height: 80px;
+}

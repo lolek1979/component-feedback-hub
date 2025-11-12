@@ -1,0 +1,129 @@
+.kdpContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  gap: var(--spacing-s);
+
+  .warningIcon {
+    display: contents;
+  }
+
+  .kdpResultInfo {
+    display: none;
+  }
+
+  .personalContainer {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: var(--spacing-3xs);
+
+    .breadcrumbs {
+      display: flex;
+      align-self: flex-start;
+      justify-content: flex-start;
+      margin-left: calc(-1 * var(--spacing-3xs));
+    }
+
+    .name {
+      align-self: flex-start;
+      margin-top: var(--spacing-3xs);
+      margin-bottom: var(--spacing-4xs);
+    }
+
+    .securityNum {
+      align-self: flex-start;
+    }
+  }
+
+  .badgesSection {
+    display: flex;
+    align-items: center;
+    align-self: center;
+
+    .warningIcon {
+      display: contents;
+    }
+  }
+
+  .badgesContainer {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-s);
+  }
+
+  .actionsContainer {
+    display: flex;
+    align-self: center;
+    margin-left: auto;
+  }
+
+  @media (max-width: 850px) {
+    flex-direction: column;
+
+    .badgesSection {
+      align-self: flex-start;
+      width: 100%;
+    }
+
+    .badgesContainer {
+      flex-wrap: wrap;
+    }
+
+    .actionsContainer {
+      margin-left: 0;
+      align-self: flex-start;
+      width: 100%;
+      margin-top: var(--spacing-m);
+    }
+  }
+}
+
+@media print {
+  .kdpContainer {
+    padding-top: 20px !important;
+
+    .warningIcon {
+      display: none !important;
+    }
+
+    .kdpResultInfo {
+      display: contents !important;
+      margin-bottom: 20px;
+    }
+
+    .kdpContainer {
+      display: flex !important;
+      flex-direction: row !important;
+
+      .personalContainer {
+        display: flex !important;
+        flex-direction: row-reverse !important;
+
+        .name,
+        .securityNum {
+          font-family: Roboto, sans-serif !important;
+          font-weight: 100 !important;
+          font-size: 14px !important;
+        }
+      }
+
+      .badgesSection {
+        .warningIcon {
+          display: none !important;
+        }
+      }
+    }
+  }
+}
+
+:global(.dark) .kdpContainer {
+  .name {
+    color: var(--color-white);
+  }
+
+  .securityNum {
+    color: var(--color-white);
+  }
+}

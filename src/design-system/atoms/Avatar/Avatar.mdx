@@ -1,0 +1,70 @@
+import { Meta, Canvas, Story, Controls } from '@storybook/addon-docs/blocks';
+import Avatar, { Default, WithLongName, WithSingleName } from './Avatar.stories';
+
+<Meta title="Atoms/Avatar" component={Avatar} />
+#### Design: <a href="https://www.figma.com/design/HtK3DbPIxodKas2jSTtrlH/Design-system?node-id=406-26158&t=HQbpbsGw9LQJ8lrG-0" target="_blank" rel="noopener">Figma</a>
+
+# Avatar
+
+The `Avatar` component is used to display a user's initials inside a circular avatar. It is designed to be simple and reusable across different parts of the application.
+
+## Usage
+
+The `Avatar` component takes a single prop, `name`, which is used to generate the initials.
+
+## Properties
+
+<Controls of={Default} />
+
+### Default
+<Canvas of={Default} />
+
+### With Long Name
+<Canvas of={WithLongName} />
+
+### With Single Name
+<Canvas of={WithSingleName} />
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background-color: var(--background-panel);
+  color: var(--text-primary);
+  font-weight: var(--font-weight-400);
+}
+
+.sizeS {
+  width: var(--units-24);
+  height: var(--units-24);
+  font-size: var(--size-10);
+  line-height: var(--units-16);
+}
+
+.sizeM {
+  width: var(--units-32);
+  height: var(--units-32);
+  font-size: var(--size-12);
+  line-height: var(--line-height-18);
+}
+
+.sizeL {
+  width: var(--units-40);
+  height: var(--units-40);
+  font-size: var(--size-14);
+  line-height: var(--line-height-20);
+}
+
+:global(.dark) .avatar {
+  color: var(--text-on-color);
+}
+
+```
+</details>

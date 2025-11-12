@@ -1,0 +1,16 @@
+.stepperControls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: var(--units-10);
+  justify-content: center;
+  padding: var(--units-16) 0;
+  background-color: var(--color-white);
+}
+
+.stickyStepper {
+  position: sticky;
+  top: 0;
+}

@@ -1,0 +1,378 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+
+import Button, { Primary, Secondary, Tertiary, Disabled } from './Button.stories';
+
+<Meta of={Button} />
+
+#### Design: <a href="https://www.figma.com/design/X6VaqX3yF7GOyaVg2qLbdY/MVP-design?node-id=68-19476&t=ow3QAVj3ZFmTFmbg-4" target="_blank" rel="noopener">Figma</a>
+
+# Button
+A versatile UI component used to trigger actions or events, available in various styles and states.
+
+<Canvas of={Primary} />
+
+## Properties
+
+<Controls of={Primary} />
+
+## Examples
+
+### Primary
+<Canvas of={Primary} />
+
+### Secondary
+<Canvas of={Secondary} />
+
+### Tertiary
+<Canvas of={Tertiary} />
+
+### Disabled
+<Canvas of={Disabled} />
+
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.button {
+  --padding-icon-current: var(--spacing-m);
+
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  line-height: var(--line-height-20);
+  border: var(--border-s) solid var(--border-primary);
+  padding: var(--spacing-3xs);
+  font-weight: var(--font-weight-600);
+
+  &.unstyled {
+    border: none;
+    background-color: transparent;
+    padding: 0 !important;
+    display: flex;
+    align-items: center;
+  }
+
+  &.primary {
+    color: var(--text-on-color);
+    background-color: var(--button-primary);
+    border-color: var(--border-brand);
+
+    svg path {
+      fill: var(--text-on-color);
+    }
+  }
+
+  &.primary:hover {
+    background-color: var(--button-primary-hover);
+    border-color: var(--border-brand);
+  }
+
+  &.primary:disabled {
+    color: var(--text-disabled);
+    background-color: var(--field-disabled);
+    border: none;
+    cursor: not-allowed;
+    opacity: 0.65;
+
+    path {
+      fill: var(--text-disabled);
+    }
+  }
+
+  &.primary:active {
+    background-color: var(--button-primary-active);
+  }
+
+  &:focus {
+    border-color: var(--support-info);
+  }
+
+  &.secondary {
+    color: var(--text-primary);
+    background-color: var(--button-secondary);
+    border: none;
+  }
+
+  &.secondary:hover {
+    background-color: var(--button-secondary-hover);
+  }
+
+  &.secondary:disabled {
+    color: var(--text-disabled);
+    background-color: var(--field-disabled);
+    cursor: not-allowed;
+    opacity: 0.65;
+
+    path {
+      fill: var(--text-disabled);
+    }
+  }
+
+  &.secondary:active {
+    background-color: var(--button-secondary-active);
+  }
+
+  &.tertiary {
+    color: var(--text-primary);
+    background-color: var(--button-ghost);
+    border: none;
+  }
+
+  &.tertiary:hover {
+    background-color: var(--button-ghost-hover);
+  }
+
+  &.tertiary:disabled {
+    color: var(--text-disabled);
+    background-color: var(--field-disabled);
+    cursor: not-allowed;
+    opacity: 0.65;
+  }
+
+  &.tertiary:active {
+    background-color: var(--button-ghost-active);
+  }
+
+  &.oncolor {
+    color: var(--text-primary);
+    background-color: var(--button-on-color);
+  }
+
+  &.toast {
+    background-color: var(--background-base);
+
+    & h6 {
+      color: var(--text-primary);
+    }
+  }
+
+  /* When the button contains only an icon */
+  &:has(> .icon:only-child) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .icon {
+      position: static;
+      margin: 0;
+    }
+  }
+
+  .icon {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    align-items: center;
+    display: flex;
+  }
+
+  &.iconLeft {
+    padding-left: var(--padding-icon-current);
+    padding-right: calc(var(--padding-icon-current) - 28px);
+
+    .icon {
+      left: var(--spacing-3xs);
+    }
+  }
+
+  &.iconRight {
+    padding-right: var(--padding-icon-current);
+    padding-left: calc(var(--padding-icon-current) - 28px);
+
+    .icon {
+      right: var(--spacing-3xs);
+    }
+  }
+
+  &.small {
+    --padding-icon-current: var(--spacing-m);
+    --font-size: var(--size-10);
+
+    padding-top: var(--spacing-4xs);
+    padding-bottom: var(--spacing-4xs);
+  }
+
+  &.medium {
+    --padding-icon-current: 36px;
+    --font-size: var(--size-14);
+
+    padding-top: var(--spacing-3xs);
+    padding-bottom: var(--spacing-3xs);
+  }
+
+  &.large {
+    --padding-icon-current: var(--spacing-l);
+    --font-size: var(--units-18);
+
+    padding-top: calc(var(--spacing-3xs) + var(--spacing-5xs));
+    padding-bottom: calc(var(--spacing-3xs) + var(--spacing-5xs));
+  }
+
+  &.loading {
+    pointer-events: none;
+  }
+
+  .spinnerContainer {
+    display: grid;
+
+    > * {
+      grid-area: 1 / 1;
+    }
+  }
+
+  .hidden {
+    visibility: hidden;
+  }
+
+  &.loading.primary {
+    background-color: var(--button-disabled);
+    border-color: transparent;
+  }
+
+  &.loading.secondary {
+    background-color: var(--button-disabled);
+    border-color: transparent;
+  }
+
+  &.loading.tertiary {
+    background-color: var(--button-ghost);
+    border-color: transparent;
+  }
+
+  &.loading.oncolor {
+    background-color: var(--button-ghost);
+    border-color: transparent;
+  }
+
+  .loadingIndicator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-4xs);
+  }
+
+  .loadingDot {
+    width: var(--spacing-3xs);
+    height: var(--spacing-3xs);
+    border-radius: 50%;
+    background-color: currentcolor;
+    animation: dot-pulse 1.4s infinite ease-in-out;
+  }
+
+  .loadingDot:nth-child(1) {
+    animation-delay: 0s;
+  }
+
+  .loadingDot:nth-child(2) {
+    animation-delay: 0.2s;
+  }
+
+  .loadingDot:nth-child(3) {
+    animation-delay: 0.4s;
+  }
+
+  @keyframes dot-pulse {
+    0%,
+    80%,
+    100% {
+      transform: scale(0.6);
+      opacity: 0.6;
+    }
+
+    40% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+}
+
+.nonStyle {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+:global(.dark) .button {
+  &.primary:disabled {
+    color: var(--text-disabled);
+    background-color: var(--palette-grey-850);
+    cursor: not-allowed;
+    opacity: 0.65;
+  }
+
+  &.secondary {
+    background-color: var(--button-secondary);
+
+    svg path {
+      fill: var(--icon-on-color);
+    }
+
+    & :last-child {
+      color: var(--text-on-color);
+    }
+
+    &:hover {
+      background-color: var(--button-secondary-hover);
+    }
+
+    &:active {
+      background-color: var(--button-secondary-active);
+    }
+  }
+
+  &.tertiary {
+    background-color: var(--button-ghost);
+
+    svg rect {
+      fill: var(--palette-grey-800);
+    }
+
+    svg path {
+      fill: var(--icon-on-color);
+    }
+
+    &:hover {
+      background-color: var(--button-ghost-hover);
+    }
+
+    &:active {
+      background-color: var(--button-ghost-active);
+    }
+  }
+
+  &.unstyled {
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  &.oncolor {
+    background-color: var(--button-on-color);
+
+    & * {
+      color: var(--button-primary-hover);
+    }
+
+    svg path {
+      fill: var(--button-primary-hover);
+    }
+
+    &:hover {
+      background-color: var(--button-on-color-hover);
+      opacity: 0.9;
+    }
+
+    &:active {
+      background-color: var(--button-on-color-active);
+      opacity: 0.8;
+    }
+  }
+}
+
+```
+</details>

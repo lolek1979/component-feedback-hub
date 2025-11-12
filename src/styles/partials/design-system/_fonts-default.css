@@ -1,0 +1,19 @@
+:root {
+  --size-48: var(--units-48);
+  --size-40: var(--units-40);
+  --size-32: var(--units-32);
+  --size-24: var(--units-24);
+  --size-20: var(--units-20);
+  --size-16: var(--units-16);
+  --size-14: var(--units-14);
+  --size-12: var(--units-12);
+  --size-10: var(--units-10);
+  --line-height-64: var(--units-64);
+  --line-height-48: var(--units-48);
+  --line-height-40: var(--units-40);
+  --line-height-32: var(--units-32);
+  --line-height-24: var(--units-24);
+  --line-height-20: var(--units-20);
+  --line-height-18: var(--units-18);
+  --line-height-12: var(--units-12);
+}

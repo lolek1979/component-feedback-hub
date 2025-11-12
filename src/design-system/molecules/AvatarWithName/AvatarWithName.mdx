@@ -1,0 +1,55 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+
+import AvatarWithName, { Default, DisplayNameOnly, Invalid } from './AvatarWithName.stories';
+
+<Meta of={AvatarWithName} />
+
+#### Design: <a href="https://www.figma.com" target="_blank" rel="noopener">Figma</a>
+
+# UserAvatarWithName
+
+ UserAvatarWithName component displays a user's avatar along with their name, organization, and email.
+ or just the name if displayNameOnly param is true.
+ If the input string does not match the expected format e.g. "First name Surname (Organization), email", 
+ it returns a single dash '-'.
+
+<Canvas of={Default} />
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+
+### Default
+<Canvas of={Default} />
+
+### Display only name
+<Canvas of={DisplayNameOnly} />
+
+### Invalid input format
+<Canvas of={Invalid} />
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.container {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3xs);
+
+  .multiline {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .line {
+    display: block;
+  }
+}
+
+```
+</details>

@@ -1,0 +1,124 @@
+.container {
+  width: 100%;
+  border-radius: var(--radius-s);
+  padding: var(--spacing-xs);
+  gap: var(--spacing-3xs);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 56px;
+
+  &.centered {
+    justify-content: center;
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+  }
+
+  &.default {
+    background-color: var(--background-panel);
+  }
+
+  &.error {
+    background-color: var(--support-negative-subtle);
+    color: var(--text-on-negative-subtle);
+
+    .icon {
+      color: var(--icon-on-negative-subtle);
+    }
+  }
+
+  &.success {
+    background-color: var(--support-positive-subtle);
+    color: var(--text-on-positive-subtle);
+
+    .icon {
+      color: var(--icon-on-positive-subtle);
+    }
+  }
+
+  &.info {
+    background-color: var(--support-info-subtle);
+    color: var(--text-on-info-subtle);
+
+    .icon {
+      color: var(--icon-on-info-subtle);
+    }
+  }
+
+  &.warning {
+    background-color: var(--support-warning-subtle);
+    color: var(--text-on-warning-subtle);
+
+    .icon {
+      color: var(--icon-on-warning-subtle);
+    }
+  }
+
+  @media print {
+    margin-top: var(--units-20);
+    box-shadow: inset 0 0 0 1000px var(--color-black-50);
+
+    .text {
+      font-family: Roboto, sans-serif !important;
+      font-weight: var(--font-weight-100) !important;
+      font-size: var(--size-14) !important;
+    }
+
+    .icon {
+      display: none;
+    }
+  }
+}
+
+:global(.dark) .container {
+  &.default {
+    background-color: var(--background-panel);
+  }
+
+  &.error {
+    background-color: var(--support-negative);
+    color: var(--text-on-negative);
+
+    .icon {
+      color: var(--color-white);
+
+      svg path {
+        fill: var(--color-white);
+      }
+    }
+  }
+
+  &.success {
+    background-color: var(--support-positive);
+    color: var(--text-on-positive);
+
+    .icon {
+      color: var(--icon-on-positive);
+    }
+  }
+
+  &.info {
+    background-color: var(--support-info);
+    color: var(--text-on-info);
+
+    .icon {
+      color: var(--icon-on-info);
+    }
+  }
+
+  &.warning {
+    background-color: var(--support-warning);
+    color: var(--text-on-warning);
+
+    .icon {
+      color: var(--icon-on-warning);
+    }
+  }
+}

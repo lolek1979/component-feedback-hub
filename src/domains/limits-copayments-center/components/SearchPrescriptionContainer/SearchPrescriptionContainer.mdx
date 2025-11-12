@@ -1,0 +1,97 @@
+import { Canvas, Meta,Controls } from '@storybook/blocks';
+import SearchPrescriptionContainer, { Default, Loading, Mobile, WithSearchQuery } from './SearchPrescriptionContainer.stories';
+
+<Meta of={SearchPrescriptionContainer} />
+
+#### Design: <a href="https://www.figma.com/design/X6VaqX3yF7GOyaVg2qLbdY/MVP-design?node-id=1604-2617&t=kfL91pY8Qql0GiWe-4" target="_blank" rel="noopener">Figma</a>
+
+
+# SearchPrescriptionContainer
+
+SearchPrescriptionContainer is an organism component that combines a prescription search form with download/print buttons for managing search results.
+
+<Canvas of={Default} />
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+
+### Default
+<Canvas of={Default} />
+
+### Loading
+<Canvas of={Loading} />
+
+### Mobile
+<Canvas of={Mobile} />
+
+### With search query
+<Canvas of={WithSearchQuery} />
+
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.container {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+}
+
+.top-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+}
+
+.search-form {
+  flex: 1;
+  min-width: 0;
+}
+
+.buttons {
+  display: flex;
+  gap: 16px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 1200px) {
+  .container {
+    flex-wrap: wrap;
+  }
+
+  .search-form {
+    min-width: 600px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-form {
+    min-width: 100%;
+  }
+
+  .buttons {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .buttons > * {
+    flex: 1;
+  }
+}
+
+```
+</details>

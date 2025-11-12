@@ -1,0 +1,316 @@
+.badge {
+  display: inline-flex;
+  flex-direction: row;
+  width: fit-content;
+  min-width: var(--units-32);
+  max-height: var(--spacing-l);
+  min-height: var(--units-32);
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  font-weight: var(--font-weight-600);
+  gap: var(--spacing-4xs);
+  white-space: nowrap;
+
+  .textContainer {
+    padding-right: 0;
+  }
+
+  .text {
+    font-weight: var(--font-weight-600) !important;
+    padding-inline: var(--spacing-5xs);
+  }
+
+  &:not(.iconLeft, .iconRight, .iconBoth) .textContainer {
+    padding-inline: var(--spacing-2xs);
+  }
+
+  &:not(.iconLeft, .iconRight, .iconBoth).small .textContainer {
+    padding-inline: var(--spacing-3xs);
+  }
+
+  &.iconLeft .textContainer {
+    padding-right: var(--spacing-2xs);
+  }
+
+  &.iconRight .textContainer {
+    padding-left: var(--spacing-2xs);
+  }
+
+  &.iconLeft.small .textContainer {
+    padding-right: var(--spacing-3xs);
+  }
+
+  &.iconRight.small .textContainer {
+    padding-left: var(--spacing-3xs);
+  }
+
+  &.iconBoth .textContainer {
+    padding: 0;
+  }
+
+  &:focus:not(.disabled) {
+    outline: var(--border-m) solid var(--support-info);
+    outline-offset: var(--border-m);
+  }
+
+  &.large {
+    height: var(--spacing-l);
+    font-size: var(--size-14);
+  }
+
+  &.medium {
+    height: var(--spacing-m);
+    font-size: var(--size-12);
+  }
+
+  &.small {
+    height: var(--spacing-s);
+    font-size: var(--size-12);
+  }
+
+  &.gray {
+    background-color: var(--button-secondary);
+    color: var(--text-primary);
+
+    &:hover {
+      background-color: var(--button-secondary-hover);
+    }
+
+    &:active {
+      background-color: var(--button-secondary-active);
+    }
+  }
+
+  &.green {
+    background-color: var(--support-positive);
+    color: var(--text-on-color);
+
+    &:hover {
+      background-color: var(--support-positive-hover);
+    }
+
+    &:active {
+      background-color: var(--support-positive-active);
+    }
+
+    .text,
+    .icon {
+      color: var(--text-on-color);
+    }
+
+    .icon svg,
+    .icon svg * {
+      fill: var(--icon-on-color) !important;
+      stroke: var(--icon-on-color) !important;
+    }
+  }
+
+  &.red {
+    background-color: var(--support-primary);
+    color: var(--text-on-color);
+
+    &:hover {
+      background-color: var(--support-primary-hover);
+    }
+
+    &:active {
+      background-color: var(--support-primary-active);
+    }
+
+    .text,
+    .icon {
+      color: var(--text-on-color);
+    }
+
+    .icon svg,
+    .icon svg * {
+      fill: var(--icon-on-color) !important;
+      stroke: var(--icon-on-color) !important;
+    }
+  }
+
+  &.orange {
+    background-color: var(--support-warning);
+    color: var(--text-on-color);
+
+    &:hover {
+      background-color: var(--support-warning-hover);
+    }
+
+    &:active {
+      background-color: var(--support-warning-active);
+    }
+
+    .text,
+    .icon {
+      color: var(--text-on-color);
+    }
+
+    .icon svg,
+    .icon svg * {
+      fill: var(--icon-on-color) !important;
+      stroke: var(--icon-on-color) !important;
+    }
+  }
+
+  &.blue {
+    background-color: var(--support-info);
+    color: var(--text-on-color);
+
+    &:hover {
+      background-color: var(--support-info-hover);
+    }
+
+    &:active {
+      background-color: var(--support-info-active);
+    }
+
+    .text,
+    .icon {
+      color: var(--text-on-color);
+    }
+
+    .icon svg,
+    .icon svg * {
+      fill: var(--icon-on-color) !important;
+      stroke: var(--icon-on-color) !important;
+    }
+  }
+
+  &.lightGreen {
+    background-color: var(--support-positive-subtle);
+    color: var(--support-positive);
+
+    &:hover {
+      background-color: var(--support-positive-subtle-hover);
+    }
+
+    &:active {
+      background-color: var(--support-positive-subtle-active);
+    }
+
+    .text,
+    .icon {
+      color: var(--support-positive);
+    }
+
+    .icon svg,
+    .icon svg * {
+      fill: var(--support-positive) !important;
+      stroke: var(--support-positive) !important;
+    }
+  }
+
+  &.lightRed {
+    background-color: var(--support-negative-subtle);
+    color: var(--support-negative);
+
+    &:hover {
+      background-color: var(--support-negative-subtle-hover);
+    }
+
+    &:active {
+      background-color: var(--support-negative-subtle-active);
+    }
+
+    .text,
+    .icon {
+      color: var(--support-negative);
+    }
+
+    .icon svg,
+    .icon svg * {
+      fill: var(--support-negative) !important;
+      stroke: var(--support-negative) !important;
+    }
+  }
+
+  &.lightBlue {
+    background-color: var(--support-info-subtle);
+    color: var(--support-info);
+
+    &:hover {
+      background-color: var(--support-info-subtle-hover);
+    }
+
+    &:active {
+      background-color: var(--support-info-subtle-active);
+    }
+
+    .text,
+    .icon {
+      color: var(--support-info);
+    }
+
+    .icon svg,
+    .icon svg * {
+      fill: var(--support-info) !important;
+      stroke: var(--support-info) !important;
+    }
+  }
+
+  &.lightOrange {
+    background-color: var(--support-warning-subtle);
+    color: var(--support-warning);
+
+    &:hover {
+      background-color: var(--support-warning-subtle-hover);
+    }
+
+    &:active {
+      background-color: var(--support-warning-subtle-active);
+    }
+
+    .text,
+    .icon {
+      color: var(--support-warning);
+    }
+
+    .icon svg,
+    .icon svg * {
+      fill: var(--support-warning) !important;
+      stroke: var(--support-warning) !important;
+    }
+  }
+
+  &.disabled {
+    background-color: var(--button-disabled);
+    color: var(--text-disabled);
+    cursor: not-allowed;
+
+    .icon svg,
+    .icon svg * {
+      fill: var(--icon-disabled) !important;
+      stroke: var(--icon-disabled) !important;
+    }
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      fill: currentcolor;
+      color: inherit;
+    }
+
+    svg * {
+      fill: currentcolor !important;
+      stroke: currentcolor !important;
+    }
+  }
+
+  &.iconLeft .icon {
+    padding-left: var(--spacing-3xs);
+  }
+
+  &.iconRight .icon {
+    padding-right: var(--spacing-3xs);
+  }
+
+  &.iconBoth .icon {
+    padding: var(--spacing-3xs);
+  }
+}

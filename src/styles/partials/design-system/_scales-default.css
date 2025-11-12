@@ -1,0 +1,55 @@
+:root {
+  /**
+  * @tokens Border
+  * @presenter Border
+  */
+  --border-s: var(--units-1);
+  --border-m: var(--units-2);
+  --border-l: var(--units-4);
+
+  /**
+  * @tokens Border Radius
+  * @presenter BorderRadius
+  */
+  --radius-3xs: var(--units-1);
+  --radius-2xs: var(--units-2);
+  --radius-xs: var(--units-4);
+  --radius-s: var(--units-8);
+  --radius-m: var(--units-12);
+  --radius-l: var(--units-16);
+  --radius-xl: var(--units-24);
+  --radius-full: var(--units-1000);
+
+  /**
+  * @tokens Spacing
+  * @presenter Spacing
+  */
+  --spacing-5xs: var(--units-2);
+  --spacing-4xs: var(--units-4);
+  --spacing-3xs: var(--units-8);
+  --spacing-2xs: var(--units-12);
+  --spacing-xs: var(--units-16);
+  --spacing-s: var(--units-24);
+  --spacing-m: var(--units-32);
+  --spacing-l: var(--units-40);
+  --spacing-xl: var(--units-48);
+  --spacing-2xl: var(--units-64);
+  --spacing-3xl: var(--units-128);
+  --units-1: 1px;
+  --units-2: 2px;
+  --units-4: 4px;
+  --units-8: 8px;
+  --units-10: 10px;
+  --units-12: 12px;
+  --units-14: 14px;
+  --units-16: 16px;
+  --units-18: 18px;
+  --units-20: 20px;
+  --units-24: 24px;
+  --units-32: 32px;
+  --units-40: 40px;
+  --units-48: 48px;
+  --units-64: 64px;
+  --units-128: 128px;
+  --units-1000: 1000px;
+}

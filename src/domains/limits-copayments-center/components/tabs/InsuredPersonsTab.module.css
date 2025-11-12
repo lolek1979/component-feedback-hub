@@ -1,0 +1,4 @@
+.container {
+  padding: var(--spacing-s);
+  text-align: center;
+}

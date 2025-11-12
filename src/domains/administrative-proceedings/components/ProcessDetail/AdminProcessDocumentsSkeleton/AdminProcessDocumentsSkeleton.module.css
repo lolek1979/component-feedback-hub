@@ -1,0 +1,12 @@
+.documentsSkeletonWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.documentsGroup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-3xs);
+  width: 100%;
+}

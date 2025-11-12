@@ -1,0 +1,131 @@
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding-inline: 12px;
+  border-radius: 20px;
+  line-height: 16px;
+  gap: 4px;
+  height: 32px;
+  width: fit-content;
+  max-width: 200px;
+  cursor: default;
+
+  &.active {
+    background-color: var(--support-positive-subtle);
+    color: var(--support-positive);
+
+    path {
+      fill: var(--support-positive);
+    }
+  }
+
+  &.concept {
+    background-color: var(--button-secondary);
+    color: var(--text-primary);
+
+    path {
+      fill: var(--icon-primary);
+    }
+  }
+
+  &.planned {
+    background-color: var(--support-warning-subtle);
+    color: var(--support-warning);
+
+    path {
+      fill: var(--support-warning);
+    }
+  }
+
+  &.expired {
+    background-color: var(--color-gray-100);
+    color: var(--color-black-400);
+  }
+
+  &.denied {
+    background-color: var(--color-gray-100);
+    color: var(--palette-grey-700);
+  }
+
+  &.waitingforapproval {
+    background-color: var(--support-info-subtle);
+    color: var(--support-info);
+
+    path {
+      fill: var(--support-info);
+    }
+  }
+
+  & .icon {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-shrink: 0;
+
+    & svg {
+      cursor: default !important;
+    }
+  }
+
+  & .content {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+:global(.dark) .tag {
+  &.expired {
+    background-color: var(--color-alpha-300);
+    color: var(--color-black-400);
+
+    svg path {
+      color: var(--color-black-400);
+    }
+  }
+
+  &.active {
+    background-color: var(--palette-green-1000);
+    color: var(--palette-green-500);
+
+    span {
+      color: var(--palette-green-500) !important;
+    }
+
+    path {
+      fill: var(--palette-green-500);
+    }
+  }
+
+  &.waitingforapproval {
+    background-color: var(--palette-blue-900);
+
+    span {
+      color: var(--support-info) !important;
+    }
+
+    path {
+      fill: var(--support-info);
+    }
+  }
+
+  &.planned {
+    background-color: var(--palette-orange-1000);
+
+    span {
+      color: var(--support-warning) !important;
+    }
+
+    svg path {
+      fill: var(--support-warning);
+    }
+  }
+
+  &.concept {
+    background-color: var(--button-secondary);
+    color: var(--text-primary);
+
+    path {
+      fill: var(--icon-on-color);
+    }
+  }
+}

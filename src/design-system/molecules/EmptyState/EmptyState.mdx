@@ -1,0 +1,75 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+
+import EmptyState, {
+  Default,
+  WithSecondary,
+  WithBugReport,
+  AllActions,
+} from './EmptyState.stories';
+
+<Meta of={EmptyState} />
+
+#### Design: <a href="https://www.figma.com/design/HtK3DbPIxodKas2jSTtrlH/Design-system?node-id=1518-35910&p=f&m=dev" target="_blank" rel="noopener">Figma</a>
+
+# EmptyState
+
+Displays a placeholder with icon, title, description, and action buttons when no data is available.
+
+<Canvas of={Default} />
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+
+### Default
+
+<Canvas of={Default} />
+
+### With Secondary Action
+
+<Canvas of={WithSecondary} />
+
+### With Bug Report
+
+<Canvas of={WithBugReport} />
+
+### All Actions
+
+<Canvas of={AllActions} />
+
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
+
+  .textGroup {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .buttonGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2xs);
+
+    & span {
+      padding: var(--spacing-2xs);
+    }
+  }
+}
+
+```
+</details>

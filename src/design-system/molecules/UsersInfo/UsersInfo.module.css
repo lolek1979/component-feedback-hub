@@ -1,0 +1,49 @@
+.container {
+  background: var(--color-white);
+  border-radius: 8px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+
+  .list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      .avatar {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: var(--color-black-100);
+        color: var(--color-black-950);
+        gap: 12px;
+      }
+
+      .info {
+        display: flex;
+        flex-direction: column;
+
+        .contact {
+          color: var(--text-tertiary);
+          text-decoration: none;
+          transition: color 0.2s;
+        }
+      }
+    }
+  }
+}
+
+:global(.dark) .container {
+  background-color: var(--color-black-950);
+}

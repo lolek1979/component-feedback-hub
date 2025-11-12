@@ -1,0 +1,18 @@
+.label {
+  display: inline-block;
+  margin-bottom: var(--spacing-4xs);
+  color: var(--text-primary);
+
+  .required {
+    color: inherit;
+    margin-left: var(--spacing-4xs);
+  }
+}
+
+.preventSelect {
+  user-select: none;
+}
+
+:global(.dark) .label {
+  color: var(--text-on-color);
+}

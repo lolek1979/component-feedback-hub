@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+
+  & .controlWrapper {
+    width: 208px;
+  }
+
+  & .searchContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-s);
+  }
+}

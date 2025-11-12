@@ -1,0 +1,12 @@
+node_modules
+.next
+yarn.lock
+public 
+coverage
+.gitkeep
+*.hbs
+*.mdx
+*.yaml
+docs
+
+.github

@@ -1,0 +1,12 @@
+.icon-scale-150 {
+  transform: scale(1.5);
+  transform-origin: center center;
+}
+.icon-scale-200 {
+  transform: scale(2);
+  transform-origin: center center;
+}
+.icon-scale-250 {
+  transform: scale(2.5);
+  transform-origin: center center;
+}

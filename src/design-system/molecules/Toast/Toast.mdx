@@ -1,0 +1,234 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+import Toast, {
+  Default,
+  WithCustomDuration,
+  WithInfinityDuration,
+  WithAction,
+} from './Toast.stories';
+
+<Meta of={Toast} />
+
+#### Design: <a href="https://www.figma.com/design/HtK3DbPIxodKas2jSTtrlH/Design-system?node-id=850-3451&t=Ulvus1xmXjDzIFeK-0" target="_blank" rel="noopener">Figma</a>
+
+# Toast
+
+The Toast component is used to display short notifications to the user. It supports several variants (success, error, info, warning) and can be triggered using the `toast` hook.
+
+It is based on the [Sonner](https://www.npmjs.com/package/sonner) package, which provides a simple and customizable toast notification system.
+
+## Examples
+
+### Default
+
+<Canvas of={Default} />
+
+You can trigger a toast using the `toast.success`, `toast.error`, `toast.info`, or `toast.warning` functions.
+
+```tsx
+import { toast } from './Toast';
+
+toast.success('Saved!');
+toast.error('An error occurred!');
+toast.info('Information.');
+toast.warning('Warning!');
+```
+
+### Custom Duration
+
+<Canvas of={WithCustomDuration} />
+
+```tsx
+import { 
+  
+} from './Toast';
+
+toast.info('Eight seconds duration toast', { duration: 8000 });
+```
+
+### Infinity Duration
+
+<Canvas of={WithInfinityDuration} />
+
+```tsx
+import { toast } from './Toast';
+
+toast.info('Infinity duration toast', { duration: Infinity });
+```
+
+### With action
+
+<Canvas of={WithAction} />
+
+```tsx
+import { toast } from './Toast';
+
+toast.error('error toast', {
+  action: {
+    label: 'Retry',
+    onClick: () => alert('retry clicked'),
+  },
+});
+```
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.toast {
+  width: auto;
+  max-width: 100%; /* https://www.figma.com/design/DngURPZLhkFPc0uX8St3TK/NIS-layouts?node-id=7591-60243&t=OGCh4qzh3bwSuJiD-4 */
+  min-height: var(--units-48);
+  background-color: var(--palette-alpha-200);
+  padding: var(--spacing-3xs) var(--spacing-xs);
+  border-radius: var(--radius-s);
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: var(--spacing-xs);
+  font-size: var(--size-14);
+  line-height: var(--line-height-20);
+  font-weight: var(--font-weight-600);
+  color: var(--text-primary);
+
+  & > div > div {
+    color: var(--text-primary);
+    font-size: var(--size-14);
+    line-height: var(--line-height-20);
+  }
+}
+
+.successToast {
+  background-color: var(--support-positive-subtle);
+  color: var(--support-positive);
+
+  & > div > div {
+    color: var(--support-positive);
+  }
+}
+
+.errorToast {
+  background-color: var(--support-negative-subtle);
+  color: var(--support-negative);
+
+  & > div > div {
+    color: var(--support-negative);
+  }
+}
+
+.infoToast {
+  background-color: var(--support-info-subtle);
+  color: var(--support-info);
+
+  & > div > div {
+    color: var(--support-info);
+  }
+}
+
+.warningToast {
+  background-color: var(--support-warning-subtle);
+  color: var(--support-warning);
+
+  & > div > div {
+    color: var(--support-warning);
+  }
+}
+
+.actionButton {
+  order: 2;
+  background: var(--button-on-color);
+  border: none;
+  border-radius: var(--radius-xs);
+  cursor: pointer;
+  padding: var(--spacing-3xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-primary);
+  font-size: var(--size-14);
+  line-height: var(--line-height-20);
+  font-weight: var(--font-weight-600);
+
+  &:hover {
+    background: var(--button-on-color-hover);
+  }
+
+  &:active {
+    background: var(--button-on-color-active);
+  }
+
+  &:focus {
+    outline: var(--border-m) solid var(--support-info);
+  }
+}
+
+.closeButton {
+  order: 3;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--units-24);
+  height: var(--units-24);
+  position: relative;
+  color: currentcolor;
+}
+
+/* Hide the default X and replace it with our custom SVG using pseudo-elements */
+.closeButton::before,
+.closeButton::after {
+  content: '';
+  position: absolute;
+  width: var(--units-2);
+  height: var(--units-14);
+  background-color: currentcolor;
+  border-radius: var(--radius-3xs);
+}
+
+.closeButton::before {
+  transform: rotate(45deg);
+}
+
+.closeButton::after {
+  transform: rotate(-45deg);
+}
+
+.closeButton > * {
+  display: none;
+}
+
+.closeIcon {
+  width: var(--units-20);
+  height: var(--units-20);
+  color: currentcolor;
+}
+
+.icon {
+  width: var(--units-24);
+  height: var(--units-24);
+  transform: translateY(var(--units-2));
+
+  &.success path {
+    fill: var(--support-positive);
+  }
+
+  &.error path {
+    fill: var(--support-negative);
+  }
+
+  &.info path {
+    fill: var(--support-info);
+  }
+
+  &.warning path {
+    fill: var(--support-warning);
+  }
+}
+
+```
+</details>

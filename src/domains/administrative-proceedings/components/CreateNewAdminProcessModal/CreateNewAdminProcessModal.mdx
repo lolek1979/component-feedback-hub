@@ -1,0 +1,71 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+
+import CreateNewAdminProcessModal, { Default } from './CreateNewAdminProcessModal.stories';
+
+<Meta of={CreateNewAdminProcessModal} />
+
+
+#### Design: <a href="https://www.figma.com/design/DngURPZLhkFPc0uX8St3TK/NIS-layouts?node-id=1980-53538&m=dev" target="_blank" rel="noopener">Figma</a>
+
+# CreateNewAdminProcessModal
+
+Opens a modal dialog that allows users to create a new admin process.
+
+<Canvas of={Default} />
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+
+### Default
+<Canvas of={Default} />
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.form-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+  margin-top: 16px;
+  margin-bottom: 16px;
+
+  .input-container {
+    width: 316px;
+  }
+
+  .label-container {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    padding-top: 8px;
+  }
+}
+
+.dotted-line {
+  border: 1px dotted var(--color-black-200);
+  width: 100%;
+  margin: 16px 0;
+}
+
+.modal-footer {
+  margin-top: 8px;
+  padding: 16px 0 0;
+}
+
+.button-group {
+  display: flex;
+  gap: 8px;
+  justify-content: end;
+}
+
+```
+</details>

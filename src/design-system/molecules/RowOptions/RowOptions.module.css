@@ -1,0 +1,52 @@
+.rowOptionsList {
+  width: 100%;
+  height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px 10px 0 5px;
+}
+
+.rowOptionsListItem {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: space-between;
+}
+
+.deleteItem {
+  border-top: var(--border-s) solid var(--border-primary) !important;
+}
+
+.rowOptionsItemButton {
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  outline: inherit;
+  margin-left: 10px;
+}
+
+.rowOptionsListItem:hover {
+  background-color: var(--color-black-50);
+}
+
+.rowOptionsContent {
+  display: flex;
+  align-items: center;
+}
+
+.rowOptionsText {
+  margin-left: 8px;
+}
+
+:global(.dark) .rowOptionsList {
+  .rowOptionsListItem:hover {
+    background-color: var(--color-black-850);
+  }
+
+  path {
+    fill: var(--icon-on-color) !important;
+  }
+}

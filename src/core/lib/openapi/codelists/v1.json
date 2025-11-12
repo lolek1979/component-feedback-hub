@@ -1,0 +1,2291 @@
+{
+  "openapi": "3.0.4",
+  "info": {
+    "title": "VZP NIS: CSC integration API",
+    "description": "VZP NIS: CSC integration API (Centralni sprava ciselniku)",
+    "version": "1.0",
+    "x-componentVersion": "1.0.0.0",
+    "x-domain": "WIP - Domena sdilenych sluzeb",
+    "x-componentName": "Centralni Sprava Ciselniku",
+    "x-id": "Vzp.CodeLists.Api"
+  },
+  "servers": [
+    {
+      "url": "/codelists",
+      "x-environment": "DEV1"
+    }
+  ],
+  "paths": {
+    "/api/rest/v1/codelists": {
+      "get": {
+        "tags": ["CodeLists"],
+        "summary": "Gets sumaries of code lists",
+        "description": "Without query parameters, it returns list of codelists valid at curent time.\n\nParameters id, usr and time are filters limiting data we want to retrieve.\n\nusr is user filter. If set to ID of user (GUID), function limits result to versions and drafts, \nwhere user has role of editor or garant.\n\nid limits result to single code list ID. If not used, all codelists are returned.\nThis may be usefull when you need stats of just one code list, or, with combination with time=all parameter,\nyou can list all versions of one code list.\n\nBy time we say that we want to see code lists data which was applying at the given moment.\nIf it is not set, code lists valid at current time are returned.\nIt also supports value \"all\". In that case function returs all versions of code list(s)\nOtherwise the value must be string parseable into date-time format (ideally date in ISO format)",
+        "parameters": [
+          {
+            "name": "time",
+            "in": "query",
+            "description": "Time we want version valid at",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "Limit to single code list ID",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "usr",
+            "in": "query",
+            "description": "UserId",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CodeListSummary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-authorizations": {
+          "roles": ["NIS.CodeList-Reader"]
+        }
+      }
+    },
+    "/api/rest/v1/codelists/{id}": {
+      "get": {
+        "tags": ["CodeLists"],
+        "summary": "Gets code list",
+        "description": "If time is set, returns version of code list applying at that time.\nOtherwise returns current version, applying at this moment.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Code list identificator",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "time",
+            "in": "query",
+            "description": "Date time I want code list version from",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Found version of codelist valid for given time",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CodeListVersionInfo"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Code list with given ID does not exist or does not apply at given time",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "x-authorizations": {
+          "roles": ["NIS.CodeList-Reader"]
+        }
+      }
+    },
+    "/api/rest/v1/codelists/bycode": {
+      "post": {
+        "tags": ["CodeLists"],
+        "summary": "Gets code list",
+        "description": "If time is set, returns version of code list applying at that time.\nOtherwise returns current version, applying at this moment.",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "description": "Code list identificator",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "time",
+            "in": "query",
+            "description": "Date time I want code list version from",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Found version of codelist valid for given time",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CodeListVersionInfo"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Code list with given code does not exist or does not apply at given time",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "x-authorizations": {
+          "roles": ["NIS.CodeList-Reader"]
+        }
+      }
+    },
+    "/api/rest/v1/codelists/versions/{id}": {
+      "get": {
+        "tags": ["CodeLists"],
+        "summary": "Gets code list version by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Code list version",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Content paging - data rows to skip",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Content paging - data rows to take",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "Column name to order content data by",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "asc",
+            "in": "query",
+            "description": "Sort content data in ascending order",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CodeListVersionInfoResult"
+                }
+              }
+            }
+          }
+        },
+        "x-authorizations": {
+          "roles": ["NIS.CodeList-Reader"]
+        }
+      }
+    },
+    "/api/rest/v1/codelists/versions/{id}/data": {
+      "get": {
+        "tags": ["CodeLists"],
+        "summary": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "asc",
+            "in": "query",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StringIListPagedResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "x-authorizations": {
+          "roles": ["NIS.CodeList-Reader"]
+        }
+      }
+    },
+    "/api/rest/v1/codelists/versions/{id}/garants/add": {
+      "post": {
+        "tags": ["CodeLists"],
+        "summary": "Adds garants to version",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID verze",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "ID uživatelů, kterým má být přidělena role garanta",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Role byla přidělena"
+          },
+          "400": {
+            "description": "Neexistující ID uživatele",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Neexistující ID verze",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "x-authorizations": {
+          "roles": ["NIS.CodeList-Publisher"]
+        }
+      }
+    },
+    "/api/rest/v1/codelists/versions/{id}/garants/remove": {
+      "post": {
+        "tags": ["CodeLists"],
+        "summary": "Removes garants from version",
+        "description": "Vrací vždy HTTP 204. Pokud je zadáno neexistující ID verze, nebo uživatele, nebo uživatel roli garanta nemá, je to\r\nbráno jako že role přidělena není a operace se považuje za úspěšnou.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID verze",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "ID uživatelů, kterým má být odebrána role garanta",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Role byla odebrána"
+          }
+        },
+        "x-authorizations": {
+          "roles": ["NIS.CodeList-Publisher"]
+        }
+      }
+    },
+    "/api/rest/v1/codelists/import": {
+      "post": {
+        "tags": ["CodeLists"],
+        "summary": "Imports draft as a draft of new codelist",
+        "description": "Single file import (data and structure in one file) is so far unimplemented. Do not send request.StructureAndDataFile.",
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "StructureAndDataFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "StructureFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "DataFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "Name": {
+                    "maxLength": 100,
+                    "type": "string"
+                  },
+                  "Description": {
+                    "maxLength": 500,
+                    "type": "string"
+                  },
+                  "Garants": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "uuid"
+                    }
+                  },
+                  "Editors": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "uuid"
+                    }
+                  },
+                  "ValidFrom": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "VersionType": {
+                    "$ref": "#/components/schemas/VersionType"
+                  },
+                  "Code": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "StructureAndDataFile": {
+                  "style": "form"
+                },
+                "StructureFile": {
+                  "style": "form"
+                },
+                "DataFile": {
+                  "style": "form"
+                },
+                "Name": {
+                  "style": "form"
+                },
+                "Description": {
+                  "style": "form"
+                },
+                "Garants": {
+                  "style": "form"
+                },
+                "Editors": {
+                  "style": "form"
+                },
+                "ValidFrom": {
+                  "style": "form"
+                },
+                "VersionType": {
+                  "style": "form"
+                },
+                "Code": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "x-authorizations": {
+          "roles": ["NIS.CodeList-Editor,NIS.CodeList-Publisher"]
+        }
+      }
+    },
+    "/api/rest/v1/drafts": {
+      "get": {
+        "tags": ["Drafts"],
+        "summary": "Gets list of drafts",
+        "description": "If you want to list draft just for one particular code list, use parameter codeListId",
+        "parameters": [
+          {
+            "name": "codeListId",
+            "in": "query",
+            "description": "code list ID",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/DraftSummary"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-authorizations": {
+          "roles": ["NIS.CodeList-Editor,NIS.CodeList-Publisher,NIS.CodeList-Reader"]
+        }
+      },
+      "post": {
+        "tags": ["Drafts"],
+        "summary": "Creates new draft",
+        "requestBody": {
+          "description": "",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DraftCreateRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DraftCreateRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DraftCreateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Draft was created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/DraftCreateResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Validation errors"
+          }
+        },
+        "x-authorizations": {
+          "roles": ["NIS.CodeList-Editor,NIS.CodeList-Publisher"]
+        }
+      }
+    },
+    "/api/rest/v1/codelists/{id}/drafts": {
+      "get": {
+        "tags": ["Drafts"],
+        "summary": "Gets list of drafts for specified code list",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of code list we want drafts for",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Draft with given ID was not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "200": {
+            "description": "OK"
+          }
+        },
+        "x-authorizations": {
+          "roles": ["NIS.CodeList-Editor,NIS.CodeList-Publisher,NIS.CodeList-Reader"]
+        }
+      }
+    },
+    "/api/rest/v1/codelists/versions/{id}/unpublish": {
+      "post": {
+        "tags": ["Drafts"],
+        "summary": "Unpublishes version of code list",
+        "description": "Unpublishes version of codelist and makes it draft with state \"editing\".\nOnly versions applying in future can be unpublished. Current version or past versions must remain\nunchanged and unpublishing is not possible.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID of version",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GuidResult"
+                }
+              }
+            }
+          }
+        },
+        "x-authorizations": {
+          "roles": ["NIS.CodeList-Publisher"]
+        }
+      }
+    },
+    "/api/rest/v1/drafts/{id}": {
+      "put": {
+        "tags": ["Drafts"],
+        "summary": "Updates draft",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Draft ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Data to update",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DraftUpdateRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/DraftUpdateRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/DraftUpdateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Draft was updated"
+          },
+          "400": {
+            "description": "Validation errors",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "x-authorizations": {
+          "roles": ["NIS.CodeList-Editor,NIS.CodeList-Publisher"]
+        }
+      },
+      "get": {
+        "tags": ["Drafts"],
+        "summary": "Gets draft",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "id of draft",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "skip",
+            "in": "query",
+            "description": "Content data paging - rows to skip",
+            "schema": {
+              "type": "integer",
+              "format": "int32",
+              "default": 0
+            }
+          },
+          {
+            "name": "take",
+            "in": "query",
+            "description": "Content data paging - rows to take",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "order",
+            "in": "query",
+            "description": "Column name to order content data by",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "asc",
+            "in": "query",
+            "description": "Sort content data in ascending order",
+            "schema": {
+              "type": "boolean",
+              "default": true
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Found and returned",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Draft"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Code list with given ID does not exist",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "x-authorizations": {
+          "roles": ["NIS.CodeList-Editor,NIS.CodeList-Publisher,NIS.CodeList-Reader"]
+        }
+      },
+      "delete": {
+        "tags": ["Drafts"],
+        "summary": "Deletes draft",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Draft id",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              }
+            }
+          }
+        },
+        "x-authorizations": {
+          "roles": ["NIS.CodeList-Editor,NIS.CodeList-Publisher"]
+        }
+      }
+    },
+    "/api/rest/v1/drafts/{id}/structure": {
+      "get": {
+        "tags": ["Drafts"],
+        "summary": "Gets draft structure",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Draft ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/StructureDefinition"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Sent draft id does not exist",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "x-authorizations": {
+          "roles": ["NIS.CodeList-Editor,NIS.CodeList-Publisher,NIS.CodeList-Reader"]
+        }
+      },
+      "patch": {
+        "tags": ["Drafts"],
+        "summary": "Updates structure of code list draft",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StructureDefinition"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/StructureDefinition"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/StructureDefinition"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Structure was successfully updated"
+          },
+          "404": {
+            "description": "Sent draft id does not exist",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "There are validation errors"
+          }
+        },
+        "x-authorizations": {
+          "roles": ["NIS.CodeList-Editor,NIS.CodeList-Publisher"]
+        }
+      }
+    },
+    "/api/rest/v1/drafts/{id}/state": {
+      "post": {
+        "tags": ["Drafts"],
+        "summary": "Updates draft state",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Draft ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "state",
+            "in": "query",
+            "description": "State to be set",
+            "required": true,
+            "schema": {
+              "$ref": "#/components/schemas/DraftState"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Result"
+                }
+              }
+            }
+          }
+        },
+        "x-authorizations": {
+          "roles": ["NIS.CodeList-Editor,NIS.CodeList-Publisher"]
+        }
+      }
+    },
+    "/api/rest/v1/codelists/{id}/drafts/import": {
+      "post": {
+        "tags": ["Drafts"],
+        "summary": "Imports new draft under codelist",
+        "description": "Single file import (data and structure in one file) is so far unimplemented. Do not send request.StructureAndDataFile.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Code list ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "StructureAndDataFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "StructureFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "DataFile": {
+                    "type": "string",
+                    "format": "binary"
+                  },
+                  "Name": {
+                    "maxLength": 100,
+                    "type": "string"
+                  },
+                  "Description": {
+                    "maxLength": 500,
+                    "type": "string"
+                  },
+                  "Garants": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "uuid"
+                    }
+                  },
+                  "Editors": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "uuid"
+                    }
+                  },
+                  "ValidFrom": {
+                    "type": "string",
+                    "format": "date-time"
+                  },
+                  "VersionType": {
+                    "$ref": "#/components/schemas/VersionType"
+                  },
+                  "Code": {
+                    "type": "string"
+                  }
+                }
+              },
+              "encoding": {
+                "StructureAndDataFile": {
+                  "style": "form"
+                },
+                "StructureFile": {
+                  "style": "form"
+                },
+                "DataFile": {
+                  "style": "form"
+                },
+                "Name": {
+                  "style": "form"
+                },
+                "Description": {
+                  "style": "form"
+                },
+                "Garants": {
+                  "style": "form"
+                },
+                "Editors": {
+                  "style": "form"
+                },
+                "ValidFrom": {
+                  "style": "form"
+                },
+                "VersionType": {
+                  "style": "form"
+                },
+                "Code": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "x-authorizations": {
+          "roles": ["NIS.CodeList-Editor,NIS.CodeList-Publisher"]
+        }
+      }
+    },
+    "/api/rest/v1/drafts/{id}/data": {
+      "patch": {
+        "tags": ["Drafts"],
+        "summary": "Updates data of code list draft",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Content was successfully updated"
+          },
+          "404": {
+            "description": "Sent draft id does not exist",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "There are validation errors"
+          }
+        },
+        "x-authorizations": {
+          "roles": ["NIS.CodeList-Editor,NIS.CodeList-Publisher"]
+        }
+      }
+    },
+    "/api/rest/v1/drafts/{id}/data/update": {
+      "post": {
+        "tags": ["Drafts"],
+        "summary": "Updates data of code list draft",
+        "description": "Příklad těla requestu\n```\n{\n  \"delete\": [0, 5],\n  \"update\": {\n    \"1\" : [\"Aktualizovaná hodnota pro první sloupec řádku s indexem 1\", \"Aktualizovaná hodnota pro druhý sloupec řádku s indexem 1\"], \n    \"5\" : [\"Aktualizovaná hodnota pro první sloupec řádku s indexem 5\", \"Aktualizovaná hodnota pro druhý sloupec řádku s indexem 5\"] \n  },\n \"add\": [\n   {\n      \"rowNr\": 3,\n      \"values\": [\"Hodnota pro první sloupec nového řádku s indexem 3\", \"Hodnota pro druhý sloupec nového řádku s indexem 3\"]\n   },\n   {\n      \"values\": [\"Hodnota pro první sloupec nového řádku na konci tabulky\", \"Hodnota pro druhý sloupec nového řádku na konci tabulky\"]\n   }\n ]\n}\n```",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RowsUpdateRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RowsUpdateRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/RowsUpdateRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Content was successfully updated"
+          },
+          "404": {
+            "description": "Sent draft id does not exist",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "There are validation errors"
+          }
+        },
+        "x-authorizations": {
+          "roles": ["NIS.CodeList-Editor,NIS.CodeList-Publisher"]
+        }
+      }
+    },
+    "/api/rest/v1/drafts/{id}/publish": {
+      "post": {
+        "tags": ["Drafts"],
+        "summary": "Publishes draft",
+        "description": "Draft, má-li být vypublikován, musí vyhovět následujícím validacím:        \r\n- Validace dat (obsahu). \r\n    - Obsah nesmí být prázdný. Tzn. ve struktuře musí být definováno alespoň jedno pole (sloupec) a data musí obsahovat alespoň jeden řádek.\r\n    - Data (drafts/{id}/data) můsí odpovídat nastavením sloupce, definovaným ve struktuře (drafts/{id}/structure). Datový typ, validace atd.\r\n- Začátek platnosti (pole \"validFrom\") nesmí být v minulosti.\r\n- Má-li draft kód (\"code\" != null), nesmí po dobu jeho platnosti být v platnosti i jiná verze jiného číselníku se stejným kódem.         ",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Draft ID",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GuidResult"
+                }
+              }
+            }
+          }
+        },
+        "x-authorizations": {
+          "roles": ["NIS.CodeList-Publisher"]
+        }
+      }
+    },
+    "/api/rest/v1/drafts/{id}/garants/add": {
+      "post": {
+        "tags": ["Drafts"],
+        "summary": "Adds garants to draft",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID draftu",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "ID uživatelů, kterým má být přidělena role garanta",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Role byla přidělena"
+          },
+          "400": {
+            "description": "Neexistující ID uživatele",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Neexistující ID draftu",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "x-authorizations": {
+          "roles": ["NIS.CodeList-Publisher"]
+        }
+      }
+    },
+    "/api/rest/v1/drafts/{id}/garants/remove": {
+      "post": {
+        "tags": ["Drafts"],
+        "summary": "Removes garants from draft",
+        "description": "Vrací vždy HTTP 204. Pokud je zadáno neexistující ID draftu, nebo uživatele, nebo uživatel roli garanta nemá, je to\r\nbráno jako že role přidělena není a operace se považuje za úspěšnou.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID draftu",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "ID uživatelů, kterým má být odebrána role garanta",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Role byla odebrána"
+          }
+        },
+        "x-authorizations": {
+          "roles": ["NIS.CodeList-Publisher"]
+        }
+      }
+    },
+    "/api/rest/v1/drafts/{id}/editors/add": {
+      "post": {
+        "tags": ["Drafts"],
+        "summary": "Adds garants to draft",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID draftu",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "ID uživatelů, kterým má být přidělena role editora",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Role byla přidělena"
+          },
+          "400": {
+            "description": "Neexistující ID uživatele",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Neexistující ID draftu",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProblemDetails"
+                }
+              }
+            }
+          }
+        },
+        "x-authorizations": {
+          "roles": ["NIS.CodeList-Publisher"]
+        }
+      }
+    },
+    "/api/rest/v1/drafts/{id}/editors/remove": {
+      "post": {
+        "tags": ["Drafts"],
+        "summary": "Removes garants from draft",
+        "description": "Vrací vždy HTTP 204. Pokud je zadáno neexistující ID draftu, nebo uživatele, nebo uživatel roli editora nemá, je to\r\nbráno jako že role přidělena není a operace se považuje za úspěšnou.",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID draftu",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "ID uživatelů, kterým má být odebrána role editora",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "string",
+                  "format": "uuid"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Role byla odebrána"
+          }
+        },
+        "x-authorizations": {
+          "roles": ["NIS.CodeList-Publisher"]
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "CodeListSummary": {
+        "required": ["drafts", "id", "versions"],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "versions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/VersionSummary"
+            },
+            "nullable": true
+          },
+          "drafts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/DraftSummary2"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CodeListVersionInfo": {
+        "required": ["content"],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "codeListId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "validFrom": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "content": {
+            "type": "string",
+            "nullable": true
+          },
+          "versionType": {
+            "$ref": "#/components/schemas/VersionType"
+          },
+          "garants": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Person"
+            },
+            "nullable": true
+          },
+          "editors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Person"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CodeListVersionInfoResult": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "$ref": "#/components/schemas/ResultState"
+          },
+          "messages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResultMessage"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "payload": {
+            "$ref": "#/components/schemas/CodeListVersionInfo"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Draft": {
+        "required": ["code", "content", "description", "editors", "garants", "name", "structure"],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "codeListId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "validFrom": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "versionType": {
+            "$ref": "#/components/schemas/VersionType"
+          },
+          "state": {
+            "$ref": "#/components/schemas/DraftState"
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "structure": {
+            "$ref": "#/components/schemas/StructureDefinition"
+          },
+          "content": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nullable": true
+          },
+          "contentTotalCount": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "garants": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Person"
+            },
+            "nullable": true
+          },
+          "editors": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Person"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DraftCreateRequest": {
+        "required": ["name", "versionType"],
+        "type": "object",
+        "properties": {
+          "codeListId": {
+            "type": "string",
+            "format": "uuid",
+            "nullable": true
+          },
+          "name": {
+            "maxLength": 100,
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "maxLength": 100,
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "maxLength": 500,
+            "type": "string",
+            "nullable": true
+          },
+          "validFrom": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "garants": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          },
+          "editors": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "nullable": true
+          },
+          "versionType": {
+            "$ref": "#/components/schemas/VersionType"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DraftCreateResponse": {
+        "type": "object",
+        "properties": {
+          "draftId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "codeListId": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "DraftState": {
+        "enum": ["Editing", "WaitingForApproval", "Rejected"],
+        "type": "string"
+      },
+      "DraftSummary": {
+        "required": ["code", "description", "name"],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "codeListId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "validFrom": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "versionType": {
+            "$ref": "#/components/schemas/VersionType"
+          },
+          "state": {
+            "$ref": "#/components/schemas/DraftState"
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DraftSummary2": {
+        "required": ["description", "name"],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "validFrom": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "versionType": {
+            "$ref": "#/components/schemas/VersionType"
+          },
+          "state": {
+            "$ref": "#/components/schemas/DraftState"
+          },
+          "garants": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Person"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "DraftUpdateRequest": {
+        "type": "object",
+        "properties": {
+          "codeListId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "validFrom": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "versionType": {
+            "$ref": "#/components/schemas/VersionType"
+          }
+        },
+        "additionalProperties": false
+      },
+      "FieldDefinition": {
+        "required": ["name", "valueType"],
+        "type": "object",
+        "properties": {
+          "index": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "length": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "valueType": {
+            "$ref": "#/components/schemas/FieldValueType"
+          },
+          "valueFormat": {
+            "type": "string",
+            "nullable": true
+          },
+          "validations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationDefinition"
+            },
+            "nullable": true
+          },
+          "default": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "FieldValueType": {
+        "enum": ["String", "Integer", "DateTime", "Decimal"],
+        "type": "string"
+      },
+      "GuidResult": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "$ref": "#/components/schemas/ResultState"
+          },
+          "messages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResultMessage"
+            },
+            "nullable": true,
+            "readOnly": true
+          },
+          "payload": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "NewRow": {
+        "required": ["values"],
+        "type": "object",
+        "properties": {
+          "rowNr": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "values": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Person": {
+        "required": ["abbrev", "fullName"],
+        "type": "object",
+        "properties": {
+          "abbrev": {
+            "type": "string",
+            "nullable": true
+          },
+          "fullName": {
+            "type": "string",
+            "nullable": true
+          },
+          "mail": {
+            "type": "string",
+            "nullable": true
+          },
+          "department": {
+            "type": "string",
+            "nullable": true
+          },
+          "businessPhones": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "nullable": true
+          },
+          "id": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProblemDetails": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "detail": {
+            "type": "string",
+            "nullable": true
+          },
+          "instance": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": {}
+      },
+      "Result": {
+        "type": "object",
+        "properties": {
+          "state": {
+            "$ref": "#/components/schemas/ResultState"
+          },
+          "messages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResultMessage"
+            },
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResultMessage": {
+        "type": "object",
+        "properties": {
+          "severity": {
+            "$ref": "#/components/schemas/ResultMessageSeverity"
+          },
+          "code": {
+            "type": "string",
+            "nullable": true
+          },
+          "data": {
+            "type": "object",
+            "additionalProperties": {},
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ResultMessageSeverity": {
+        "enum": ["Debug", "Info", "Warning", "Error", "Critical"],
+        "type": "string"
+      },
+      "ResultState": {
+        "enum": ["Success", "Failure"],
+        "type": "string"
+      },
+      "RowsUpdateRequest": {
+        "type": "object",
+        "properties": {
+          "delete": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            },
+            "nullable": true
+          },
+          "update": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nullable": true
+          },
+          "add": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/NewRow"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "StringIListPagedResponse": {
+        "required": ["records", "totalCount"],
+        "type": "object",
+        "properties": {
+          "records": {
+            "type": "array",
+            "items": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "nullable": true
+          },
+          "totalCount": {
+            "type": "integer",
+            "format": "int64"
+          }
+        },
+        "additionalProperties": false
+      },
+      "StructureDefinition": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "string",
+            "nullable": true
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "fields": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/FieldDefinition"
+            },
+            "nullable": true
+          },
+          "validations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ValidationDefinition"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "ValidationDefinition": {
+        "required": ["message", "validatorType"],
+        "type": "object",
+        "properties": {
+          "validatorType": {
+            "type": "string",
+            "nullable": true
+          },
+          "parameters": {
+            "type": "object",
+            "additionalProperties": {},
+            "nullable": true
+          },
+          "message": {
+            "$ref": "#/components/schemas/ResultMessage"
+          }
+        },
+        "additionalProperties": false
+      },
+      "VersionSummary": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "validFrom": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "validTo": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "versionType": {
+            "$ref": "#/components/schemas/VersionType"
+          },
+          "garants": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Person"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "VersionType": {
+        "enum": ["Internal", "InternalPublic", "InternalPaid", "External"],
+        "type": "string"
+      }
+    },
+    "securitySchemes": {
+      "oauth2": {
+        "type": "oauth2",
+        "description": "NIS Entra ID Authentication",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": "https://login.microsoftonline.com/1174b7b3-9af8-43df-a3b2-06d8ee22d679/oauth2/v2.0/authorize",
+            "scopes": {
+              "api://aab79b2b-b221-460b-9208-29d471e120bc/access_as_user": "access_as_user"
+            }
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "oauth2": []
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+import { Canvas, Meta, Controls, Story } from '@storybook/blocks';
+import DetailTab, { Default, Draft} from './DetailTab.stories';
+
+<Meta of={DetailTab} />
+
+#### Design: <a href="https://www.figma.com/design/X6VaqX3yF7GOyaVg2qLbdY/MVP-design?node-id=2553-10406&t=1Dmi8kzDO83YN7nm-4" target="_blank" rel="noopener">Figma</a>
+
+# DetailsTab
+
+The DetailsTab component displays detailed information in a structured list format. It provides a clear and organized view of entity details such as title, identifier, description, and other metadata.
+
+## Usage
+
+The DetailsTab component can be used to display comprehensive information about any entity in your application:
+
+<Story of={Default} />
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+
+
+### Default
+<Canvas of={Default} />
+
+### Draft
+<Canvas of={Draft} />

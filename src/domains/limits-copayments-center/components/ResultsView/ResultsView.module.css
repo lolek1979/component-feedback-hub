@@ -1,0 +1,44 @@
+.resultHeaderContainer {
+  padding: 0 var(--spacing-m) var(--spacing-m) var(--spacing-m);
+}
+
+.tabContainer {
+  padding: var(--spacing-m);
+}
+
+.tabList {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+.errorContainer {
+  margin: var(--spacing-3xs) 0;
+  padding: 0 var(--spacing-m) var(--spacing-m) var(--spacing-m);
+}
+
+.errorContainerInner {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.errorMessage {
+  flex: 1;
+}
+
+.iconError {
+  color: var(--color-red-400);
+}
+
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-s) 0;
+}
+
+.nextBtnWrapper {
+  display: flex;
+  justify-content: center;
+  margin: var(--spacing-s) 0;
+}

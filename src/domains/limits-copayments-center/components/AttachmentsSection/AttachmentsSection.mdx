@@ -1,0 +1,85 @@
+# AttachmentsSection
+
+A comprehensive section component for file attachments that combines a header with title, badge, and description with the AttachmentsUpload component. The badge automatically displays the count of uploaded files.
+
+## Features
+
+- **Dynamic badge**: Badge automatically updates with the count of uploaded files
+- **Header section**: Includes title, badge, optional text, and description
+- **File upload**: Integrates AttachmentsUpload component for file management
+- **Customizable**: Configurable file limits, size restrictions, and accepted file types
+- **Flexible styling**: Badge color can be customized based on state
+
+## Usage
+
+```tsx
+import { AttachmentsSection } from '@/domains/limits-copayments-center/components/AttachmentsSection';
+
+function MyComponent() {
+  const [files, setFiles] = useState<File[]>([]);
+
+  const handleFilesChange = (selectedFiles: File[]) => {
+    setFiles(selectedFiles);
+  };
+
+  return (
+    <AttachmentsSection
+      title="Přílohy"
+      badgeColor="gray"
+      optionalText="(nepovinné)"
+      description="Nahrajte účtenky, faktury nebo plné moci."
+      onFilesChange={handleFilesChange}
+      maxFiles={5}
+      maxFileSize={10}
+    />
+  );
+}
+```
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.container {
+  display: flex;
+  width: 629px;
+  padding: var(--spacing-2xs) 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-xs);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xs);
+  width: 100%;
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2xs);
+}
+
+.optionalText {
+  color: var(--text-tertiary, #70707B);
+  font-family: var(--Family-Inter, Inter);
+  font-size: var(--Size-14, 14px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: var(--Line-height-20, 20px);
+}
+
+.description {
+  color: var(--text-primary, #19191A);
+  font-family: var(--family-Inter, Inter);
+  font-size: var(--size-14, 14px);
+  font-style: normal;
+  font-weight: 400;
+  line-height: var(--line-height-20, 20px);
+}
+```
+</details>

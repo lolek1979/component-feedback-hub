@@ -1,0 +1,18 @@
+.logoutPage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  min-height: 100vh;
+  gap: 32px;
+  padding: 16px;
+
+  .logo {
+    width: 100%;
+  }
+}
+
+:global(.dark) .logoutPage {
+  background-color: var(--palette-grey-950);
+}

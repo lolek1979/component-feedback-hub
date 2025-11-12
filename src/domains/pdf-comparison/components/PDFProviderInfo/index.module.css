@@ -1,0 +1,53 @@
+.pdfProviderWrapper {
+  background-color: var(--color-background-secondary);
+  border-radius: var(--radius-m);
+  width: 100%;
+}
+
+.infoList {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: var(--spacing-m);
+  margin: 0;
+  padding: 0;
+}
+
+.infoList li {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4xs);
+}
+
+:global(.dark) .pdfProviderWrapper {
+  li {
+    color: var(--text-on-color);
+  }
+
+  .listValue {
+    color: var(--text-on-color);
+  }
+}
+
+@media (max-width: 1024px) {
+  .infoList {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-s);
+  }
+}
+
+@media (max-width: 768px) {
+  .infoList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .infoList {
+    grid-template-columns: 1fr;
+  }
+
+  .pdfProviderWrapper {
+    padding: var(--spacing-xs);
+  }
+}

@@ -1,0 +1,196 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+
+import StatusTrack, { Default } from './StatusTrack.stories';
+
+<Meta of={StatusTrack} />
+
+
+#### Design: <a href="https://www.figma.com/design/vWA0LlPduDiPJvjPjDCvI3/Design-system-0.1?node-id=2202-29381&t=dm1AYCkNTpyaTL4U-4" target="_blank" rel="noopener">Figma</a>
+
+# StatusTrack
+
+The StatusTrack component displays a vertical progression of steps with visual indicators for their status.
+It supports multiple states including active, completed, and disabled steps, with optional badges for additional context.
+This component is commonly used to visualize progress through multi-step processes, workflows, or as sub-steps within a larger stepper interface.
+
+<Canvas of={Default} />
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+
+### Default
+<Canvas of={Default} />
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.status-track-wrapper {
+  .status-track {
+    display: flex;
+    gap: var(--spacing-s);
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .status-item-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .status-item {
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+    width: 100%;
+
+    &.disabled {
+      color: var(--text-disabled);
+      cursor: not-allowed;
+    }
+  }
+
+  .status-icon-container {
+    margin-right: var(--units-12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .status-content {
+    flex: var(--units-1);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .status-label {
+    font-size: var(--size-14);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-4xs);
+    font-weight: var(--font-weight-400);
+    transition: font-weight 0.1s;
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      font-weight: var(--font-weight-600);
+    }
+  }
+
+  .status-badge {
+    padding: var(--spacing-5xs) var(--spacing-3xs);
+    border-radius: var(--units-10);
+    font-size: var(--size-12);
+    background-color: var(--button-secondary);
+    color: var(---text-disabled);
+    align-self: flex-end;
+    margin-left: 0;
+  }
+
+  .connector {
+    position: absolute;
+    left: var(--spacing-3xs);
+    top: var(--spacing-s);
+    width: 0.5px;
+    background-color: var(--border-subtle);
+    transform: translateX(-50%);
+    z-index: 1;
+    min-height: var(--spacing-s);
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+
+  .connector-wrapper {
+    position: absolute;
+    left: var(--spacing-3xs);
+    top: var(--spacing-s);
+    transform: translateX(-50%);
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .connector-divider {
+    margin: 0;
+    min-height: 26px;
+  }
+
+  .active-icon-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .pulse-effect {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: var(--support-positive);
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    animation: pulse-wave 2s infinite;
+    opacity: 0.6;
+  }
+
+  .active-icon-wrapper svg {
+    position: relative;
+    z-index: 2;
+  }
+
+  @keyframes pulse-wave {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.6;
+    }
+
+    100% {
+      transform: translate(-50%, -50%) scale(2);
+      opacity: 0;
+    }
+  }
+
+  :global(.dark) & {
+    .status-item {
+      &.disabled {
+        color: var(--palette-grey-600);
+      }
+    }
+
+    .status-label {
+      color: var(--palette-grey-0);
+    }
+
+    .status-badge {
+      background-color: var(--palette-alpha-200);
+      color: var(--palette-grey-300);
+    }
+
+    .connector {
+      background-color: var(--border-subtle);
+    }
+  }
+}
+
+```
+</details>

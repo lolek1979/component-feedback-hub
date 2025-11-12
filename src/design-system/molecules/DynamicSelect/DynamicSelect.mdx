@@ -1,0 +1,38 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+
+import DynamicSelect, { Default } from './DynamicSelect.stories';
+
+<Meta of={DynamicSelect} />
+
+#### Design: <a href="https://www.figma.com/design/HtK3DbPIxodKas2jSTtrlH/Design-system?node-id=218-4314&p=f&m=dev" target="_blank" rel="noopener">Figma</a>
+
+# DynamicSelect
+
+DynamicSelect is a reusable dropdown component designed to dynamically populate its options from a remote code list based on a provided identifier (code).
+It supports flexible configuration of labels and values, making it suitable for various data-driven forms and UI scenarios.
+
+<Canvas of={Default} />
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+
+### Default
+
+<Canvas of={Default} />
+
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.container {
+  width: 100%;
+}
+
+```
+</details>

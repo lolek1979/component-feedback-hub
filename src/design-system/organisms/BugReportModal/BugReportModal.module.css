@@ -1,0 +1,61 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formField {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.formField textarea {
+  min-height: 120px;
+  width: 100%;
+  resize: vertical;
+}
+
+.descriptionLabel {
+  font-weight: 400 !important;
+}
+
+.screenshotSection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  gap: 10px;
+}
+
+.screenshotPreviewContainer {
+  position: relative;
+  width: 120px;
+  height: 80px;
+  border: 1px solid #b9b9c0;
+  border-radius: 3px;
+}
+
+.screenshotPreviewImage {
+  object-fit: cover;
+}
+
+.deleteButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.deleteIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 8px;
+  gap: var(--spacing-2xs);
+}

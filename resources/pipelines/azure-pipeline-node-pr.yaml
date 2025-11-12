@@ -1,0 +1,130 @@
+pool:
+  vmImage: 'ubuntu-24.04'
+
+trigger: none
+
+pr:
+- main
+
+resources:
+  repositories:
+    - repository: workspace
+      type: git
+      name: workspace
+      ref: main
+
+stages:
+
+- stage: build
+  displayName: Build
+
+  jobs:
+  - job: build
+    displayName: Build
+
+    steps:
+    - checkout: workspace
+      displayName: Checkout workspace
+
+    - checkout: self
+      displayName: Checkout self
+      fetchDepth: '0'
+      workspaceRepo: true
+
+    - task: CopyFiles@2
+      displayName: 'Copy Files from workspace to: $(Agent.BuildDirectory)'
+      inputs:
+        Contents: |
+          $(Agent.BuildDirectory)/s/workspace/global.json
+        TargetFolder: '$(Agent.BuildDirectory)'
+        OverWrite: true    
+        flattenFolders: true    
+
+    - task: UseDotNet@2
+      displayName: 'Use .NET Core SDK from global.json' 
+      inputs: 
+        useGlobalJson: true
+        workingDirectory: '$(Agent.BuildDirectory)'
+      
+    - task: gitversion/setup@3
+      displayName: 'Setup GitVersion'
+      inputs:
+        versionSpec: '6.0.x'
+
+    - task: gitversion/execute@3
+      displayName: Determine Version
+      inputs:
+        targetPath: '$(System.DefaultWorkingDirectory)'
+        useConfigFile: true
+        configFilePath: $(Agent.BuildDirectory)/s/workspace/resources/pipelines/gitversion.yml
+
+    - task: DeleteFiles@1
+      displayName: 'Remove unneeded files'
+      continueOnError: true
+      inputs:
+        contents: |
+          yarn.lock
+
+    - task: NodeTool@0
+      displayName: 'Install Node.js'
+      inputs:
+        versionSpec: '20.18.0'
+
+    - task: npmAuthenticate@0
+      displayName: 'Authenticate to Azure Artifacts feed'
+      inputs:
+        workingFile: .npmrc
+
+    - script: |
+        npm install
+      displayName: 'npm install'
+
+    - script: |
+        npm audit
+      displayName: 'npm audit'
+      continueOnError: true
+
+    - script: |
+        npm run test
+      displayName: 'npm run test'
+
+    - script: |
+        npm run prettier:check
+      displayName: 'npm run prettier:check'
+      continueOnError: true
+
+    - script: |
+        npm run lint
+      displayName: 'npm run lint'
+      continueOnError: true
+
+    - script: |
+        npm run lint:css
+      displayName: 'npm run lint:css'
+      continueOnError: true
+
+    - script: |
+        npm run test:coverage -- --coverageReporters=cobertura
+      displayName: 'npm run test:coverage'
+      continueOnError: true
+
+    - task: PublishTestResults@2
+      displayName: 'Publish Test Results'
+      condition: succeededOrFailed()
+      continueOnError: true
+      inputs:
+        testRunner: JUnit
+        testResultsFiles: '**/junit.xml'
+        failTaskOnMissingResultsFile: false
+        mergeTestResults: true
+
+    - task: PublishCodeCoverageResults@2
+      displayName: 'Publish Code Coverage Results'
+      continueOnError: true
+      inputs:
+        failIfCoverageEmpty: false       
+        summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/coverage/cobertura-coverage.xml'
+
+    - script: |
+        npm run build
+      displayName: 'build'

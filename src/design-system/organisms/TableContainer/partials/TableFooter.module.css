@@ -1,0 +1,43 @@
+.tableFooterContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 20px;
+  align-items: center;
+}
+
+.footerLeft {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.selectContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  position: absolute;
+}
+
+.selectContainer .select [role='button'],
+.selectContainer .select span {
+  border: none !important;
+}
+
+@media (max-width: 900px) {
+  .rowsPerPage {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 800px) {
+  .tableFooterContainer {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .selectContainer {
+    position: relative;
+  }
+}

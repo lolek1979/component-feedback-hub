@@ -1,0 +1,49 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+import DateRangeHeader, { Default, LongDateRange, ShortDataSource } from './DateRangeHeader.stories';
+
+<Meta of={DateRangeHeader} />
+
+#### Design: <a href="https://www.figma.com/design/X6VaqX3yF7GOyaVg2qLbdY/MVP-design?node-id=1604-2629&t=kfL91pY8Qql0GiWe-4" target="_blank" rel="noopener">Figma</a>
+
+# DateRangeHeader
+
+DateRangeHeader is a component that displays a date range and its data source. It's commonly used in reports and data displays to show the time period of the data and where it comes from.
+
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+<Canvas of={Default} />
+
+
+<Canvas of={Default} />
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+<Canvas of={Default} />
+
+<Canvas of={LongDateRange} />
+
+<Canvas of={ShortDataSource} />
+
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.date-range {
+  display: flex;
+  flex-direction: column;
+  margin-block: var(--spacing-s);
+  gap: var(--spacing-4xs);
+}
+
+```
+</details>

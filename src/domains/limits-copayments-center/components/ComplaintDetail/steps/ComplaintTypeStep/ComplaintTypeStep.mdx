@@ -1,0 +1,47 @@
+# ComplaintTypeStep
+
+A step component in the complaint creation flow for selecting the type of complaint.
+
+## Features
+- Radio group for complaint type selection
+- Three complaint types: Invalid, Insured Number Change, General
+- Disabled continue button when no type is selected
+- Integration with complaint store
+- Internationalization support
+
+## Complaint Types
+
+- **Invalid** - Invalid complaint
+- **Insured Number Change** - Complaint about insured number change
+- **General** - General complaint
+
+## Usage
+
+```tsx
+<ComplaintTypeStep />
+```
+
+## Integration
+
+This component uses the `useComplaintStore` hook to:
+- Access current form data (`formData`)
+- Set complaint type (`setComplaintType`)
+- Navigate to next step (`nextStep`)
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.stepContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s);
+}
+
+.continueButton {
+  align-self: flex-start;
+}
+```
+</details>

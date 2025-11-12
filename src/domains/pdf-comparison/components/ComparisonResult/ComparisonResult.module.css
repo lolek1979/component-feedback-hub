@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--spacing-xl);
+  padding-bottom: var(--spacing-m);
+  border-radius: var(--radius-m);
+  gap: var(--spacing-s);
+  max-width: 420px;
+  min-height: 276px;
+}
+
+.iconContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  width: 180px;
+  height: 180px;
+}
+
+.title {
+  color: var(--text-primary);
+}
+
+.description {
+  color: var(--text-secondary);
+}
+
+.retryButton {
+  min-width: 200px;
+}
+
+:global(.dark) .container {
+  .title {
+    color: var(--text-on-color);
+  }
+
+  .description {
+    color: var(--text-secondary);
+  }
+}

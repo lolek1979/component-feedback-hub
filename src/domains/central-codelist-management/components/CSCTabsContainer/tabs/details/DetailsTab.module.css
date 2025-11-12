@@ -1,0 +1,129 @@
+.container {
+  --row-max-width: 800px;
+  --text-area-max-width: 400px;
+  --text-area-min-width: 200px;
+  --text-area-max-height: 400px;
+  --text-area-min-height: 80px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  padding: 0 var(--spacing-3xs);
+  width: 100%;
+  margin: 0 auto;
+
+  .row {
+    display: flex;
+    gap: var(--spacing-s);
+    align-items: flex-start;
+    border-bottom: var(--border-s) var(--color-black-200) dotted;
+    padding: var(--units-20) 0;
+    width: 100%;
+    max-width: var(--row-max-width);
+    box-sizing: border-box;
+    position: relative;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .label {
+    width: 25%;
+    min-width: 25%;
+    flex-shrink: 0;
+    padding-top: var(--spacing-4xs);
+  }
+
+  .value {
+    width: 70%;
+    margin-right: var(--spacing-3xs);
+    margin-left: auto;
+    white-space: normal;
+    overflow-wrap: break-word;
+  }
+
+  .valueContainer {
+    display: flex;
+    flex-grow: 1;
+    align-items: flex-start;
+    height: 100%;
+    gap: var(--spacing-3xs);
+    padding-top: var(--spacing-4xs);
+    padding-right: var(--spacing-l);
+  }
+
+  .tags {
+    display: flex;
+    gap: var(--spacing-3xs);
+    flex-wrap: wrap;
+  }
+
+  .editButton {
+    position: absolute;
+    padding: var(--spacing-4xs);
+    right: 0;
+    top: var(--spacing-s);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container .row {
+    max-width: 100%;
+  }
+
+  .container .value {
+    width: calc(100% - 200px);
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .container .row {
+    flex-direction: column;
+    gap: var(--spacing-3xs);
+  }
+
+  .container .label {
+    width: 100%;
+    padding-bottom: var(--spacing-4xs);
+  }
+
+  .container .value {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .container .editButton {
+    top: var(--units-20);
+    right: 0;
+  }
+}
+
+@media screen and (min-width: 1500px) {
+  .container {
+    margin: 0 auto 0 0;
+  }
+}
+
+.garantContainer {
+  display: flex;
+  justify-content: center;
+  padding-bottom: var(--spacing-s);
+}
+
+.areaContainer {
+  padding-bottom: var(--spacing-s);
+}
+
+.buttonContainer {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+  gap: var(--spacing-3xs);
+}
+
+.datePickerContainer {
+  position: relative;
+  width: 50%;
+  margin: var(--units-20) auto;
+}

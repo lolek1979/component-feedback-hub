@@ -1,0 +1,74 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+
+import SegmentedControl, { Default, SingleRow, ManyRows } from './SegmentedControl.stories';
+
+<Meta of={SegmentedControl} />
+
+#### Design: <a href="https://www.figma.com/design/HtK3DbPIxodKas2jSTtrlH/Design-system?node-id=7307-22182&m=dev" target="_blank" rel="noopener">Figma</a>
+
+# SegmentedControl
+
+A segmented control component for selecting options in one or multiple rows.
+
+<Canvas of={Default} />
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+
+### Default
+<Canvas of={Default} />
+
+### Single Row
+<Canvas of={SingleRow} />
+
+### Many Rows
+<Canvas of={ManyRows}/>
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--units-20);
+
+  .selected {
+    background-color: var(--button-on-color);
+  }
+
+  & .row {
+    background-color: var(--background-panel);
+    border-radius: var(--radius-s);
+    gap: var(--units-10);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: var(--units-40);
+    width: 100%;
+
+    & .borderLeft {
+      border-left: var(--border-s) solid var(--border-primary);
+    }
+
+    & .cell {
+      padding: var(--spacing-4xs);
+      border-color: transparent;
+      border-radius: var(--radius-s);
+      min-width: 84px;
+
+      span {
+        padding: var(--spacing-3xs);
+      }
+    }
+  }
+}
+
+```
+</details>

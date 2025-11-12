@@ -1,0 +1,38 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+
+import TableContainer, { Default } from './TableContainer.stories';
+
+<Meta of={TableContainer} />
+
+
+#### Design: <a href="https://www.figma.com/design/X6VaqX3yF7GOyaVg2qLbdY/MVP-design?node-id=109-3597&t=WMw5O5Uwo4xekBps-4" target="_blank" rel="noopener">Figma</a>
+
+# TableContainer
+A container that brings together the following components: Table, TabGroup, Buttons, Pagination, and Select.
+It coordinates these components to work seamlessly with each other, providing a fully-featured, interactive table layout with pagination, tabbed views, and customizable rows per page.
+
+<Canvas of={Default} />
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+
+### Default
+<Canvas of={Default} />
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.tableContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+```
+</details>

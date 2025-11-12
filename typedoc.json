@@ -1,0 +1,45 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": [
+    "./src/design-system/atoms/index.ts",
+    "./src/design-system/molecules/index.ts",
+    "./src/design-system/organisms/index.ts",
+    "./src/core/index.ts"
+  ],
+  "out": "docs",
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false
+  },
+  "excludeExternals": true,
+  "excludePrivate": true,
+  "excludeProtected": true,
+  "excludeInternal": true,
+  "disableSources": false,
+  "skipErrorChecking": true,
+  "validation": {
+    "notExported": false,
+    "invalidLink": false,
+    "notDocumented": false
+  },
+  "plugin": ["typedoc-plugin-missing-exports", "typedoc-plugin-react"],
+  "categorizeByGroup": true,
+  "sort": ["static-first", "visibility", "alphabetical"],
+  "navigationLinks": {
+    "Components": "modules/components_atoms.html",
+    "Hooks": "modules/hooks.html"
+  },
+  "cleanOutputDir": true,
+  "entryPointStrategy": "expand",
+  "includeVersion": true,
+  "preserveWatchOutput": true,
+  "readme": "none",
+  "jsDocCompatibility": {
+    "exampleTag": true
+  },
+  "basePath": "./",
+  "hideGenerator": false,
+  "searchInComments": true,
+  "pretty": true
+}

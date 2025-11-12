@@ -1,0 +1,34 @@
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background-color: var(--background-panel);
+  color: var(--text-primary);
+  font-weight: var(--font-weight-400);
+}
+
+.sizeS {
+  width: var(--units-24);
+  height: var(--units-24);
+  font-size: var(--size-10);
+  line-height: var(--units-16);
+}
+
+.sizeM {
+  width: var(--units-32);
+  height: var(--units-32);
+  font-size: var(--size-12);
+  line-height: var(--line-height-18);
+}
+
+.sizeL {
+  width: var(--units-40);
+  height: var(--units-40);
+  font-size: var(--size-14);
+  line-height: var(--line-height-20);
+}
+
+:global(.dark) .avatar {
+  color: var(--text-on-color);
+}

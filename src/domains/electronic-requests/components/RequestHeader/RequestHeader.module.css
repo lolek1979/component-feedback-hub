@@ -1,0 +1,25 @@
+.requestHeaderContainer {
+  display: flex;
+  height: var(--spacing-l);
+
+  .requestHeaderContent {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  gap: var(--units-12);
+}
+
+.outOfOfficeButton {
+  width: 120px;
+  height: var(--units-40);
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}

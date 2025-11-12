@@ -1,0 +1,61 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+
+import FieldLabel, { Default, Required, CustomStyles, Prominent } from './FieldLabel.stories';
+
+<Meta of={FieldLabel} />
+
+#### Design: <a href="https://your-design-link" target="_blank" rel="noopener">Figma</a>
+
+# FieldLabel
+A versatile UI component used to display text or other elements, available in various styles and sizes.
+
+<Canvas of={Default} />
+
+## Properties
+
+
+
+<Controls of={Default} />
+
+## Examples
+
+### Default
+<Canvas of={Default} />
+
+### Required
+<Canvas of={Required} />
+
+### CustomStyles
+<Canvas of={CustomStyles} />
+
+### Prominent
+<Canvas of={Prominent} />
+
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.label {
+  display: inline-block;
+  margin-bottom: var(--spacing-4xs);
+  color: var(--text-primary);
+
+  .required {
+    color: inherit;
+    margin-left: var(--spacing-4xs);
+  }
+}
+
+.preventSelect {
+  user-select: none;
+}
+
+:global(.dark) .label {
+  color: var(--text-on-color);
+}
+
+```
+</details>

@@ -1,0 +1,82 @@
+import { Meta, IconGallery, IconItem } from '@storybook/blocks';
+
+import * as Icons from '@/assets/icons';
+
+<Meta title="Design System/Icons" />
+
+<style>
+{`
+  .icon-gallery svg {
+    width: 22px;
+    height: 22px;
+  }
+  
+  /* Increase spacing between icon items */
+  .docblock-icongallery.sb-unstyled.css-1mv10uk {
+    gap: 40px;
+  }
+  
+  /* Increase spacing between rows */
+  .docblock-icongallery.sb-unstyled.css-1mv10uk > div {
+    margin-bottom: 16px;
+  }
+  
+  /* Add space between icon and its label */
+  .docblock-icongallery.sb-unstyled.css-1mv10uk .docblock-iconitem {
+    gap: 12px;
+  }
+`}
+</style>
+
+#### Design: <a href="https://www.figma.com/design/HtK3DbPIxodKas2jSTtrlH/Design-system?node-id=188-8213" target="_blank" rel="noopener">Figma</a>
+
+
+# Icons
+---
+
+Icons from the **VZP NIS Assets** collection. <br/>
+It is possible to change the color through the `className` property.
+
+## Usage
+
+```js
+<IArrowDown />
+<IArrowDown className="icon_blue" />
+<IArrowDown className="icon_blue" style={{ width: 32, height: 32 }} />
+```
+
+## Examples
+
+<div className="icon-gallery">
+  <IconGallery>
+    {Object.entries(Icons).map(([name, Icon]) => (
+      <IconItem name={name} key={name}>
+        <Icon />
+      </IconItem>
+    ))}
+  </IconGallery>
+</div>
+
+
+## Available colors (classNames)
+
+<ul style={{ listStyle: "none", padding: "0" }}>
+  <li style={{ padding: "5px", backgroundColor: "var(--color-border)", color: "var(--color-white)" }}>icon_border</li>
+  <li style={{ padding: "5px", backgroundColor: "var(--color-text-default)", color: "var(--color-white)" }}>icon_text-default</li>
+  <li style={{ padding: "5px", backgroundColor: "var(--color-red-500)" }}>icon_red-500</li>
+  <li style={{ padding: "5px", backgroundColor: "var(--color-red-600)" }}>icon_red-600</li>
+  <li style={{ padding: "5px", backgroundColor: "var(--color-red-700)",  color: "var(--color-white)" }}>icon_red-700</li>
+  <li style={{ padding: "5px", backgroundColor: "var(--color-white)" }}>icon_white</li>
+  <li style={{ padding: "5px", backgroundColor: "var(--color-black)",  color: "var(--color-white)" }}>icon_black</li>
+  <li style={{ padding: "5px", backgroundColor: "var(--color-blue-500)",  color: "var(--color-white)" }}>icon_blue</li>
+  <li style={{ padding: "5px", backgroundColor: "var(--color-transparent)" }}>icon_transparent</li>
+  <li style={{ padding: "5px", backgroundColor: "var(--color-black-50)" }}>icon_black-50</li>
+  <li style={{ padding: "5px", backgroundColor: "var(--color-black-100)" }}>icon_black-100</li>
+  <li style={{ padding: "5px", backgroundColor: "var(--color-black-200)" }}>icon_black-200</li>
+  <li style={{ padding: "5px", backgroundColor: "var(--color-black-300)" }}>icon_black-300</li>
+  <li style={{ padding: "5px", backgroundColor: "var(--color-black-400)" }}>icon_black-400</li>
+  <li style={{ padding: "5px", backgroundColor: "var(--color-black-950)",  color: "var(--color-white)" }}>icon_black-950</li>
+  <li style={{ padding: "5px", backgroundColor: "var(--color-black-700)",color: "var(--color-white)"  }}>icon_black-700</li>
+  <li style={{ padding: "5px", backgroundColor: "var(--color-orange-500)",color: "var(--color-white)"  }}>icon_orange-500</li>
+  <li style={{ padding: "5px", backgroundColor: "var(--color-green-500)",color: "var(--color-white)"  }}>icon_green-500</li>
+</ul>

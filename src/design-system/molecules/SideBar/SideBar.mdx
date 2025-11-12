@@ -1,0 +1,149 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+
+import SideBar, { Default } from './SideBar.stories';
+
+<Meta of={SideBar} />
+
+#### Design: <a href="https://www.figma.com/design/X6VaqX3yF7GOyaVg2qLbdY/MVP-design?node-id=48-788&t=5ZrDeJPHjXEF1kbl-4" target="_blank" rel="noopener">Figma</a>
+
+# SideBar
+
+The SideBar component is an UI component that you can use for the navigation mechanism in website that would position to the left side of page.
+
+In the mobile version it is hidden and opened via the header menu click
+
+## Dependencies
+
+- [Navlink](/docs/atoms-navlink--docs)
+
+<Canvas of={Default} />
+
+
+## Examples
+
+### Default
+
+<Canvas of={Default} />
+
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.sidebar {
+  --sidebar-width: 240px;
+  --sidebar-vertical-padding: 32px;
+  --sidebar-horizontal-padding: 8px;
+  --sidebar-background-color: var(--color-white);
+  --header-height: 64px;
+
+  min-height: calc(100vh - var(--header-height));
+  width: var(--sidebar-width);
+  min-width: var(--sidebar-width);
+  border-right: 1px solid var(--color-black-200);
+  padding: var(--sidebar-vertical-padding) var(--sidebar-horizontal-padding);
+  background-color: var(--sidebar-background-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.navMenuTop {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.navMenuTop a {
+  position: relative;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+  margin-left: 6px;
+  width: calc(100% - 6px);
+}
+
+.navMenuTop a:hover {
+  background-color: var(--color-alpha-100);
+}
+
+.navMenuTop a[data-active='true'] {
+  background-color: var(--color-alpha-100);
+}
+
+.navMenuTop a[data-active='true']::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background-color: var(--color-red-500);
+  border-radius: 0 4px 4px 0;
+}
+
+.navMenuBottom {
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: sticky;
+  bottom: 32px;
+}
+
+.navMenuTop a[data-active='true'] .navMenuText {
+  font-weight: 600 !important;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+  transition: transform 0.2s ease-in;
+}
+
+@media screen and (max-width: 639px) {
+  .sidebar {
+    position: fixed;
+    z-index: 998;
+    transform: translateX(-100%);
+    width: 100%;
+    min-width: 100%;
+    transition: transform 0.2s ease-out;
+  }
+}
+
+:global(.dark) .sidebar {
+  background-color: var(--color-black-950);
+  border-right-color: var(--color-black-800);
+}
+
+:global(.dark) .sidebar a[data-active='true'] {
+  background-color: var(--color-black-800);
+}
+
+:global(.dark) .sidebar a[data-active='true'] .navMenuText {
+  color: var(--color-white);
+}
+
+:global(.dark) .sidebar .navMenuText {
+  color: var(--color-black-400);
+}
+
+:global(.dark) .sidebar a:hover {
+  background-color: var(--color-black-800);
+}
+
+:global(.dark) .sidebar svg path {
+  fill: var(--color-white);
+}
+
+:global(.dark) .sidebar a {
+  color: var(--color-white);
+}
+
+:global(.dark) .sidebar .navMenuBottom a {
+  color: var(--color-white);
+}
+
+```
+</details>

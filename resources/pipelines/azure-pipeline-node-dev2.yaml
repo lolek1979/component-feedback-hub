@@ -1,0 +1,216 @@
+trigger:
+  branches:
+    include:
+    - develop
+  paths:
+    exclude:
+    - 'README.md'
+    - '.editorconfig'
+    - '.gitattributes'
+    - '.gitignore'
+    - 'resources/pipelines/*'
+
+pr: none
+
+variables: 
+- name: imageRepository
+  value: 'nis/frontend-nis'
+- name: namespace
+  value: nis
+- group: aks-vzp-dev2-we-001
+
+resources:
+  repositories:
+    - repository: workspace
+      type: git
+      name: workspace
+      ref: main
+ 
+stages:
+
+- stage: build
+  pool: 'NisDev2'
+  displayName: Build
+  isSkippable: false
+
+  jobs:
+  - job: build
+    displayName: Build
+
+    steps:
+    - checkout: workspace
+      displayName: Checkout workspace
+
+    - checkout: self
+      displayName: Checkout self
+      fetchDepth: '0'
+      workspaceRepo: true
+
+    - task: CopyFiles@2
+      displayName: 'Copy Files from workspace to: $(Agent.BuildDirectory)'
+      inputs:
+        Contents: |
+          $(Agent.BuildDirectory)/s/workspace/global.json
+        TargetFolder: '$(Agent.BuildDirectory)'
+        OverWrite: true    
+        flattenFolders: true    
+
+    - task: UseDotNet@2
+      displayName: 'Use .NET Core SDK from global.json' 
+      inputs: 
+        useGlobalJson: true
+        workingDirectory: '$(Agent.BuildDirectory)'
+      
+    - task: gitversion/setup@3
+      displayName: 'Setup GitVersion'
+      inputs:
+        versionSpec: '6.0.x'
+
+    - task: gitversion/execute@3
+      displayName: Determine Version
+      inputs:
+        targetPath: '$(System.DefaultWorkingDirectory)'
+        useConfigFile: true
+        configFilePath: $(Agent.BuildDirectory)/s/workspace/resources/pipelines/gitversion.yml
+
+    - task: DeleteFiles@1
+      displayName: 'Remove unneeded files'
+      continueOnError: true
+      inputs:
+        contents: |
+          yarn.lock
+  
+    - task: NodeTool@0
+      displayName: 'Install Node.js'
+      inputs:
+        versionSpec: '20.18.0'
+
+    - task: npmAuthenticate@0
+      displayName: 'Authenticate to Azure Artifacts feed'
+      inputs:
+        workingFile: .npmrc
+
+    - script: |
+        npm install
+      displayName: 'npm install'
+
+    - script: |
+        npm audit
+      displayName: 'npm audit'
+      continueOnError: true
+
+    - script: |
+        npm run test
+      displayName: 'npm run test'
+
+    - script: |
+        npm run prettier:check
+      displayName: 'npm run prettier:check'
+      continueOnError: true
+
+    - script: |
+        npm run lint
+      displayName: 'npm run lint'
+      continueOnError: true
+
+    - script: |
+        npm run lint:css
+      displayName: 'npm run lint:css'
+      continueOnError: true
+
+    - script: |
+        npm run test:coverage -- --coverageReporters=cobertura
+      displayName: 'npm run test:coverage'
+      continueOnError: true
+
+    - task: PublishTestResults@2
+      displayName: 'Publish Test Results'
+      condition: succeededOrFailed()
+      continueOnError: true
+      inputs:
+        testRunner: JUnit
+        testResultsFiles: '**/junit.xml'
+        failTaskOnMissingResultsFile: false
+        mergeTestResults: true
+
+    - task: PublishCodeCoverageResults@2
+      displayName: 'Publish Code Coverage Results'
+      continueOnError: true
+      inputs:
+        failIfCoverageEmpty: false       
+        summaryFileLocation: '$(System.DefaultWorkingDirectory)/**/coverage/cobertura-coverage.xml'
+
+    - script: |
+        npm run build
+      displayName: 'build'
+
+    - task: CopyFiles@2
+      displayName: 'Copy project files'
+      inputs:
+        sourceFolder: '$(Build.SourcesDirectory)'
+        contents: |
+          src/*
+          public/*
+        targetFolder: '$(Build.ArtifactStagingDirectory)'
+
+    - task: Docker@2
+      inputs:
+        containerRegistry: '$(dockerRegistryServiceConnection)'
+        repository: '$(imageRepository)'
+        command: 'buildAndPush'
+        Dockerfile: '**/Dockerfile'
+        tags: '$(GitVersionExecute.SemVer)'
+    
+    - publish: $(Agent.BuildDirectory)/s/workspace/resources/helm
+      artifact: helm
+      displayName: 'Publish helm artifact'
+
+    - publish: $(System.DefaultWorkingDirectory)/resources/helm
+      artifact: values
+      displayName: 'Publish values artifact'
+  
+- stage: deploy_dev2
+  pool: 'NisDev2'
+  displayName: Deploy to aks-vzp-dev2-we-001
+  dependsOn: build
+  condition: succeeded()
+  variables:
+    - name: tag
+      value: $[ stageDependencies.build.build.outputs['GitVersionExecute.SemVer'] ]
+    - group: aks-vzp-dev2-we-001
+    
+  jobs:
+  - deployment: deploy
+    displayName: Deploy
+    environment: aks-vzp-dev2-we-001
+    variables:
+    - group: aks-vzp-dev2-we-001-frontend-nis
+    strategy:
+      runOnce:
+        deploy:
+          steps:
+
+          - checkout: none
+
+          - download: current
+            artifact: helm
+            displayName: 'Download helm artifact'
+
+          - download: current
+            artifact: values
+            displayName: 'Download values artifact'
+
+          - task: HelmDeploy@1
+            displayName: Helm upgrade
+            inputs:
+              connectionType: 'Azure Resource Manager'
+              azureSubscription: $(azureSubscriptionConnection)
+              azureResourceGroup: $(azureResourceGroup)
+              kubernetesCluster: $(kubernetesCluster)   
+              namespace: $(namespace)
+              command: 'upgrade'
+              chartType: 'FilePath'
+              chartPath: '$(Pipeline.Workspace)/helm/nis/'
+              releaseName: '$(Build.Repository.Name)'
+              overrideValues: 'image.repository=$(containerRegistry)/$(imageRepository),image.tag=$(tag),ingress.annotations.kubernetes\.azure\.com/tls-cert-keyvault-uri=$(ingressAnnotationsKubernetesAzureComTlsCertKeyvaultUri),secretProviderClass.parameters.keyvaultName=$(secretProviderClassParametersKeyvaultName),secretProviderClass.parameters.tenantId=$(secretProviderClassParametersTenantId),secretProviderClass.parameters.userAssignedIdentityID=$(secretProviderClassParametersUserAssignedIdentityID)'
+              valueFile: '$(Pipeline.Workspace)/values/values-dev2.yaml'

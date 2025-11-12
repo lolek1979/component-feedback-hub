@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s);
+  width: 100%;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: var(--spacing-xs);
+  justify-content: flex-start;
+  margin-top: var(--spacing-xs);
+}
+
+@media (max-width: 640px) {
+  .buttonGroup {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .buttonGroup button {
+    width: 100%;
+  }
+}

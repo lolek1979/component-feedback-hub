@@ -1,0 +1,57 @@
+.helperText {
+  display: flex;
+  align-items: center;
+  min-height: var(--units-18);
+
+  .text {
+    color: var(--text-secondary);
+  }
+
+  gap: var(--spacing-4xs);
+
+  .iconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--units-16);
+    height: var(--units-16);
+    flex-shrink: 0;
+
+    & svg {
+      width: var(--units-16);
+      height: var(--units-16);
+    }
+  }
+
+  .error {
+    color: var(--support-negative);
+
+    path {
+      fill: var(--support-negative);
+    }
+  }
+
+  .warning {
+    color: var(--support-warning);
+
+    path {
+      fill: var(--support-warning);
+    }
+  }
+
+  .success {
+    color: var(--support-positive);
+
+    path {
+      fill: var(--support-positive);
+    }
+  }
+
+  .default {
+    color: var(--text-secondary);
+
+    path {
+      fill: var(--icon-primary);
+    }
+  }
+}

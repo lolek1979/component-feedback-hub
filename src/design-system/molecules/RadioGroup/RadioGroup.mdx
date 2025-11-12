@@ -1,0 +1,78 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+
+import RadioGroup, { Default, WithDefaultValue, Disabled, ManyOptions } from './RadioGroup.stories';
+
+<Meta of={RadioGroup} />
+
+#### Design: <a href="https://www.figma.com/design/X6VaqX3yF7GOyaVg2qLbdY/MVP-design?node-id=127-2781&t=ow3QAVj3ZFmTFmbg-4" target="_blank" rel="noopener">Figma</a>
+
+# RadioGroup
+
+A component that allows users to select one option from a set of radio buttons, supporting various configurations and states.
+
+<Canvas of={Default} />
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+
+### Default
+<Canvas of={Default} />
+
+### WithDefaultValue
+<Canvas of={WithDefaultValue} />
+
+### Disabled
+<Canvas of={Disabled} />
+
+### ManyOptions
+<Canvas of={ManyOptions} />
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.container {
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+
+  & .title {
+    margin-bottom: var(--spacing-3xs);
+  }
+
+  & .radioGroup {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-xs);
+
+    & .radioItem {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  & .horizontal {
+    flex-direction: row;
+    gap: var(--spacing-s);
+  }
+
+  .radioCustom {
+    margin-bottom: var(--spacing-4xs);
+  }
+
+  .radioCustom:checked {
+    border-color: var(--field-brand);
+  }
+}
+
+```
+</details>

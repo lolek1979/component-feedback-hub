@@ -1,0 +1,129 @@
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--spacing-s);
+}
+
+.tableContainer {
+  color: var(--color-text-primary);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.requestsPage {
+  padding: var(--spacing-m);
+}
+
+.tableHeader th {
+  background: var(--table-primary);
+  height: 56px;
+  font-weight: var(--font-weight-400);
+  font-size: var(--size-14);
+  vertical-align: middle;
+  color: var(--color-text-primary);
+}
+
+.tableBody td {
+  padding: var(--spacing-xs);
+  border-bottom: var(--border-s) solid var(--border-prominent);
+  color: var(--color-text-primary);
+
+  .payer {
+    display: flex;
+    flex-direction: column;
+
+    small {
+      font-size: var(--size-12) !important;
+    }
+  }
+
+  .agenda {
+    color: var(--color-support-info);
+  }
+}
+
+.emptyRow td {
+  border-bottom: none;
+}
+
+.buttonCell {
+  padding: var(--units-24);
+  width: 60px !important;
+}
+
+.buttonCell button {
+  position: absolute;
+  right: var(--spacing-xs);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.modalHeader {
+  height: 50px;
+}
+
+.fullWidthContainer {
+  width: 100%;
+}
+
+.searchContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-xs);
+}
+
+.searchInputContainer {
+  width: 240px;
+  padding-right: var(--units-10);
+}
+
+.favoritesText {
+  margin-left: var(--spacing-m);
+  padding-top: var(--spacing-s);
+}
+
+.resultsContainer {
+  padding-bottom: var(--units-10);
+}
+
+.noResultsMessage {
+  margin-bottom: var(--spacing-s);
+}
+
+.modalFooter {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.addRemoveButton {
+  width: var(--spacing-m);
+  height: var(--spacing-m);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    margin-top: var(--spacing-4xs);
+  }
+}
+
+.cancelApproveButton {
+  margin: var(--spacing-2xs) var(--spacing-2xs) 0 0;
+}
+
+.starButtonContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.quantityInputContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--units-4);
+  justify-content: flex-end;
+}

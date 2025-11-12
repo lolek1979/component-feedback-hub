@@ -1,0 +1,15 @@
+.notFoundContainer {
+  text-align: center;
+  height: calc(100vh - var(--spacing-2xl));
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-s);
+  margin: auto;
+}
+
+:global(.dark) .notFoundContainer {
+  background: var(--palette-grey-950);
+}

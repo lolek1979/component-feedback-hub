@@ -1,0 +1,281 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+
+import ListItem, {
+  Default,
+  Active,
+  WithStatus,
+  Disabled,
+  SizeSmall,
+  WithLeftIcon,
+  WithRightIcon,
+  WithBothIcons,
+  WithToggle,
+  MultipleItems
+} from './ListItem.stories';
+
+<Meta of={ListItem} />
+
+#### Design: <a href="https://www.figma.com/design/HtK3DbPIxodKas2jSTtrlH/Design-system?node-id=1131-15875" target="_blank" rel="noopener">Figma</a>
+
+# ListItem
+
+A flexible list item component that supports various states, sizes, icons, and interactive elements like toggles and status indicators.
+
+<Canvas of={Default} />
+
+## Properties
+
+<Controls of={Default} />
+
+## States
+
+### Default
+The standard appearance of a list item.
+<Canvas of={Default} />
+
+### Active
+Highlighted state with border and background color change.
+<Canvas of={Active} />
+
+### With Status
+Displays a green status dot indicator next to the text.
+<Canvas of={WithStatus} />
+
+### Disabled
+Non-interactive state with reduced opacity.
+<Canvas of={Disabled} />
+
+## Sizes
+
+### Size M (Default)
+Standard size with comfortable padding.
+<Canvas of={Default} />
+
+### Size S
+Compact version with reduced padding and height.
+<Canvas of={SizeSmall} />
+
+## With Icons
+
+### Left Icon
+List item with an icon positioned on the left side.
+<Canvas of={WithLeftIcon} />
+
+### Right Icon
+List item with an icon positioned on the right side.
+<Canvas of={WithRightIcon} />
+
+### Both Icons
+List item with icons on both sides.
+<Canvas of={WithBothIcons} />
+
+## Interactive Features
+
+### With Toggle
+List item that includes a toggle switch for binary state control.
+<Canvas of={WithToggle} />
+
+## Complex Examples
+
+### Multiple Items
+A collection of list items demonstrating various configurations.
+<Canvas of={MultipleItems} />
+
+## Component Structure
+
+The ListItem component consists of:
+
+- **leftIcon** (optional) - Icon wrapper positioned on the left
+- **ListItemLabel** - Contains the text content and optional status indicator
+- **Toggle** (optional) - Interactive switch controlled by `isActive` and `onActiveChange`
+- **rightIcon** (optional) - Icon wrapper positioned on the right
+
+## Usage
+
+```tsx
+import { ListItem } from '@/components/molecules/ListItem';
+import { IHome, IEdit } from '@/assets/icons';
+
+// Basic usage
+<ListItem>Simple list item</ListItem>
+
+// With all features
+<ListItem
+  size="S"
+  state="active"
+  leftIcon={<IHome />}
+  rightIcon={<IEdit />}
+  showStatus
+  isActive={true}
+  onActiveChange={(active) => console.log('Toggle:', active)}
+>
+  Feature-rich list item
+</ListItem>
+```
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.listItem {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--spacing-2xs);
+  border-radius: var(--radius-xs);
+  border: var(--border-s) solid transparent;
+  background: var(--button-ghost);
+  transition: all 0.2s ease;
+  width: 100%;
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
+
+  &:hover:not(.disabled) {
+    border-radius: var(--radius-xs);
+    background: var(--button-ghost-hover);
+  }
+
+  &:focus-visible {
+    border-radius: var(--radius-s);
+    border: var(--border-m) solid var(--support-info);
+  }
+
+  &.active {
+    border-radius: var(--radius-xs);
+    background: var(--button-ghost-active);
+  }
+
+  &.disabled {
+    border-radius: var(--radius-xs);
+    background: var(--button-ghost);
+    color: var(--text-disabled);
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  &.sizeS {
+    padding: var(--spacing-4xs) var(--spacing-xs);
+    min-height: var(--units-24);
+  }
+
+  &.sizeM {
+    padding: var(--spacing-3xs) var(--spacing-2xs);
+    min-height: var(--units-32);
+  }
+
+  .leftIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--icon-primary);
+  }
+
+  .label {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3xs);
+
+    .statusDot {
+      background-color: var(--support-positive);
+      border-radius: 50%;
+      width: var(--units-8);
+      height: var(--units-8);
+      flex-shrink: 0;
+    }
+  }
+
+  &.disabled .label {
+    .labelText {
+      color: var(--text-disabled);
+    }
+
+    .statusDot {
+      background-color: var(--icon-disabled);
+    }
+  }
+
+  .toggleWrapper {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: var(--spacing-2xs);
+  }
+
+  .rightIcon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--icon-primary);
+  }
+
+  &.disabled .leftIcon,
+  &.disabled .rightIcon {
+    color: var(--icon-disabled);
+  }
+
+  &.disabled .leftIcon svg path,
+  &.disabled .leftIcon svg g path,
+  &.disabled .rightIcon svg path,
+  &.disabled .rightIcon svg g path {
+    fill: var(--icon-disabled) !important;
+  }
+}
+
+/* Dark mode styles */
+:global(.dark) .listItem {
+  &:hover:not(.disabled) {
+    border-radius: var(--radius-xs);
+    background: var(--button-ghost-hover);
+  }
+
+  &:focus-visible {
+    border-radius: var(--radius-s);
+    border: var(--border-m) solid var(--support-info);
+  }
+
+  &.active {
+    border-radius: var(--radius-xs);
+    background: var(--button-ghost-active);
+  }
+
+  &.disabled {
+    border-radius: var(--radius-xs);
+    background: var(--button-ghost);
+    color: var(--text-disabled);
+  }
+
+  .label {
+    .statusDot {
+      color: var(--support-positive);
+    }
+
+    .labelText {
+      color: var(--text-primary);
+    }
+  }
+
+  &.disabled .label {
+    .labelText {
+      color: var(--text-disabled);
+    }
+
+    .statusDot {
+      background-color: var(--icon-disabled);
+    }
+  }
+
+  &.disabled .leftIcon,
+  &.disabled .rightIcon {
+    color: var(--icon-disabled);
+  }
+}
+
+```
+</details>

@@ -1,0 +1,145 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+
+import CscFormModal, { Default } from './CscFormModal.stories';
+
+<Meta of={CscFormModal} />
+
+#### Design: <a href="https://www.figma.com/design/X6VaqX3yF7GOyaVg2qLbdY/MVP-design?node-id=1795-12589&t=qLmTVfeO3AWfAYfh-4" target="_blank" rel="noopener">Figma</a>
+
+# CscFormModal
+
+The `CscFormModal` component is a modal dialog used for creating or editing CSC (Codebook) entries. It provides a form with various input fields to capture the necessary information for a CSC entry. The form includes fields for the name, identifier, description, garant (responsible person), validity dates, and type of the CSC entry.
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+
+### Default
+<Canvas of={Default} />
+
+## Usage
+
+The `CscFormModal` component can be used to create or edit CSC entries. It includes the following features:
+
+- **Name**: A text input field for the name of the CSC entry.
+- **Identifier**: A text input field for the identifier of the CSC entry.
+- **Description**: A textarea for describing the purpose and usage of the CSC entry.
+- **Garant**: A select input for choosing the responsible person (garant) from a list.
+- **Validity Dates**: Date pickers for selecting the start and end dates of the CSC entry's validity.
+- **Type**: Radio buttons for selecting the type of the CSC entry (e.g., internal, external).
+
+The modal can be opened by clicking a button, and it includes a submit button to save the form data. The form data is validated before submission, and an alert is shown if required fields are missing.
+
+### Default
+<Canvas of={Default} />
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: visible;
+
+  .input-container {
+    & textarea {
+      width: 100%;
+      max-width: 454px;
+      min-height: 120px;
+    }
+  }
+
+  .form-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    & .des-caption {
+      display: flex;
+      flex-direction: column;
+      color: var(--text-primary);
+
+      & :last-child {
+        color: var(--text-tertiary);
+      }
+    }
+
+    & .date-picker-container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      gap: 16px;
+      width: 50%;
+
+      & .date-info {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        gap: 4px;
+      }
+    }
+
+    & .radio-group-container {
+      width: 50%;
+    }
+  }
+
+  .radio-group {
+    align-items: start;
+
+    & div {
+      align-items: start;
+    }
+  }
+
+  .button-group {
+    display: flex;
+    gap: var(--spacing-2xs);
+    justify-content: end;
+  }
+}
+
+.form-field {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  & .input-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+
+  & .des-caption {
+    display: flex;
+    flex-direction: column;
+    color: var(--text-primary);
+
+    & :last-child {
+      color: var(--text-tertiary);
+    }
+  }
+}
+
+.close-modal-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+:global(.dark) .modal-content {
+  .date-info {
+    color: var(--color-white);
+  }
+}
+
+```
+</details>

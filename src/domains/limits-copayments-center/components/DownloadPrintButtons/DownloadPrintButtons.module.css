@@ -1,0 +1,100 @@
+.wrapper {
+  display: flex;
+  gap: var(--spacing-2xs);
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.button {
+  white-space: nowrap;
+  height: var(--units-40);
+}
+
+@media (max-width: 768px) {
+  .wrapper {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .downloadButton,
+  .printButton {
+    flex: 1;
+    min-width: auto;
+  }
+}
+
+.printButtonWrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.printMenu {
+  position: absolute;
+  top: calc(100% + var(--spacing-4xs));
+  right: 0;
+  width: 100%;
+  min-width: 100%;
+  background: var(--background-elevated);
+  border: var(--border-s) solid var(--border-subtle);
+  border-radius: var(--radius-s);
+  padding: var(--spacing-4xs);
+}
+
+.printMenuItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--spacing-3xs);
+  width: 100%;
+  padding: var(--spacing-3xs);
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-align: left;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.printMenuItem:first-child {
+  border-radius: var(--radius-xs) var(--radius-xs) 0 0;
+}
+
+.printMenuItem:last-child {
+  border-radius: 0 0 var(--radius-xs) var(--radius-xs);
+}
+
+.printMenuItem:hover {
+  background-color: var(--table-secondary-hover);
+}
+
+.orientationIcon {
+  width: var(--units-16);
+  height: var(--units-16);
+  color: var(--icon-secondary);
+  flex-shrink: 0;
+}
+
+:global(.dark) .printMenu {
+  background: var(--background-elevated);
+  border: var(--border-s) solid var(--border-primary);
+}
+
+:global(.dark) .printMenuItem {
+  color: var(--text-primary);
+}
+
+:global(.dark) .printMenuItem:hover {
+  background-color: var(--table-secondary-hover);
+}
+
+:global(.dark) .printMenuItem svg {
+  fill: var(--icon-primary);
+}
+
+:global(.dark) .printMenuItem svg path {
+  fill: var(--icon-primary);
+}
+
+:global(.dark) .printMenuItem svg * {
+  fill: var(--icon-primary) !important;
+}

@@ -1,0 +1,143 @@
+.container {
+  width: 100%;
+}
+
+.tabsWrapper {
+  position: relative;
+  width: 100%;
+  padding-top: var(--units-10);
+}
+
+.newItemButton {
+  position: absolute;
+  top: var(--spacing-m);
+  right: var(--spacing-m);
+  max-width: 154px;
+  height: var(--spacing-l);
+}
+
+.buttonsContainer {
+  position: absolute;
+  top: var(--spacing-m);
+  right: var(--spacing-m);
+  display: flex;
+  gap: var(--spacing-2xs);
+}
+
+.tabContent {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3xs);
+  color: inherit;
+}
+
+.tabIcon {
+  width: var(--spacing-s);
+  height: var(--spacing-s);
+}
+
+.text {
+  white-space: nowrap;
+}
+
+.searchItemInput {
+  max-width: 120px !important;
+}
+
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--spacing-s);
+}
+
+.tableContainer {
+  color: var(--color-text-primary);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.requestsPage {
+  padding: var(--spacing-m);
+}
+
+.tableHeader th {
+  background: var(--table-primary);
+  height: 56px;
+  font-weight: var(--font-weight-400);
+  font-size: var(--size-14);
+  vertical-align: middle;
+  color: var(--color-text-primary);
+}
+
+.tableBody td {
+  padding: var(--spacing-xs);
+  border-bottom: var(--border-s) solid var(--border-prominent);
+  color: var(--color-text-primary);
+
+  .payer {
+    display: flex;
+    flex-direction: column;
+
+    small {
+      font-size: var(--size-12) !important;
+    }
+  }
+
+  .agenda {
+    color: var(--color-support-info);
+  }
+}
+
+.emptyRow td {
+  border-bottom: none;
+}
+
+.buttonCell {
+  position: relative;
+  padding: var(--spacing-xs);
+}
+
+.buttonCell button {
+  position: absolute;
+  right: var(--spacing-xs);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.userCell {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3xs);
+}
+
+.avatar {
+  width: var(--spacing-s);
+  height: var(--spacing-s);
+  min-width: var(--spacing-s);
+  font-size: var(--size-14);
+}
+
+.itemsCount {
+  font-size: var(--size-12);
+  font-weight: var(--font-weight-600);
+}
+
+.itemsCountCell {
+  position: relative;
+  left: var(--spacing-l);
+}
+
+.addCommentsForm {
+  display: flex;
+  flex-direction: column;
+  max-width: 775px;
+  height: 184px;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-s);
+  background-color: var(--background-sunken);
+  border-radius: var(--radius-s);
+  margin-top: var(--spacing-m);
+}

@@ -1,0 +1,108 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+import CscHeaderButtons, { Default, WithDropdown } from './CscHeaderButtons.stories';
+
+<Meta of={CscHeaderButtons} />
+
+#### Design: <a href="https://www.figma.com/design/X6VaqX3yF7GOyaVg2qLbdY/MVP-design?node-id=2006-4887&t=3gv5U9ecqtBwJg74-4" target="_blank" rel="noopener">Figma</a>
+
+# CscHeaderButtons
+
+The `CscHeaderButtons` component provides a set of header buttons for the CSC application. It includes a primary button that toggles a dropdown menu with options to create a new codebook or import an existing codebook. Additionally, there is a secondary button for settings. The component is designed to be flexible and responsive, making it suitable for various screen sizes and use cases.
+
+
+<Controls of={Default} />
+
+## Examples
+
+### Default
+<Canvas of={Default} />
+
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+
+  .disabled {
+    display: flex;
+    gap: 8px;
+    justify-items: start;
+    align-items: center;
+    padding: 8px 16px;
+    cursor: not-allowed;
+    color: var(--color-black-700);
+    opacity: 0.5;
+  }
+
+  .drop-down-container {
+    position: relative;
+    z-index: 650;
+
+    .drop-down-menu {
+      width: 100%;
+      margin-top: 4px;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: var(--color-white);
+      border: 1px solid var(--color-black-50);
+      border-radius: 4px;
+      box-shadow:
+        0 8px 12px 0 #091e4226,
+        0 0 2px 0 #091e4226;
+
+      .drop-down-item {
+        display: flex;
+        gap: 8px;
+        justify-items: start;
+        align-items: center;
+        padding: 8px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #f0f0f0;
+        }
+      }
+    }
+  }
+}
+
+:global(.dark) .container {
+  svg path {
+    fill: var(--color-white);
+  }
+
+  .disabled {
+    color: var(--color-black-600);
+    opacity: 0.8;
+
+    svg path {
+      fill: var(--color-black-600);
+    }
+  }
+
+  .drop-down-menu {
+    background-color: var(--color-black-950);
+
+    .drop-down-item {
+      color: var(--color-white);
+
+      &:hover {
+        background-color: var(--color-black-700);
+      }
+    }
+  }
+}
+
+```
+</details>

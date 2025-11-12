@@ -1,0 +1,38 @@
+.formRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: start;
+  margin-top: 16px;
+  margin-bottom: 16px;
+
+  .inputContainer {
+    width: 316px;
+  }
+
+  .labelContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    padding-top: 8px;
+  }
+}
+
+.dottedLine {
+  border: 1px dotted var(--color-black-200);
+  width: 100%;
+  margin: 16px 0;
+}
+
+.modalFooter {
+  margin-top: 8px;
+  padding: 16px 0 0;
+}
+
+.buttonGroup {
+  display: flex;
+  gap: 8px;
+  justify-content: end;
+}

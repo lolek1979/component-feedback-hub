@@ -1,0 +1,101 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+
+import HelperText, { Default, AllVariants, WithInput } from './HelperText.stories';
+
+<Meta of={HelperText} />
+
+#### Design: <a href="https://www.figma.com/design/X6VaqX3yF7GOyaVg2qLbdY/MVP-design?node-id=166-3719&t=d3N0nl3D99tah4lc-4" target="_blank" rel="noopener">Figma</a>
+
+# HelperText
+
+HelperText component is used to display inline messages with icon.
+
+<Canvas of={Default} />
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+
+### Default
+
+<Canvas of={Default} />
+
+### AllVariants
+
+<Canvas of={AllVariants} />
+
+### WithInput
+
+<Canvas of={WithInput} />
+
+
+
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.helperText {
+  display: flex;
+  align-items: center;
+  min-height: var(--units-18);
+
+  .text {
+    color: var(--text-secondary);
+  }
+
+  gap: var(--spacing-4xs);
+
+  .iconWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--units-16);
+    height: var(--units-16);
+    flex-shrink: 0;
+
+    & svg {
+      width: var(--units-16);
+      height: var(--units-16);
+    }
+  }
+
+  .error {
+    color: var(--support-negative);
+
+    path {
+      fill: var(--support-negative);
+    }
+  }
+
+  .warning {
+    color: var(--support-warning);
+
+    path {
+      fill: var(--support-warning);
+    }
+  }
+
+  .success {
+    color: var(--support-positive);
+
+    path {
+      fill: var(--support-positive);
+    }
+  }
+
+  .default {
+    color: var(--text-secondary);
+
+    path {
+      fill: var(--icon-primary);
+    }
+  }
+}
+
+```
+</details>

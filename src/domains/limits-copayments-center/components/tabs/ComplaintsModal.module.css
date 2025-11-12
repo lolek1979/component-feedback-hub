@@ -1,0 +1,77 @@
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xs);
+  padding: var(--spacing-xs) 0;
+
+  .contentRow {
+    padding: 0 var(--spacing-m);
+  }
+}
+
+.radioSection {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-s);
+  align-items: flex-start;
+}
+
+.sectionLabel {
+  font-weight: var(--font-weight-400);
+  color: var(--text-primary);
+  flex-shrink: 0;
+  min-width: 181px;
+}
+
+.radioGroupWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  flex: 1;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.radioGroupCustom {
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+}
+
+.radioGroupCustom > div {
+  align-items: flex-start !important;
+  row-gap: var(--spacing-2xs) !important;
+}
+
+.radioGroupCustom > div > div {
+  justify-content: flex-start !important;
+}
+
+.divider {
+  border-top: var(--border-s) dashed var(--border-subtle);
+  margin: var(--spacing-3xs) 0;
+}
+
+.inputRow {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-s);
+  align-items: center;
+}
+
+.inputLabel {
+  font-weight: var(--font-weight-400);
+  color: var(--text-primary);
+  flex-shrink: 0;
+  min-width: 181px;
+}
+
+.inputField {
+  flex: 1;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-2xs);
+  padding-top: var(--spacing-xs);
+}

@@ -1,0 +1,202 @@
+import { Canvas, Controls, Meta } from '@storybook/blocks';
+import CSCFilter, { Default, WithPrefilledValues } from './CSCFilter.stories';
+
+<Meta of={CSCFilter} />
+
+#### Design: <a href="https://www.figma.com/design/X6VaqX3yF7GOyaVg2qLbdY/MVP-design?node-id=2506-5734&t=tjUYqnkVgUBxhFjJ-4" target="_blank" rel="noopener">Figma</a>
+# CSCFilter
+
+The CSCFilter component is a complex filter interface that combines various input elements for filtering data. It provides a flexible layout that adapts to different screen sizes.
+
+## Features
+- Responsive layout that adjusts to screen width
+- Combines multiple filter inputs in a single row
+- Additional actions row for supplementary controls
+- Mobile-friendly design that stacks elements vertically below 900px
+
+## Properties
+
+<Controls of={Default} />
+
+## Default
+
+<Canvas of={Default} />
+
+## With prefilled values
+
+<Canvas of={WithPrefilledValues} />
+
+## Usage
+
+The CSCFilter component is designed to be used in data-heavy interfaces where complex filtering is required. It maintains usability across different screen sizes by reorganizing its layout responsively.
+
+### Desktop View
+- Filter elements are arranged horizontally
+- Actions row appears inline with main filters
+
+### Mobile View (< 900px)
+- Filter elements stack vertically
+- Actions row moves below the main filters
+- Full width utilization for better touch interaction
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-xs);
+  width: 100%;
+
+  @media (max-width: 1100px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .main-row {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-s);
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+
+    @media (max-width: 900px) {
+      width: 100%;
+      flex-wrap: wrap;
+    }
+
+    & > * {
+      min-width: 260px;
+      width: 260px;
+      max-width: 260px;
+      flex: 0 0 260px;
+      box-sizing: border-box;
+    }
+  }
+
+  .main-row.full-width > * {
+    flex: 1;
+    min-width: 200px;
+    max-width: none;
+    width: 100%;
+  }
+
+  @media (min-width: 1400px) {
+    .main-row.full-width > * {
+      min-width: 250px;
+    }
+  }
+
+  @media (min-width: 1800px) {
+    .main-row.full-width > * {
+      min-width: 300px;
+    }
+  }
+
+  .actions-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-3xs);
+    width: 100%;
+    justify-content: flex-start;
+
+    @media (max-width: 900px) {
+      order: -1;
+      margin-bottom: var(--spacing-xs);
+      flex-shrink: 0;
+      width: auto;
+    }
+
+    .checkbox-wrapper {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-3xs);
+      flex-shrink: 0;
+      max-width: none;
+
+      @media (max-width: 480px) {
+        max-width: 150px;
+      }
+    }
+
+    .checkbox-label {
+      white-space: nowrap;
+      line-height: 1.4;
+
+      @media (max-width: 480px) {
+        white-space: normal;
+        word-break: break-all;
+      }
+    }
+  }
+
+  & .search-form {
+    width: 260px;
+    min-width: 260px;
+    max-width: 260px;
+    flex: 0 0 260px;
+    box-sizing: border-box;
+
+    & input {
+      width: 100%;
+    }
+  }
+
+  & .csc-filter-type,
+  & .csc-filter-state {
+    width: 260px;
+    min-width: 260px;
+    max-width: 260px;
+    flex: 0 0 260px;
+    z-index: 100;
+    white-space: nowrap;
+    overflow: hidden;
+    box-sizing: border-box;
+  }
+
+  @media (max-width: 1200px) {
+    .main-row > *,
+    & .search-form,
+    & .csc-filter-type,
+    & .csc-filter-state {
+      width: 230px;
+      min-width: 230px;
+      max-width: 230px;
+      flex: 0 0 230px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .main-row > *,
+    & .search-form,
+    & .csc-filter-type,
+    & .csc-filter-state {
+      width: 100%;
+      min-width: 100%;
+      max-width: 100%;
+      flex: 1 0 100%;
+    }
+  }
+}
+
+:global(.dark) .container {
+  svg path {
+    fill: var(--icon-primary);
+  }
+
+  .table.no-data th {
+    background-color: var(--table-primary);
+  }
+
+  .table.data-provided th {
+    background-color: var(--table-primary);
+  }
+}
+
+```
+</details>

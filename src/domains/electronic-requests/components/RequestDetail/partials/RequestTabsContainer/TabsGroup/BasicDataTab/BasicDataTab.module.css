@@ -1,0 +1,74 @@
+.basicDataTabContainer {
+  width: 775px;
+  height: 650px;
+
+  .formBlockDetails {
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .formBlockDetails ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .detailRow {
+    display: flex;
+    width: 100%;
+    min-height: var(--spacing-2xl);
+    align-items: center;
+  }
+
+  .detailRowText,
+  .detailRowTextNoValue {
+    display: flex;
+    width: 50%;
+    min-height: var(--spacing-2xl);
+    padding: var(--spacing-xs) var(--spacing-s);
+    align-items: center;
+  }
+
+  :global(.dark) .detailRowText,
+  :global(.dark) .detailRowTextNoValue {
+    background-color: var(--palette-grey-800);
+  }
+
+  .detailRowValue {
+    display: flex;
+    width: 50%;
+    min-height: var(--spacing-2xl);
+    padding: var(--spacing-xs) var(--spacing-s);
+    align-items: center;
+  }
+
+  .detailRowLabel {
+    width: 100%;
+    font-weight: 500;
+  }
+
+  .formBlockDetails li {
+    display: flex;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .user {
+    height: var(--spacing-m);
+    width: var(--spacing-m);
+  }
+
+  .userContainer {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-3xs);
+  }
+
+  .userText {
+    text-decoration: dotted underline;
+  }
+}

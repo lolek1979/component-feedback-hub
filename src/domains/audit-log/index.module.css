@@ -1,0 +1,49 @@
+.auditListPage {
+  --page-spacing: var(--spacing-m);
+
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+  padding: var(--page-spacing);
+  width: 100%;
+  height: 100%;
+}
+
+.headerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: calc(var(--spacing-3xs) * 2);
+  flex-wrap: wrap; /* volitelně pro menší obrazovky */
+}
+
+.actions {
+  display: flex;
+  gap: var(--spacing-2xs);
+}
+
+.spinnerOverlay {
+  position: absolute; /* or fixed, if it should be over fullscreen */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: color-mix(
+    in srgb,
+    var(--palette-grey-0) 50%,
+    transparent
+  ); /* Semi-transparent background */
+
+  z-index: 1000;
+  pointer-events: none; /* Prevent interaction with the overlay */
+}
+
+:global(.dark) .cscPage {
+  .draftCount {
+    background-color: var(--color-black-800);
+    color: var(--color-white);
+  }
+}

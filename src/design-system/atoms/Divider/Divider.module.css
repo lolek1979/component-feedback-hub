@@ -1,0 +1,57 @@
+.divider {
+  background-color: var(--border-primary);
+
+  &.dividerHorizontal {
+    height: var(--units-1);
+    width: 100%;
+  }
+
+  &.dividerVertical {
+    width: var(--units-1);
+    height: 100%;
+    margin: var(--spacing-xs);
+    background-color: var(--border-primary);
+  }
+
+  &.dividerSubtle {
+    background-color: var(--border-subtle);
+  }
+
+  &.dividerProminent {
+    background-color: var(--border-prominent);
+  }
+
+  &.dividerDotted {
+    background-color: transparent;
+
+    &.dividerHorizontal {
+      height: 0;
+      display: block;
+      border-top-width: var(--border-s);
+      border-top-style: solid;
+      border-image: repeating-linear-gradient(
+          to right,
+          var(--border-subtle) 0,
+          var(--border-subtle) var(--units-2),
+          transparent var(--units-2),
+          transparent var(--units-4)
+        )
+        1;
+    }
+
+    &.dividerVertical {
+      width: 0;
+      display: block;
+      border-left-width: var(--border-s);
+      border-left-style: solid;
+      border-image: repeating-linear-gradient(
+          to bottom,
+          var(--border-subtle) 0,
+          var(--border-subtle) var(--units-2),
+          transparent var(--units-2),
+          transparent var(--units-4)
+        )
+        1;
+    }
+  }
+}

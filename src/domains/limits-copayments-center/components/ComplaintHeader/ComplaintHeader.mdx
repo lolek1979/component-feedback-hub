@@ -1,0 +1,136 @@
+# ComplaintHeader
+
+A header component for displaying complaint information with breadcrumbs, status badges, and action buttons.
+
+## Features
+- Display complaint ID and insurance number
+- Optional breadcrumbs navigation
+- Status badges (registered)
+- Action buttons for draft and registered complaints
+- Opinion modal integration
+- Responsive design
+- Dark mode support
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `complaintId` | `string` | - | Complaint identifier |
+| `firstName` | `string` | - | First name (optional) |
+| `lastName` | `string` | - | Last name (optional) |
+| `name` | `string` | - | Full name (optional) |
+| `insuranceNum` | `string` | - | Insurance number |
+| `showBreadcrumbs` | `boolean` | `false` | Show breadcrumbs navigation |
+| `breadcrumbTitle` | `string` | `''` | Breadcrumb text |
+| `onBreadcrumbClick` | `() => void` | - | Breadcrumb click handler |
+| `complaintStatus` | `'registered'` | - | Complaint status |
+| `isDraft` | `boolean` | `false` | Draft mode flag |
+| `onApprove` | `() => void` | - | Approve action handler |
+| `onRequestOpinion` | `() => void` | - | Request opinion handler |
+| `onReject` | `() => void` | - | Reject action handler |
+| `onSubmitForReview` | `() => void` | - | Submit for review handler |
+| `onCancel` | `() => void` | - | Cancel action handler |
+| `actionsDisabled` | `boolean` | `false` | Disable all actions |
+| `currentStep` | `number` | `0` | Current step number |
+
+## Usage
+
+```tsx
+<ComplaintHeader
+  complaintId="C-12345"
+  insuranceNum="1234567890"
+  showBreadcrumbs
+  breadcrumbTitle="Back to list"
+  onBreadcrumbClick={() => router.back()}
+  complaintStatus="registered"
+  onApprove={handleApprove}
+  onRequestOpinion={handleRequestOpinion}
+  onReject={handleReject}
+/>
+```
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.content {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  gap: var(--spacing-s);
+}
+
+.personalContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: var(--spacing-3xs);
+}
+
+.breadcrumbs {
+  display: flex;
+  align-self: flex-start;
+  justify-content: flex-start;
+  margin-left: calc(-1 * var(--spacing-3xs));
+}
+
+.name {
+  align-self: flex-start;
+  margin-top: var(--spacing-3xs);
+  margin-bottom: var(--spacing-4xs);
+}
+
+.securityNum {
+  align-self: flex-start;
+}
+
+.badgesSection {
+  display: flex;
+  align-items: center;
+  align-self: center;
+}
+
+.actionsContainer {
+  display: flex;
+  align-self: center;
+  margin-left: auto;
+}
+
+@media (max-width: 850px) {
+  .content {
+    flex-direction: column;
+  }
+
+  .badgesSection {
+    align-self: flex-start;
+    width: 100%;
+  }
+
+  .actionsContainer {
+    margin-left: 0;
+    align-self: flex-start;
+    width: 100%;
+    margin-top: var(--spacing-m);
+  }
+}
+
+:global(.dark) .container {
+  .name {
+    color: var(--color-white);
+  }
+
+  .securityNum {
+    color: var(--color-white);
+  }
+}
+```
+</details>

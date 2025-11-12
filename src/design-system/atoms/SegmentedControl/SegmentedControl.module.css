@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--units-20);
+
+  .selected {
+    background-color: var(--button-on-color);
+  }
+
+  & .row {
+    background-color: var(--background-panel);
+    border-radius: var(--radius-s);
+    gap: var(--units-10);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: var(--units-40);
+    width: 100%;
+
+    & .borderLeft {
+      border-left: var(--border-s) solid var(--border-primary);
+    }
+
+    & .cell {
+      padding: var(--spacing-4xs);
+      border-color: transparent;
+      border-radius: var(--radius-s);
+      min-width: 84px;
+
+      span {
+        padding: var(--spacing-3xs);
+      }
+    }
+  }
+}

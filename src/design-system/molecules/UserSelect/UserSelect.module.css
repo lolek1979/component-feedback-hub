@@ -1,0 +1,195 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+
+  --user-select-width: 344px;
+  --user-select-height: 84px;
+
+  .selectContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3xs);
+    align-items: end;
+
+    .optionsList {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+      border-radius: var(--radius-xs);
+      box-shadow:
+        0 var(--spacing-3xs) var(--spacing-2xs) 0 #091e4226,
+        0 -2px 0 0 transparent;
+
+      .disabledOption {
+        pointer-events: none;
+        opacity: 0.5;
+
+        &:hover {
+          cursor: not-allowed;
+        }
+      }
+    }
+
+    .userContainer {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .userCard {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: var(--spacing-3xs);
+      gap: var(--spacing-3xs);
+      min-width: 341px;
+
+      & span {
+        color: var(--palette-grey-400);
+      }
+
+      &:hover {
+        background-color: var(--button-on-color-hover);
+      }
+    }
+
+    .inputContainer {
+      display: flex;
+      align-items: center;
+      overflow: visible;
+      gap: var(--spacing-3xs);
+
+      & .selectedCard {
+        display: flex;
+        overflow: hidden;
+        justify-content: space-between;
+        flex-direction: row;
+        align-items: center;
+        border: var(--border-s) solid var(--palette-grey-400);
+        border-radius: var(--radius-xs);
+        width: var(--user-select-width);
+        height: var(--user-select-height);
+
+        & .displayIcon {
+          cursor: pointer;
+          padding: var(--spacing-3xs);
+        }
+
+        & .userCardSelected {
+          width: 95%;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          padding: var(--spacing-3xs);
+          gap: var(--spacing-3xs);
+          border-right: var(--border-s) solid var(--palette-grey-400);
+          overflow: hidden;
+
+          & .userInfo {
+            & :first-child {
+              color: var(--color-black-950);
+            }
+          }
+
+          & .overflowText {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+
+          & span {
+            color: var(--palette-grey-400);
+            width: 230px;
+          }
+
+          &:hover {
+            cursor: pointer;
+          }
+
+          & .selectAvatar {
+            width: var(--spacing-l);
+          }
+        }
+      }
+
+      .removeUser {
+        cursor: pointer;
+      }
+    }
+
+    .userInfo {
+      display: flex;
+      flex-direction: column;
+
+      & :first-child {
+        color: var(--palette-grey-950);
+      }
+    }
+
+    .input {
+      width: var(--user-select-width);
+    }
+  }
+
+  .addUser {
+    cursor: pointer;
+    display: flex;
+    width: var(--user-select-width);
+    align-items: center;
+    flex-direction: row;
+    gap: var(--spacing-3xs);
+    margin-right: calc(-1 * var(--spacing-l));
+  }
+}
+
+.selectedCardDisabled {
+  background: var(--field-disabled) !important;
+}
+
+.selectedCardDisabled .userInfo {
+  color: var(--text-disabled) !important;
+}
+
+.selectedCardDisabled * {
+  color: var(--text-disabled) !important;
+}
+
+:global(.dark) .container {
+  .addUser {
+    color: var(--color-white);
+  }
+
+  .selectContainer {
+    & .userInfo {
+      & :first-child {
+        color: var(--color-white);
+      }
+    }
+  }
+
+  .optionsList {
+    box-shadow:
+      0 8px 12px 0 rgb(123 123 132 / 0.25),
+      0 0 2px 0 rgb(123 123 132 / 0.25);
+  }
+
+  .userCard {
+    &:hover {
+      background-color: var(--palette-grey-850);
+    }
+  }
+
+  .inputContainer {
+    .selectedCard {
+      .userCardSelected {
+        .userInfo {
+          & :first-child {
+            color: var(--palette-grey-0);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,22 @@
+.remainingDays {
+  text-decoration: underline dotted;
+  text-underline-offset: 4px;
+  color: var(--color-text-primary);
+}
+
+.remainingDaysWarning {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+
+  svg path {
+    fill: var(--color-support-warning);
+  }
+}
+
+.warningLabel {
+  text-decoration: underline dotted;
+  text-underline-offset: 4px;
+  color: var(--color-support-warning);
+}

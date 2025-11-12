@@ -1,0 +1,32 @@
+.prescriptionHeader {
+  display: flex;
+  overflow-x: auto;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: var(--spacing-xs) 0 var(--units-10);
+  width: inherit;
+}
+
+.codeContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3xs);
+}
+
+.contentColumn {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4xs);
+}
+
+.overPaid {
+  margin-bottom: -30px;
+}
+
+@media print {
+  .dateHeader {
+    font-family: Roboto, sans-serif !important;
+    font-weight: var(--font-weight-100) !important;
+    font-size: var(--size-14) !important;
+  }
+}

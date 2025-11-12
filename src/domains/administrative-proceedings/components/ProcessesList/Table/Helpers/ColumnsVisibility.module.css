@@ -1,0 +1,29 @@
+.visibilityPopup {
+  width: 240px;
+  padding: 4px;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      padding: 8px;
+    }
+  }
+
+  label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+
+    &.disabled {
+      cursor: not-allowed;
+
+      span {
+        color: rgb(159 159 168 / 1);
+      }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+
+import Multiselect, { Default, Disabled, Preselected, WithHelperText, ErrorState } from './Multiselect.stories';
+
+<Meta of={Multiselect} />
+
+#### Design: <a href="https://www.figma.com/design/HtK3DbPIxodKas2jSTtrlH/Design-system?node-id=218-2537&t=wybVIU5ds9Cj1gXP-4" target="_blank" rel="noopener">Figma</a>
+
+# Multiselect
+
+---
+
+Multiselect is a wrapper around the Select component that allows users to select multiple items from a collection. It includes search functionality, smart text display with truncation, and action buttons.
+
+<Canvas of={Default} />
+
+## Dependencies
+
+- [Select](/docs/atoms-field-select--docs)
+- [Option](/docs/atoms-field-select-option--docs)
+
+## Properties
+
+{' '}
+
+<Controls of={Default} />{' '}
+
+## Examples
+
+### Default
+
+<Canvas of={Default} />
+
+### Disabled
+
+<Canvas of={Disabled} />
+
+### Preselected
+
+<Canvas of={Preselected} />
+
+### With Helper Text
+
+<Canvas of={WithHelperText} />
+
+### Error State
+
+<Canvas of={ErrorState} />
+
+## Features
+
+- **Search functionality**: Built-in search to filter options
+- **Smart text display**: Shows selected items with intelligent truncation and count badge
+- **Action buttons**: "Select all" and "Clear filter" buttons for quick selection management
+- **Accessibility**: Full keyboard navigation and screen reader support
+- **Validation**: Helper text and error state support
+
+## CSS Source
+
+**Note**: This component now uses the Select component internally, so it inherits all Select styles.

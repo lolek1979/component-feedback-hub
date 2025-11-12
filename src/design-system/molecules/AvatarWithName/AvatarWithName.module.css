@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3xs);
+
+  .multiline {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .line {
+    display: block;
+  }
+}

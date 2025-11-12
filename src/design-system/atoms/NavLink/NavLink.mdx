@@ -1,0 +1,85 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+
+import NavLink, { Default, NavList, Active } from './NavLink.stories';
+
+<Meta of={NavLink} />
+
+#### Design: <a href="https://www.figma.com/design/X6VaqX3yF7GOyaVg2qLbdY/MVP-design?node-id=50-766&t=6NwfqJ87Oxq1wCLP-4" target="_blank" rel="noopener">Figma</a>
+
+# NavLink
+
+NavLink is a Link component for use in navigation.
+
+<Canvas of={Default} />
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+
+### Default
+
+<Canvas of={Default} />
+
+### Active
+
+<Canvas of={Active} />
+
+### NavList
+
+<Canvas of={NavList} />
+
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.navLink {
+  height: var(--units-40);
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  border-radius: var(--radius-xs);
+  font-size: var(--size-14);
+  padding: var(--spacing-2xs);
+  background-color: var(--button-ghost);
+
+  & > :global(svg) {
+    margin-right: var(--units-12);
+    fill: var(--icon-primary);
+  }
+
+  &:hover {
+    background-color: var(--button-ghost-hover);
+  }
+
+  &.active {
+    color: var(--text-primary);
+    background-color: var(--button-secondary);
+
+    & > :global(svg path) {
+      fill: var(--icon-primary);
+    }
+  }
+
+  &:focus-visible {
+    outline: solid var(--border-m) var(--support-info);
+    outline-offset: var(--units-2);
+  }
+
+  &:active {
+    background-color: var(--button-secondary-active) !important;
+  }
+}
+
+:global(.dark) .navLink {
+  span {
+    color: var(--text-primary);
+  }
+}
+
+```
+</details>

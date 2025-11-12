@@ -1,0 +1,74 @@
+.container {
+  margin: var(--spacing-m);
+
+  .headerRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: var(--spacing-2xs);
+  }
+
+  .auditGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(calc(var(--spacing-l) * 5), 1fr));
+    row-gap: calc(var(--spacing-2xs) + var(--spacing-3xs));
+    column-gap: calc(var(--spacing-2xs) + var(--spacing-3xs));
+  }
+
+  .auditCell {
+    padding: var(--spacing-3xs);
+  }
+
+  .badge {
+    width: calc(var(--spacing-xl) * 2);
+  }
+
+  .auditLabel {
+    font-weight: bold;
+    font-size: var(--size-48) !important;
+    margin-bottom: var(--spacing-4xs);
+  }
+
+  .auditValue {
+    padding-top: var(--spacing-2xs);
+  }
+
+  .jsonViewer {
+    position: relative;
+    background: var(--color-alpha-100);
+    padding: var(--spacing-m);
+    line-height: var(--line-height-24);
+    word-spacing: var(--spacing-4xs);
+    word-break: break-all;
+    white-space: pre-wrap;
+  }
+
+  .jsonViewer pre {
+    white-space: pre-wrap;
+    word-break: break-all;
+    overflow-wrap: break-word;
+    margin: 0;
+
+    :global(.dark) & {
+      color: var(--palette-grey-0);
+    }
+  }
+
+  .copyButton {
+    position: absolute;
+    top: var(--spacing-3xs);
+    right: var(--spacing-3xs);
+  }
+
+  .divider {
+    margin-top: var(--spacing-2xs);
+  }
+}
+
+.spinnerContainer {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

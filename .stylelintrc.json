@@ -1,0 +1,24 @@
+{
+  "extends": ["stylelint-config-standard", "stylelint-config-css-modules"],
+  "rules": {
+    "media-feature-range-notation": null,
+    "color-hex-length": "long",
+    "color-no-invalid-hex": true,
+    "alpha-value-notation": "number",
+    "no-descending-specificity": null,
+    "declaration-block-no-redundant-longhand-properties": null,
+    "custom-property-pattern": [
+      "^-{0,3}([a-zA-Z][a-zA-Z0-9]*)(--?[a-zA-Z0-9]+)*$",
+      {
+        "message": "Expected custom property name to follow project conventions"
+      }
+    ],
+    "selector-class-pattern": [
+      "^([a-z][a-z0-9]*)(-[a-z0-9]+)*$|^[a-z][a-zA-Z0-9]+$",
+      {
+        "message": "Expected class selector to be kebab-case or camelCase"
+      }
+    ]
+  },
+  "ignoreFiles": ["./src/styles/**/*.css", "coverage/*", "docs/**"]
+}

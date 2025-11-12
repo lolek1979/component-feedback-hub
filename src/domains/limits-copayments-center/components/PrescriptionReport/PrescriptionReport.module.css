@@ -1,0 +1,24 @@
+.report {
+  --spacing-md: 24px;
+  --max-width: 1200px;
+  --report-padding: 32px;
+
+  padding: var(--report-padding);
+  max-width: var(--max-width);
+
+  & .monthSection {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  & .limitMessage {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: 100%;
+    margin: 0 0 var(--spacing-md) 0;
+  }
+}

@@ -1,0 +1,88 @@
+.table {
+  width: 100%;
+  caption-side: bottom;
+}
+
+.tableContainer {
+  position: relative;
+  width: 100%;
+  overflow: auto;
+}
+
+.tableHeader tr {
+  border-bottom: 1px solid;
+}
+
+.tableBody tr:last-child {
+  border: 0;
+}
+
+.tableFooter {
+  border-top: 1px solid;
+  background-color: rgb(0 0 0 / 0.1);
+}
+
+.tableFooter > tr:last-child {
+  border-bottom: 0;
+}
+
+.tableRow {
+  border-bottom: 1px solid;
+  transition: colors 0.2s;
+}
+
+.tableRow:hover {
+  background-color: rgb(0 0 0 / 0.05);
+}
+
+.tableRowSelected {
+  background-color: rgb(0 0 0 / 0.1);
+}
+
+.tableHead {
+  height: 2.5rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  text-align: left;
+  vertical-align: middle;
+  color: #666666;
+}
+
+.tableHead:has([role='checkbox']) {
+  padding-right: 0;
+}
+
+.tableHead > [role='checkbox'] {
+  transform: translateY(2px);
+}
+
+.tableCell {
+  padding: 0.5rem;
+  vertical-align: middle;
+}
+
+.tableCell:has([role='checkbox']) {
+  padding-right: 0;
+}
+
+.tableCell > [role='checkbox'] {
+  transform: translateY(2px);
+}
+
+.tableCaption {
+  margin-top: 1rem;
+  color: #666666;
+}
+
+.sortableHeaderButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  border: none;
+  background: none;
+
+  &:hover {
+    background: none;
+  }
+}

@@ -1,0 +1,112 @@
+import { Meta, Canvas, ArgTypes } from '@storybook/blocks';
+import * as PdfComparisonHeaderStories from './PdfComparisonHeader.stories';
+
+<Meta of={PdfComparisonHeaderStories} />
+
+# PdfComparisonHeader
+
+The `PdfComparisonHeader` component displays the match percentage for PDF comparison results. It's designed to show users how similar two PDF documents are after comparison.
+
+## Usage
+
+```tsx
+import { PdfComparisonHeader } from '@/domains/pdf-comparison/components';
+
+function ComparisonResults() {
+  return (
+    <PdfComparisonHeader
+      matchPercentage={85.5}
+      id="comparison-header"
+    />
+  );
+}
+```
+
+## Props
+
+<ArgTypes of={PdfComparisonHeaderStories} />
+
+## Examples
+
+### Default Usage
+
+<Canvas of={PdfComparisonHeaderStories.Default} />
+
+### High Match Percentage
+
+<Canvas of={PdfComparisonHeaderStories.HighMatch} />
+
+### Low Match Percentage
+
+<Canvas of={PdfComparisonHeaderStories.LowMatch} />
+
+### Perfect Match
+
+<Canvas of={PdfComparisonHeaderStories.PerfectMatch} />
+
+### No Match
+
+<Canvas of={PdfComparisonHeaderStories.NoMatch} />
+
+## Accessibility
+
+- Uses semantic HTML structure
+- Includes `data-testid` for testing
+- Supports custom `id` for accessibility labeling
+- Text color follows design system contrast requirements
+
+## Design Considerations
+
+- Match percentage is displayed prominently using the `support-negative` color
+- Layout is responsive and adapts to different screen sizes
+- Follows the established design system spacing and typography patterns
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.comparison-header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+}
+
+.match-percentage {
+  color: var(--support-negative);
+  margin: 0;
+}
+
+.file-links {
+  display: flex;
+  gap: var(--spacing-l);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.file-link {
+  font-weight: var(--font-weight-600);
+  font-size: var(--size-14);
+  line-height: var(--line-height-20);
+  color: var(--text-primary);
+  text-decoration: underline;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+@media (max-width: 768px) {
+  .file-links {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-s);
+  }
+}
+
+```
+</details>

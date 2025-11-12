@@ -1,0 +1,417 @@
+import { Canvas, Meta, Controls, Story } from '@storybook/blocks';
+import CodelistTab, { Default } from './CodelistTab.stories';
+
+<Meta of={CodelistTab} />
+
+#### Design: <a href="https://www.figma.com/design/X6VaqX3yF7GOyaVg2qLbdY/MVP-design?node-id=2553-9878&t=Y49JVw7pOCAvgfTh-4" target="_blank" rel="noopener">Figma</a>
+
+# CodelistTab
+
+The CodelistTab component displays detailed information in a structured list format. It provides a clear and organized view of entity details such as title, identifier, description, and other metadata.
+
+## Usage
+
+The CodelistTab component can be used to display comprehensive information about any entity in your application:
+
+<Story of={Default} />
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+
+
+### Default
+<Canvas of={Default} />
+
+
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s);
+  width: 100%;
+
+  .filter-container {
+    width: 100%;
+  }
+
+  .table-container {
+    width: 100%;
+  }
+}
+
+.table-container {
+  width: 100%;
+  overflow: auto;
+  position: relative;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 53px;
+  z-index: 10;
+  background: white;
+}
+
+.header-columns-container {
+  position: relative;
+  flex: 1;
+  height: 100%;
+}
+
+/* Body Styles */
+.body-container {
+  position: relative;
+}
+
+.body-row {
+  position: absolute;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.body-columns-container {
+  position: relative;
+  flex: 1;
+  height: 100%;
+}
+
+.header-cell {
+  background-color: var(--table-primary);
+  border-bottom: none !important;
+}
+
+.body-cell {
+  background-color: var(--table-secondary);
+}
+
+.virtual-cell {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-bottom: var(--border-s) solid var(--border-primary);
+  padding: var(--spacing-4xs) var(--spacing-2xs);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+/* Sorting functionality styles */
+.is-sort-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: var(--spacing-3xs);
+
+  svg {
+    flex-shrink: 0;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.edit-input-cell {
+  width: 100%;
+  height: 35px;
+  padding-left: var(--spacing-4xs);
+  border-radius: var(--radius-xs);
+  background-color: var(--field-primary);
+  font-weight: var(--font-weight-400);
+  border: var(--border-s) solid var(--color-black-300);
+
+  &:focus {
+    outline: none;
+    border: var(--border-s) solid var(--color-black-300);
+  }
+
+  &:disabled {
+    background-color: #f7f7f8;
+    cursor: not-allowed;
+  }
+}
+
+.column-actions-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+  gap: var(--spacing-s);
+}
+
+.column-actions {
+  position: relative;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3xs);
+}
+
+.row-actions {
+  width: 0;
+  border: none;
+}
+
+.action-row {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 54px;
+  z-index: 20;
+  background-color: var(--palette-grey-0);
+
+  .virtual-cell {
+    border-bottom: none;
+  }
+}
+
+:global(.dark) .action-row {
+  background-color: var(--palette-grey-950);
+}
+
+.header-row {
+  position: absolute;
+  top: 53px;
+  left: 0;
+  width: 100%;
+  height: 36px;
+  z-index: 10;
+  background-color: white;
+}
+
+.add-row-row {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 35px;
+  background: var(--table-secondary);
+  bottom: 0;
+  left: 0;
+}
+
+.add-row-cell {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: var(--spacing-4xs);
+
+  & button {
+    & span {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+    }
+  }
+}
+
+.add-column-right {
+  background-color: rgb(241 241 241);
+  height: 54px;
+  width: 66px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.add-column-right-placeholder {
+  background-color: var(--palette-grey-0);
+  height: 54px;
+  width: 66px;
+}
+
+.row-action-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  background-color: var(--table-secondary);
+  padding: var(--spacing-2xs);
+}
+
+.editable-cell {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  border-bottom: none !important;
+}
+
+/* Index column styles */
+.index-column {
+  position: sticky;
+  left: 0;
+  z-index: 15;
+  background-color: var(--table-primary);
+  min-width: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--font-weight-500);
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.index-column-header {
+  background-color: var(--palette-grey-0);
+  border-bottom: var(--border-s) solid var(--border-subtle);
+}
+
+.index-column-cell {
+  background-color: rgb(241 241 241) !important;
+  border-bottom: var(--border-s) solid var(--border-subtle);
+}
+
+.invisible-cell {
+  visibility: hidden;
+}
+
+.header-row .index-column-header {
+  border-top: none !important;
+  border-bottom: none !important;
+  border-right: none !important;
+  background-color: rgb(241 241 241) !important;
+}
+
+/* Codelist Table Row Actions Styles */
+.codelist-table-row-actions {
+  background: transparent;
+  border: var(--border-s) solid var(--border-subtle);
+  border-radius: var(--spacing-4xs);
+  padding: var(--spacing-4xs);
+  min-width: var(--units-32);
+  min-height: var(--units-32);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  z-index: 1;
+}
+
+.codelist-table-row-actions:hover {
+  background: var(--palette-grey-50);
+  border-color: var(--border-primary);
+}
+
+/* Container for the popover - ensure proper stacking */
+.codelist-row-actions-popover {
+  position: relative;
+  z-index: 10000;
+}
+
+.codelist-row-options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4xs);
+  padding: var(--spacing-3xs);
+  min-width: 220px;
+  background: white;
+  border-radius: var(--radius-s);
+  position: relative;
+  z-index: 10001;
+}
+
+.codelist-row-option-button {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3xs);
+  padding: var(--spacing-2xs) var(--spacing-3xs);
+  border-radius: var(--radius-s);
+  text-align: left;
+  justify-content: flex-start;
+  width: 100%;
+  transition: all 0.2s ease-in-out;
+  border: none;
+  background: transparent;
+}
+
+.codelist-row-option-button:hover {
+  background: var(--palette-grey-50);
+}
+
+.row-action-button {
+  padding: var(--spacing-4xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:global(.dark) .container {
+  .header {
+    background-color: var(--palette-grey-850) !important;
+  }
+
+  .header-row {
+    background-color: var(--palette-grey-850) !important;
+
+    svg path {
+      fill: var(--icon-on-color);
+    }
+  }
+
+  .index-column {
+    background-color: var(--palette-grey-850) !important;
+    color: var(--text-on-color);
+
+    svg path {
+      fill: var(--icon-on-color);
+    }
+  }
+
+  .body-cell {
+    input {
+      color: var(--text-on-color);
+      background-color: var(--palette-grey-950);
+    }
+  }
+
+  .header-cell {
+    input {
+      color: var(--text-on-color);
+      background-color: var(--palette-grey-950);
+    }
+  }
+
+  .add-column-right-placeholder {
+    background-color: var(--palette-grey-950);
+  }
+
+  .add-column-right {
+    background-color: var(--palette-grey-850);
+
+    svg path {
+      fill: var(--icon-on-color);
+    }
+  }
+
+  .is-sort-header {
+    color: var(--text-on-color);
+  }
+}
+
+```
+</details>

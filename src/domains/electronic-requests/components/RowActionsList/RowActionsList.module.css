@@ -1,0 +1,73 @@
+.rowActionsList {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rowActionsListItem {
+  width: 100%;
+  height: var(--spacing-l);
+  padding: 0 var(--spacing-2xs);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: space-between;
+}
+
+.deleteListItem {
+  border-top: var(--border-s) solid var(--border-primary) !important;
+
+  .delete {
+    color: var(--support-negative) !important;
+  }
+}
+
+.rowActionsItemButton {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  margin-left: var(--units-10);
+}
+
+.itemDisabled {
+  width: 100%;
+  height: var(--spacing-l);
+  padding: 0 var(--spacing-2xs);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.rowActionsListItem:hover {
+  background-color: var(--palette-grey-50);
+}
+
+:global(.dark) .rowActionsList {
+  .rowActionsListItem:hover {
+    background-color: var(--palette-grey-850);
+  }
+
+  path {
+    fill: var(--icon-on-color);
+  }
+
+  .deleteListItem {
+    path {
+      fill: var(--palette-red-400);
+    }
+
+    .delete {
+      span {
+        color: var(--palette-red-400) !important;
+      }
+    }
+  }
+}

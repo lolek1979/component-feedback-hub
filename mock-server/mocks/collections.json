@@ -1,0 +1,55 @@
+[
+  {
+    "id": "sukl-data",
+    "routes": ["get-sukl-data:success"]
+  },
+  {
+    "id": "sukl-limits",
+    "routes": ["get-sukl-limits:success"]
+  },
+  {
+    "id": "sukl-all",
+    "routes": ["get-sukl-data:success", "get-sukl-limits:success"]
+  },
+  {
+    "id": "sukl-limits-500-error",
+    "routes": ["get-sukl-data:success", "get-sukl-limits:error:500"]
+  },
+  {
+    "id": "sukl-limits-502-error",
+    "routes": ["get-sukl-data:success", "get-sukl-limits:error:502"]
+  },
+  {
+    "id": "sukl-limits-403-error",
+    "routes": ["get-sukl-data:success", "get-sukl-limits:error:403"]
+  },
+  {
+    "id": "sukl-limits-504-error",
+    "routes": ["get-sukl-data:success", "get-sukl-limits:error:504"]
+  },
+  {
+    "id": "sukl-data-error",
+    "routes": ["get-sukl-data:error:403", "get-sukl-limits:success"]
+  },
+  {
+    "id": "sukl-both-error",
+    "routes": ["get-sukl-data:error:403", "get-sukl-limits:error:500"]
+  },
+  {
+    "id": "code-lists",
+    "routes": ["get-codelists-data:success", "get-codelist-data:success"]
+  },
+  {
+    "id": "requests",
+    "routes": [
+      "get-requester-requests:success",
+      "get-admin-requests:success",
+      "get-approver-requests:success",
+      "get-purchaser-requests:success",
+      "get-request-by-id:success",
+      "get-user-info:success",
+      "post-new-request:success",
+      "get-csc-catalogue:default"
+    ]
+  }
+]

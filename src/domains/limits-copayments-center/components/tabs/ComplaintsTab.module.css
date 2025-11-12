@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  width: 100%;
+  margin-bottom: var(--spacing-s);
+  justify-content: space-between;
+}
+
+.searchWrapper {
+  width: 240px;
+  flex-shrink: 0;
+}
+
+.buttonWrapper {
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .searchWrapper {
+    width: 100%;
+  }
+
+  .buttonWrapper {
+    width: 100%;
+  }
+}

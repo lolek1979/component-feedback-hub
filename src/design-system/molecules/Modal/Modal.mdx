@@ -1,0 +1,153 @@
+import { Canvas, Meta, Controls, Story } from '@storybook/addon-docs/blocks';
+
+import Modal, { Default } from './Modal.stories';
+
+<Meta of={Modal} />
+
+#### Design: <a href="https://www.figma.com/design/X6VaqX3yF7GOyaVg2qLbdY/MVP-design?node-id=149-3892&t=SMRJUEYvfGlL7xH1-4" target="_blank" rel="noopener">Figma</a>
+
+#### TO DO:
+
+- add title H2 from `Text` component
+
+# Modal
+
+---
+
+The modal component provides a solid foundation for creating dialogs, popovers, lightboxes, or whatever else.<br />
+The component renders its `children` node in front of a backdrop component.
+
+<Canvas of={Default} />
+
+## Properties
+
+<Controls of={Default} />
+
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.modalOverlay {
+  overflow-y: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-scrim);
+  animation: fade-in 0.3s;
+  padding: var(--spacing-l);
+  z-index: 1000;
+
+  .modalWrapper {
+    width: 100%;
+    max-height: calc(100vh - 2 * var(--spacing-l));
+    overflow: visible;
+    margin-top: var(--spacing-l);
+
+    &.small {
+      max-width: 480px;
+    }
+
+    &.medium {
+      max-width: 600px;
+    }
+
+    &.large {
+      max-width: 752px;
+    }
+
+    &.xlarge {
+      max-width: 968px;
+    }
+
+    .modal {
+      background: var(--background-elevated);
+      height: 100%;
+      min-height: 172px;
+      width: 100%;
+      border-radius: var(--radius-xs);
+      padding: var(--spacing-m);
+      position: relative;
+      overflow: visible;
+
+      .modalTitle {
+        text-align: left;
+        margin-bottom: var(--spacing-m);
+
+        &:has(+ .close) {
+          padding-right: var(--units-24);
+        }
+
+        &:has(+ .modalSubtitle) {
+          margin-bottom: var(--spacing-4xs);
+        }
+
+        &:has(+ .modalDescription) {
+          margin-bottom: var(--spacing-4xs);
+        }
+      }
+
+      .modalSubtitle {
+        margin-bottom: var(--spacing-xs);
+        display: block;
+      }
+
+      .modalDescription {
+        margin-bottom: var(--spacing-m);
+        display: block;
+      }
+
+      .close {
+        position: absolute;
+        cursor: pointer;
+        border: none;
+        background: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        top: calc(var(--spacing-m) + var(--units-4));
+        right: var(--spacing-m);
+      }
+    }
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+:global(.dark) .modalOverlay {
+  svg path {
+    fill: var(--color-white);
+  }
+
+  b {
+    color: var(--color-white);
+  }
+
+  li::marker {
+    color: var(--color-white);
+  }
+
+  .modal {
+    background-color: var(--color-black-950);
+  }
+}
+
+```
+</details>

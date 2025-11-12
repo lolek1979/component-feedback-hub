@@ -1,0 +1,97 @@
+.icon_border path {
+  fill: var(--color-border);
+}
+
+.icon_text-default path {
+  fill: var(--color-text-default);
+}
+.icon_red-400 path {
+  fill: var(--color-red-400);
+}
+
+.icon_red-500 path {
+  fill: var(--color-red-500);
+}
+
+.icon_red-600 path {
+  fill: var(--color-red-600);
+}
+
+.icon_red-700 path {
+  fill: var(--color-red-700);
+}
+
+.icon_white path {
+  fill: var(--color-white);
+}
+
+.icon_black path {
+  fill: var(--color-black);
+}
+
+.icon_blue-50 path {
+  fill: var(--color-blue-50);
+}
+.icon_blue-300 path {
+  fill: var(--color-blue-300);
+}
+.icon_blue-500 path {
+  fill: var(--color-blue-500);
+}
+.icon_blue-600 path {
+  fill: var(--color-blue-600);
+}
+.icon_blue-700 path {
+  fill: var(--color-blue-700);
+}
+
+.icon_transparent path {
+  fill: var(--color-transparent);
+}
+
+.icon_black-50 path {
+  fill: var(--color-black-50);
+}
+
+.icon_black-100 path {
+  fill: var(--color-black-100);
+}
+
+.icon_black-200 path {
+  fill: var(--color-black-200);
+}
+
+.icon_black-300 path {
+  fill: var(--color-black-300);
+}
+
+.icon_black-400 path {
+  fill: var(--color-black-400);
+}
+
+.icon_black-950 path {
+  fill: var(--color-black-950);
+}
+
+.icon_black-700 path {
+  fill: var(--color-black-700);
+}
+
+.icon_orange-500 path {
+  fill: var(--color-orange-500);
+}
+.icon_orange-700 path {
+  fill: var(--color-orange-700);
+}
+
+.icon_green-500 path {
+  fill: var(--color-green-500);
+}
+
+.icon_alpha-600 path {
+  fill: var(--color-alpha-600);
+}
+
+.icon_brand path {
+  fill: var(--color-red-500);
+}

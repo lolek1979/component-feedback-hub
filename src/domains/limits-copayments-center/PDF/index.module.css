@@ -1,0 +1,163 @@
+.feesPage {
+  --page-spacing: 32px;
+  --a4-page-width: 210mm;
+  --a4-page-height: 297mm;
+  --a4-page-width-px: 793px;
+  --page-margin: 20mm;
+  --sections-spacing-bottom: 24px;
+
+  display: flex;
+  flex-direction: column;
+
+  --separator-color: var(--color-black-200);
+
+  .resultHeaderContainer {
+    padding-bottom: var(--sections-spacing-bottom);
+  }
+
+  .resultHeader {
+    display: flex;
+    flex-direction: column;
+
+    .text {
+      font-size: 18px;
+      font-weight: 100;
+    }
+
+    padding: 24px 0 8px;
+  }
+
+  .printTablesContainer {
+    padding: 24px 0 2px;
+  }
+
+  .ereceptWrapper {
+    display: block;
+    width: 100%;
+    page-break-inside: avoid;
+  }
+
+  @media print {
+    @page {
+      size: a4 landscape;
+    }
+
+    .resultHeader {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      & .infoContainer {
+        display: flex;
+        flex-direction: column;
+      }
+
+      & .sumContainer {
+        display: flex;
+        flex-direction: column;
+
+        & .sumItem {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          gap: 5px;
+
+          & .sumItemText {
+            font-size: 12px;
+            color: var(--color-black-700);
+          }
+
+          & .sumItemTextSum {
+            font-size: 12px;
+          }
+        }
+      }
+
+      .text {
+        font-family: Roboto, sans-serif !important;
+        border-bottom: 1px solid var(--separator-color);
+      }
+    }
+
+    .headerText {
+      font-weight: 500;
+      font-size: 12px;
+    }
+
+    .headerTextColor {
+      color: var(--color-black-700);
+    }
+
+    .mainDate {
+      font-family: Roboto, sans-serif !important;
+      font-weight: 100 !important;
+      font-size: 14px !important;
+    }
+
+    .ereceptFirstRow {
+      /* a work around to add a background color while printing */
+      box-shadow: inset 0 0 0 1000px #f1f1f3;
+    }
+
+    .printTableWrapper {
+      width: calc(var(--a4-page-width) - 2 * var(--page-margin));
+      overflow: visible;
+      margin-bottom: 32px;
+
+      .tableCell {
+        font-size: 12px !important;
+      }
+
+      .tableHead {
+        font-size: 12px !important;
+      }
+
+      th:first-child,
+      td:first-child {
+        position: static;
+      }
+
+      td:last-child {
+        position: static;
+      }
+
+      & :global(td),
+      & :global(th),
+      & :global(.tableCell) {
+        border: 1px solid var(--separator-color);
+        white-space: normal;
+        text-align: left;
+
+        &:nth-child(1) {
+          min-width: 100px;
+        }
+
+        &:nth-child(2) {
+          min-width: 190px;
+        }
+
+        &:nth-child(3) {
+          min-width: 100px;
+        }
+
+        &:nth-child(4) {
+          min-width: 100px;
+        }
+
+        &:nth-child(5) {
+          min-width: 100px;
+        }
+
+        &:nth-child(6) {
+          min-width: 110px;
+          border-right: 1px solid var(--separator-color);
+        }
+      }
+
+      & :global(th) {
+        box-shadow: inset 0 0 0 1000px var(--color-black-50);
+      }
+    }
+  }
+}

@@ -1,0 +1,78 @@
+.link {
+  cursor: pointer;
+
+  &.dotted {
+    text-decoration: underline dotted;
+    font-weight: var(--font-weight-400) !important;
+  }
+
+  &.primary {
+    color: var(--link-primary);
+
+    &:hover {
+      color: var(--link-primary-hover);
+    }
+
+    &:active {
+      color: var(--link-primary-active);
+    }
+
+    &:visited {
+      color: var(--link-primary-visit);
+
+      span {
+        color: var(--link-primary-visit);
+      }
+    }
+  }
+
+  &.secondary {
+    color: var(--link-on-color);
+  }
+
+  &.tertiary {
+    color: var(--palette-blue-500);
+  }
+
+  &.onColor {
+    color: var(--link-on-color);
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+:global(.dark) .link {
+  &.primary {
+    color: var(--palette-red-400) !important;
+
+    span {
+      color: var(--palette-red-400) !important;
+    }
+
+    &:hover {
+      color: var(--palette-red-400) !important;
+
+      span {
+        color: var(--palette-red-400) !important;
+      }
+    }
+
+    &:active {
+      color: var(--palette-red-600) !important;
+
+      span {
+        color: var(--palette-red-600) !important;
+      }
+    }
+
+    &:visited {
+      color: var(--palette-red-600) !important;
+
+      span {
+        color: var(--palette-red-600) !important;
+      }
+    }
+  }
+}

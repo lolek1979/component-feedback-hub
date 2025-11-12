@@ -1,0 +1,7 @@
+.qrPage {
+  display: flex;
+  flex-direction: column;
+  padding: var(--units-32);
+  gap: var(--spacing-m);
+  overflow: auto;
+}

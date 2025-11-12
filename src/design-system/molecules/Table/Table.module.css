@@ -1,0 +1,534 @@
+.tableContainer {
+  width: 100%;
+  overflow: hidden;
+
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto;
+  }
+
+  .table.dataProvided th {
+    background-color: var(--color-black-50);
+    color: var(--color-black-950);
+    padding: 8px 12px;
+    gap: 12px;
+    text-align: right;
+    font-size: 14px;
+    width: auto;
+    min-width: auto;
+    height: 50px;
+    font-weight: var(--font-weight-600);
+
+    &.actionsCell {
+      width: 40px !important;
+      min-width: 40px !important;
+      max-width: 40px !important;
+    }
+  }
+
+  .table.dataProvided td {
+    padding: 8px 12px;
+    text-align: right;
+    font-size: 14px;
+    width: auto;
+    min-width: auto;
+    height: 56px;
+    font-weight: var(--font-weight-600);
+
+    &.headerActionsCell {
+      background-color: white;
+    }
+  }
+
+  /* Apply border only in non-edit mode */
+  /* stylelint-disable selector-class-pattern */
+  &:not(:global(.TableContext-edit)) {
+    overflow-y: hidden;
+    overflow-x: auto;
+
+    .table.dataProvided th {
+      border-bottom: 1px solid var(--color-black-300);
+    }
+
+    .table.dataProvided td {
+      border-bottom: 1px solid;
+    }
+  }
+  /* stylelint-enable selector-class-pattern */
+
+  .inlineMessage {
+    path {
+      fill: var(--icon-primary);
+    }
+  }
+
+  .isSortHeader {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .table.noData th {
+    background-color: var(--color-black-50);
+    color: var(--color-black-950);
+    padding: 8px 12px;
+    text-align: right;
+    font-size: 14px;
+    font-weight: var(--font-weight-600);
+  }
+
+  .table.noData td {
+    padding: 8px 12px;
+    text-align: right;
+    font-size: 14px;
+    font-weight: var(--font-weight-600);
+  }
+
+  .table.dataProvided th.isChecked {
+    width: var(--spacing-xl) !important;
+    text-align: center;
+  }
+
+  th.isChecked,
+  td:has(:global(.checkboxContainer)) {
+    text-align: center !important;
+  }
+
+  th.isChecked > *,
+  td:has(:global(.checkboxContainer)) > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  @media print {
+    .tableContentWrapper {
+      overflow-x: visible !important;
+    }
+
+    max-width: 100%;
+    overflow-x: visible;
+  }
+
+  & svg:hover {
+    cursor: pointer;
+  }
+}
+
+.tableSettingsButton {
+  position: relative;
+  right: 13px;
+}
+
+.editInputCell {
+  width: 100%;
+  height: 35px;
+  padding-left: 5px;
+  border-radius: 4px;
+  background-color: var(--field-primary);
+  font-weight: var(--font-weight-400);
+  font-size: 14px;
+  border: 1px solid var(--color-black-300);
+
+  &:focus {
+    outline: none;
+    border: 1px solid var(--color-black-300);
+  }
+
+  &:disabled {
+    background-color: #f7f7f8;
+    cursor: not-allowed;
+  }
+}
+
+.columnActionsContainer {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.columnActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rowActions {
+  width: 0;
+  border: none;
+}
+
+.tableActionsPopover {
+  background-color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  transition: all 0.2s ease-in-out;
+  margin-left: 10px;
+  margin-top: 5px;
+  border-radius: 4px;
+  padding: 4px;
+
+  &:hover {
+    background-color: var(--color-black-50);
+    transform: scale(1.05);
+  }
+}
+
+.insertRowButton {
+  position: sticky !important;
+  top: 0;
+  width: 100% !important;
+  padding: 0 !important;
+  background-color: var(--color-black-50) !important;
+  z-index: 30 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 40px !important;
+}
+
+.tableRow {
+  width: 100%;
+  position: relative;
+}
+
+.tableRowIndex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--color-black-500);
+  width: 40px !important;
+  height: 56px !important;
+  border-bottom: 1px solid var(--color-alpha-100);
+  margin: 0 auto;
+  background: none;
+}
+
+.tableRowEdit,
+.tableRowEditSticky {
+  width: 40px !important;
+  min-width: 40px !important;
+  max-width: 40px !important;
+  border: none;
+  background-color: #7b7b841a;
+  padding: 0 !important;
+}
+
+.tableHeadEdit {
+  width: 30px;
+  min-width: 30px;
+  border: none;
+  background-color: #7b7b841a !important;
+  padding: 0 !important;
+}
+
+.tableHeadEditSticky {
+  width: 30px;
+  min-width: 30px;
+  border: none;
+  background-color: #7b7b841a !important;
+  padding: 0 !important;
+}
+
+.rowNumber {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--color-black-500);
+  margin: 8px auto;
+}
+
+.modalContent {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+:global(.dark) .tableContainer {
+  svg path {
+    fill: var(--color-white);
+  }
+
+  .table.noData th {
+    background-color: var(--color-alpha-100);
+  }
+
+  .table.dataProvided th {
+    background-color: var(--color-black-800);
+  }
+
+  .table.table.dataProvided td {
+    color: white;
+    font-weight: 400;
+  }
+
+  .tertiary {
+    svg rect {
+      fill: var(--color-black-800);
+    }
+  }
+
+  .table.noData {
+    div {
+      color: white;
+    }
+  }
+
+  .editInputCell {
+    background-color: var(--color-black-950);
+    color: var(--color-white);
+  }
+
+  .inlineMessage {
+    path {
+      fill: var(--color-blue-300);
+    }
+  }
+
+  .isSortHeader {
+    color: var(--color-white);
+  }
+
+  .tableActionsPopover {
+    &:hover {
+      background-color: var(--color-black-800);
+      transform: scale(1.05);
+    }
+
+    svg {
+      transition: all 0.2s ease-in-out;
+
+      rect {
+        fill: var(--color-black-800);
+      }
+
+      path {
+        fill: var(--color-white);
+      }
+    }
+  }
+
+  .insertRowButton {
+    background-color: var(--palette-grey-800) !important;
+  }
+}
+
+.tableContentWrapper {
+  width: 100%;
+  position: relative;
+  overflow-x: auto;
+  scrollbar-gutter: stable;
+
+  @media screen and (max-width: 1100px) {
+    overflow-x: scroll !important;
+  }
+
+  &::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--color-black-300);
+    border-radius: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: var(--color-black-400);
+  }
+
+  thead {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    background-color: transparent;
+  }
+
+  th:first-child,
+  td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 15;
+  }
+
+  /* stylelint-disable selector-class-pattern */
+  :global(.TableContext-edit) & {
+    overflow-x: scroll !important;
+    max-height: calc(100vh - 360px);
+
+    @media screen and (min-height: 768px) {
+      max-height: calc(100vh - 360px);
+    }
+
+    @media screen and (min-height: 1080px) {
+      max-height: calc(100vh - 250px);
+    }
+
+    thead {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      background-color: transparent;
+    }
+
+    /* Header index cell (top-left corner) */
+    thead tr th {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      background-color: var(--color-white);
+    }
+
+    /* First column (index) styles */
+    th:first-child,
+    td:first-child {
+      position: sticky;
+      left: 0;
+      z-index: 1 !important;
+      width: 40px !important;
+      min-width: 40px !important;
+      max-width: 40px !important;
+      background-color: var(--color-black-50);
+    }
+
+    td:last-child {
+      position: sticky;
+      background-color: var(--color-white);
+      right: 0;
+      z-index: 1;
+    }
+
+    /* Add specific styles for each header row's last cell */
+    thead tr:first-child th:last-child {
+      position: sticky;
+      background-color: var(--color-white);
+      width: 40px;
+      min-width: 40px !important;
+    }
+
+    thead tr:nth-child(2) th:last-child {
+      position: sticky;
+      top: 50px;
+      background-color: var(--color-white);
+      width: 40px;
+    }
+
+    /* stylelint-disable no-duplicate-selectors */
+    :global(.dark) & {
+      thead tr th,
+      thead tr th {
+        background-color: var(--color-alpha-100);
+      }
+
+      thead tr:first-child th:first-child {
+        background-color: var(--color-black-950) !important;
+      }
+
+      thead tr:nth-child(2) th:first-child {
+        background-color: var(--color-black-800) !important;
+      }
+
+      thead tr:first-child th:last-child {
+        background-color: var(--color-black-950) !important;
+      }
+
+      thead tr:nth-child(2) th:last-child {
+        background-color: var(--color-black-800) !important;
+      }
+
+      td:last-child {
+        background-color: var(--color-black-950);
+      }
+
+      .insertColumnButton {
+        background-color: var(--color-black-950);
+      }
+
+      .tableRow-index {
+        background-color: var(--color-black-800);
+        color: var(--color-white);
+        border-bottom: 1px solid var(--color-white);
+      }
+    }
+    /* stylelint-enable no-duplicate-selectors */
+
+    /* Top header row */
+    thead tr:first-child {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    /* Bottom header row */
+    thead tr:last-child {
+      position: sticky;
+      top: 50px;
+    }
+
+    /* First row header first cell */
+    thead tr:first-child th:first-child {
+      position: sticky;
+      right: 0;
+      left: 0;
+      top: 0;
+      z-index: 25 !important;
+      background-color: var(--color-white) !important;
+    }
+
+    /* Second row header first cell */
+    thead tr:nth-child(2) th:first-child {
+      position: sticky;
+      left: 0;
+      z-index: 25 !important;
+      background-color: var(--color-black-50) !important;
+    }
+
+    .tableRow-edit,
+    .tableRow-edit-sticky,
+    .tableHeadEdit,
+    .tableHeadEdit-sticky {
+      width: 30px !important;
+      min-width: 30px !important;
+      max-width: 30px !important;
+    }
+  }
+  /* stylelint-enable selector-class-pattern */
+
+  /* stylelint-disable selector-class-pattern */
+  &:not(:global(.TableContext-edit)) {
+    overflow-x: scroll;
+
+    .tableContainer {
+      overflow: visible !important;
+    }
+
+    table {
+      min-width: 100%;
+    }
+
+    th,
+    td {
+      white-space: nowrap;
+      position: static;
+    }
+  }
+  /* stylelint-enable selector-class-pattern */
+}
+
+.checkboxColumn {
+  width: var(--spacing-xl);
+}

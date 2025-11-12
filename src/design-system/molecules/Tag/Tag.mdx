@@ -1,0 +1,175 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+import Tag, { Active, Concept, Waiting, Inactive, Denied} from './Tag.stories';
+
+<Meta of={Tag} />
+
+#### Design: <a href="https://www.figma.com/design/X6VaqX3yF7GOyaVg2qLbdY/MVP-design?node-id=2006-4686&t=yN7p1Dr2iphYu4MP-4" target="_blank" rel="noopener">Figma</a>
+# Tag
+
+The Tag component is used to display the status or state of an element. Available in various styling variants.
+
+## Properties
+
+<Controls of={Active} />
+
+### Active
+Used to display an active state.
+<Canvas of={Active} />
+
+### Concept
+Used to display a draft or concept state.
+<Canvas of={Concept} />
+
+### Waiting
+Used to display a waiting state.
+<Canvas of={Waiting} />
+
+### Inactive
+Used to display an inactive state.
+<Canvas of={Inactive} />
+
+### Denied
+Used to display a denied state.
+<Canvas of={Denied} />
+
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding-inline: 12px;
+  border-radius: 20px;
+  line-height: 16px;
+  gap: 4px;
+  height: 32px;
+  width: fit-content;
+  max-width: 200px;
+  cursor: default;
+
+  &.active {
+    background-color: var(--support-positive-subtle);
+    color: var(--support-positive);
+
+    path {
+      fill: var(--support-positive);
+    }
+  }
+
+  &.concept {
+    background-color: var(--button-secondary);
+    color: var(--text-primary);
+
+    path {
+      fill: var(--icon-primary);
+    }
+  }
+
+  &.planned {
+    background-color: var(--support-warning-subtle);
+    color: var(--support-warning);
+
+    path {
+      fill: var(--support-warning);
+    }
+  }
+
+  &.expired {
+    background-color: var(--color-gray-100);
+    color: var(--color-black-400);
+  }
+
+  &.denied {
+    background-color: var(--color-gray-100);
+    color: var(--palette-grey-700);
+  }
+
+  &.waitingforapproval {
+    background-color: var(--support-info-subtle);
+    color: var(--support-info);
+
+    path {
+      fill: var(--support-info);
+    }
+  }
+
+  & .icon {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-shrink: 0;
+
+    & svg {
+      cursor: default !important;
+    }
+  }
+
+  & .content {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+:global(.dark) .tag {
+  &.expired {
+    background-color: var(--color-alpha-300);
+    color: var(--color-black-400);
+
+    svg path {
+      color: var(--color-black-400);
+    }
+  }
+
+  &.active {
+    background-color: var(--palette-green-1000);
+    color: var(--palette-green-500);
+
+    span {
+      color: var(--palette-green-500) !important;
+    }
+
+    path {
+      fill: var(--palette-green-500);
+    }
+  }
+
+  &.waitingforapproval {
+    background-color: var(--palette-blue-900);
+
+    span {
+      color: var(--support-info) !important;
+    }
+
+    path {
+      fill: var(--support-info);
+    }
+  }
+
+  &.planned {
+    background-color: var(--palette-orange-1000);
+
+    span {
+      color: var(--support-warning) !important;
+    }
+
+    svg path {
+      fill: var(--support-warning);
+    }
+  }
+
+  &.concept {
+    background-color: var(--button-secondary);
+    color: var(--text-primary);
+
+    path {
+      fill: var(--icon-on-color);
+    }
+  }
+}
+
+```
+</details>

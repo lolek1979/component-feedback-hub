@@ -1,0 +1,50 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+
+  & .cardContainer {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: var(--spacing-s);
+  }
+
+  & .infoBlock {
+    width: 375px;
+    height: 186px;
+    background-color: var(--table-primary);
+    border-bottom-left-radius: var(--radius-s);
+    border-bottom-right-radius: var(--radius-s);
+
+    & .infoHeader {
+      display: flex;
+      align-items: center;
+      background-color: var(--table-primary);
+      padding: var(--spacing-2xs);
+      min-height: 56px;
+      border-top-left-radius: var(--radius-s);
+      border-top-right-radius: var(--radius-s);
+    }
+
+    & .infoBody {
+      display: flex;
+      flex-direction: row;
+      gap: var(--spacing-m);
+      background-color: var(--table-secondary);
+      padding: var(--spacing-xs);
+
+      & .infoColumn {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        gap: var(--spacing-s);
+        min-height: var(--units-40);
+
+        & span {
+          min-height: var(--units-20);
+        }
+      }
+    }
+  }
+}

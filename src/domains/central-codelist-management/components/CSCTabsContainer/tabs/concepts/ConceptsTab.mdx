@@ -1,0 +1,101 @@
+import { Canvas, Meta, Story, Controls } from '@storybook/blocks';
+import ConceptsTab, { Default } from './ConceptsTab.stories';
+
+<Meta of={ConceptsTab} />
+
+#### Design: <a href="https://www.figma.com/design/X6VaqX3yF7GOyaVg2qLbdY/MVP-design?node-id=2553-13250&t=YKevRD6fQ3ZwyBDf-4" target="_blank" rel="noopener">Figma</a>
+
+# ConceptsTab
+
+The ConceptsTab component displays a table of concepts with filtering capabilities.
+
+## Usage
+
+The ConceptsTab component can be use   d to display comprehensive information about any entity in your application:
+
+<Story of={Default} />
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+
+### Default
+<Canvas of={Default} />
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+
+  & div:nth-child(2) {
+    & div {
+      overflow-x: visible !important;
+    }
+  }
+
+  .filter-container {
+    width: 100%;
+  }
+
+  .inline-message {
+    path {
+      fill: var(--color-blue-300);
+    }
+  }
+
+  .no-data {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    width: 100%;
+  }
+
+  & .table-head {
+    & th {
+      background-color: var(--color-black-50);
+      color: var(--color-black-950);
+      padding: 8px 12px;
+      gap: 12px;
+      border-bottom: 1px solid var(--color-black-950);
+      text-align: right;
+      width: 189.33px;
+      height: 56px;
+    }
+  }
+
+  & .table-body {
+    & tr {
+      &:hover {
+        background-color: #e4e4e740;
+      }
+
+      & td {
+        padding: 8px 12px;
+        border-bottom: 1px solid var(--color-black-200);
+        text-align: right;
+        width: 189.33px;
+        height: 40px;
+      }
+    }
+  }
+}
+
+:global(.dark) .container {
+  .inline-message {
+    path {
+      fill: var(--color-blue-300);
+    }
+  }
+}
+
+```
+</details>

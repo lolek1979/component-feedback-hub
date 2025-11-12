@@ -1,0 +1,97 @@
+.auditTableContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  /* & .table{
+    table-layout: fixed !important;
+  } */
+
+  & .cellId {
+    width: 10% !important;
+  }
+
+  & .cellEntity {
+    width: 25% !important;
+  }
+
+  & div:nth-child(3) {
+    & div {
+      overflow-x: visible !important;
+    }
+  }
+
+  & .badgeText {
+    & p {
+      display: flex;
+      align-items: center;
+      width: fit-content;
+      gap: var(--spacing-3xs);
+    }
+  }
+
+  & .tableContainer {
+    overflow: hidden;
+  }
+
+  & .tableHead {
+    & th {
+      border-bottom: calc(var(--spacing-5xs) / 2) solid var(--color-black-950);
+    }
+  }
+
+  & .tableBody {
+    & .dottedLine {
+      border-bottom: none; /* Remove the existing border */
+      border-bottom: calc(var(--spacing-5xs) / 2) dotted var(--color-black-200);
+    }
+
+    & tr {
+      border-bottom: calc(var(--spacing-5xs) / 2) solid var(--color-black-200);
+
+      &:hover {
+        background-color: var(--palette-alpha-50);
+      }
+    }
+  }
+
+  & .cellContent {
+    white-space: nowrap;
+  }
+
+  & .cellContent > * {
+    display: inline;
+    vertical-align: middle;
+  }
+
+  .badge {
+    width: calc(var(--spacing-xl) * 2);
+  }
+
+  .spinnerOverlay {
+    position: absolute; /* or fixed, if it should be over fullscreen */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: color-mix(
+      in srgb,
+      var(--palette-grey-0) 50%,
+      transparent
+    ); /* Semi-transparent background */
+
+    z-index: 1000;
+    pointer-events: none; /* Prevent interaction with the overlay */
+  }
+
+  :global(.dark) .cscPage {
+    .draftCount {
+      background-color: var(--color-black-800);
+      color: var(--color-white);
+    }
+  }
+}

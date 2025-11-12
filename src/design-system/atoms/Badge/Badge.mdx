@@ -1,0 +1,404 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+import Badge, {
+  Default,
+  Green,
+  LightBlue,
+  Small,
+  WithLeftIcon,
+  WithRightIcon,
+  Disabled,
+  WithBothIcons,
+} from './Badge.stories';
+
+<Meta of={Badge} />
+
+#### Design: <a href="https://www.figma.com/design/HtK3DbPIxodKas2jSTtrlH/Design-system?node-id=403-21010" target="_blank" rel="noopener">Figma</a>
+
+# Badge
+
+The Badge component is used to indicate the visibility or access level of an element. It comes in two variants to distinguish between internal and public content.
+
+## Properties
+
+<Controls of={Default} />
+
+### Default
+
+<Canvas of={Default} />
+
+### Green
+
+<Canvas of={Green} />
+
+### LightBlue
+
+<Canvas of={LightBlue} />
+
+### Small
+
+<Canvas of={Small} />
+
+### WithLeftIcon
+
+<Canvas of={WithLeftIcon} />
+
+### WithRightIcon
+
+<Canvas of={WithRightIcon} />
+
+### WithBothIcons
+
+<Canvas of={WithBothIcons} />
+
+### Disabled
+
+<Canvas of={Disabled} />
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.badge {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  gap: var(--spacing-4xs);
+  padding-inline: var(--spacing-3xs);
+  white-space: nowrap;
+
+  &:focus {
+    outline: none;
+    border: none;
+  }
+
+  .text {
+    font-weight: var(--font-weight-600) !important;
+    padding-inline: var(--spacing-5xs);
+  }
+
+  &.large {
+    height: var(--units-40);
+    padding: 0 var(--spacing-2xs);
+  }
+
+  &.small {
+    height: var(--units-32);
+    padding: 0 var(--spacing-2xs);
+  }
+
+  &.xsmall {
+    height: var(--units-24);
+    padding: 0 var(--spacing-3xs);
+  }
+
+  &.gray {
+    background-color: var(--button-secondary);
+    color: var(--text-primary);
+  }
+
+  &.green {
+    background-color: var(--support-positive);
+    color: var(--text-on-color);
+
+    .text,
+    .icon {
+      color: var(--text-on-color);
+    }
+
+    .icon svg,
+    .icon svg * {
+      fill: var(--icon-on-color) !important;
+      stroke: var(--icon-on-color) !important;
+    }
+  }
+
+  &.red {
+    background-color: var(--support-primary);
+    color: var(--text-on-color);
+
+    .text,
+    .icon {
+      color: var(--text-on-color);
+    }
+
+    .icon svg,
+    .icon svg * {
+      fill: var(--icon-on-color) !important;
+      stroke: var(--icon-on-color) !important;
+    }
+  }
+
+  &.orange {
+    background-color: var(--support-warning);
+    color: var(--text-on-color);
+
+    .text,
+    .icon {
+      color: var(--text-on-color);
+    }
+
+    .icon svg,
+    .icon svg * {
+      fill: var(--icon-on-color) !important;
+      stroke: var(--icon-on-color) !important;
+    }
+  }
+
+  &.blue {
+    background-color: var(--support-info);
+    color: var(--text-on-color);
+
+    .text,
+    .icon {
+      color: var(--text-on-color);
+    }
+
+    .icon svg,
+    .icon svg * {
+      fill: var(--icon-on-color) !important;
+      stroke: var(--icon-on-color) !important;
+    }
+  }
+
+  &.lightGreen {
+    background-color: var(--support-positive-subtle);
+    color: var(--text-on-positive-subtle);
+
+    .icon {
+      color: var(--icon-on-positive-subtle);
+    }
+
+    .icon svg,
+    .icon svg * {
+      fill: var(--icon-on-positive-subtle) !important;
+      stroke: var(--icon-on-positive-subtle) !important;
+    }
+  }
+
+  &.lightRed {
+    background-color: var(--support-negative-subtle);
+    color: var(--text-on-negative-subtle);
+
+    text,
+    .icon {
+      color: var(--icon-on-negative-subtle);
+    }
+
+    .icon svg,
+    .icon svg * {
+      fill: var(--icon-on-negative-subtle) !important;
+      stroke: var(--icon-on-negative-subtle) !important;
+    }
+  }
+
+  &.lightBlue {
+    background-color: var(--support-info-subtle);
+    color: var(--text-on-info-subtle);
+
+    .text,
+    .icon {
+      color: var(--icon-on-info-subtle);
+    }
+
+    .icon svg,
+    .icon svg * {
+      fill: var(--support-info) !important;
+      stroke: var(--support-info) !important;
+    }
+  }
+
+  &.lightOrange {
+    background-color: var(--support-warning-subtle);
+    color: var(--support-warning);
+
+    .text,
+    .icon {
+      color: var(--support-warning);
+    }
+
+    .icon svg,
+    .icon svg * {
+      fill: var(--support-warning) !important;
+      stroke: var(--support-warning) !important;
+    }
+  }
+
+  &.disabled {
+    background-color: var(--button-disabled);
+    color: var(--text-disabled);
+
+    .icon svg,
+    .icon svg * {
+      fill: var(--icon-disabled) !important;
+      stroke: var(--icon-disabled) !important;
+    }
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      fill: currentcolor;
+      color: inherit;
+    }
+
+    svg * {
+      fill: currentcolor !important;
+      stroke: currentcolor !important;
+    }
+  }
+}
+
+:global(.dark) .badge {
+  &.lightBlue {
+    background-color: var(--palette-blue-900);
+    color: var(--palette-blue-150);
+
+    .text,
+    .icon {
+      color: var(--palette-blue-150);
+    }
+
+    .icon svg,
+    .icon svg * {
+      fill: var(--support-info) !important;
+      stroke: var(--support-info) !important;
+    }
+  }
+
+  &.gray {
+    background-color: var(--button-secondary);
+    color: var(--text-on-color);
+  }
+
+  &.green {
+    background-color: var(--support-positive);
+    color: var(--text-on-color);
+
+    .text,
+    .icon {
+      color: var(--text-on-color);
+    }
+
+    .icon svg,
+    .icon svg * {
+      fill: var(--icon-on-color) !important;
+      stroke: var(--icon-on-color) !important;
+    }
+  }
+
+  &.red {
+    background-color: var(--support-primary);
+    color: var(--text-on-color);
+
+    .text,
+    .icon {
+      color: var(--text-on-color);
+    }
+
+    .icon svg,
+    .icon svg * {
+      fill: var(--icon-on-color) !important;
+      stroke: var(--icon-on-color) !important;
+    }
+  }
+
+  &.orange {
+    background-color: var(--support-warning);
+    color: var(--text-on-color);
+
+    .text,
+    .icon {
+      color: var(--text-on-color);
+    }
+
+    .icon svg,
+    .icon svg * {
+      fill: var(--icon-on-color) !important;
+      stroke: var(--icon-on-color) !important;
+    }
+  }
+
+  &.blue {
+    background-color: var(--support-info);
+    color: var(--text-on-color);
+
+    .text,
+    .icon {
+      color: var(--text-on-color);
+    }
+
+    .icon svg,
+    .icon svg * {
+      fill: var(--icon-on-color) !important;
+      stroke: var(--icon-on-color) !important;
+    }
+  }
+
+  &.lightGreen {
+    background-color: var(--palette-green-1000);
+    color: var(--palette-green-200);
+
+    .icon {
+      color: var(--palette-green-200);
+    }
+
+    .icon svg,
+    .icon svg * {
+      fill: var(--palette-green-200) !important;
+      stroke: var(--palette-green-200) !important;
+    }
+  }
+
+  &.lightRed {
+    background-color: var(--palette-red-900);
+    color: var(--palette-red-200);
+
+    text,
+    .icon {
+      color: var(--palette-red-200);
+    }
+
+    .icon svg,
+    .icon svg * {
+      fill: var(--palette-red-200) !important;
+      stroke: var(--palette-red-200) !important;
+    }
+  }
+
+  &.lightOrange {
+    background-color: var(--palette-orange-900);
+    color: var(--support-warning);
+
+    .text,
+    .icon {
+      color: var(--support-warning);
+    }
+
+    .icon svg,
+    .icon svg * {
+      fill: var(--support-warning) !important;
+      stroke: var(--support-warning) !important;
+    }
+  }
+
+  &.disabled {
+    background-color: var(--button-disabled);
+    color: var(--text-disabled);
+
+    .icon svg,
+    .icon svg * {
+      fill: var(--icon-disabled) !important;
+      stroke: var(--icon-disabled) !important;
+    }
+  }
+}
+
+```
+</details>

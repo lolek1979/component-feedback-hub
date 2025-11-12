@@ -1,0 +1,54 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+
+import JsonDetailViewer, { Default } from './JsonDetailViewer.stories';
+
+<Meta of={JsonDetailViewer} />
+
+
+#### Design: <a href="https://www.figma.com" target="_blank" rel="noopener">Figma</a>
+
+# JsonDetailViewer
+
+This component renders a JSON detail viewer that displays the properties of a JSON object in a structured format.
+
+<Canvas of={Default} />
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+
+### Default
+<Canvas of={Default} />
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.container {
+  padding: var(--spacing-xl);
+  background: var(--table-primary);
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .label {
+    width: var(--spacing-3xl);
+  }
+
+  .value {
+    margin-left: var(--spacing-xs);
+    white-space: normal;
+    flex: 1;
+  }
+}
+
+```
+</details>

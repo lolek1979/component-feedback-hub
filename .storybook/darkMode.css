@@ -1,0 +1,7 @@
+html.dark body,
+html.dark .sb-show-main,
+html.dark #storybook-root,
+html.dark .docs-story {
+  background-color: var(--palette-grey-950) !important;
+  color: var(--palette-grey-0) !important;
+}

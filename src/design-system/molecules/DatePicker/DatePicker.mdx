@@ -1,0 +1,387 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+
+import Datalist, { Default, RangedCalendar } from './DatePicker.stories';
+
+#### Design: <a href="https://www.figma.com/design/X6VaqX3yF7GOyaVg2qLbdY/MVP-design?node-id=1268-967&t=wlugzQ2bMeBi4p31-4" target="_blank" rel="noopener">Figma</a>
+
+<Meta of={Datalist} />
+
+# DatePicker
+
+A component that allows users to select a date from a calendar interface, supporting various configurations and states.
+
+<Canvas of={Default} />
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+
+### Default
+
+<Canvas of={Default} />
+
+### RangedCalendar
+
+<Canvas of={RangedCalendar} />
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.datePicker {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.picker {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: var(--border-s) solid var(--border-primary);
+  border-radius: var(--radius-xs);
+  height: var(--units-40);
+  padding: var(--spacing-3xs) var(--spacing-2xs);
+  cursor: pointer;
+  min-width: 100px;
+}
+
+.picker:focus-within {
+  outline: none;
+  border: var(--border-m) solid var(--support-info);
+}
+
+.today {
+  color: var(--text-brand) !important;
+  border-bottom: var(--border-m) solid var(--border-brand) !important;
+}
+
+.dateContainer {
+  display: flex;
+  flex-grow: 1;
+  gap: var(--spacing-4xs);
+  border: none;
+  width: 100%;
+  font-size: var(--size-14);
+  justify-content: flex-start;
+  align-items: center;
+  background-color: var(--background-base);
+  line-height: var(--line-height-20);
+  font-weight: var(--font-weight-400);
+
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+.calendar {
+  z-index: 1050;
+  width: 312px;
+  background-color: var(--background-elevated);
+  display: flex;
+  flex-direction: column;
+  border: none;
+  border-radius: var(--radius-xs);
+  padding: var(--spacing-xs);
+
+  &.popover {
+    position: absolute;
+    top: calc(100% + var(--units-8));
+    left: 0;
+    transform: none;
+  }
+}
+
+.rangedCalendar {
+  z-index: 1050;
+  background-color: var(--background-elevated);
+  display: flex;
+  flex-direction: column;
+  border: none;
+  border-radius: var(--radius-xs);
+  padding: var(--spacing-xs);
+
+  &.popover {
+    position: absolute;
+    top: calc(100% + var(--units-8));
+    left: 0;
+    transform: none;
+  }
+}
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-s);
+  background-color: var(--background-elevated);
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--size-14);
+  width: 280px;
+  height: 42px;
+  font-weight: var(--font-weight-600);
+  text-align: center;
+}
+
+.rangedTitle {
+  display: flex;
+  gap: 52px;
+  width: 280px;
+  height: 42px;
+  text-align: center;
+}
+
+.inRange {
+  background-color: var(--button-secondary) !important;
+  color: var(--text-primary) !important;
+}
+
+.icons {
+  display: flex;
+  flex-direction: row;
+  width: var(--units-40);
+  height: var(--units-40);
+  gap: var(--units-10);
+  border-radius: var(--radius-s);
+  padding: var(--spacing-2xs) var(--spacing-2xs);
+  color: var(--text-primary);
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--table-secondary-hover);
+  }
+
+  &:focus {
+    background-color: var(--background-base);
+    border: var(--border-s) solid var(--support-info);
+  }
+}
+
+.dateSelector {
+  display: flex;
+  flex-direction: row;
+  margin-top: var(--spacing-3xs);
+  gap: var(--spacing-3xs);
+
+  .month {
+    margin-right: var(--spacing-4xs);
+    text-align: center;
+  }
+
+  .year {
+    margin-right: var(--spacing-4xs);
+    color: var(--text-brand);
+    cursor: pointer;
+  }
+
+  select {
+    border: none;
+    font-size: var(--size-16);
+    font-weight: var(--font-weight-600);
+  }
+}
+
+.yearPickerHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.yearPickerHeaderRanged {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-5xs);
+}
+
+.yearGrid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-3xs);
+}
+
+.yearGridRanged {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-3xs);
+  margin-top: var(--spacing-s);
+}
+
+.yearCell {
+  padding: var(--spacing-3xs);
+  text-align: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--button-ghost-hover);
+  }
+
+  &:active {
+    background-color: var(--button-ghost-active);
+  }
+}
+
+.selectedYear {
+  background-color: var(--support-primary);
+  color: var(--text-on-color) !important;
+}
+
+.yearPickerPopup {
+  z-index: 100000;
+  position: absolute;
+  width: 350px;
+  background-color: var(--background-elevated);
+  display: flex;
+  flex-direction: column;
+  border: none;
+  border-radius: var(--radius-xs);
+  padding: var(--spacing-xs);
+  top: calc(100% + var(--units-8));
+  left: 0;
+  transform: none;
+}
+
+.monthText {
+  width: 99px;
+  height: 20px;
+  font-size: var(--size-14);
+  padding-top: var(--units-4);
+  font-weight: var(--font-weight-600);
+  line-height: var(--line-height-20);
+  text-align: center;
+}
+
+.header {
+  height: 30px;
+}
+
+.calendarGrid {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.calendarGrid th,
+.calendarGrid td {
+  height: var(--units-40);
+  width: var(--units-40);
+  text-align: center;
+}
+
+.outOfMonthDay {
+  font-size: var(--size-14);
+  color: var(--text-disabled);
+
+  &:hover {
+    background-color: var(--button-ghost-hover);
+    color: var(--text-primary);
+    cursor: pointer;
+  }
+
+  &.active {
+    background-color: var(--button-ghost-active);
+  }
+}
+
+.calendarGrid .selectedDay {
+  background-color: var(--support-primary);
+  color: var(--text-on-color) !important;
+}
+
+.disabledDay {
+  color: var(--text-disabled);
+}
+
+.cell {
+  width: var(--units-40);
+  height: var(--units-40);
+  font-size: var(--size-14);
+  border: none;
+  background-color: var(--button-ghost);
+  gap: var(--spacing-4xs);
+
+  &:hover {
+    background-color: var(--button-ghost-hover);
+    color: var(--text-primary);
+    cursor: pointer;
+  }
+
+  &.active {
+    background-color: var(--button-ghost-active);
+  }
+}
+
+.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.disabled:hover {
+  background-color: transparent;
+}
+
+:global(.dark) .datePicker {
+  .month {
+    select {
+      background-color: var(--palette-grey-950);
+      color: var(--palette-grey-0);
+
+      option {
+        color: var(--palette-grey-0);
+      }
+    }
+  }
+
+  .year {
+    select {
+      background-color: var(--palette-grey-950);
+      color: var(--palette-grey-0);
+
+      option {
+        color: var(--palette-grey-0);
+      }
+    }
+  }
+
+  & input {
+    background-color: var(--palette-grey-950);
+    color: var(--palette-grey-0);
+  }
+
+  .calendarGrid {
+    th {
+      color: var(--palette-grey-0);
+    }
+  }
+
+  path {
+    fill: var(--palette-grey-0);
+  }
+
+  .calendar {
+    background-color: var(--palette-grey-950);
+    color: var(--palette-grey-0);
+
+    .cell {
+      color: var(--palette-grey-0);
+
+      &:hover {
+        background-color: var(--palette-grey-800);
+      }
+    }
+  }
+}
+
+```
+</details>

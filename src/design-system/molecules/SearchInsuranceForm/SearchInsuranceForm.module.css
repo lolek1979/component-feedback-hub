@@ -1,0 +1,49 @@
+.insurence {
+  width: 230px;
+
+  & span {
+    cursor: pointer;
+  }
+
+  & input:disabled {
+    cursor: not-allowed;
+  }
+
+  /* Chrome, Safari, Edge, Opera */
+  & input::-webkit-outer-spin-button,
+  & input::-webkit-inner-spin-button {
+    appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  & input[type='number'] {
+    appearance: textfield;
+  }
+
+  .bottomContainer {
+    min-height: var(--units-18);
+  }
+
+  .messages {
+    display: flex;
+    width: 400px;
+    flex-direction: column;
+  }
+
+  @media screen and (max-width: 420px) {
+    width: 100%;
+  }
+}
+
+.errorInput {
+  border-radius: var(--units-4);
+
+  & input {
+    border: 1px solid var(--color-red-400) !important;
+
+    &:focus {
+      outline: 1px solid var(--color-red-400) !important;
+    }
+  }
+}

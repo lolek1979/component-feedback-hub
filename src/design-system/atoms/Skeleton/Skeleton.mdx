@@ -1,0 +1,62 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+import * as SkeletonStories from './Skeleton.stories';
+
+<Meta of={SkeletonStories} />
+#### Design: <a href="https://www.figma.com/design/X6VaqX3yF7GOyaVg2qLbdY/MVP-design?node-id=891-922&node-type=frame&t=RUI4hSJpwFxdsrAy-0" target="_blank" rel="noopener">Figma</a>
+
+
+# Skeleton
+
+A loading placeholder component that simulates the layout of content while data is being fetched, available in different sizes and customizable dimensions.
+
+<Canvas of={SkeletonStories.Default} />
+
+## Properties
+
+<Controls of={SkeletonStories.Default} />
+
+## Examples
+
+### Small Size
+<Canvas of={SkeletonStories.Small} />
+
+### Medium Size (Default)
+<Canvas of={SkeletonStories.Medium} />
+
+### Large Size
+<Canvas of={SkeletonStories.Large} />
+
+### Custom Dimensions
+<Canvas of={SkeletonStories.CustomSize} />
+
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+@keyframes shimmer {
+  0% {
+    background-position: 100% 0;
+  }
+
+  100% {
+    background-position: -100% 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(
+    270deg,
+    var(--palette-alpha-0) 0%,
+    var(--palette-alpha-200) 50%,
+    var(--palette-alpha-0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-xs);
+}
+
+```
+</details>

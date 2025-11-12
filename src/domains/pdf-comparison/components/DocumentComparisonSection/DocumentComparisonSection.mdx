@@ -1,0 +1,203 @@
+import { Canvas, Meta, Story } from '@storybook/blocks';
+
+import * as DocumentComparisonSectionStories from './DocumentComparisonSection.stories';
+
+<Meta of={DocumentComparisonSectionStories} />
+
+#### Design: <a href="https://www.figma.com/design/DngURPZLhkFPc0uX8St3TK/NIS-layouts?node-id=5463-9126&t=YlwH16Y5fqAIeRqE-4" target="_blank" rel="noopener">Figma</a>
+
+# DocumentComparisonSection
+
+The `DocumentComparisonSection` component displays a side-by-side comparison of document sections, perfect for comparing differences between two versions of a document.
+
+## Features
+
+- **Side-by-side layout**: Displays left and right document sections in a grid layout
+- **Flexible content**: Supports titles, subtitles, and main content areas
+- **Page information**: Optional page/section identifier
+- **Responsive design**: Adapts to mobile screens by stacking sections vertically
+- **Design system integration**: Uses standardized spacing, colors, and border radius tokens
+
+## Design Tokens Used
+
+- **Color**: `--table-primary` for background color
+- **Gap**: `--spacing-xs` for consistent spacing between elements
+- **Border Radius**: `--radius-s` for rounded corners
+- **Padding**: `--spacing-m` for internal spacing
+
+## Usage
+
+```tsx
+import { DocumentComparisonSection } from '@/design-system/molecules';
+
+<DocumentComparisonSection
+  id="comparison-1"
+  leftTitle="Odeslaná"
+  rightTitle="Podepsaná"
+  leftSubtitle="MUDr. Petr Pouček, MBA, ředitel"
+  rightSubtitle="MUDr. Jan Nezbeda, ředitel úseku"
+  leftContent="Original document content..."
+  rightContent="Modified document content..."
+  pageInfo="Stránka 1"
+/>
+```
+
+## Stories
+
+<Canvas of={DocumentComparisonSectionStories.Default} />
+
+### Without Subtitles
+
+<Canvas of={DocumentComparisonSectionStories.WithoutSubtitles} />
+
+### Different Content
+
+<Canvas of={DocumentComparisonSectionStories.DifferentContent} />
+
+## Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `id` | `string` | ✅ | Unique identifier for the component |
+| `leftTitle` | `string` | ✅ | Title for the left document section |
+| `rightTitle` | `string` | ✅ | Title for the right document section |
+| `leftContent` | `string` | ✅ | Content for the left document section |
+| `rightContent` | `string` | ✅ | Content for the right document section |
+| `leftSubtitle` | `string` | ❌ | Optional subtitle for the left section |
+| `rightSubtitle` | `string` | ❌ | Optional subtitle for the right section |
+| `pageInfo` | `string` | ❌ | Optional page or section information |
+| `className` | `string` | ❌ | Additional CSS classes |
+
+## Accessibility
+
+- Uses semantic heading elements for titles
+- Proper contrast ratios for text readability
+- Responsive design for various screen sizes
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.container {
+  background-color: var(--table-primary);
+  border-radius: var(--radius-s);
+  padding: var(--spacing-m);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-s);
+  max-width: 1200px;
+  width: 100%;
+  margin-right: auto;
+}
+
+.container-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.title-with-icon {
+  display: flex;
+  align-items: center;
+  gap: var(--units-10);
+}
+
+.comparison-row {
+  display: flex;
+  gap: var(--spacing-m);
+  width: 100%;
+}
+
+.document-section {
+  flex: 1;
+}
+
+.content-row {
+  display: flex;
+  gap: var(--spacing-m);
+  width: 100%;
+}
+
+.dividers-row {
+  display: flex;
+  gap: var(--spacing-m);
+  width: 100%;
+}
+
+.content-section {
+  border-radius: var(--radius-s);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  max-height: 400px;
+  overflow-y: auto;
+  flex: 1;
+  position: relative;
+}
+
+.content {
+  color: var(--text-secondary);
+  line-height: var(--line-height-24);
+  margin: 0;
+  font-weight: 400;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.page-info {
+  color: var(--text-secondary);
+  font-size: var(--size-12);
+}
+
+.content-section::-webkit-scrollbar {
+  width: var(--units-8);
+}
+
+.content-section::-webkit-scrollbar-track {
+  background: var(--background-base);
+  border-radius: var(--radius-s);
+}
+
+.content-section::-webkit-scrollbar-thumb {
+  background: var(--text-inverse);
+  border-radius: var(--radius-s);
+}
+
+.content-section::-webkit-scrollbar-thumb:hover {
+  background: var(--palette-grey-200);
+}
+
+@media (max-width: 768px) {
+  .comparison-row,
+  .content-row {
+    flex-direction: column;
+  }
+
+  .container {
+    padding: var(--spacing-s);
+    max-width: 100%;
+    margin-left: var(--spacing-s);
+    margin-right: var(--spacing-s);
+  }
+
+  .content-section {
+    max-height: 300px;
+    padding: var(--spacing-s);
+  }
+}
+
+@media (max-width: 480px) {
+  .content-section {
+    max-height: 250px;
+  }
+
+  .container {
+    margin-left: var(--spacing-xs);
+    margin-right: var(--spacing-xs);
+  }
+}
+
+```
+</details>

@@ -1,0 +1,11 @@
+.tabgroup {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 32px;
+}
+
+.tabs {
+  display: flex;
+  margin-bottom: 24px;
+}

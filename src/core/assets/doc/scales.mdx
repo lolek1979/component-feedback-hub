@@ -1,0 +1,98 @@
+import { Meta } from '@storybook/blocks';
+import { DesignTokenDocBlock } from 'storybook-design-token';
+
+<Meta title="Design System/Scales" />
+
+#### Design: <a href="https://www.figma.com/design/HtK3DbPIxodKas2jSTtrlH/Design-system?node-id=1-2" target="_blank" rel="noopener">Figma</a>
+
+# Scales
+
+Our scaling system provides consistent measurements throughout the application. This document outlines the scaling tokens used in our design system.
+
+## Scaling Scales
+
+<DesignTokenDocBlock categoryName="Scaling" maxHeight={600} />
+
+## Visual Examples
+
+<div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+  <div>
+    <p style={{ marginBottom: '8px' }}>--spacing-5xs (2px)</p>
+    <div style={{ height: 'var(--spacing-5xs)', background: 'var(--color-blue-500)', width: '100%' }}></div>
+  </div>
+  
+  <div>
+    <p style={{ marginBottom: '8px' }}>--spacing-4xs (4px)</p>
+    <div style={{ height: 'var(--spacing-4xs)', background: 'var(--color-blue-500)', width: '100%' }}></div>
+  </div>
+  
+  <div>
+    <p style={{ marginBottom: '8px' }}>--spacing-3xs (8px)</p>
+    <div style={{ height: 'var(--spacing-3xs)', background: 'var(--color-blue-500)', width: '100%' }}></div>
+  </div>
+  
+  
+  <div>
+    <p style={{ marginBottom: '8px' }}>--spacing-2xs (12px)</p>
+    <div style={{ height: 'var(--spacing-2xs)', background: 'var(--color-blue-500)', width: '100%' }}></div>
+  </div>
+  
+  <div>
+    <p style={{ marginBottom: '8px' }}>--spacing-s (24px)</p>
+    <div style={{ height: 'var(--spacing-s)', background: 'var(--color-blue-500)', width: '100%' }}></div>
+  </div>
+  
+  <div>
+    <p style={{ marginBottom: '8px' }}>--spacing-m (32px)</p>
+    <div style={{ height: 'var(--spacing-m)', background: 'var(--color-blue-500)', width: '100%' }}></div>
+  </div>
+  
+  <div>
+    <p style={{ marginBottom: '8px' }}>--spacing-l (40px)</p>
+    <div style={{ height: 'var(--spacing-l)', background: 'var(--color-blue-500)', width: '100%' }}></div>
+  </div>
+  
+  <div>
+    <p style={{ marginBottom: '8px' }}>--spacing-xl (48px)</p>
+    <div style={{ height: 'var(--spacing-xl)', background: 'var(--color-blue-500)', width: '100%' }}></div>
+  </div>
+  
+  <div>
+    <p style={{ marginBottom: '8px' }}>--spacing-2xl (64px)</p>
+    <div style={{ height: 'var(--spacing-2xl)', background: 'var(--color-blue-500)', width: '100%' }}></div>
+  </div>
+  
+  <div>
+    <p style={{ marginBottom: '8px' }}>--spacing-3xl (128px)</p>
+    <div style={{ height: 'var(--spacing-3xl)', background: 'var(--color-blue-500)', width: '100%' }}></div>
+  </div>
+</div>
+
+## Base Units
+
+Our spacing tokens are built on a set of base units.
+
+<DesignTokenDocBlock categoryName="Units" maxHeight={600} />
+
+## Usage
+
+```jsx
+// In JSX with inline styles
+<div style={{ margin: 'var(--spacing-s)' }}>
+  <p style={{ padding: 'var(--spacing-xs)' }}>Content with spacing</p>
+</div>
+
+// In CSS
+.container {
+  margin-bottom: var(--spacing-m);
+  padding: var(--spacing-s);
+  gap: var(--spacing-xs);
+}
+```
+
+## Guidelines
+
+- Use spacing tokens instead of arbitrary pixel values
+- For most UI elements, use smaller spacing values (5xs-xs) for internal spacing
+- Use medium spacing values (s-xl) for layout and component spacing
+- Reserve larger spacing values (2xl-3xl) for major section divisions

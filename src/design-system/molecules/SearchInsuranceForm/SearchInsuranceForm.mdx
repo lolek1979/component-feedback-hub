@@ -1,0 +1,82 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+
+import SearchInsuranceForm, { Default } from './SearchInsuranceForm.stories';
+
+<Meta of={SearchInsuranceForm} />
+#### Design: <a href="https://www.figma.com/design/X6VaqX3yF7GOyaVg2qLbdY/MVP-design?node-id=794-5911&t=dW1zhCt9c0vu2N6C-4" target="_blank" rel="noopener">Figma</a>
+
+
+# SearchInsuranceForm
+
+An input component designed for entering and validating Social Security numbers (SSNs)
+
+<Canvas of={Default} />
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+
+### Default
+<Canvas of={Default} />
+
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.insurence {
+  width: 230px;
+
+  & span {
+    cursor: pointer;
+  }
+
+  & input:disabled {
+    cursor: not-allowed;
+  }
+
+  /* Chrome, Safari, Edge, Opera */
+  & input::-webkit-outer-spin-button,
+  & input::-webkit-inner-spin-button {
+    appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  & input[type='number'] {
+    appearance: textfield;
+  }
+
+  .bottomContainer {
+    min-height: var(--units-18);
+  }
+
+  .messages {
+    display: flex;
+    width: 400px;
+    flex-direction: column;
+  }
+
+  @media screen and (max-width: 420px) {
+    width: 100%;
+  }
+}
+
+.errorInput {
+  border-radius: var(--units-4);
+
+  & input {
+    border: 1px solid var(--color-red-400) !important;
+
+    &:focus {
+      outline: 1px solid var(--color-red-400) !important;
+    }
+  }
+}
+
+```
+</details>

@@ -1,0 +1,408 @@
+.feesPage {
+  --page-spacing: var(--units-32);
+
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 120px;
+
+  --sections-spacing-bottom: var(--units-32);
+  --separator-color: var(--color-black-200);
+
+  & .tableWrapper {
+    width: 100%;
+  }
+
+  .pageSelect {
+    width: 80px;
+  }
+
+  .searchContainer {
+    padding: var(--page-spacing);
+    padding-bottom: 0;
+    gap: var(--spacing-s);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tabContainer {
+    padding: var(--page-spacing);
+  }
+
+  .tabList {
+    display: flex;
+    gap: var(--spacing-xs);
+  }
+
+  .scrollContainer {
+    position: relative;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
+    &:hover .scrollBar {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  .scrollBar {
+    position: sticky;
+    width: 80%;
+    left: 0;
+    height: 8px;
+    background: var(--palette-grey-200);
+    border-radius: 4px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .iconError {
+    path {
+      fill: var(--support-negative);
+    }
+  }
+
+  .ereceptHeader {
+    position: sticky;
+    top: 0;
+    background: var(--background-base);
+    z-index: 1;
+    padding-bottom: 0.5rem;
+  }
+
+  .nextBtnWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: var(--units-32) 0;
+  }
+
+  .overPaid {
+    display: flex;
+    align-items: center;
+    gap: var(--units-10);
+    justify-content: end;
+    margin-bottom: var(--units-10);
+
+    h6 {
+      color: var(--color-red-500);
+    }
+  }
+
+  .resultHeaderContainer {
+    border-top: 1px solid var(--separator-color);
+    padding: var(--page-spacing);
+    padding-bottom: var(--sections-spacing-bottom);
+  }
+
+  .paginationWrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--units-32);
+  }
+
+  .resultHeader {
+    padding-top: var(--page-spacing);
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row !important;
+    align-items: center;
+
+    & .sumContainer {
+      display: flex;
+      flex-direction: column;
+
+      & .sumItem {
+        display: flex;
+        flex-direction: row;
+        gap: var(--units-16);
+        justify-content: space-between;
+      }
+    }
+  }
+
+  .itemText {
+    color: var(--color-black-700);
+  }
+
+  .downloadButton {
+    margin-bottom: var(--units-10);
+  }
+
+  .errorContainer {
+    padding: var(--units-32);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    &.inDataSection {
+      padding: var(--page-spacing) 0;
+    }
+
+    &.initialized {
+      padding: 0;
+
+      &.underRows {
+        padding-top: var(--page-spacing);
+      }
+    }
+
+    .errorContainerInner {
+      background-color: var(--color-red-50);
+      border-radius: var(--radius-s);
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: row;
+      gap: var(--spacing-xs);
+      padding: var(--units-20);
+
+      .errorMessage {
+        padding: 0;
+        width: fit-content;
+      }
+    }
+  }
+
+  .resultContainer {
+    padding: var(--page-spacing);
+    padding-top: 0;
+
+    .loadingContainer {
+      padding: 0;
+    }
+
+    .resultHeader {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-4xs);
+      margin-bottom: var(--units-32);
+      border-bottom: 1px solid var(--color-black-200);
+      padding-bottom: 32px;
+    }
+
+    .resultRow {
+      display: flex;
+      flex-direction: column;
+      border-top: 1px solid var(--separator-color);
+      padding-top: var(--spacing-s);
+      padding-bottom: var(--units-32);
+
+      .tableHeader {
+        margin-top: var(--units-32);
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-4xs);
+      }
+    }
+  }
+
+  .tableHead,
+  .tableBody {
+    & tr {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+      border-bottom: 1px solid var(--color-black-400);
+
+      th:first-child,
+      td:first-child {
+        position: initial;
+      }
+
+      td:last-child {
+        position: initial;
+      }
+
+      td {
+        width: 240px !important;
+        text-align: right;
+      }
+    }
+  }
+
+  .totalRow {
+    background-color: var(--color-black-50);
+
+    & td {
+      font-weight: var(--font-weight-600);
+    }
+  }
+
+  .dataRow {
+    &:first-child {
+      background-color: var(--color-alpha-100);
+    }
+  }
+
+  .tableHead {
+    & tr {
+      background-color: var(--color-black-50);
+    }
+
+    & .tableHeadRow {
+      th {
+        width: 240px !important;
+      }
+    }
+
+    .dashed {
+      text-decoration: underline dotted;
+      text-underline-offset: 2px;
+    }
+  }
+
+  .tableContainerKdp {
+    overflow-x: hidden;
+
+    & div {
+      overflow: visible;
+    }
+  }
+
+  .loadingContainer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--units-10);
+    padding: var(--page-spacing);
+
+    & > div:nth-child(3n) {
+      margin-bottom: 30px;
+    }
+  }
+
+  .greenAmount {
+    color: var(--color-green-500);
+  }
+
+  .redAmount {
+    color: var(--color-red-500);
+  }
+
+  .cellContent {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: right;
+  }
+
+  .drugContent {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: var(--spacing-4xs);
+    text-wrap: auto;
+  }
+
+  .cellText {
+    text-wrap: auto;
+  }
+
+  .textRight {
+    text-align: right;
+    display: block;
+
+    & span {
+      width: 216px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    &.tooltipText {
+      position: relative;
+
+      & span {
+        max-width: 216px;
+        width: fit-content;
+        display: inline-block;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  .subText {
+    color: var(--color-black-900) !important;
+    display: inline-block;
+    position: relative;
+  }
+
+  .dotted {
+    text-decoration: underline dotted;
+    text-underline-offset: 2px;
+  }
+
+  .bodyText {
+    font-weight: var(--font-weight-600) !important;
+  }
+
+  .pharmacyContainer {
+    width: 100%;
+    text-align: right;
+    position: relative;
+    display: inline-block;
+  }
+
+  .pharmacyName {
+    display: inline-block;
+    position: relative;
+  }
+
+  @media screen and (max-width: 768px) {
+    --page-spacing: 24px;
+
+    .paginationWrapper {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      gap: var(--spacing-xs);
+    }
+  }
+
+  .inlineMessage {
+    margin-bottom: var(--units-32);
+    margin-top: var(--units-32);
+  }
+}
+
+:global(.dark) .feesPage {
+  .tableHead {
+    tr {
+      background-color: var(--color-alpha-100);
+
+      th {
+        background-color: transparent !important;
+      }
+    }
+  }
+
+  .itemText {
+    color: var(--color-black-200);
+  }
+
+  .totalRow {
+    background-color: var(--color-alpha-100);
+
+    & td {
+      font-weight: var(--font-weight-600);
+    }
+  }
+
+  .subText {
+    color: var(--color-gray-100) !important;
+  }
+
+  .ereceptHeader {
+    background-color: var(--palette-grey-950);
+  }
+}

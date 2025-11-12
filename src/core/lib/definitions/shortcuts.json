@@ -1,0 +1,15 @@
+{
+  "_comment": "This file contains the example of custom shortcut sets configuration (how to overwrite default shortcuts) for the application.",
+  "customSet1": [
+    {
+      "actionId": "createNewCodebook",
+      "shortcut": "shift+C"
+    }
+  ],
+  "customSet2": [
+    {
+      "actionId": "createNewCodebook",
+      "shortcut": "alt+c"
+    }
+  ]
+}

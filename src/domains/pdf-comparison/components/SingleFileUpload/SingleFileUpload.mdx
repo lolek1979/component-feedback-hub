@@ -1,0 +1,195 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+
+import SingleFileUpload, { Default, WithCustomSize, WithIcon } from './SingleFileUpload.stories';
+
+<Meta of={SingleFileUpload} />
+
+#### Design: <a href="https://www.figma.com/design/DngURPZLhkFPc0uX8St3TK/NIS-layouts?node-id=5454-6850&t=ceYb2J02IpkC4jBd-4" target="_blank" rel="noopener">Figma</a>
+
+
+# SingleFileUpload
+
+A component that allows users to upload files by dragging and dropping or selecting from the file system, supporting various configurations and states.
+
+<Canvas of={Default} />
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+
+### Default
+<Canvas of={Default} />
+
+### WithCustomSize
+<Canvas of={WithCustomSize} />
+
+### WithIcon
+<Canvas of={WithIcon}/>
+
+
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.single-file-upload {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-m);
+}
+
+.drag-drop {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.upload-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-m);
+  border: var(--border-m) dashed var(--border-primary);
+  border-radius: var(--radius-m);
+  padding: var(--spacing-xl);
+  background-color: var(--background-base);
+  transition: border-color 0.2s ease;
+  width: 100%;
+  min-height: 200px;
+  box-sizing: border-box;
+
+  &:hover,
+  &:focus {
+    border-color: var(--border-prominent);
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: var(--border-m) solid var(--focus-primary);
+    outline-offset: var(--units-2);
+  }
+}
+
+.render-content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-l);
+}
+
+.upload-info {
+  text-align: center;
+  color: var(--text-tertiary);
+}
+
+.warning {
+  color: var(--support-negative);
+  margin: 0;
+  text-align: center;
+}
+
+.file-display {
+  margin-top: var(--spacing-xs);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3xs);
+  overflow: visible;
+}
+
+.file-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--spacing-3xs);
+  padding: var(--spacing-xs) var(--spacing-3xs);
+  border-radius: var(--radius-xs);
+  background-color: var(--background-sunken);
+  position: relative;
+}
+
+.file-info {
+  flex-grow: 1;
+
+  span {
+    margin: 0;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.file-type {
+  margin-right: var(--spacing-l);
+  position: relative;
+  width: 210px;
+
+  :global(.select-content) {
+    position: fixed;
+    z-index: 1100;
+  }
+}
+
+/* Dark theme */
+:global(.dark) .single-file-upload {
+  .upload-box {
+    background-color: var(--palette-grey-950);
+    border-color: var(--border-primary);
+
+    &:hover,
+    &:focus {
+      border-color: var(--border-prominent);
+      background-color: var(--palette-grey-950);
+    }
+
+    &:focus-visible {
+      outline-color: var(--focus-primary);
+    }
+  }
+
+  .upload-info {
+    color: var(--text-secondary);
+  }
+
+  .warning {
+    color: var(--support-negative);
+  }
+
+  .file-item {
+    background-color: var(--palette-grey-950);
+    border: 1px solid var(--border-subtle);
+
+    svg {
+      path {
+        fill: var(--icon-primary);
+      }
+    }
+
+    &:hover {
+      background-color: var(--palette-grey-950);
+    }
+  }
+
+  .file-info {
+    p {
+      color: var(--text-on-color);
+    }
+  }
+
+  [role='button'] {
+    &:hover svg path {
+      fill: var(--support-negative);
+    }
+  }
+}
+
+```
+</details>

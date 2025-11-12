@@ -1,0 +1,56 @@
+{
+  "compilerOptions": {
+    "incremental": true, // https://nextjs.org/docs/basic-features/typescript#incremental-type-checking
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@/core/*": ["./src/core/*"],
+      "@/design-system/*": ["./src/design-system/*"],
+      "@/domain-administrative-proceedings/*": ["./src/domains/administrative-proceedings/*"],
+      "@/domain-audit-log/*": ["./src/domains/audit-log/*"],
+      "@/domain-central-codelist-management/*": ["./src/domains/central-codelist-management/*"],
+      "@/domain-electronic-requests/*": ["./src/domains/electronic-requests/*"],
+      "@/domain-limits-copayments-center/*": ["./src/domains/limits-copayments-center/*"],
+      "@/domain-pdf-comparison/*": ["./src/domains/pdf-comparison/*"],
+      "@/domain-settings/*": ["./src/domains/settings/*"],
+      "@/domain-home/*": ["./src/domains/home/*"],
+      "@/domain-log-out/*": ["./src/domains/log-out/*"],
+      "@/domains/*": ["./src/domains/*"],
+      "@/utils/*": ["./src/core/utils/*"],
+      "@/hooks/*": ["./src/core/hooks/*"],
+      "@/stores/*": ["./src/core/stores/*"],
+      "@/tests/*": ["./src/core/tests/*"],
+      "@/mocks/*": ["./__mocks__/*"]
+    },
+    "target": "ES6",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "svgr.d.ts",
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ],
+  "exclude": ["node_modules", "mock-server/mocks"]
+}

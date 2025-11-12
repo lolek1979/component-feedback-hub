@@ -1,0 +1,138 @@
+import { Canvas, Meta, Controls, Story } from '@storybook/addon-docs/blocks';
+
+import Toggle, { Default, Checked, Disabled, DisabledChecked } from './Toggle.stories';
+
+<Meta of={Toggle} />
+
+#### Design: <a href="https://www.figma.com/design/HtK3DbPIxodKas2jSTtrlH/Design-system?node-id=391-3484&t=ZCLid4l6nfmwyGTt-0" target="_blank" rel="noopener">Figma</a>
+
+# Toggle
+
+---
+
+Toggle can be used to turn an option on or off.
+
+<Canvas of={Checked} />
+
+## Properties
+
+<Controls of={Checked} />{' '}
+
+## Examples
+
+### Default
+
+<Canvas of={Default} />
+
+### Checked
+
+<Canvas of={Checked} />
+
+### Disabled
+
+<Canvas of={Disabled} />
+
+### Disabled Checked
+
+<Canvas of={DisabledChecked} />
+
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.toggle {
+  position: relative;
+  height: var(--units-24);
+  width: calc(var(--units-24) * 2);
+  border-radius: var(--radius-full);
+  border: var(--border-s) solid var(--border-primary);
+  background-color: var(--background-base);
+  appearance: none;
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: var(--units-2);
+    width: var(--units-18);
+    height: var(--units-18);
+    border-radius: 50%;
+    background-color: var(--icon-secondary);
+    transition: transform 0.3s ease;
+    transform: translateY(-50%);
+  }
+
+  &:hover {
+    background-color: var(--field-primary-hover);
+  }
+
+  &:active {
+    background-color: var(--field-primary-active);
+  }
+
+  &:focus-visible {
+    outline: var(--border-m) solid var(--support-info);
+    outline-offset: var(--border-m);
+  }
+
+  &.error {
+    border: var(--border-s) solid var(--support-negative);
+  }
+
+  &:disabled {
+    background-color: var(--field-disabled);
+    border-color: var(--border-primary);
+
+    &::before {
+      background-color: var(--icon-disabled);
+    }
+  }
+
+  &:checked {
+    background-color: var(--support-positive);
+    border-color: var(--support-positive);
+
+    &::before {
+      background-color: var(--icon-on-color);
+      transform: translate(calc(var(--units-24)), -50%);
+    }
+
+    &:hover {
+      background-color: var(--support-positive-hover);
+    }
+
+    &:active {
+      background-color: var(--support-positive-active);
+    }
+
+    &:focus-visible {
+      outline: var(--border-m) solid var(--support-info);
+      outline-offset: var(--border-m);
+    }
+
+    &:disabled {
+      background-color: var(--field-disabled);
+      border-color: var(--border-primary);
+
+      &::before {
+        background-color: var(--icon-disabled);
+      }
+    }
+
+    &.error {
+      border: var(--border-s) solid var(--support-negative);
+      background-color: var(--background-base);
+
+      &::before {
+        background-color: var(--icon-secondary);
+      }
+    }
+  }
+}
+
+```
+</details>

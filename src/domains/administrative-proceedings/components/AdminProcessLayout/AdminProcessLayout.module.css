@@ -1,0 +1,109 @@
+.adminProcessLayoutContainer {
+  display: flex;
+  gap: 2rem;
+}
+
+.formContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formTitle {
+  margin-bottom: 1rem;
+}
+
+.formBody {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formBlock {
+  border: 1px solid var(--color-gray-300);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.formBlockHeader {
+  background-color: var(--color-black-50);
+  border-radius: var(--radius-s);
+  padding: 1rem;
+}
+
+:global(.dark) .formBlockHeader {
+  background-color: var(--color-black-700);
+}
+
+.formBlockDetails {
+  padding: 1rem;
+}
+
+.formBlockDetails ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.detailRow {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  align-self: stretch;
+}
+
+.detailRowText {
+  display: flex;
+  width: 360px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.detailRowTextNoValue {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.detailRowValue {
+  display: flex;
+  padding-right: 10px;
+  align-items: center;
+  gap: 10px;
+  flex: 1 0 0;
+  align-self: stretch;
+}
+
+.detailRowLabel {
+  width: 100%;
+}
+
+.formBlockDetails li {
+  display: flex;
+  align-items: flex-start;
+  align-self: stretch;
+  padding: 5px 0;
+  width: 100%;
+}
+
+.formFooter {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.proceedButton {
+  min-width: 200px;
+}
+
+.proceedButton :global(.iconWhite) {
+  fill: white;
+  color: white;
+}

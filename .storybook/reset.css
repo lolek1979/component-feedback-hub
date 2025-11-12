@@ -1,0 +1,114 @@
+.docs-story {
+  padding-top: 30px !important;
+}
+
+.sb-main-centered {
+  width: 75% !important;
+  max-width: 75% !important;
+  padding: 0 !important;
+}
+
+.sb-main-centered #storybook-root {
+  width: 75% !important;
+  max-width: 75% !important;
+  margin: 0 auto !important;
+}
+
+.sbdocs-preview {
+  overflow: visible !important;
+  .docs-story {
+    overflow: visible !important;
+    & > div {
+      overflow: visible !important;
+    }
+  }
+}
+
+.sbdocs-content {
+  .sbdocs-preview {
+    &:nth-of-type(1) {
+      .docs-story {
+        & > div {
+          &:first-child {
+            z-index: 10 !important;
+          }
+          &:last-child {
+            z-index: 11 !important;
+          }
+        }
+      }
+    }
+    &:nth-of-type(2) {
+      .docs-story {
+        & > div {
+          &:first-child {
+            z-index: 9 !important;
+          }
+          &:last-child {
+            z-index: 10 !important;
+          }
+        }
+      }
+    }
+    &:nth-of-type(3) {
+      .docs-story {
+        & > div {
+          &:first-child {
+            z-index: 8 !important;
+          }
+          &:last-child {
+            z-index: 9 !important;
+          }
+        }
+      }
+    }
+    &:nth-of-type(4) {
+      .docs-story {
+        & > div {
+          &:first-child {
+            z-index: 7 !important;
+          }
+          &:last-child {
+            z-index: 8 !important;
+          }
+        }
+      }
+    }
+    &:nth-of-type(2) {
+      .docs-story {
+        & > div {
+          &:first-child {
+            z-index: 9 !important;
+          }
+          &:last-child {
+            z-index: 10 !important;
+          }
+        }
+      }
+    }
+    &:nth-of-type(3) {
+      .docs-story {
+        & > div {
+          &:first-child {
+            z-index: 8 !important;
+          }
+          &:last-child {
+            z-index: 9 !important;
+          }
+        }
+      }
+    }
+    &:nth-of-type(4) {
+      .docs-story {
+        & > div {
+          &:first-child {
+            z-index: 7 !important;
+          }
+          &:last-child {
+            z-index: 8 !important;
+          }
+        }
+      }
+    }
+  }
+}

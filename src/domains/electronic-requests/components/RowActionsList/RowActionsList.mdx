@@ -1,0 +1,118 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+
+import RowActionsList, { Default, Draft, Awaiting, Active,  Inactive} from './RowActionsList.stories';
+
+<Meta of={RowActionsList} />
+
+
+#### Design: <a href="https://www.figma.com/design/X6VaqX3yF7GOyaVg2qLbdY/MVP-design?node-id=1866-13650&t=Y8ZEasL8whTSXog2-4" target="_blank" rel="noopener">Figma</a>
+
+# RowActionsList
+
+The `RowActionsList` component displays a list of actions that can be performed on a row in a table. The actions available depend on the status of the row, which can be 'Awaiting', 'Draft', 'Active', or 'Inactive'. Each action is represented by an icon and a label, and clicking on an action triggers a callback function with the action's label as an argument.
+
+<Canvas of={Default} />
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+
+### Default
+<Canvas of={Default} />
+
+### Draft
+<Canvas of={Draft} />
+
+### Awaiting
+<Canvas of={Awaiting} />
+
+### Active
+<Canvas of={Active} />
+
+### Inactive
+<Canvas of={Inactive} />
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.row-actions-list {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.row-actions-list-item {
+  width: 100%;
+  height: var(--spacing-l);
+  padding: 0 var(--spacing-2xs);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  justify-content: space-between;
+}
+
+.delete-list-item {
+  border-top: var(--border-s) solid var(--border-primary) !important;
+
+  .delete {
+    color: var(--support-negative) !important;
+  }
+}
+
+.row-actions-item-button {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+  margin-left: var(--units-10);
+}
+
+.item-disabled {
+  width: 100%;
+  height: var(--spacing-l);
+  padding: 0 var(--spacing-2xs);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.row-actions-list-item:hover {
+  background-color: var(--palette-grey-50);
+}
+
+:global(.dark) .row-actions-list {
+  .row-actions-list-item:hover {
+    background-color: var(--palette-grey-850);
+  }
+
+  path {
+    fill: var(--icon-on-color);
+  }
+
+  .delete-list-item {
+    path {
+      fill: var(--palette-red-400);
+    }
+
+    .delete {
+      span {
+        color: var(--palette-red-400) !important;
+      }
+    }
+  }
+}
+
+```
+</details>

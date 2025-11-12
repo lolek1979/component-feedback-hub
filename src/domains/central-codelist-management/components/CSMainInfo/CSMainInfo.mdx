@@ -1,0 +1,113 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+
+import CSMainInfo, { Default } from './CSMainInfo.stories';
+
+<Meta of={CSMainInfo} />
+
+
+#### Design: <a href="https://www.figma.com/design/X6VaqX3yF7GOyaVg2qLbdY/MVP-design?node-id=2375-8602&t=TxofbtJxAKttmYgx-4" target="_blank" rel="noopener">Figma</a>
+
+# CSMainInfo
+
+The `CSMainInfo` component is used to display the main information of a Ciselnik page. It includes various sections such as the title, description, and other relevant details.
+
+<Canvas of={Default} />
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+
+### Default
+<Canvas of={Default} />
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.cs-main-info-wrapper {
+  height: 80px;
+  padding: 0 32px;
+
+  .cs-info-list,
+  .sub-list,
+  .sub-list-validity,
+  .guarantor-list {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .sub-list {
+    margin-top: 10px;
+  }
+
+  .sub-list-validity {
+    margin-top: 15px;
+  }
+
+  .sub-list-item,
+  .list-value {
+    margin-top: 10px;
+  }
+
+  .list-value {
+    margin-top: 15px;
+  }
+
+  .title {
+    max-width: 220px;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    height: 30px;
+  }
+
+  .badge-type {
+    height: 32px;
+    margin-right: 10px;
+  }
+
+  .validity {
+    width: 225px;
+  }
+
+  .guarantor-list {
+    justify-content: center;
+  }
+
+  .guarantor-fullname {
+    margin: 5px;
+    border-bottom: 1.5px dotted var(--color-black-950);
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+  }
+
+  .avatar-test {
+    height: 32px;
+    width: 32px;
+  }
+
+  .more-guarantors {
+    cursor: pointer;
+  }
+}
+
+:global(.dark) .cs-main-info-wrapper {
+  li {
+    color: var(--color-white);
+  }
+
+  .list-value {
+    color: var(--color-white);
+  }
+}
+
+```
+</details>

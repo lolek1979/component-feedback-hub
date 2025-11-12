@@ -1,0 +1,397 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+import Typography, {
+    Default,
+    H1Bold, H1Regular, H2Bold, H2Regular, H3Bold, H3Regular,
+    H4Bold, H4Regular, H4Light, H4LinkInline,
+    HeadlineBold, HeadlineRegular, HeadlineLight, HeadlineLinkInline,
+    BodyBold, BodyRegular, BodyLight, BodyLinkInline,
+    SubtitleBold, SubtitleRegular, SubtitleLinkInline, SubtitleLinkDottedRegular, SubtitleLinkDottedBold,
+    CaptionRegular, CaptionLinkInline, CaptionLinkDottedRegular, CaptionLinkDottedBold,
+    FootnoteBold, FootnoteRegular, FootnoteLinkInline,
+    AlignmentShowcase, ComponentShowcase, CaptionBold
+} from './Typography.stories';
+
+<Meta of={Typography} />
+
+#### Design: <a href="https://www.figma.com/design/HtK3DbPIxodKas2jSTtrlH/Design-system?node-id=24-222" target="_blank" rel="noopener">Figma</a>
+# Typography
+
+The Typography component is a comprehensive text component for the Design System that provides consistent typography across the application. It supports all typography variants defined in the design system with proper font sizes, weights, line heights, and text decorations.
+
+## Properties
+
+<Controls of={Default} />
+
+## Variants Overview
+
+The Typography component supports various text styles organized by hierarchy and purpose:
+
+### Headings
+
+#### H1 Variants
+<Canvas of={H1Bold} />
+<Canvas of={H1Regular} />
+
+#### H2 Variants
+<Canvas of={H2Bold} />
+<Canvas of={H2Regular} />
+
+#### H3 Variants
+<Canvas of={H3Bold} />
+<Canvas of={H3Regular} />
+
+#### H4 Variants
+<Canvas of={H4Bold} />
+<Canvas of={H4Regular} />
+<Canvas of={H4Light} />
+<Canvas of={H4LinkInline} />
+
+### Headlines
+<Canvas of={HeadlineBold} />
+<Canvas of={HeadlineRegular} />
+<Canvas of={HeadlineLight} />
+<Canvas of={HeadlineLinkInline} />
+
+### Body Text
+<Canvas of={BodyBold} />
+<Canvas of={BodyRegular} />
+<Canvas of={BodyLight} />
+<Canvas of={BodyLinkInline} />
+
+### Subtitles
+<Canvas of={SubtitleBold} />
+<Canvas of={SubtitleRegular} />
+<Canvas of={SubtitleLinkInline} />
+<Canvas of={SubtitleLinkDottedRegular} />
+<Canvas of={SubtitleLinkDottedBold} />
+
+### Captions
+<Canvas of={CaptionBold} />
+<Canvas of={CaptionRegular} />
+<Canvas of={CaptionLinkInline} />
+<Canvas of={CaptionLinkDottedRegular} />
+<Canvas of={CaptionLinkDottedBold} />
+
+### Footnotes
+<Canvas of={FootnoteBold} />
+<Canvas of={FootnoteRegular} />
+<Canvas of={FootnoteLinkInline} />
+
+## Text Alignment
+
+The component supports various text alignment options:
+
+<Canvas of={AlignmentShowcase} />
+
+## Component Flexibility
+
+The Typography component can render as any HTML element that supports text content:
+
+<Canvas of={ComponentShowcase} />
+
+## Usage Guidelines
+
+- **Font Family**: Always uses Inter font family
+- **Color**: Always inherits color from parent - never hardcoded
+- **Semantic HTML**: Use appropriate HTML elements (h1-h6 for headings, p for paragraphs, etc.)
+- **Link Variants**: Use link variants for interactive text elements
+- **Consistency**: Stick to defined variants to maintain design consistency
+
+## Design Tokens
+
+The component uses CSS design tokens for:
+- Font sizes: `--size-*` variables
+- Font weights: `--font-weight-*` variables
+- Consistent spacing and line heights
+- Text decoration properties for links
+
+## Accessibility
+
+- Uses semantic HTML elements when specified via the `component` prop
+- Inherits color for proper contrast compliance
+- Supports all standard HTML attributes for accessibility (aria-*, role, etc.)
+- Link variants include proper underline styling for accessibility
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.typography {
+  font-family: var(--font-inter), serif;
+  color: inherit;
+}
+
+.alignCenter {
+  text-align: center;
+}
+
+.alignInherit {
+  text-align: inherit;
+}
+
+.alignJustify {
+  text-align: justify;
+}
+
+.alignLeft {
+  text-align: left;
+}
+
+.alignRight {
+  text-align: right;
+}
+
+.h1Bold {
+  font-size: var(--size-48);
+  font-weight: var(--font-weight-700);
+  line-height: var(--line-height-64);
+}
+
+.h1Regular {
+  font-size: var(--size-48);
+  font-weight: var(--font-weight-400);
+  line-height: var(--line-height-64);
+}
+
+.h2Bold {
+  font-size: var(--size-40);
+  font-weight: var(--font-weight-700);
+  line-height: 1.2;
+}
+
+.h2Regular {
+  font-size: var(--size-40);
+  font-weight: var(--font-weight-400);
+  line-height: 1.2;
+}
+
+.h3Bold {
+  font-size: var(--size-32);
+  font-weight: var(--font-weight-600);
+  line-height: var(--line-height-40);
+}
+
+.h3Regular {
+  font-size: var(--size-32);
+  font-weight: var(--font-weight-400);
+  line-height: var(--line-height-40);
+}
+
+.h4Bold {
+  font-size: var(--size-24);
+  font-weight: var(--font-weight-600);
+  line-height: var(--line-height-32);
+}
+
+.h4Regular {
+  font-size: var(--size-24);
+  font-weight: var(--font-weight-400);
+  line-height: var(--line-height-32);
+}
+
+.h4Light {
+  font-size: var(--size-24);
+  font-weight: var(--font-weight-300);
+  line-height: var(--line-height-32);
+}
+
+.h4LinkInline {
+  font-size: var(--size-24);
+  font-weight: var(--font-weight-600);
+  line-height: var(--line-height-32);
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: var(--units-1);
+  text-underline-offset: var(--units-2);
+  text-underline-position: auto;
+}
+
+.headlineBold {
+  font-size: var(--size-20);
+  font-weight: var(--font-weight-600);
+  line-height: var(--line-height-24);
+}
+
+.headlineRegular {
+  font-size: var(--size-20);
+  font-weight: var(--font-weight-400);
+  line-height: var(--line-height-24);
+}
+
+.headlineLight {
+  font-size: var(--size-20);
+  font-weight: var(--font-weight-300);
+  line-height: var(--line-height-24);
+}
+
+.headlineLinkInline {
+  font-size: var(--size-20);
+  font-weight: var(--font-weight-600);
+  line-height: var(--line-height-24);
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: var(--units-1);
+  text-underline-offset: var(--units-2);
+  text-underline-position: auto;
+}
+
+.bodyBold {
+  font-size: var(--size-16);
+  font-weight: var(--font-weight-600);
+  line-height: var(--line-height-24);
+}
+
+.bodyRegular {
+  font-size: var(--size-16);
+  font-weight: var(--font-weight-400);
+  line-height: var(--line-height-24);
+}
+
+.bodyLight {
+  font-size: var(--size-16);
+  font-weight: var(--font-weight-300);
+  line-height: var(--line-height-24);
+}
+
+.bodyLinkInline {
+  font-size: var(--size-16);
+  font-weight: var(--font-weight-600);
+  line-height: var(--line-height-24);
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: var(--units-1);
+  text-underline-offset: var(--units-2);
+  text-underline-position: auto;
+}
+
+.subtitleBold {
+  font-size: var(--size-14);
+  font-weight: var(--font-weight-600);
+  line-height: var(--line-height-20);
+}
+
+.subtitleRegular {
+  font-size: var(--size-14);
+  font-weight: var(--font-weight-400);
+  line-height: var(--line-height-20);
+}
+
+.subtitleLinkInline {
+  font-size: var(--size-14);
+  font-weight: var(--font-weight-600);
+  line-height: var(--line-height-20);
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: var(--units-1);
+  text-underline-offset: var(--units-2);
+  text-underline-position: auto;
+}
+
+.subtitleLinkDottedRegular {
+  font-size: var(--size-14);
+  font-weight: var(--font-weight-400);
+  line-height: var(--line-height-20);
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: var(--units-1);
+  text-underline-offset: var(--units-2);
+  text-underline-position: under;
+}
+
+.subtitleLinkDottedBold {
+  font-size: var(--size-14);
+  font-weight: var(--font-weight-600);
+  line-height: var(--line-height-20);
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: var(--units-1);
+  text-underline-offset: var(--units-2);
+  text-underline-position: under;
+}
+
+.captionRegular {
+  font-size: var(--size-12);
+  font-weight: var(--font-weight-400);
+  line-height: var(--line-height-18);
+}
+
+.captionBold {
+  font-size: var(--size-12);
+  font-weight: var(--font-weight-600);
+  line-height: var(--line-height-18);
+}
+
+.captionLinkInline {
+  font-size: var(--size-12);
+  font-weight: var(--font-weight-600);
+  line-height: var(--line-height-18);
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: var(--units-1);
+  text-underline-offset: var(--units-2);
+  text-underline-position: auto;
+}
+
+.captionLinkDottedRegular {
+  font-size: var(--size-12);
+  font-weight: var(--font-weight-400);
+  line-height: var(--line-height-18);
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: var(--units-1);
+  text-underline-offset: var(--units-2);
+  text-underline-position: under;
+}
+
+.captionLinkDottedBold {
+  font-size: var(--size-12);
+  font-weight: var(--font-weight-600);
+  line-height: var(--line-height-18);
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: var(--units-1);
+  text-underline-offset: var(--units-2);
+  text-underline-position: under;
+}
+
+.footnoteBold {
+  font-size: var(--size-10);
+  font-weight: var(--font-weight-500);
+  line-height: var(--line-height-12);
+}
+
+.footnoteRegular {
+  font-size: var(--size-10);
+  font-weight: var(--font-weight-400);
+  line-height: var(--line-height-12);
+}
+
+.footnoteLinkInline {
+  font-size: var(--size-10);
+  font-weight: var(--font-weight-500);
+  line-height: var(--line-height-12);
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: auto;
+  text-decoration-thickness: var(--units-1);
+  text-underline-offset: var(--units-2);
+  text-underline-position: auto;
+}
+
+:global(.dark) .typography {
+  color: var(--text-on-color);
+}
+
+```
+</details>

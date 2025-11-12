@@ -1,0 +1,34 @@
+.overviewHeaderCont {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.detailHeaderCont {
+  display: flex;
+}
+
+.titleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-3xs);
+  align-self: stretch;
+  margin-bottom: 0;
+  width: 100%;
+}
+
+.pageTitle {
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.processDetailContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-s);
+  align-self: stretch;
+  padding: 32px 32px 28px;
+}

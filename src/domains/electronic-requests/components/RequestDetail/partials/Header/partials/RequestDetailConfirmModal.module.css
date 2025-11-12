@@ -1,0 +1,40 @@
+.requestCauseContainer {
+  padding-top: var(--spacing-s);
+  padding-bottom: var(--spacing-3xs);
+}
+
+.submitModalButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: var(--spacing-2xs);
+  padding-top: var(--spacing-xs);
+}
+
+.requestCauseTextarea {
+  min-height: 80px;
+}
+
+.userContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3xs);
+  margin-top: calc(-1 * var(--spacing-xs));
+}
+
+.useSelectContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xs);
+}
+
+.requesterRow {
+  display: flex;
+  gap: var(--spacing-2xl);
+  padding-bottom: var(--spacing-l);
+}
+
+.userInfoColumn {
+  display: flex;
+  flex-direction: column;
+}

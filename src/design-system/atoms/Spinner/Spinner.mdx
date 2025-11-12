@@ -1,0 +1,74 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+import Spinner, {Default, FullScreen} from './Spinner.stories';
+
+<Meta of={Spinner} />
+#### Design: <a href="https://www.figma.com/design/HtK3DbPIxodKas2jSTtrlH/Design-system?node-id=5346-4803&p=f&t=RIiZ84LWlGKezUmV-0" target="_blank" rel="noopener">Figma</a>
+
+# Spinner
+
+The Spinner component is used to indicate a loading state or processing activity.
+## Properties
+
+<Controls of={Default} />
+
+### Default
+The default spinner is centered within its container and can be configured to take up the full screen or remain inline with the content.
+<Canvas of={Default} />
+
+### FullScreen
+<Canvas of={FullScreen}/>
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.spinnerContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  border-radius: var(--radius-full);
+  animation: spin 1s linear infinite;
+}
+
+.primary {
+  border: var(--border-l) solid var(--border-subtle);
+  border-top: var(--border-l) solid var(--border-brand);
+}
+
+.secondary {
+  border: var(--border-m) solid var(--icon-primary);
+  border-top: var(--border-m) solid transparent;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.fullScreen {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: var(--palette-grey-0);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+```
+</details>

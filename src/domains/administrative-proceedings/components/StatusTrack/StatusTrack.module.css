@@ -1,0 +1,161 @@
+.statusTrackWrapper {
+  .statusTrack {
+    display: flex;
+    gap: var(--spacing-s);
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .statusItemContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .statusItem {
+    display: flex;
+    align-items: flex-start;
+    cursor: pointer;
+    width: 100%;
+
+    &.disabled {
+      color: var(--text-disabled);
+      cursor: not-allowed;
+    }
+  }
+
+  .statusIconContainer {
+    margin-right: var(--units-12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+  }
+
+  .statusContent {
+    flex: var(--units-1);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .statusLabel {
+    font-size: var(--size-14);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-4xs);
+    font-weight: var(--font-weight-400);
+    transition: font-weight 0.1s;
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      font-weight: var(--font-weight-600);
+    }
+  }
+
+  .statusBadge {
+    padding: var(--spacing-5xs) var(--spacing-3xs);
+    border-radius: var(--units-10);
+    font-size: var(--size-12);
+    background-color: var(--button-secondary);
+    color: var(--text-disabled);
+    align-self: flex-end;
+    margin-left: 0;
+  }
+
+  .connector {
+    position: absolute;
+    left: var(--spacing-3xs);
+    top: var(--spacing-s);
+    width: 0.5px;
+    background-color: var(--border-subtle);
+    transform: translateX(-50%);
+    z-index: 1;
+    min-height: var(--spacing-s);
+    margin-top: 4px;
+    margin-bottom: 4px;
+  }
+
+  .connectorWrapper {
+    position: absolute;
+    left: var(--spacing-3xs);
+    top: var(--spacing-s);
+    transform: translateX(-50%);
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .connectorDivider {
+    margin: 0;
+    min-height: 26px;
+  }
+
+  .activeIconWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  .pulseEffect {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: var(--support-positive);
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    animation: pulse-wave 2s infinite;
+    opacity: 0.6;
+  }
+
+  .activeIconWrapper svg {
+    position: relative;
+    z-index: 2;
+  }
+
+  @keyframes pulse-wave {
+    0% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 0.6;
+    }
+
+    100% {
+      transform: translate(-50%, -50%) scale(2);
+      opacity: 0;
+    }
+  }
+
+  :global(.dark) & {
+    .statusItem {
+      &.disabled {
+        color: var(--palette-grey-600);
+      }
+    }
+
+    .statusLabel {
+      color: var(--palette-grey-0);
+    }
+
+    .statusBadge {
+      background-color: var(--palette-alpha-200);
+      color: var(--palette-grey-300);
+    }
+
+    .connector {
+      background-color: var(--border-subtle);
+    }
+  }
+}

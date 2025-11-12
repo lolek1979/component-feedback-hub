@@ -1,0 +1,118 @@
+.container {
+  background-color: var(--table-primary);
+  border-radius: var(--radius-s);
+  padding: var(--spacing-m);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-s);
+  max-width: 1200px;
+  width: 100%;
+  margin-right: auto;
+}
+
+.containerTitle {
+  display: flex;
+  flex-direction: column;
+}
+
+.titleWithIcon {
+  display: flex;
+  align-items: center;
+  gap: var(--units-10);
+}
+
+.comparisonRow {
+  display: flex;
+  gap: var(--spacing-m);
+  width: 100%;
+}
+
+.documentSection {
+  flex: 1;
+}
+
+.contentRow {
+  display: flex;
+  gap: var(--spacing-m);
+  width: 100%;
+}
+
+.dividersRow {
+  display: flex;
+  gap: var(--spacing-m);
+  width: 100%;
+}
+
+.contentSection {
+  border-radius: var(--radius-s);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  max-height: 400px;
+  overflow-y: auto;
+  flex: 1;
+  position: relative;
+}
+
+.content {
+  color: var(--text-secondary);
+  line-height: var(--line-height-24);
+  margin: 0;
+  font-weight: 400;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.pageInfo {
+  color: var(--text-secondary);
+  font-size: var(--size-12);
+}
+
+.contentSection::-webkit-scrollbar {
+  width: var(--units-8);
+}
+
+.contentSection::-webkit-scrollbar-track {
+  background: var(--background-base);
+  border-radius: var(--radius-s);
+}
+
+.contentSection::-webkit-scrollbar-thumb {
+  background: var(--text-inverse);
+  border-radius: var(--radius-s);
+}
+
+.contentSection::-webkit-scrollbar-thumb:hover {
+  background: var(--palette-grey-200);
+}
+
+@media (max-width: 768px) {
+  .comparisonRow,
+  .contentRow {
+    flex-direction: column;
+  }
+
+  .container {
+    padding: var(--spacing-s);
+    max-width: 100%;
+    margin-left: var(--spacing-s);
+    margin-right: var(--spacing-s);
+  }
+
+  .contentSection {
+    max-height: 300px;
+    padding: var(--spacing-s);
+  }
+}
+
+@media (max-width: 480px) {
+  .contentSection {
+    max-height: 250px;
+  }
+
+  .container {
+    margin-left: var(--spacing-xs);
+    margin-right: var(--spacing-xs);
+  }
+}

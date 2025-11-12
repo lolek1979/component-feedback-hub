@@ -1,0 +1,99 @@
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  height: 793px;
+
+  .modalHeader {
+    max-height: 96px;
+    padding-bottom: var(--spacing-xs);
+    gap: var(--spacing-3xs);
+  }
+
+  .modalContent {
+    max-height: 717px;
+    gap: var(--spacing-m);
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .modalSubtitle {
+    padding-top: var(--spacing-xs);
+  }
+
+  .modalContentMain {
+    padding-right: var(--spacing-xs);
+  }
+
+  .modalCauseHeader {
+    height: var(--spacing-xl);
+    background-color: var(--table-primary);
+    border-radius: var(--radius-s);
+    padding: var(--spacing-xs);
+  }
+
+  .modalCauseContent {
+    padding-inline: var(--spacing-3xs);
+  }
+
+  .textareaRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-height: var(--spacing-2xl);
+    padding: var(--units-10);
+    align-items: flex-start;
+  }
+
+  .textareaLabel {
+    position: relative;
+    top: var(--spacing-s);
+  }
+
+  .formRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    min-height: var(--spacing-2xl);
+    padding: var(--units-10);
+
+    .inputContainer {
+      width: 306px;
+
+      textarea {
+        height: 100px;
+        min-width: 240px;
+        box-sizing: border-box;
+      }
+    }
+
+    .labelContainer {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .textareaContainer {
+    width: 306px;
+  }
+
+  .buttonGroup {
+    display: flex;
+    gap: var(--spacing-3xs);
+    justify-content: end;
+  }
+
+  .modalFooter {
+    height: 88px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  .modalFooterContent {
+    width: auto;
+    display: flex;
+    gap: var(--spacing-2xs);
+    margin-left: auto;
+  }
+}

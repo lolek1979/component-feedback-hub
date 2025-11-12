@@ -1,0 +1,60 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+
+import LanguageSwitcher, { Default } from './LanguageSwitcher.stories';
+
+<Meta of={LanguageSwitcher} />
+
+#### Design: <a href="https://www.figma.com/design/X6VaqX3yF7GOyaVg2qLbdY/MVP-design?node-id=1382-3119&t=ASFtEHYUsB5JZvgo-4" target="_blank" rel="noopener">Figma</a>
+
+# LanguageSwitcher
+
+A component that allows users to switch between different languages, supporting various configurations and states.
+
+
+## Dependencies
+
+- [Select](/docs/atoms-select--docs)
+
+## Examples
+
+### Default
+
+<Canvas of={Default} />
+
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.languageSwitcher {
+  --ls-width: 82px;
+  --ls-transition: all 0.2s ease-out;
+
+  max-width: var(--ls-width);
+  background-color: var(--table-secondary-hover);
+  transition: var(--ls-transition);
+  border-radius: var(--radius-xs);
+
+  &:hover {
+    background-color: var(--table-secondary-hover);
+    transition: var(--ls-transition);
+  }
+
+  &:active {
+    background-color: var(--table-primary);
+    transition: var(--ls-transition);
+  }
+
+  & [aria-controls='listbox'] {
+    border: none;
+
+    & span {
+      border-left: none !important;
+    }
+  }
+}
+
+```
+</details>

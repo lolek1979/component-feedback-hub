@@ -1,0 +1,129 @@
+.tablink {
+  --padding-icon-current: var(--spacing-m);
+
+  color: var(--text-primary);
+  background-color: var(--background-base);
+  padding: var(--spacing-4xs) var(--spacing-3xs) var(--spacing-4xs) var(--spacing-3xs);
+  height: var(--units-40);
+  margin-right: var(--spacing-3xs);
+  border-radius: var(--spacing-5xs);
+  position: relative;
+  border: none;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: var(--border-m);
+    background-color: transparent;
+    border-radius: var(--spacing-5xs);
+    transition: background-color 0.2s ease;
+  }
+
+  &:hover::after {
+    background-color: var(--palette-grey-400);
+    cursor: pointer;
+  }
+
+  &:active::after {
+    background-color: var(--icon-primary);
+  }
+
+  &.selected::after {
+    background-color: var(--icon-brand);
+  }
+
+  &:disabled::after {
+    background-color: transparent;
+  }
+
+  &.selected {
+    color: var(--text-brand) !important;
+
+    .icon {
+      & path {
+        fill: var(--icon-brand);
+      }
+    }
+  }
+
+  &:focus-visible {
+    border: none;
+    box-shadow:
+      0 0 0 2px var(--background-base),
+      0 0 0 4px var(--support-info);
+    outline: none;
+  }
+
+  &:disabled {
+    color: var(--text-disabled);
+
+    .icon {
+      & path {
+        fill: var(--icon-disabled);
+      }
+    }
+  }
+
+  .icon {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    align-items: center;
+    display: flex;
+
+    path {
+      fill: var(--icon-primary);
+    }
+  }
+
+  &.iconLeft {
+    padding-left: var(--padding-icon-current);
+    padding-right: calc(var(--padding-icon-current) - 28px);
+
+    .icon {
+      left: var(--spacing-5xs);
+    }
+  }
+
+  &.iconRight {
+    padding-right: var(--padding-icon-current);
+    padding-left: calc(var(--padding-icon-current) - 28px);
+
+    .icon {
+      right: var(--spacing-5xs);
+    }
+  }
+}
+
+:global(.dark) .tablink {
+  background-color: var(--background-scrim);
+
+  svg path {
+    fill: var(--palette-grey-0);
+  }
+
+  &.selected {
+    span {
+      color: var(--text-brand) !important;
+    }
+
+    svg path {
+      fill: var(--icon-brand);
+    }
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+
+    h6 {
+      color: var(--text-disabled);
+    }
+
+    svg path {
+      fill: var(--icon-disabled);
+    }
+  }
+}

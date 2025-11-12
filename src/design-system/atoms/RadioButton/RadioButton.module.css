@@ -1,0 +1,122 @@
+.input {
+  appearance: none;
+  width: var(--units-24);
+  height: var(--units-24);
+  margin-right: var(--spacing-3xs);
+  position: relative;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  display: inline-flex;
+  align-items: center;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: var(--units-14);
+    height: var(--units-14);
+    border: var(--border-s) solid var(--border-primary);
+    border-radius: var(--radius-full);
+    background-color: transparent;
+    transition: all 0.2s ease;
+  }
+
+  &:hover {
+    &::before {
+      background-color: var(--field-primary-hover);
+    }
+  }
+
+  &:active {
+    &::before {
+      background-color: var(--field-primary-active);
+    }
+  }
+
+  &:focus {
+    border: var(--border-m) solid var(--support-info);
+    border-radius: var(--radius-full);
+    outline: none;
+  }
+
+  &.inputChecked {
+    &::before {
+      width: var(--units-16);
+      height: var(--units-16);
+      background-color: var(--field-brand);
+      border: none;
+    }
+
+    &:hover {
+      &::before {
+        background-color: var(--field-brand-hover);
+      }
+    }
+
+    &:active {
+      &::before {
+        background-color: var(--field-brand-active);
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: calc(var(--units-8) - 2px);
+      height: calc(var(--units-8) - 2px);
+      background-color: var(--icon-on-color);
+      border-radius: var(--radius-full);
+    }
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+
+    &::before {
+      background-color: var(--field-disabled);
+      border: var(--border-s) solid var(--border-primary);
+    }
+
+    &.inputChecked {
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: calc(var(--units-8) - 2px);
+        height: calc(var(--units-8) - 2px);
+        background-color: var(--icon-disabled);
+        border-radius: var(--radius-full);
+      }
+    }
+  }
+}
+
+.input.error {
+  &::before {
+    background-color: var(--field-primary) !important;
+    border: var(--border-s) solid var(--support-negative) !important;
+  }
+
+  &.inputChecked {
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: calc(var(--units-8) - 2px);
+      height: calc(var(--units-8) - 2px);
+      background-color: var(--support-negative);
+      border-radius: var(--radius-full);
+    }
+  }
+}

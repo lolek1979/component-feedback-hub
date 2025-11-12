@@ -1,0 +1,101 @@
+import { Meta } from '@storybook/blocks';
+import { DesignTokenDocBlock } from 'storybook-design-token';
+
+<style>
+  {`
+    .sbdocs.sbdocs-content.css-qa4clq {
+      width: 80% !important;
+      max-width: 80% !important;
+    }
+  `}
+</style>
+
+<Meta title="Design System/Typography" />
+
+#### Design: <a href="https://www.figma.com/design/HtK3DbPIxodKas2jSTtrlH/Design-system?node-id=1-3" target="_blank" rel="noopener">Figma</a>
+
+# Typography
+
+Typography is a fundamental part of our design system. This document outlines the font sizes and weights used throughout the application.
+
+## Font Sizes
+
+<DesignTokenDocBlock categoryName="Typography" maxHeight={600} />
+
+### Examples
+
+<div style={{ fontFamily: 'var(--font-inter)', width: '100%' }}>
+  <h1 style={{ fontSize: 'var(--size-48)', marginBottom: '0.5rem' }}>Heading 1 (48px)</h1>
+  <h2 style={{ fontSize: 'var(--size-40)', marginBottom: '0.5rem' }}>Heading 2 (40px)</h2>
+  <h3 style={{ fontSize: 'var(--size-32)', marginBottom: '0.5rem' }}>Heading 3 (32px)</h3>
+  <h4 style={{ fontSize: 'var(--size-24)', marginBottom: '0.5rem' }}>Heading 4 (24px)</h4>
+  <p style={{ fontSize: 'var(--size-20)', fontWeight: 'var(--font-weight-600)', marginBottom: '0.5rem' }}>Title (20px)</p>
+  <p style={{ fontSize: 'var(--size-20)', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '0.5rem' }}>Headline (20px)</p>
+  <p style={{ fontSize: 'var(--size-16)', marginBottom: '0.5rem' }}>Body text (16px) - The quick brown fox jumps over the lazy dog.</p>
+  <p style={{ fontSize: 'var(--size-14)', fontWeight: 'var(--font-weight-600)', marginBottom: '0.5rem' }}>Subtitle (14px)</p>
+  <p style={{ fontSize: 'var(--size-12)', marginBottom: '0.5rem' }}>Caption (12px) - Used for secondary information.</p>
+  <p style={{ fontSize: 'var(--size-10)', color: 'var(--color-black-400)', marginBottom: '0.5rem' }}>Footnote (10px) - Used for additional information.</p>
+</div>
+
+## Font Weights
+
+<DesignTokenDocBlock categoryName="Font Weights" maxHeight={600} />
+
+### Examples
+
+<div style={{ fontFamily: 'var(--font-inter)', width: '100%', maxWidth: '800px' }}>
+  <p style={{ fontWeight: 'var(--font-weight-100)', marginBottom: '0.5rem' }}>Font Weight 100 (Thin)</p>
+  <p style={{ fontWeight: 'var(--font-weight-200)', marginBottom: '0.5rem' }}>Font Weight 200 (Extra Light)</p>
+  <p style={{ fontWeight: 'var(--font-weight-300)', marginBottom: '0.5rem' }}>Font Weight 300 (Light)</p>
+  <p style={{ fontWeight: 'var(--font-weight-400)', marginBottom: '0.5rem' }}>Font Weight 400 (Regular)</p>
+  <p style={{ fontWeight: 'var(--font-weight-500)', marginBottom: '0.5rem' }}>Font Weight 500 (Medium)</p>
+  <p style={{ fontWeight: 'var(--font-weight-600)', marginBottom: '0.5rem' }}>Font Weight 600 (Semi Bold)</p>
+  <p style={{ fontWeight: 'var(--font-weight-700)', marginBottom: '0.5rem' }}>Font Weight 700 (Bold)</p>
+  <p style={{ fontWeight: 'var(--font-weight-800)', marginBottom: '0.5rem' }}>Font Weight 800 (Extra Bold)</p>
+  <p style={{ fontWeight: 'var(--font-weight-900)', marginBottom: '0.5rem' }}>Font Weight 900 (Black)</p>
+</div>
+
+## Line Heights
+
+<DesignTokenDocBlock categoryName="Line Heights" maxHeight={600} />
+
+### Examples
+
+<div style={{ fontFamily: 'var(--font-inter)', width: '100%', maxWidth: '800px' }}>
+  <div style={{ lineHeight: 'var(--line-height-64)', border: '1px dashed #ccc', marginBottom: '1rem', padding: '0 1rem' }}>
+    Line Height 64px - This demonstrates how text looks with 64px line height. Notice the spacing between lines.
+  </div>
+  <div style={{ lineHeight: 'var(--line-height-48)', border: '1px dashed #ccc', marginBottom: '1rem', padding: '0 1rem' }}>
+    Line Height 48px - This demonstrates how text looks with 48px line height. Notice the spacing between lines.
+  </div>
+  <div style={{ lineHeight: 'var(--line-height-40)', border: '1px dashed #ccc', marginBottom: '1rem', padding: '0 1rem' }}>
+    Line Height 40px - This demonstrates how text looks with 40px line height. Notice the spacing between lines.
+  </div>
+  <div style={{ lineHeight: 'var(--line-height-32)', border: '1px dashed #ccc', marginBottom: '1rem', padding: '0 1rem' }}>
+    Line Height 32px - This demonstrates how text looks with 32px line height. Notice the spacing between lines.
+  </div>
+  <div style={{ lineHeight: 'var(--line-height-24)', border: '1px dashed #ccc', marginBottom: '1rem', padding: '0 1rem' }}>
+    Line Height 24px - This demonstrates how text looks with 24px line height. Notice the spacing between lines.
+  </div>
+  <div style={{ lineHeight: 'var(--line-height-20)', border: '1px dashed #ccc', marginBottom: '1rem', padding: '0 1rem' }}>
+    Line Height 20px - This demonstrates how text looks with 20px line height. Notice the spacing between lines.
+  </div>
+  <div style={{ lineHeight: 'var(--line-height-18)', border: '1px dashed #ccc', marginBottom: '1rem', padding: '0 1rem' }}>
+    Line Height 18px - This demonstrates how text looks with 18px line height. Notice the spacing between lines.
+  </div>
+  <div style={{ lineHeight: 'var(--line-height-12)', border: '1px dashed #ccc', marginBottom: '1rem', padding: '0 1rem' }}>
+    Line Height 12px - This demonstrates how text looks with 12px line height. Notice the spacing between lines.
+  </div>
+</div>
+
+## Usage
+
+```jsx
+// Font sizes
+<h1 style={{ fontSize: 'var(--size-48)' }}>Heading 1</h1>
+<p style={{ fontSize: 'var(--size-16)' }}>Body text</p>
+
+// Font weights
+<p style={{ fontWeight: 'var(--font-weight-700)' }}>Bold text</p>
+<p style={{ fontWeight: 'var(--font-weight-400)' }}>Regular text</p>
+```

@@ -1,0 +1,50 @@
+.monthHeader {
+  display: flex;
+  justify-content: space-between;
+  padding-top: var(--spacing-m);
+
+  .month {
+    color: var(--text-primary);
+  }
+
+  .limit {
+    gap: var(--spacing-3xs);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .limitReached {
+    color: var(--support-positive);
+    gap: var(--spacing-3xs);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .greenText {
+    color: var(--support-positive);
+  }
+
+  .iconInfo {
+    & path {
+      fill: var(--icon-info);
+    }
+  }
+
+  @media print {
+    flex-direction: row !important;
+    align-items: center !important;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+:global(.dark) .monthHeader {
+  .month {
+    color: var(--text-on-color);
+  }
+}

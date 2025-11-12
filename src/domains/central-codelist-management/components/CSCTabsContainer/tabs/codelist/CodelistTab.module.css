@@ -1,0 +1,383 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s);
+  width: 100%;
+
+  .filterContainer {
+    width: 100%;
+  }
+
+  .tableContainer {
+    width: 100%;
+  }
+}
+
+.overflow {
+  overflow-x: auto !important;
+}
+
+.tableContainer {
+  width: 100%;
+  overflow: auto;
+  position: relative;
+}
+
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: 53px;
+  z-index: 10;
+  background: white;
+}
+
+.headerColumnsContainer {
+  position: relative;
+  flex: 1;
+  height: 100%;
+}
+
+/* Body Styles */
+.bodyContainer {
+  position: relative;
+}
+
+.bodyRow {
+  position: absolute;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.bodyColumnsContainer {
+  position: relative;
+  flex: 1;
+  height: 100%;
+}
+
+.headerCell {
+  background-color: var(--table-primary);
+  border-bottom: none !important;
+}
+
+.bodyCell {
+  background-color: var(--table-secondary);
+}
+
+.virtualCell {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-bottom: var(--border-s) solid var(--border-primary);
+  padding: var(--spacing-4xs) var(--spacing-2xs);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+}
+
+/* Sorting functionality styles */
+.isSortHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: var(--spacing-3xs);
+
+  svg {
+    flex-shrink: 0;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.editInputCell {
+  width: 100%;
+  height: 35px;
+  padding-left: var(--spacing-4xs);
+  border-radius: var(--radius-xs);
+  background-color: var(--field-primary);
+  font-weight: var(--font-weight-400);
+  border: var(--border-s) solid var(--color-black-300);
+
+  &:focus {
+    outline: none;
+    border: var(--border-s) solid var(--color-black-300);
+  }
+
+  &:disabled {
+    background-color: #f7f7f8;
+    cursor: not-allowed;
+  }
+}
+
+.columnActionsContainer {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+  gap: var(--spacing-s);
+}
+
+.columnActions {
+  position: relative;
+  overflow: visible;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3xs);
+}
+
+.rowActions {
+  width: 0;
+  border: none;
+}
+
+.actionRow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 54px;
+  z-index: 20;
+  background-color: var(--palette-grey-0);
+
+  .virtualCell {
+    border-bottom: none;
+  }
+}
+
+:global(.dark) .actionRow {
+  background-color: var(--palette-grey-950);
+}
+
+.headerRow {
+  position: absolute;
+  top: 53px;
+  left: 0;
+  width: 100%;
+  height: 36px;
+  z-index: 10;
+  background-color: white;
+}
+
+.addRowRow {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 35px;
+  background: var(--table-secondary);
+  bottom: 0;
+  left: 0;
+}
+
+.addRowCell {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: var(--spacing-4xs);
+
+  & button {
+    & span {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+    }
+  }
+}
+
+.addColumnRight {
+  background-color: rgb(241 241 241);
+  height: 54px;
+  width: 66px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.addColumnRightPlaceholder {
+  background-color: var(--palette-grey-0);
+  height: 54px;
+  width: 66px;
+}
+
+.rowActionButtons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 56px;
+  background-color: var(--table-secondary);
+  padding: var(--spacing-2xs);
+}
+
+.editableCell {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  border-bottom: none !important;
+}
+
+/* Index column styles */
+.indexColumn {
+  position: sticky;
+  left: 0;
+  z-index: 15;
+  background-color: var(--table-primary);
+  min-width: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--font-weight-500);
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.indexColumnHeader {
+  background-color: var(--palette-grey-0);
+  border-bottom: var(--border-s) solid var(--border-subtle);
+}
+
+.indexColumnCell {
+  background-color: rgb(241 241 241) !important;
+  border-bottom: var(--border-s) solid var(--border-subtle);
+}
+
+.invisibleCell {
+  visibility: hidden;
+}
+
+.headerRow .indexColumnHeader {
+  border-top: none !important;
+  border-bottom: none !important;
+  border-right: none !important;
+  background-color: rgb(241 241 241) !important;
+}
+
+/* Codelist Table Row Actions Styles */
+.codelistTableRowActions {
+  background: transparent;
+  border: var(--border-s) solid var(--border-subtle);
+  border-radius: var(--spacing-4xs);
+  padding: var(--spacing-4xs);
+  min-width: var(--units-32);
+  min-height: var(--units-32);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  z-index: 1;
+}
+
+.codelistTableRowActions:hover {
+  background: var(--palette-grey-50);
+  border-color: var(--border-primary);
+}
+
+/* Container for the popover - ensure proper stacking */
+.codelistRowActionsPopover {
+  position: relative;
+  z-index: 10000;
+}
+
+.codelistRowOptions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4xs);
+  padding: var(--spacing-3xs);
+  min-width: 220px;
+  background: white;
+  border-radius: var(--radius-s);
+  position: relative;
+  z-index: 10001;
+}
+
+.codelistRowOptionButton {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3xs);
+  padding: var(--spacing-2xs) var(--spacing-3xs);
+  border-radius: var(--radius-s);
+  text-align: left;
+  justify-content: flex-start;
+  width: 100%;
+  transition: all 0.2s ease-in-out;
+  border: none;
+  background: transparent;
+}
+
+.codelistRowOptionButton:hover {
+  background: var(--palette-grey-50);
+}
+
+.rowActionButton {
+  padding: var(--spacing-4xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:global(.dark) .container {
+  .header {
+    background-color: var(--palette-grey-850) !important;
+  }
+
+  .headerRow {
+    background-color: var(--palette-grey-850) !important;
+
+    svg path {
+      fill: var(--icon-on-color);
+    }
+  }
+
+  .indexColumn {
+    background-color: var(--palette-grey-850) !important;
+    color: var(--text-on-color);
+
+    svg path {
+      fill: var(--icon-on-color);
+    }
+  }
+
+  .bodyCell {
+    input {
+      color: var(--text-on-color);
+      background-color: var(--palette-grey-950);
+    }
+  }
+
+  .headerCell {
+    input {
+      color: var(--text-on-color);
+      background-color: var(--palette-grey-950);
+    }
+  }
+
+  .addColumnRightPlaceholder {
+    background-color: var(--palette-grey-950);
+  }
+
+  .addColumnRight {
+    background-color: var(--palette-grey-850);
+
+    svg path {
+      fill: var(--icon-on-color);
+    }
+  }
+
+  .isSortHeader {
+    color: var(--text-on-color);
+  }
+}

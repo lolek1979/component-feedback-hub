@@ -1,0 +1,54 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+
+import ColumnOptions, { Default } from './ColumnOptions.stories';
+
+<Meta of={ColumnOptions} />
+
+
+#### Design: <a href="https://www.figma.com/design/X6VaqX3yF7GOyaVg2qLbdY/MVP-design?node-id=3074-10764&t=yxnvkHBhUuZr8MgS-4" target="_blank" rel="noopener">Figma</a>
+
+# ColumnOptions
+
+The `ColumnsOptions` component provides a set of configurable options for each column in a table or list. It allows users to perform actions such as editing and deleting column. This component is designed to be flexible and easily integrated into various table or list structures.
+
+
+<Canvas of={Default} />
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+
+### Default
+<Canvas of={Default} />
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.columnOptionsList {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-2xs);
+  gap: 0;
+}
+
+.divider {
+  height: var(--border-s);
+  background-color: var(--border-primary);
+  margin: var(--spacing-3xs) 0;
+  width: 100%;
+}
+
+:global(.dark) .columnOptionsList {
+  .divider {
+    background-color: var(--border-primary);
+  }
+}
+
+```
+</details>

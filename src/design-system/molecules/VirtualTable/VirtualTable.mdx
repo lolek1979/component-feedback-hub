@@ -1,0 +1,115 @@
+import { Canvas, Meta, Controls, Story } from '@storybook/addon-docs/blocks';
+
+import VirtualTable, { Default, CustomChildren } from './VirtualTable.stories';
+
+<Meta of={VirtualTable} />
+
+#### Design: <a href="https://www.figma.com" target="_blank" rel="noopener">Figma</a>
+
+# VirtualTable
+
+A performant, virtualized table component for rendering large datasets with customizable headers and body.  
+Supports both a simple API (with `headerData` and `bodyData` props) and a fully custom render via children.
+
+<Canvas of={Default} />
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+
+### Default (Simple API)
+<Canvas of={Default} />
+
+### Custom Children (Advanced)
+<Story of={CustomChildren} />
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.tableContainer {
+  width: 100%;
+  min-width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.header {
+  top: 0;
+  z-index: 10;
+  height: 54px;
+  background: var(--palette-grey-0);
+}
+
+.headerRow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 35px;
+  min-width: 100%;
+}
+
+.headerColumnsContainer {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  width: 100%;
+  min-width: 100%;
+}
+
+/* Body Styles */
+.bodyContainer {
+  position: relative;
+  min-width: 100%;
+}
+
+.bodyRow {
+  position: absolute;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  min-width: 100%;
+}
+
+.bodyColumnsContainer {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  min-width: 100%;
+}
+
+.headerCell {
+  background-color: var(--table-primary);
+  border-bottom: var(--border-s) solid var(--border-prominent) !important;
+}
+
+.bodyCell {
+  background-color: var(--table-secondary);
+}
+
+.virtualCell {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-bottom: var(--border-s) solid var(--border-primary);
+  padding: var(--spacing-4xs);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  flex-shrink: 0;
+}
+
+```
+</details>

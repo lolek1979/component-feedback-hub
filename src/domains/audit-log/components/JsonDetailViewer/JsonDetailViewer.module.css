@@ -1,0 +1,21 @@
+.container {
+  padding: var(--spacing-xl);
+  background: var(--table-primary);
+
+  .row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .label {
+    width: var(--spacing-3xl);
+  }
+
+  .value {
+    margin-left: var(--spacing-xs);
+    white-space: normal;
+    flex: 1;
+  }
+}

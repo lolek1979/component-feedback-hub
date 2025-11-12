@@ -1,0 +1,48 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+
+import TabGroup, { Default, WithDisabledTab } from './TabGroup.stories';
+
+<Meta of={TabGroup} />
+
+#### Design: <a href="https://www.figma.com/design/X6VaqX3yF7GOyaVg2qLbdY/MVP-design?node-id=286-502&t=ow3QAVj3ZFmTFmbg-4" target="_blank" rel="noopener">Figma</a>
+
+# TabGroup
+
+A component that allows users to switch between different views or sections using tabs, supporting various configurations and states.
+
+<Canvas of={Default} />
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+
+### Default
+<Canvas of={Default} />
+
+### WithDisabledTab
+<Canvas of={WithDisabledTab} />
+
+
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.tabgroup {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 32px;
+}
+
+.tabs {
+  display: flex;
+  margin-bottom: 24px;
+}
+
+```
+</details>

@@ -1,0 +1,131 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+
+import AuditTable, { Default } from './AuditTable.stories';
+
+<Meta of={AuditTable} />
+
+
+#### Design: <a href="https://www.figma.com" target="_blank" rel="noopener">Figma</a>
+
+# AuditTable
+
+The AuditTable component displays a paginated and sortable audit log table with customizable filters. It fetches audit records based on given 
+filter parameters such as timestamp range, success status, entity and identity IDs, and sorting preferences.
+
+<Canvas of={Default} />
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+
+### Default
+<Canvas of={Default} />
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.audit-table-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  /* & .table{
+    table-layout: fixed !important;
+  } */
+
+  & .cell-id {
+    width: 10% !important;
+  }
+
+  & .cell-entity {
+    width: 25% !important;
+  }
+
+  & div:nth-child(3) {
+    & div {
+      overflow-x: visible !important;
+    }
+  }
+
+  & .badge-text {
+    & p {
+      display: flex;
+      align-items: center;
+      width: fit-content;
+      gap: var(--spacing-3xs);
+    }
+  }
+
+  & .table-container {
+    overflow: hidden;
+  }
+
+  & .table-head {
+    & th {
+      border-bottom: calc(var(--spacing-5xs) / 2) solid var(--color-black-950);
+    }
+  }
+
+  & .table-body {
+    & .dotted-line {
+      border-bottom: none; /* Remove the existing border */
+      border-bottom: calc(var(--spacing-5xs) / 2) dotted var(--color-black-200);
+    }
+
+    & tr {
+      border-bottom: calc(var(--spacing-5xs) / 2) solid var(--color-black-200);
+
+      &:hover {
+        background-color: var(--palette-alpha-50);
+      }
+    }
+  }
+
+  & .cell-content {
+    white-space: nowrap;
+  }
+
+  & .cell-content > * {
+    display: inline;
+    vertical-align: middle;
+  }
+
+  .badge {
+    width: calc(var(--spacing-xl) * 2);
+  }
+
+  .spinner-overlay {
+    position: absolute; /* or fixed, if it should be over fullscreen */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: color-mix(
+      in srgb,
+      var(--palette-grey-0) 50%,
+      transparent
+    ); /* Semi-transparent background */
+
+    z-index: 1000;
+    pointer-events: none; /* Prevent interaction with the overlay */
+  }
+
+  :global(.dark) .csc-page {
+    .draft-count {
+      background-color: var(--color-black-800);
+      color: var(--color-white);
+    }
+  }
+}
+
+```
+</details>

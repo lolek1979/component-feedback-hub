@@ -1,0 +1,70 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+
+  .pageButton {
+    width: 40px !important;
+    height: 40px !important;
+    padding: 0 !important;
+    border-radius: var(--radius-xs) !important;
+    line-height: var(--line-height-20, 20px) !important;
+    text-align: center !important;
+
+    --font-weight-600: 400 !important;
+  }
+
+  .arrowButton {
+    width: 40px !important;
+    height: 40px !important;
+    padding: 0 !important;
+    border-radius: var(--radius-xs) !important;
+    font-weight: normal !important;
+    overflow: hidden;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+
+    svg {
+      flex-shrink: 0;
+      margin: 0 !important;
+      margin-top: 5px !important;
+    }
+  }
+
+  .arLeft {
+    transform: rotate(90deg);
+  }
+
+  .arRight {
+    transform: rotate(-90deg);
+  }
+}
+
+.dots {
+  color: var(--text-secondary);
+  padding: 0 var(--spacing-2xs);
+  user-select: none;
+}
+
+:global(.dark) .pagination {
+  .arrowButton {
+    .arLeft path,
+    .arRight path {
+      fill: var(--palette-grey-200);
+    }
+  }
+
+  .arrowButton:disabled {
+    .arLeft path,
+    .arRight path {
+      fill: var(--palette-grey-600);
+    }
+  }
+}

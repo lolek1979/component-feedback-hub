@@ -1,0 +1,17 @@
+.layout-wrapper {
+  --header-height: 64px;
+  --wrapper-background-color: var(--color-white);
+
+  display: flex;
+  min-height: calc(100vh - var(--header-height));
+  background-color: var(--wrapper-background-color);
+}
+
+.page-content {
+  width: 100%;
+  contain: inline-size;
+}
+
+.dark .layout-wrapper {
+  --wrapper-background-color: var(--color-black-950);
+}

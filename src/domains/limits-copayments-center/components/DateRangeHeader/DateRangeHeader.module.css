@@ -1,0 +1,6 @@
+.dateRange {
+  display: flex;
+  flex-direction: column;
+  margin-block: var(--spacing-s);
+  gap: var(--spacing-4xs);
+}

@@ -1,0 +1,105 @@
+.cscPage {
+  --page-spacing: 32px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: var(--page-spacing);
+  width: 100%;
+  height: 100%;
+
+  & div:nth-child(3) {
+    & div {
+      overflow-x: visible !important;
+    }
+  }
+
+  & .badgeText {
+    font-weight: var(--font-weight-600) !important;
+
+    & p {
+      display: flex;
+      align-items: center;
+      width: fit-content;
+      gap: 4px;
+    }
+  }
+
+  .status {
+    display: flex;
+    align-items: center;
+    height: 56px;
+  }
+
+  .draftCount {
+    display: inline-flex;
+    align-items: center;
+    padding-inline: 12px;
+    border-radius: 20px;
+    font-size: var(--size-12);
+    line-height: 16px;
+    font-weight: var(--font-weight-500);
+    gap: 4px;
+    height: 32px;
+    width: fit-content;
+    background-color: var(--palette-grey-100);
+    color: var(--palette-grey-700);
+
+    svg {
+      cursor: default !important;
+    }
+  }
+
+  .cscTitle {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    width: 100%;
+  }
+
+  & .tableContainer {
+    overflow: hidden;
+  }
+
+  & .tableHead {
+    & th {
+      border-bottom: 1px solid var(--color-black-950);
+    }
+  }
+
+  & .tableBody {
+    & .dottedLine {
+      border-bottom: none; /* Remove the existing border */
+      border-bottom: 1px dotted var(--color-black-200);
+    }
+
+    & tr {
+      border-bottom: 1px solid var(--color-black-200);
+
+      &:hover {
+        background-color: #e4e4e740;
+      }
+    }
+  }
+
+  & .cellContent {
+    white-space: nowrap;
+  }
+
+  & .cellContent > * {
+    display: inline;
+    vertical-align: middle;
+  }
+
+  & .tableSettingsButton {
+    padding-right: 12px;
+  }
+}
+
+:global(.dark) .cscPage {
+  .draftCount {
+    background-color: var(--button-secondary);
+    color: var(--color-white);
+  }
+}

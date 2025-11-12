@@ -1,0 +1,27 @@
+.languageSwitcher {
+  --ls-width: 82px;
+  --ls-transition: all 0.2s ease-out;
+
+  max-width: var(--ls-width);
+  background-color: var(--table-secondary-hover);
+  transition: var(--ls-transition);
+  border-radius: var(--radius-xs);
+
+  &:hover {
+    background-color: var(--table-secondary-hover);
+    transition: var(--ls-transition);
+  }
+
+  &:active {
+    background-color: var(--table-primary);
+    transition: var(--ls-transition);
+  }
+
+  & [aria-controls='listbox'] {
+    border: none;
+
+    & span {
+      border-left: none !important;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2xs);
+}
+
+@media (max-width: 768px) {
+  .actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .actions button {
+    width: 100%;
+  }
+}

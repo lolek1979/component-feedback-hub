@@ -1,0 +1,64 @@
+.requestFilters {
+  min-height: var(--units-128);
+  margin-bottom: var(--spacing-m);
+}
+
+.filterContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s);
+  position: relative;
+}
+
+.firstRow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--spacing-s);
+}
+
+.secondRow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: var(--spacing-s);
+}
+
+.filterCell {
+  width: 284px;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 1529px) {
+  .filterCell {
+    width: 380px;
+  }
+}
+
+.extraFilterCell {
+  position: relative;
+}
+
+.toggleFilterCell {
+  margin-left: auto;
+  display: flex;
+  align-items: flex-end;
+  padding-top: var(--spacing-s);
+}
+
+.toggleContainer {
+  display: flex;
+  align-items: center;
+  height: var(--spacing-l);
+  gap: var(--spacing-3xs);
+  padding-left: var(--spacing-m);
+}
+
+.resetFilterCell {
+  margin-left: auto;
+  padding-right: var(--spacing-3xl);
+  padding-top: var(--spacing-m);
+}

@@ -1,0 +1,108 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+
+import DarkmodeToggle, { Default } from './DarkmodeToggle.stories';
+
+<Meta of={DarkmodeToggle} />
+
+
+#### Design: <a href="https://www.figma.com/design/HtK3DbPIxodKas2jSTtrlH/Design-system?node-id=5630-42813&p=f&t=XxJphIUZX7GrXr1u-0" target="_blank" rel="noopener">Figma</a>
+
+# DarkmodeToggle
+
+The Dark Mode Toggle component lets users switch themes by applying a `.dark` class to the `<body>`, enabling dark theme styling across components by updating local CSS variables.
+
+## Examples
+
+### Default
+<Canvas of={Default} />
+
+## Usage Example
+To make a component responsive to dark mode, define CSS variables in the component's CSS Module:
+
+```css
+/* YourComponent.module.css */
+.wrapper {
+  --wrapper-background-color: var(--color-white);
+  background-color: var(--wrapper-background-color);
+}
+
+:global(.dark) .wrapper {
+  --wrapper-background-color: var(--color-black-950);
+}
+```
+
+When the .dark class is added to `<body>`, the background color changes to `--color-black-950`. 
+The component uses `background-color: var(--wrapper-background-color);` to update automatically based on the theme toggle.
+
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.darkmodeToggle {
+  width: 76px;
+  padding: var(--spacing-4xs);
+  gap: var(--spacing-4xs);
+  border-radius: var(--radius-s);
+  background-color: var(--background-panel);
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+}
+
+.toggleButton {
+  height: var(--units-32);
+  width: var(--units-32);
+  border: none;
+  cursor: pointer;
+  border-radius: var(--radius-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  z-index: 1;
+
+  & span {
+    display: flex;
+    align-items: center;
+  }
+
+  &:not(.active) {
+    &:hover {
+      background-color: var(--button-ghost-hover);
+    }
+
+    &:active {
+      background-color: var(--button-ghost-active);
+    }
+  }
+}
+
+.animatedSquare {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--units-32);
+  height: var(--units-32);
+  background-color: var(--background-brand);
+  border-radius: var(--radius-xs);
+  transition: transform 0.3s ease;
+  z-index: 0;
+}
+
+.lightPosition {
+  transform: translateX(0) translateY(-50%);
+}
+
+.darkPosition {
+  transform: translateX(calc(var(--units-32) + var(--units-4))) translateY(-50%);
+}
+
+:global(.dark) .darkmodeToggle {
+  color: var(--text-on-color);
+}
+
+```
+</details>

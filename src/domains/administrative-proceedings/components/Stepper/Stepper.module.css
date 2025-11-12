@@ -1,0 +1,107 @@
+.stepper {
+  --step-width: 360px;
+  --step-height: 56px;
+
+  display: flex;
+  max-width: 500px;
+  padding-top: var(--spacing-m);
+  flex-direction: column;
+  align-items: flex-start;
+  flex-shrink: 0;
+  position: relative;
+  width: var(--step-width);
+
+  .stepperContent {
+    width: auto;
+    flex: 1;
+  }
+
+  .stepperControls {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    gap: var(--units-10);
+    justify-content: center;
+    padding: var(--spacing-xs) 0;
+    background-color: var(--background-base);
+  }
+
+  .stepper.vertical {
+    flex-direction: column;
+  }
+
+  .stepper.horizontal {
+    flex-direction: row;
+  }
+
+  .stepGroup {
+    margin-bottom: var(--spacing-3xs);
+  }
+
+  .step {
+    display: flex;
+    align-items: flex-start;
+    cursor: default;
+    border-radius: var(--radius-2xs);
+    transition: background-color 0.3s ease;
+    min-height: var(--step-height);
+    min-width: var(--step-width);
+  }
+
+  .step.expandable {
+    cursor: pointer;
+  }
+
+  .step.active {
+    font-weight: bold;
+  }
+
+  .step.disabled {
+    color: var(--text-disabled);
+    cursor: not-allowed;
+    pointer-events: none;
+  }
+
+  .stepIconContainer {
+    margin-right: var(--spacing-4xs);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .badgeContainer {
+    margin-left: auto;
+  }
+
+  .stepIcon {
+    width: auto;
+    height: var(--spacing-s);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: inherit;
+  }
+
+  .step.active .stepIcon {
+    background-color: transparent;
+  }
+
+  .step.completed .stepIcon {
+    background-color: transparent;
+  }
+
+  .stepLabelContainer {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    padding: var(--units-12) 0;
+    overflow: visible;
+  }
+
+  .stepLabel {
+    margin-right: var(--units-8);
+  }
+}

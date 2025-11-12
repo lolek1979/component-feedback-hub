@@ -1,0 +1,5 @@
+.tooltip {
+  position: relative;
+  width: fit-content;
+  display: inline-block;
+}

@@ -1,0 +1,109 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+import ComparisonResult, { Success, Error, ErrorWithoutRetry } from './ComparisonResult.stories';
+
+<Meta of={ComparisonResult} />
+
+#### Design: <a href="https://www.figma.com/design/DngURPZLhkFPc0uX8St3TK/NIS-layouts?node-id=5580-7845&t=YlwH16Y5fqAIeRqE-4" target="_blank" rel="noopener">Figma</a>
+
+# ComparisonResult
+
+The ComparisonResult component displays the result of a comparison operation with different visual states for success and error scenarios.
+
+## Features
+- Two variants: success and error
+- Large icons for clear visual feedback
+- Optional retry functionality for error states
+- Responsive design
+- Support for dark theme
+
+## Properties
+
+<Controls of={Success} />
+
+## Examples
+
+### Success
+Displays when comparison is successful with 100% match.
+
+<Canvas of={Success} />
+
+### Error
+Displays when there's an error during comparison with retry option.
+
+<Canvas of={Error} />
+
+### Error Without Retry
+Displays error state without retry button.
+
+<Canvas of={ErrorWithoutRetry} />
+
+## Usage
+
+The ComparisonResult component is designed to provide clear feedback about the status of document comparison operations. It uses large, recognizable icons and clear messaging to communicate the result to users.
+
+### Success State
+- Green checkmark icon
+- Positive messaging
+- Light green background with green border
+
+### Error State
+- Red X icon
+- Error messaging
+- Light red background with red border
+- Optional retry button
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--spacing-xl);
+  padding-bottom: var(--spacing-m);
+  border-radius: var(--radius-m);
+  gap: var(--spacing-s);
+  max-width: 420px;
+  min-height: 276px;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon {
+  width: 180px;
+  height: 180px;
+}
+
+.title {
+  color: var(--text-primary);
+}
+
+.description {
+  color: var(--text-secondary);
+}
+
+.retry-button {
+  min-width: 200px;
+}
+
+:global(.dark) .container {
+  .title {
+    color: var(--text-on-color);
+  }
+
+  .description {
+    color: var(--text-secondary);
+  }
+}
+
+```
+</details>

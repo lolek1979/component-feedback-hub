@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
+
+  .textGroup {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .buttonGroup {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2xs);
+
+    & span {
+      padding: var(--spacing-2xs);
+    }
+  }
+}

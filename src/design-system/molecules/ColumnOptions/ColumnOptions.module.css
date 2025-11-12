@@ -1,0 +1,20 @@
+.columnOptionsList {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-2xs);
+  gap: 0;
+}
+
+.divider {
+  height: var(--border-s);
+  background-color: var(--border-primary);
+  margin: var(--spacing-3xs) 0;
+  width: 100%;
+}
+
+:global(.dark) .columnOptionsList {
+  .divider {
+    background-color: var(--border-primary);
+  }
+}

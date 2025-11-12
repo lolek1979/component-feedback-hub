@@ -1,0 +1,15 @@
+.resultHeaderContainer {
+  padding: 0 var(--spacing-m) var(--spacing-m) var(--spacing-m);
+}
+
+.contentContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-s);
+  padding: var(--spacing-m);
+}
+
+.continueButton {
+  align-self: flex-start;
+}

@@ -1,0 +1,72 @@
+# CommentsSection
+
+A section component for managing both external and internal comments. The external comment is visible to the insured person, while the internal comment is for internal use only and is not shared with the insured.
+
+## Features
+
+- **Dual comment fields**: Separate fields for external (visible to insured) and internal (private) comments
+- **Character limit**: Configurable maximum length for both comments (default: 100 characters)
+- **Helper text**: Each field can display helper text to guide users
+- **Placeholder support**: Optional placeholder text for both fields
+- **Optional title**: Can display a section title
+- **Controlled inputs**: Both fields support controlled input with onChange handlers
+
+## Usage
+
+```tsx
+import { CommentsSection } from '@/domains/limits-copayments-center/components/CommentsSection';
+import { useState } from 'react';
+
+function MyComponent() {
+  const [externalComment, setExternalComment] = useState('');
+  const [internalComment, setInternalComment] = useState('');
+
+  return (
+    <CommentsSection
+      title="Komentáře"
+      externalCommentLabel="Externí komentář"
+      externalCommentPlaceholder="Zadejte komentář..."
+      externalCommentHelper="Obsah tohoto sdělení je dán k dispozici pojištěnci"
+      externalCommentValue={externalComment}
+      onExternalCommentChange={setExternalComment}
+      internalCommentLabel="Interní komentář"
+      internalCommentPlaceholder="Zadejte interní poznámku..."
+      internalCommentHelper="Pro interní potřeby - pojištěnec se obsah nedozví."
+      internalCommentValue={internalComment}
+      onInternalCommentChange={setInternalComment}
+      maxLength={500}
+    />
+  );
+}
+```
+
+## Comment Types
+
+### External Comment
+The external comment is visible to the insured person and should contain information that can be shared. This is typically used for:
+- Explanations for decisions
+- Request for additional information
+- Communication with the insured
+
+### Internal Comment
+The internal comment is for internal use only and is not visible to the insured person. This is typically used for:
+- Internal notes and observations
+- Processing details
+- Administrative remarks
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.container {
+  display: flex;
+  width: 629px;
+  padding: var(--spacing-2xs) 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-xs);
+}
+```
+</details>

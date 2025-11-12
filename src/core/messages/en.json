@@ -1,0 +1,1669 @@
+{
+  "common": {
+    "close": "Cancel",
+    "save": "Save",
+    "networkError": "No internet connection.",
+    "loading": "Loading...",
+    "noResult": "No results.",
+    "approve": "Approve",
+    "reject": "Reject",
+    "requiredFields": "Please fill in all required fields.",
+    "unPublishPlanned": "Successfully unpublished.",
+    "sendForApprovalSuccess": "The concept was sent for approval.",
+    "sendForApprovalError": "The concept could not be sent for approval.",
+    "sendForReworkSuccess": "The concept was sent for revision.",
+    "sendForReworkError": "The concept could not be sent for revision.",
+    "publishConcept": "Concept was published.",
+    "publishConceptErrorGeneral": "The concept cannot be published",
+    "publishConceptError": "The concept must be published in the future",
+    "publishConceptErrorDuplicate": "The concept cannot be published - there are duplicate values in the column {columnName}",
+    "publishConceptErrorStructure": "Please complete the column names or column type",
+    "publishConceptErrorWrongType": "The concept cannot be published - values have the wrong data type",
+    "publishConceptErrorNoColumns": "The table must contain at least one column",
+    "publishConceptErrorEmptyContent": "The table must contain at least one row",
+    "unPublishError": "Failed to unpublish.",
+    "invalidDate": "Enter a date that is in the future.",
+    "copyLinkMessage": "The link has been copied to the clipboard.",
+    "copySsnMessage": "Insurance number copied to clipboard",
+    "copyIcoMessage": "Payer number copied to clipboard",
+    "copySsnError": "Insurance number cannot be copied to clipboard",
+    "copyIcoError": "Payer number cannot be copied to clipboard",
+    "formEmpty": "Please fill in all required fields.",
+    "cancel": "Close",
+    "deleteConceptSuccess": "Concept ",
+    "deleteConceptSuccess2": " was deleted.",
+    "deleteConceptError": "Concept could not be deleted.",
+    "savingChanges": "Saving changes...",
+    "saveSuccess": "Changes saved successfully.",
+    "saveError": "Failed to save changes. Please try again.",
+    "requiredFieldMessage": "This field is required.",
+
+    "insuredPersonNotFound": "Insured person not found",
+    "cannotGeneratePDF": "Failed to generate PDF document. Please try again.",
+    "technicalErrorTryAgain": "A technical error has occurred. Please try again",
+    "pagination": {
+      "page": "Page",
+      "previousPage": "Previous page",
+      "nextPage": "Next page",
+      "paginationNavigation": "Pagination navigation"
+    },
+    "userPhoto": "User photo",
+    "userMenu": "User menu",
+    "dates": {
+      "month": "Month",
+      "previousMonth": "Previous month",
+      "nextMonth": "Next month",
+      "days": {
+        "monday": "Monday",
+        "tuesday": "Tuesday",
+        "wednesday": "Wednesday",
+        "thursday": "Thursday",
+        "friday": "Friday",
+        "saturday": "Saturday",
+        "sunday": "Sunday"
+      }
+    },
+    "printingError": "There was an error preparing the print. Please try again.",
+    "printingLoading": "Preparing for print...",
+    "missingRole": "You do not have permission to access this component.",
+    "closeToast": "Close toast",
+    "errorEmptyGuarantors": "The code list must have at least one guarantor.",
+    "currencies": {
+      "crown": "CZK "
+    }
+  },
+  "metadata": {
+    "homepage": {
+      "title": "Welcome",
+      "description": "Welcome to our information system."
+    },
+    "audit": {
+      "title": "Audit",
+      "description": "Audit overview"
+    },
+    "auditDetail": {
+      "title": "Audit detail",
+      "description": "Audit detail"
+    },
+    "codeLists": {
+      "title": "Code lists",
+      "description": "Central management of code lists"
+    },
+    "codeListDetail": {
+      "title": "Code list detail",
+      "description": "Code list detail"
+    },
+    "settings": {
+      "title": "Settings",
+      "description": "NIS settings"
+    },
+    "fees": {
+      "title": "Limits",
+      "description": "Limits overview"
+    },
+    "qr": {
+      "title": "QR payment",
+      "description": "QR payment"
+    },
+    "pdfComparison": {
+      "title": "PDF Comparison",
+      "description": "PDF documents comparison"
+    },
+    "administrativeProceedings": {
+      "title": "Administrative proceedings",
+      "description": "",
+      "adminProcessDetail": {
+        "title": "Detail of administrative proceedings",
+        "description": ""
+      },
+      "casesOverview": {
+        "title": "Cases overview",
+        "description": ""
+      },
+      "commissionHearings": {
+        "title": "Commission Hearings",
+        "description": ""
+      }
+    },
+    "requests": {
+      "title": "eRequests",
+      "description": "eRequests overview"
+    }
+  },
+  "unsavedChangesModal": {
+    "title": "Do you really want to leave?",
+    "body": "You haven't saved your work yet. If you leave now, all unsaved data will be lost.",
+    "cancel": "Back to editing",
+    "leave": "Leave without saving"
+  },
+  "keys": {
+    "name": "Name",
+    "type": "Type",
+    "status": "Status",
+    "validFrom": "Valid from"
+  },
+  "LogoutPage": {
+    "title": "You have been logged out, please log in again."
+  },
+  "HomePage": {
+    "title": "Welcome to our information system ♥️",
+    "subtitle": "Today is ",
+    "applications": "Recommended applications",
+    "KDPApplication": "Limits and surcharges",
+    "CSCApplication": "Codebooks Management",
+    "ReportingApplication": "Reporting",
+    "Audit": "Audit",
+    "AdministrativeProcessApplication": "Administrative process",
+    "PdfComparison": "PDF comparison",
+    "RequestsApplication": "eRequests",
+    "QrPayments": "QR payments"
+  },
+  "ErrorPages": {
+    "NotFound": {
+      "General": {
+        "title": "Page not found",
+        "body": "We're sorry, but the page you requested no longer exists or has been moved.",
+        "button": "Go to the homepage"
+      },
+      "CodeLists": {
+        "title": "This codelist no longer exists.",
+        "body": "The codelist has probably been deleted or replaced by another one. You can return to the codelists overview and try to find it manually.",
+        "button": "Go to the codelists overview"
+      }
+    }
+  },
+  "LocaleSwitcher": {
+    "locale": "{locale, select, en {🇺🇸 English} cs {🇨🇿 Czech} other {Unknown}}"
+  },
+  "navigaton": {
+    "home": "Homepage",
+    "fees": "Limits and surcharges",
+    "settings": "Settings",
+    "administration": "Administration",
+    "bugReport": "Report a bug",
+    "csc": "Codebooks Management",
+    "audit": "Audit",
+    "administrativeProceedings": "Administrative proceedings",
+    "eRequests": "eRequests",
+    "pdfComparison": "PDF Comparison",
+    "qrcodes": "QR payment"
+  },
+  "Header": {
+    "signIn": "Sign in",
+    "signOut": "Sign out",
+    "title": "Account options",
+    "titleModal": "Unsaved changes",
+    "body": "You have unsaved changes. Do you really want to leave the page?",
+    "cancel": "Stay",
+    "leave": "Leave"
+  },
+  "PoplatkyDoplatky": {
+    "title": "Limits and surcharges"
+  },
+  "KDPResultHeader": {
+    "socialNum": "Insurance number",
+    "limit": "Amount remaining to reach the limit",
+    "limitAcomplished": "The limit was reached",
+    "limitAcomplishedDay": "The limit was reached on ",
+    "limitReached": "The limit has been reached. The remaining amount is paid by the insurance company",
+    "hasToPay": "Set limit",
+    "kdpResultInfo": "Additional payments for medicines or food for special medical purposes",
+    "infoButton": "More information",
+    "LimReached": "Limit reached",
+    "complaintStatus": {
+      "registered": "Registered"
+    }
+  },
+  "KDPPage": {
+    "title": "Centre of Limits and surcharges",
+    "label": "ENTER INSURANCE NUMBER",
+    "loading": "Loading insured person data...",
+    "bodyTitle": "Data provided by SÚKL - State Institute for Drug Control",
+    "changeLimit": "The surcharge limit paid by the insured person has been changed from {from} to {to}.",
+    "loadMore": "Load older records",
+    "printMessage": "This overview includes surcharges and fees paid by the insured person as of January 1, 2025. If you are interested in older records, please request a complete statement of reported care.",
+    "limitReachedMessage": "The co-payment limit of {amount}. has been reached. Expenses are now covered by the insurance company.",
+    "generatedAt": "The report was created at",
+    "sumInsuer": "Copayments paid by the insured per year",
+    "sumVZP": "Copayments covered by the insurance company per year",
+    "preparingDocument": "Preparing document...",
+    "tryAgainLater": "Please try again later",
+    "overPaid": "The insured has exceeded the limit of covered co-payments",
+    "clear": "Clear",
+    "tryAgain": "Try again",
+    "tabs": {
+      "overview": "Overview",
+      "complaints": "Complaints",
+      "assessment": "For Assessment",
+      "insuredPersons": "Insured Persons",
+      "statement": "Statement",
+      "judgment": "Judgment"
+    },
+    "assessmentTab": {
+      "searchPlaceholder": "Search...",
+      "searchAriaLabel": "Search"
+    },
+    "insuredPersonsTab": {
+      "comingSoon": "This feature will be available soon."
+    },
+    "statementTab": {
+      "request": "Request",
+      "requestedDate": "Requested",
+      "department": "Department",
+      "messageText": "Message text",
+      "expertStatement": "Expert statement",
+      "answeredDate": "Answered",
+      "author": "Author",
+      "statement": "Statement"
+    },
+    "judgmentTab": {
+      "title": "Judgment",
+      "comingSoon": "This feature will be available soon."
+    },
+    "complaintsTab": {
+      "noInsuredInfo": "No insured person information available for complaints.",
+      "searchPlaceholder": "Search...",
+      "searchAriaLabel": "Search",
+      "newComplaint": "New complaint",
+      "modalTitle": "New complaint",
+      "whoSubmitsComplaint": "Who is submitting the complaint",
+      "insuredPerson": "Insured person",
+      "legalRepresentative": "Legal representative",
+      "authorizedPerson": "Authorized person with full power of attorney",
+      "courtAppointedGuardian": "Court-appointed guardian",
+      "applicantNameLabel": "Applicant's full name",
+      "applicantNamePlaceholder": "John Doe",
+      "cancel": "Cancel",
+      "submit": "Create",
+      "breadcrumbTitle": "Complaints list",
+      "complaintTypeTitle": "Complaint type",
+      "continue": "Continue",
+      "complaintTypes": {
+        "invalid": "Invalidity",
+        "insuredNumberChange": "Change of insured number",
+        "general": "General complaint"
+      }
+    },
+    "opinionTab": {
+      "modalTitle": "Request for Expert Opinion",
+      "recipientLabel": "Who am I asking",
+      "ozpUzp": "OZP / ÚZP",
+      "opsp": "OPSP",
+      "messageLabel": "Message text",
+      "messagePlaceholder": "Describe what opinion you are requesting...",
+      "cancel": "Cancel",
+      "submit": "Send"
+    },
+    "errors": {
+      "errorData": "Failed to load data",
+      "serverError": "Something went wrong",
+      "forbiddenError": "Unfortunately, you do not have permission to view the data",
+      "noVZPError": "The specified insured person is not a VZP policyholder",
+      "noVZPAnyMoreError": "The insured is no longer a VZP client. The last recorded dispense is on ",
+      "notFound": "No records found",
+      "errorNotFound": "This insured person is not registered with VZP, so we do not have information about their limit.",
+      "errorPreparingDocument": "Error preparing document",
+      "badGatewayError": "The data could not be loaded. Please try again later.",
+      "getwayTimeoutError": "Something went wrong. Please try again later."
+    },
+    "changeLimitPDF": "The surcharge limit paid by the insured person has been changed from",
+    "changeLimitPDF2": " to ",
+    "limitReachedMessagePDF": "The co-payment limit of ",
+    "limitReachedMessagePDF2": ". has been reached. Expenses are now covered by the insurance company.",
+    "PersonalStep": {
+      "back": "Back",
+      "continue": "Continue",
+      "reloadTitle": "Update Data",
+      "reloadDescription": "Have you updated the data in RSZP? Press the button to reload them.",
+      "reloadBtn": "Reload Data",
+      "comsTitle": "Communication",
+      "comsDescription": "If the complaint cannot be resolved at the branch, how should we contact the insured person?",
+      "address": "Contact Address",
+      "dataBox": "Data Box"
+    },
+    "settlementPage": {
+      "inputLabel": "Compensation Amount *",
+      "externalLabel": "External Comment *",
+      "internalLabel": "Internal Comment *",
+      "helperExternal": "This text will be visible to the insured person",
+      "helperInternal": "This text will not be visible to the insured person",
+      "printTitle": "Decision Approval",
+      "printDescription": "Print the decision, let the insured person review and sign it, and insert it into the E-File.",
+      "printBtn": "Print",
+      "radioTitle": "Complaint Settlement",
+      "radioDescription": "Settlement",
+      "radioApproved": "Approved",
+      "radioDenied": "Denied",
+      "bottomText": "Now send it to Back Office staff for review."
+    }
+  },
+  "KDPTable": {
+    "VYD": "Dispense",
+    "LP": "Dispense items",
+    "ZapocitatelnyDoplatek": "Total countable co-payment",
+    "ZapocitatelnyDoplatekTT": "The amount of countable co-payment is determined by SUKL. It is the amount credited towards the protection limit for the insured.",
+    "ZapocitatelnyDoplatekPacient": "Co-payments paid by the insured",
+    "ZapocitatelnyDoplatekPacientTT": "The co-payment amount is the difference between the maximum price in the pharmacy and the amount covered by public health insurance.",
+    "ZapocitatelnyDoplatekZP": "Co-payments paid by the health insurance company",
+    "ZapocitatelnyDoplatekZPTT": "The amount covered by the health insurance company, as determined by SUKL.",
+    "ZbytekDoLimitu": "Amount remaining to be paid by the insured to reach the limit",
+    "rows": "items",
+    "complaintsTable": {
+      "complaintName": "Complaint name",
+      "status": "Status",
+      "created": "Created date",
+      "period": "Period"
+    }
+  },
+  "KDPModal": {
+    "title": "Co-payment limit for insured persons",
+    "description": "The co-payment limit for insured persons is the <b>annual limit for countable co-payments</b> for prescribed medicinal products and food for special medical purposes, partially covered by health insurance and dispensed in the Czech Republic.",
+    "subtitle": "Limit breakdown according to the Public Health Insurance Act:",
+    "listItem1": "<b>500 CZK</b> for insured persons <b>over 70 years of age</b> (including the calendar year in which they turn 70)",
+    "listItem2": "<b>500 CZK</b> for insured persons who receive an invalidity pension for <b>third-degree disability</b> and have provided a copy of the decision on the third-degree invalidity pension, and for insured persons who have been recognized as <b>disabled in the second or third degree</b>, but have not been granted an invalidity pension due to not meeting the required insurance period, and have provided a copy of the medical report (from the time the fact is substantiated and only for the duration of the condition)",
+    "listItem3": "<b>1,000 CZK</b> for children <b>under 18 years old</b> and for insured persons <b>over 65 years old</b> (always including the calendar year in which they reach that age)",
+    "listItem4": "<b>5,000 CZK</b> for <b>other</b> insured persons."
+  },
+  "SearchInsuranceForm": {
+    "placeholder": "Insurance number",
+    "label": "ENTER INSURANCE NUMBER",
+    "formLabel": "Insurance number",
+    "inputLabel": "Insurance number",
+    "search": "Search",
+    "clear": "Clear",
+    "loading": "Loading...",
+    "successMessage": "Valid insurance number",
+    "errorMessage": "Please enter a valid insurance number",
+    "legacyNumberWarning": "This number is only [valid] for individuals born before 1954"
+  },
+  "MonthsHeader": {
+    "1": "January",
+    "2": "February",
+    "3": "March",
+    "4": "April",
+    "5": "May",
+    "6": "June",
+    "7": "July",
+    "8": "August",
+    "9": "September",
+    "10": "October",
+    "11": "November",
+    "12": "December",
+    "LimReached": "Limit reached"
+  },
+  "SearchPrescriptionForm": {
+    "yearSelect": "Select year",
+    "monthSelect": "Select month",
+    "searchInput": "Search prescription",
+    "searchPlaceholder": "Search",
+    "lengthError": "Check the number of characters",
+    "prescriptionSearch": "Prescription search",
+    "search": "Search",
+    "clear": "Clear",
+    "showDetails": "Show names of dispensations and items",
+    "allMonths": "All months",
+    "months": {
+      "1": "January",
+      "2": "February",
+      "3": "March",
+      "4": "April",
+      "5": "May",
+      "6": "June",
+      "7": "July",
+      "8": "August",
+      "9": "September",
+      "10": "October",
+      "11": "November",
+      "12": "December"
+    }
+  },
+  "DownloadPrintButtons": {
+    "downloadPDF": "Download PDF",
+    "print": "Print",
+    "buttonGroup": "Download and print",
+    "orientation": {
+      "portrait": "Portrait",
+      "landscape": "Landscape"
+    }
+  },
+  "Table": {
+    "dataEdit": "Edit codelist data",
+    "noData": "The table has no data",
+    "duplicateColumns": "The table contains duplicate columns! ",
+    "noCSCData": "The codebook has no data currently",
+    "emptySearchMessage": "No data found",
+    "columnHeaderPlaceholder": "Column title",
+    "emptyHeaderError": "Header name cannot be empty",
+    "atLeastOneColumnHasDataError": "The table must contain data",
+    "columnTypes": {
+      "SelectType": "Select type",
+      "String": "Text",
+      "DateTime": "Date",
+      "Integer": "Number",
+      "columnTypeError": "Please select a type for all columns before saving"
+    },
+    "lockedColumnsTypeMessage": "You cannot change the data type after filling in the fields in a given column. To change the data type, delete the contents of the fields or add a new column.",
+    "missedColumnTypeMessage": "Please define the column type first"
+  },
+  "TableSettings": {
+    "TableSettingsButton": "Table settings",
+    "ResetFiltersButton": "Reset Filters",
+    "SelectAllButton": "Select all",
+    "ValidFromFilter": "Valid from",
+    "ValidUntilFilter": "Valid until",
+    "VersionFilter": "Version"
+  },
+  "TableActionsMenu": {
+    "Details": "View details",
+    "Edit": "Edit",
+    "Approval": "Send for approval",
+    "Export": "Export",
+    "NewVersion": "Create a new version",
+    "CancelApproval": "Return for revision",
+    "Unpublish": "Unpublish",
+    "Publish": "Publish",
+    "CopyLink": "Copy link",
+    "Delete": "Delete"
+  },
+  "TableFooter": {
+    "rowsPerPage": "Rows per page"
+  },
+  "TableErrors": {
+    "invalidNumber": "Enter a valid number",
+    "invalidDate": "Enter a valid date"
+  },
+  "CSCFilter": {
+    "searchPlaceholder": "Search",
+    "searchInput": "Search prescription",
+    "typePlaceholder": "Type: All",
+    "guarantorPlaceholder": "Guarantor: All",
+    "statePlaceholder": "State: All",
+    "resetFilter": "Reset filter",
+    "showSubconcepts": "Show subordinate concepts",
+    "searchAriaLabel": "Search codelist",
+    "typeSelect": "Select type",
+    "guarantorSelect": "Select guarantor",
+    "stateSelect": "Select state",
+    "clear": "Clear",
+    "type": "Type: ",
+    "state": "State: ",
+    "selectAll": "Select all"
+  },
+  "RowActions": {
+    "RowActionsButton": "Actions",
+    "Details": "Detail",
+    "Edit": "Edit",
+    "Approval": "Approve",
+    "NewVersion": "New version",
+    "CancelApproval": "Cancel approval",
+    "Deactivate": "Deacitavate",
+    "Publish": "Publish",
+    "CopyLink": "Copy link",
+    "Delete": "Delete"
+  },
+  "CSCHeader": {
+    "title": "Central Management of Codebooks",
+    "ButtonNew": "New Codebook",
+    "ButtonSetting": "Table Settings",
+    "dropDownCreate": "Create",
+    "dropDownImport": "Import",
+    "CloseBtn": "Cancel",
+    "BackBtn": "Back",
+    "ContinueBtn": "Import",
+    "importTitle": "File import",
+    "tryAgain": "Try again",
+    "fileUploadLabel": "Supported formats are XML, CSV, XLSX. Maximum size of one file is 10 MB.",
+    "parentInfo": "Based {title} valid from {validFrom}",
+    "parentInfoPrefix": "Based on the codebook",
+    "parentInfoSuffix": "valid from {validFrom}",
+    "importErrorStructure": "Unsupported file format for structure.",
+    "importErrorData": "Unsupported file format for data.",
+    "importErrorStructureAndData": "Unsupported file format for data and structure.",
+    "importError": "The codebook could not be imported. Please try again."
+  },
+  "Tooltip": {
+    "skip": "Skip",
+    "next": "Next",
+    "of": "of"
+  },
+  "CSCFormModal": {
+    "cscName": "Codebook Name",
+    "cscNamePlaceholder": "Enter",
+    "identifier": "Identifier",
+    "identifierPlaceholder": "Enter..",
+    "cscDescription": "Codebook Description",
+    "optional": "Optional",
+    "cscDescriptionPlaceholder": "Describe the purpose of the codebook",
+    "garant": "Guarantee",
+    "editor": "Editor",
+    "CloseBtn": "Cancel",
+    "ContinueBtn": "Continue",
+    "SaveBtn": "Save",
+    "ImportBtn": "Import data",
+    "ManualBtn": "Create manually",
+    "garantPlaceholder": "Select",
+    "importTitle": "Import of a codebook",
+    "newTitle": "Creation of a new codebook - Concept",
+    "editTitle": "New verison",
+    "validFor": "Validity",
+    "from": "From",
+    "perviousDate": "The original validity was from ",
+    "duplicateError": "A codebook with this name already exists. Please choose a different name.",
+    "maxLength100": "Maximum length is 100 characters",
+    "nameTooLong": "Codebook name cannot be longer than 100 characters",
+    "descriptionTooLong": "Codebook description cannot be longer than 500 characters",
+    "formSubmitSuccess": "The codelist successfully created.",
+    "type": {
+      "title": "Type",
+      "internal": "Internal",
+      "intPublic": "Internal - public",
+      "intPaid": "Internal - paid",
+      "external": "External"
+    },
+    "data": {
+      "title": "Data source",
+      "dataImport": "Import",
+      "dataTakeover": "Copy from active version",
+      "dataHand": "Enter data manually"
+    }
+  },
+  "CSCTabsContainer": {
+    "tabs": {
+      "codelist": "Codelist data",
+      "details": "Details",
+      "versions": "Versions",
+      "concepts": "Concepts"
+    },
+    "CSMainInfo": {
+      "title": "Codelist title",
+      "id": "GUID",
+      "guarantor": "Guarantor",
+      "validity": "Validity from",
+      "type": "Type",
+      "status": "Status"
+    },
+    "detailsTab": {
+      "title": "Codelist title",
+      "identifier": "GUID",
+      "description": "Description",
+      "guarantor": "Guarantor",
+      "editor": "Editor",
+      "type": "Type",
+      "validity": "Validity from",
+      "created": "Created",
+      "lastUpdate": "Last Update",
+      "version": "Version",
+      "status": "Status",
+      "editorTitle": "Edit editors",
+      "guarantorTitle": "Edit guarantors",
+      "descriptionTitle": "Edit description",
+      "textarea": "Describe the purpose and use of the codebook"
+    },
+    "codelistTab": {
+      "placeholders": {
+        "enterNumber": "Enter number",
+        "enterText": "Enter text",
+        "dateFormat": "DD.MM.YYYY"
+      }
+    },
+    "filter": {
+      "types": {
+        "external": "External",
+        "internal": "Internal",
+        "internalPaid": "Internal - Paid",
+        "internalPublic": "Internal - Public"
+      }
+    }
+  },
+  "statuses": {
+    "planned": "Planned",
+    "expired": "Expired",
+    "active": "Active",
+    "concept": "Concept",
+    "waitingforapproval": "In Approval"
+  },
+  "VersionsTab": {
+    "searchPlaceholder": "Search...",
+    "typePlaceholder": "Type",
+    "statePlaceholder": "State",
+    "resetFilter": "Reset filter",
+    "name": "Name",
+    "type": "Type",
+    "state": "State",
+    "validUntil": "Valid until",
+    "actions": "Actions"
+  },
+  "FileUpload": {
+    "UploadBtn": "Upload File",
+    "selectFileType": "Select file type",
+    "data": "Data",
+    "structure": "Structure",
+    "removeFile": "Remove file",
+    "dataAndStructure": "Data and structure",
+    "errorNotSupported": "Unsupported file format",
+    "warningNotSupported": "You can only compare PDF files",
+    "warningAboveDataLimit": "The file is too large, the allowed size is 20 MB",
+    "uploadSuccess": "File was successfully uploaded",
+    "processing": "Loading source data of the codelist...",
+    "processingSubtitle": "Please do not leave. This step may take several minutes.",
+    "importError": "Error, file import failed. Please upload correct files.",
+    "importErrorSubtitle": "An error occurred during file import. Please try uploading the files again.",
+    "retryUpload": "Upload again",
+    "fileUploadInstruction": "Upload CSV (data) and XML (structure) files, or one XLSX (contains both) file.",
+    "fileUploadInstructionWithFiles": "Upload one data file and one structure file.",
+    "errorMissingDataFile": "For a successful import, please also upload a data file.",
+    "errorMissingStructureFile": "For a successful import, please also upload a structure file.",
+    "errorDuplicateFileType": "You have uploaded multiple files of the same type. Please upload either CSV and XML files or an XLSX file.",
+    "errorStructureFileInvalid": "The structure file contained errors and its import was not performed. Please upload the structure file again."
+  },
+  "CSCButtons": {
+    "SaveConcept": "Save concept",
+    "SaveAndPublish": "Save and publish",
+    "CopyLink": "Copy link",
+    "SaveAndSendForApproval": "Save and send for approval",
+    "SendForApproval": "Send for approval",
+    "EditConcept": "Edit",
+    "DeleteConcept": "Delete",
+    "DeleteCodebook": "Delete codebook",
+    "ReworkConcept": "Return for revision",
+    "PublishConcept": "Publish",
+    "DepublishConcept": "Depublish",
+    "NewVersion": "New version",
+    "toolTipTextDisabledSave": "Saving data is not possible – some values in the table have an incorrect format.",
+    "toolTipTextDisabledSave&Publish": "Saving and publishing data is not possible – some values in the table have an incorrect format.",
+    "ButtonTitles": {
+      "CopyLink": "Copy link",
+      "EditConcept": "Edit",
+      "DeleteConcept": "Delete",
+      "DeleteCodebook": "Delete codebook",
+      "PublishConcept": "Publish",
+      "SendForApproval": "Send for approval",
+      "SaveAndSendForApproval": "Save and send for approval",
+      "ReworkConcept": "Return for revision",
+      "DepublishConcept": "Depublish",
+      "SaveConcept": "Save concept",
+      "SaveAndPublish": "Save and publish",
+      "NewVersion": "New version"
+    }
+  },
+  "UserSelect": {
+    "choose": "Choose…",
+    "selectedUser": "Selected user ",
+    "addUser": "Add user",
+    "removeUser": "Remove user",
+    "userOptions": "User options",
+    "searchInput": "Search",
+    "newUser": "Add a new User",
+    "newEditor": "Add a new Editor",
+    "newGarant": "Add a new Guarantee",
+    "newRequester": "Add a new Requester",
+    "newRecipient": "Add a new Recipient"
+  },
+  "RowOptions": {
+    "deleteRow": "Delete row",
+    "addRowBelow": "Add row below",
+    "addRowAbove": "Add row above"
+  },
+  "ColumnOptions": {
+    "deleteColumn": "Delete column",
+    "addColumnRight": "Add column after",
+    "addColumnLeft": "Add column before"
+  },
+  "CSCTableHeaders": {
+    "name": "Name",
+    "type": "Type",
+    "validFrom": "Valid from",
+    "state": "State"
+  },
+  "StatusRowActions": {
+    "deleteHead": "Are you sure you want to delete ",
+    "deleteBody": "The entered data and information will be permanently removed.",
+    "unPublishHead": "Are you sure you want to unpublish?",
+    "unPublishBody": "The data and information of the registry will no longer be public for all users.",
+    "unPublishButton": "Yes, unpublish",
+    "PublishConceptHeader": "Do you really want to publish ",
+    "PublishConceptHeader2": " with validity from ",
+    "PublishConceptBody": "The data and information of the registry will be public for all users.",
+    "PublishButton": "Yes, publish",
+    "deleteRowHead": "Do you really want to delete the row num.",
+    "deleteRowBody": "The filled-in data will be permanently deleted.",
+    "deleteColumnHead": "Are you sure you want to delete the column ",
+    "deleteColumnBody": "The filled-in data will be permanently deleted.",
+    "approvalHead": "Are you sure you want to send the codebook for approval?",
+    "approvalBody": "",
+    "reworkHead": "Are you sure you want to return the codebook for revision?",
+    "reworkBody": "",
+    "send": "Yes, send",
+    "return": "Yes, return",
+    "cancel": "Cancel",
+    "delete": "Yes, delete",
+    "proceed": "Proceed"
+  },
+  "CSCDetailPage": {
+    "DeleteConceptHeader": "Do you really want to delete ",
+    "DeleteConceptBody": "The entered data and information will be permanently deleted.",
+    "DeletConfirm": "Yes, delete",
+    "Cancel": "Cancel",
+    "PublishConceptHeader": "Do you really want to publish ",
+    "PublishConceptHeader2": " with validity from ",
+    "PublishConfirm": "Yes, publish",
+    "loading": "Loading...",
+    "error": {
+      "createVersionFailed": "Failed to create new version. Please try again.",
+      "importError": "The codebook could not be imported. Please try again."
+    },
+    "fileUploadLabel": "Supported formats are XML, CSV, XLSX. ",
+    "fileUploadLimit": "Maximum size is 20 MB."
+  },
+  "DateRangeHeader": {
+    "dateRangeHeaderLabel": "Date range",
+    "dateRange": "Date range",
+    "dataSource": "Data source"
+  },
+  "Darkmode": {
+    "dark": "Dark mode",
+    "light": "Light mode"
+  },
+  "bugReport": {
+    "modalTitle": "Report a Bug",
+    "titleLabel": "Title",
+    "descriptionLabel": "Description",
+    "descriptionPlaceholder": "Please describe the issue you encountered...",
+    "captureScreenshot": "Capture Screenshot",
+    "screenshotAlt": "Screenshot",
+    "submit": "Submit",
+    "cancel": "Cancel",
+    "failedToCollectLogs": "Failed to collect system logs",
+    "submitSuccess": "Form report submitted successfully",
+    "submitError": "Failed to submit bug report. Please try again.",
+    "descriptionError": "Description can contain a maximum of 1000 characters",
+    "attachmentsError": "Add screenshot"
+  },
+  "Screenshots": {
+    "cancelBtn": "Cancel",
+    "makeBtn": "Make a screenshot",
+    "failed": "Failed to make a screenshot.",
+    "screenshotIn": "Screenshot will be taken in"
+  },
+  "EPrescriptionHeader": {
+    "eRecept": "ePrescription",
+    "overPaid": "The insured has exceeded the limit of covered co-payments"
+  },
+  "administrativeProceedings": {
+    "title": "Administrative proceedings",
+    "pageTitle": "Management's basic part",
+    "columns": {
+      "agendaNumber": "Agenda number",
+      "agendaCode": "Agenda",
+      "recordNumber": "Record number",
+      "insurancePayer": "Payer",
+      "status": "Status",
+      "responsibleUsers": "Responsible users",
+      "resolutionDeadline": "Deadline"
+    },
+    "noData": "No data",
+    "noDataCellPlaceholder": "---",
+    "remainingDays": "{count, plural, =1 {# day} other {# days}}",
+    "openMoreOptionsMenu": "Open more options menu",
+    "listOfMoreOptions": "List of options",
+    "filter": {
+      "all": "all",
+      "fullTextPlaceholder": "Search",
+      "fullTextAriaLabel": "Search",
+      "responsibleUserIdPlaceholder": "Responsible user: all",
+      "responsibleUserIdAriaLabel": "Responsible user",
+      "adminProcessStatusCodePlaceholder": "Status: all",
+      "adminProcessStatusCodeAriaLabel": "Status of the administrative process"
+    },
+    "workflowSteps": {
+      "requestStep": {
+        "title": "Request to initiate administrative proceedings",
+        "group": "Case records",
+        "button": "Start processing",
+        "note": {
+          "title": "Data Entry of the Application is Not Part of POC1",
+          "body": "For POC2, it must be decided which data will be entered manually or whether text extraction technology will be used for the application."
+        },
+        "basicInfo": {
+          "title": "Basic data",
+          "fields": {
+            "submissionDate": "Application date",
+            "timeToProcess": "Time left until the application is processed",
+            "requestReason": "Request reason"
+          }
+        },
+        "contacts": {
+          "title": "Application Contact Details",
+          "fields": {
+            "name": "Full Name / Payer's Name",
+            "address": "Permanent Address / Payer's Registered Office",
+            "email": "Contact Email",
+            "phone": "Phone",
+            "dataBox": "Data Mailbox",
+            "bankAccount": "Bank Details"
+          }
+        },
+        "attachments": {
+          "title": "Application Attachments",
+          "fields": {
+            "requestCause": "Reason for Application",
+            "reasonsEvidence": "Documents Supporting Serious Reasons",
+            "otherAttachments": "Other Case Attachments"
+          }
+        }
+      },
+      "casePreparation": {
+        "title": "Case Preparation by Administrative Proceedings Officer",
+        "group": "Case Investigation",
+        "button": "Confirm Application Completeness",
+        "payerId": {
+          "title": "Payer Identification",
+          "fields": {
+            "name": "First Name",
+            "surname": "Last Name",
+            "familyId": "Personal Identification Number",
+            "ICO": "Company ID (IČO)",
+            "DIC": "Tax ID (DIČ)"
+          }
+        },
+        "contactDetails": {
+          "title": "Application Contact Details",
+          "fields": {
+            "address": "Contact Address",
+            "email": "Contact Email",
+            "phone": "Phone",
+            "dataBox": "Data Mailbox"
+          }
+        },
+        "penaltyAmount": {
+          "title": "Outstanding Amounts or Penalties",
+          "fields": {
+            "insuranceDebt": "Insurance Debt",
+            "penaltyDebt": "Penalty Debt"
+          }
+        },
+        "formalRequirements": {
+          "title": "Formal Requirements of the Application",
+          "fields": {
+            "requestCause": "Reason for Application",
+            "reasonsEvidence": "Documents Supporting Serious Reasons"
+          }
+        },
+        "note": {
+          "title": "Note",
+          "fields": {
+            "placeholder": "Enter your detailed response here. You can describe your ideas, provide feedback, or share your thoughts.",
+            "example": "e.g., processing status, requests for additional documents",
+            "attention": "The case requires special attention"
+          }
+        }
+      },
+      "draftControl": {
+        "title": "Draft Decision and Control of de minimis Aid Exceedance",
+        "group": "Case Investigation",
+        "button": "Submit to Proposal Committee",
+        "formalRequirements": {
+          "title": "Formal Requirements of the Application",
+          "fields": {
+            "requestCause": "Reason for Application",
+            "reasonsEvidence": "Documents Supporting Serious Reasons"
+          }
+        },
+        "caseDocuments": {
+          "title": "Case Documents",
+          "fields": {
+            "insuranceDebt": "Insurance Debt",
+            "penaltyDebt": "Penalty Debt"
+          }
+        },
+        "draftDecision": {
+          "title": "Draft Decision",
+          "fields": {
+            "discussionResult": "Discussion Outcome",
+            "discussionResultOptions": {
+              "partiallyGranted": "The request for OT is partially granted",
+              "fullyGranted": "The request for OT is fully granted",
+              "notGranted": "The request for OT is not granted"
+            },
+            "penaltyAmount": "Original Penalty Amount",
+            "penaltyFeeWaived": "Amount of Waived Penalty",
+            "finalPenalty": "Final Penalty Amount"
+          }
+        },
+        "note": {
+          "title": "Note",
+          "fields": {
+            "example": "e.g., processing status, requests for additional documents",
+            "attention": "The case requires special attention"
+          }
+        }
+      },
+      "commissionRecommend": {
+        "title": "Commission Recommendation to the Authorized Official",
+        "group": "Administrative Decision",
+        "buttons": []
+      },
+      "recommendationDecision": {
+        "title": "Decision of the Authorized Official Based on the Commission's Recommendation",
+        "group": "Administrative Decision",
+        "buttons": []
+      },
+      "decisionPrepare": {
+        "title": "Issuance of the Decision",
+        "group": "Decision Implementation",
+        "buttons": []
+      },
+      "forceEntry": {
+        "title": "Entry into Legal Force",
+        "group": "Decision Implementation",
+        "buttons": []
+      },
+      "decisionSettlement": {
+        "title": "Settlement of the Administrative Decision",
+        "group": "Decision Implementation",
+        "buttons": []
+      }
+    }
+  },
+  "newCaseModal": {
+    "newCaseButton": "New case",
+    "title": "New case",
+    "insurancePayerNumberLabel": "Insurance payer number",
+    "insurancePayerNumberPlaceholder": "Insurance payer number",
+    "agendaCodeLabel": "Agenda",
+    "agendaCodePlaceholder": "Select agenda",
+    "recordFolderNumberLabel": "Record folder number",
+    "recordFolderNumberPlaceholder": "UID",
+    "recordFolderNumberHint": "Copy from the Record folder",
+    "recordFolderNumberTooltip": "File identification number of the file in the File Service. We do not use the file number because the File Services APIs do not search by it.",
+    "cancelButton": "Cancel",
+    "createButton": "Create case",
+    "formError": "Invalid form data: {error}",
+    "errorMessages": {
+      "somethingWrong": "Something went wrong, please try again later.",
+      "insurancePayerNumberDigitsOnly": "Insurance payer number is required and must be a number",
+      "insurancePayerNumberMinLength": "Insurance payer number must have at least 9 digits.",
+      "insurancePayerNumberMaxLength": "Insurance payer number must have at most 10 digits.",
+      "agendaCodeInvalid": "Agenda is required",
+      "recordFolderNumberInvalid": "Invalid Record folder number"
+    },
+    "successMessage": "New case created successfully.",
+    "listOfMoreOptions": "List of options",
+    "penaltyCalculationModal": {
+      "title": "Penalty Calculation",
+      "buttonTitle": "Decision Calculation for OT",
+      "prescribedPenalty": "Assessed / prescribed / calculated penalty",
+      "penaltyAfterPriorityWaiver": "Penalty after priority waiver",
+      "priorityWaiver": "Priority waiver",
+      "penaltyAfterPriorityAndBasicWaiver": "Penalty after priority and basic waiver",
+      "basicWaiver": "Basic waiver",
+      "resultingPenaltyToBePaid": "Resulting penalty to be paid",
+      "reducedWaiver": "Reduced waiver - malus",
+      "waivedAmount": "Waived amount",
+      "selectReasons": "Select reasons",
+      "selectReasonsDescription": "When fulfilled, the penalty will be waived in full or will be reduced.",
+      "paymentsWithDifferentVariableSymbol": "From insurance payments paid under a different variable symbol or to another health insurance company in the Czech Republic.",
+      "refundOfOverpayment": "Which was caused by unauthorized refund of overpayment.",
+      "crimeCommitted": "Assessed to a payer who proves that a crime was committed against them or their property.",
+      "amount": "Amount",
+      "rate": "Rate",
+      "CZK": "CZK",
+      "cancelButton": "Cancel",
+      "confirmButton": "Save"
+    }
+  },
+  "requests": {
+    "title": "eRequests",
+    "actions": {
+      "approve": "Approve",
+      "reject": "Reject",
+      "cancel": "Cancel"
+    },
+    "requestDetail": {
+      "pageTitle": "Request",
+      "pageTitleDraft": "In-process request",
+      "currentPage": "Request detail",
+      "buttons": {
+        "submitForApproval": "Submit for approval",
+        "cancelRequest": "Cancel",
+        "confirmDecision": "Confirm decision",
+        "returnToRequester": "Return to requester",
+        "returnToApproval": "Return to approval"
+      },
+      "tabs": {
+        "items": {
+          "title": "Items",
+          "count": "items",
+          "addItem": "Add item",
+          "addFreeItem": "Add free item",
+          "addItemFromCatalog": "Add item from catalog",
+          "emptyItemsMessage": "There are no items in the request",
+          "tableRowActions": {
+            "showDetails": "Show item detail",
+            "deleteItem": "Delete item",
+            "createNewItem": "Create new request with this item"
+          },
+          "itemFromCatalogModal": {
+            "title": "Add item from catalog",
+            "description": "You can add an item by selecting it from the catalog or enter it manually as a free item.",
+            "searchPlaceholder": "Search in catalog",
+            "noResultsMessage": "No entry found. Please try another entry.",
+            "myFavorites": "My favorites ({count})",
+            "resultItemsCount": "Found {count, plural, =0 {no items} one {# item} few {# items} other {# items}}",
+            "closeButton": "Close",
+            "approveButton": "Confirm selection",
+            "searchLabel": "Item name or number in SAP",
+            "loading": "Loading...",
+            "onSuccess": "Changes have been applied successfully",
+            "onError": "Failed to add the selected item.",
+            "onDeleteError": "The item was successfully deleted.",
+            "onDeleteSuccess": "The item could not be deleted.",
+            "tableHeaders": {
+              "title": "Title",
+              "numberInSAP": "Number in SAP",
+              "code": "SAP Number",
+              "price": "Price with VAT",
+              "amount": "Quantity"
+            }
+          },
+          "emptyItemsModal": {
+            "createTitle": "Add a free item",
+            "editEmptyTitle": "Free item detail",
+            "editCatalogueTitle": "Catalog item detail",
+            "basicInfo": "Basic information",
+            "attachments": "Attachments",
+            "fieldsLabels": {
+              "title": "Item",
+              "description": "Description",
+              "numberInSAP": "Number in SAP",
+              "supplierNumber": "Supplier number",
+              "measureUnit": "Measure unit",
+              "amount": "Amount",
+              "priceWithVAT": "Price with VAT",
+              "contract": "Contract",
+              "category": "Category",
+              "noCategory": "No categories available",
+              "noContract": "Without Contracts",
+              "subCategory": "Subcategory",
+              "expectedDeliveryDate": "Expected delivery date",
+              "status": "Status",
+              "newStatus": "New",
+              "approver": "Approver",
+              "approvalProcess": "Approval process",
+              "hyperTextLink": "Hypertext link",
+              "bindingToContract": "Binding to contract",
+              "attachments": "Attachments",
+              "comment": "Comment",
+              "reason": "Reason",
+              "itemJustification": "Item justification",
+              "sameAsRequest": "Same as request",
+              "different": "Different",
+              "notRequired": "not required",
+              "total": "Total for"
+            },
+            "fileUpload": {
+              "button": "Upload file",
+              "helperText": "Supported formats are PDF, JPG, PNG and GIF. You can attach up to 5 files. The maximum size of a single file is 10 MB.",
+              "removeFile": "Remove file",
+              "selectFiles": "Select files",
+              "uploadSuccess": "File uploaded successfully",
+              "errorMessages": {
+                "uploadError": "File upload failed.",
+                "sizeLimit": "File exceeds limit",
+                "attachmentLimit": "File exceeds number of attachments",
+                "wrongFormat": "The file is not in a supported format.",
+                "nameSimilarity": "The file has the same name as an already uploaded file.",
+                "noData": "The file contains no data."
+              }
+            },
+            "buttons": {
+              "confirm": "Add",
+              "saveChanges": "Save changes",
+              "cancel": "Cancel"
+            },
+            "validationErrors": {
+              "fileFormat": "Supported formats: JPG, PNG, GIF. Max. {MAX_FILE_SIZE_MB} MB per file. Max. {MAX_FILES} files",
+              "maximumSize": "File {name} exceeds the maximum size of {maxFileSizeMB} MB",
+              "notSupportedFormat": "File {name} is not a supported format",
+              "form": {
+                "titleRequired": "Title is required",
+                "amountRequired": "Amount is required",
+                "priceRequired": "Price is required"
+              }
+            },
+            "toastMessages": {
+              "updateItemSuccess": "Item was successfully updated.",
+              "updateItemError": "Failed to update item."
+            }
+          },
+          "itemsActions": {
+            "addItemSuccess": "Item was successfully added.",
+            "addItemError": "Failed to add item. Please try again.",
+            "validation": {
+              "titleRequired": "Title is required",
+              "measureUnitRequired": "Measure unit is required",
+              "amountRequired": "Amount is required",
+              "priceRequired": "Price is required",
+              "categoryRequired": "Category is required",
+              "expectedDeliveryDateRequired": "Expected delivery date is required"
+            }
+          },
+          "requestConfirmModal": {
+            "title": "Are you sure you want to create a new request with this item?",
+            "subTitle": "By continuing, you will proceed to the process of creating a new request, to which we will automatically add this item.",
+            "confirmButton": "Yes, create",
+            "cancelButton": "Cancel"
+          }
+        },
+        "basicInfo": "Basic information",
+        "approval": {
+          "title": "Approval history",
+          "noDataMessage": "Approval history will be displayed after the request is submitted for approval.",
+          "level": "Approval Level",
+          "approver": "Approver",
+          "performedBy": "Performed By",
+          "receivedAt": "Received On",
+          "resolvedAt": "Decided On",
+          "itemsToApprove": "Items to Approve",
+          "resolution": "Resolution",
+          "status": {
+            "pending": "Pending",
+            "approved": "Approved",
+            "rejected": "Rejected",
+            "returned": "Returned",
+            "withdrawn": "Withdrawn"
+          }
+        },
+        "comments": {
+          "title": "Comments",
+          "noDataMessage": "No comments available.",
+          "commentsForm": {
+            "newComment": "Add a comment",
+            "inputPlaceholder": "You can write a comment..."
+          },
+          "toastMessages": {
+            "success": "Comment added successfully",
+            "error": "Error adding comment"
+          }
+        }
+      }
+    },
+    "requestsTable": {
+      "id": "Request ID",
+      "items": "Items",
+      "justification": "Justification",
+      "requester": "Requester",
+      "recipient": "Recipient",
+      "approver": "Approver",
+      "costCenter": "Cost center",
+      "createdAt": "Created At",
+      "status": "Status",
+      "moreItems": "+{count} more items",
+      "withoutID": "Without ID"
+    },
+    "itemsTable": {
+      "title": "Item name",
+      "description": "Description",
+      "attachments": "Attachments",
+      "numberInSAP": "Number in SAP",
+      "category": "Category",
+      "quantity": "Quantity",
+      "priceWithDPH": "Price with VAT",
+      "approver": "Approver",
+      "status": "Status",
+      "decision": "My decision",
+      "pricePerItem": "Kč per 1 pc",
+      "attachmentsCount": "{count, plural, one {Item contains # attachment} other {Item contains # attachments}}",
+      "actions": {
+        "deleteItem": "Delete"
+      },
+      "tableHeaderButtons": {
+        "newRequestFromCurrentItem": "New request form with selection",
+        "markAsApproved": "Aprrove",
+        "markAsRejected": "Reject",
+        "markAsProcessedWithoutPurchase": "Complete without purchase",
+        "markAsRemoved": "Mark as Removed",
+        "Delete": "Delete"
+      },
+      "completeWithoutPurchaseConfirmation": {
+        "onSuccess": "Item has been successfully marked as processed without purchase",
+        "onError": "Failed to mark item as processed without purchase. Please try again."
+      },
+      "deleteConfirmation": {
+        "title": "Do you want to remove the selected item?",
+        "confirm": "Remove",
+        "cancel": "Cancel",
+        "onSuccess": "Item has been successfully deleted!",
+        "onError": "Failed to delete item. Please try again later."
+      },
+      "newRequestFromSelectedItems": {
+        "title": "Are you sure you want to create a new request with this item?",
+        "description": "By confirming, you will create a new request. All items from the overview below will be automatically added to it.",
+        "confirm": "Yes, create",
+        "cancel": "Cancel",
+        "onSuccess": "New request successfully created with selected items",
+        "onError": "Failed to create new request with the selected items."
+      },
+      "approveConfirmation": {
+        "title": "Are you sure you want to approve the selected items?",
+        "confirm": "Yes, approve",
+        "cancel": "Close",
+        "onSuccess": "Request has been successfully approved",
+        "onError": "Failed to approve request"
+      },
+      "declineConfirmation": {
+        "title": "Are you sure you want to decline the selected items?",
+        "reason": "Decline reason",
+        "label": "Decline reason",
+        "placeholder": "Write...",
+        "requiredFieldMessage": "This field is required.",
+        "confirm": "Yes, decline",
+        "cancel": "Close",
+        "onSuccess": "Request has been successfully declined",
+        "onError": "Failed to decline request"
+      },
+      "returnToRequester": {
+        "title": "Are you sure you want to return the request to the requester?",
+        "requester": "Requester",
+        "reason": "Return reason",
+        "confirm": "Yes, return",
+        "cancel": "Close",
+        "onSuccess": "Request has been successfully returned to the requester",
+        "onError": "Failed to return request to the requester"
+      },
+      "returnToApprover": {
+        "title": "Are you sure you want to return the request for re-approval?",
+        "placeholder": "Write...",
+        "approver": "Approver",
+        "reason": "Return reason",
+        "confirm": "Yes, return",
+        "cancel": "Close",
+        "onSuccess": "Request has been successfully returned to the approver",
+        "onError": "Failed to return request to the approver"
+      }
+    },
+    "newRequestModal": {
+      "title": "New eRequest",
+      "subtitle": "Basic Information",
+      "fieldsLabels": {
+        "requester": "Requester",
+        "description": "Description",
+        "id": "ID request",
+        "recipient": "For whom",
+        "approver": "Approver",
+        "createdAt": "Created At",
+        "status": "Status",
+        "address": "Delivery address",
+        "costCenter": "Cost center",
+        "orderLabel": "Order",
+        "reason": "Reason",
+        "contract": "Contract",
+        "requestCause": "Request justification",
+        "fieldStatus": "Optional",
+        "defaultCause": "New employee onboarding",
+        "causePlaceHolder": "Write...",
+        "selectAddressLabel": "Select from list",
+        "inputAddressLabel": "Enter manually"
+      },
+      "submitButton": "Create a request",
+      "cancelButton": "Cancel",
+      "validationErrorsMessages": {
+        "requesterRequired": "Requester is required",
+        "recipientRequired": "Recipient is required",
+        "requestCauseRequired": "Request justification is required",
+        "addressRequired": "Delivery address is required",
+        "noAddressFound": "No addresses found"
+      },
+      "successMessage": "RequRequest has been created."
+    },
+    "submitForApprovalModal": {
+      "title": "Are you sure you want to submit the request for approval?",
+      "description": "Submitting the request for approval will assign a unique ID to the request. The approval process will be set separately for each item based on its type.",
+      "requestCause": "Request justification",
+      "confirmButton": "Yes, submit for approval",
+      "cancelButton": "Cancel",
+      "successMessage": "Request successfully submitted for approval",
+      "errorMessage": "Failed to submit request for approval"
+    },
+    "cancelRequestModal": {
+      "title": "Do you want to cancel the request?",
+      "description": "By canceling the requisition, you will end all approvals that are currently in progress.",
+      "confirmButton": "Cancel",
+      "cancelButton": "Close",
+      "successMessage": "Request was successfully canceled",
+      "errorMessage": "Failed to cancel request"
+    },
+    "returnRequestModal": {
+      "title": "Are you sure you want to return the request to the requester?",
+      "requester": "Requester",
+      "inputLabel": "Return reason",
+      "inputPlaceholder": "Write...",
+      "confirmButton": "Yes, return",
+      "cancelButton": "Close",
+      "successMessage": "Request has been successfully returned to the requester",
+      "errorMessage": "Failed to return request to the requester"
+    },
+    "emptyRequestsMessage": "No requests found.",
+    "filters": {
+      "searchPlaceholder": "Search",
+      "requesterPlaceholder": "Requester",
+      "recipientPlaceholder": "Recipient",
+      "approverPlaceholder": "Approver",
+      "costCenterPlaceholder": "Cost center",
+      "statusPlaceholder": "Status",
+      "clear": "Clear",
+      "resetFilter": "Reset filter",
+      "showClosedRequests": "Show closed requests",
+      "all": "All",
+      "status": {
+        "new": "In progress",
+        "inProgress": "In progress",
+        "inReview": "In review",
+        "draft": "Draft",
+        "approved": "Approved",
+        "closed": "Closed",
+        "withdrawn": "Withdrawn"
+      },
+      "labels": {
+        "search": "Request ID",
+        "requester": "Requester",
+        "recipient": "Recipient",
+        "approver": "Approver",
+        "costCenter": "Cost center",
+        "status": "Status"
+      }
+    },
+    "approver": {
+      "header": {
+        "outOfOffice": "Out of Office"
+      },
+      "tabs": {
+        "pendingApproval": {
+          "name": "Pending Approval",
+          "filters": {
+            "status": "Show as",
+            "items": "Items",
+            "requests": "Requests"
+          },
+          "noPendingRequests": "You currently have no requests pending approval."
+        },
+        "myRequests": {
+          "name": "Requests",
+          "filters": {
+            "showClosedRequests": "Show closed requests"
+          },
+          "noMyRequests": "You currently have no requests."
+        }
+      }
+    }
+  },
+  "stepper": {
+    "badgeStatuses": {
+      "completed": "Finished",
+      "opened": "Opened",
+      "pending": "Pending"
+    }
+  },
+  "stepProgressBar": {
+    "progressBarLabel": "Progress steps",
+    "stepsListLabel": "Progress step list"
+  },
+  "PdfComparison": {
+    "title": "PDF comparison",
+    "upload": {
+      "title": "Select PDF file",
+      "description": "Select PDF file to compare"
+    },
+    "error": {
+      "uploadFailed": "Documents could not be compared",
+      "serverError": "A server error occurred",
+      "unauthorized": "You do not have permission to compare documents",
+      "invalidFileType": "The file is not in PDF format",
+      "invalidStructure": "The file does not meet the expected contract-attachment structure",
+      "corruptedFile": "The file is corrupted",
+      "comparisonFailed": "Failed to load comparison results"
+    },
+    "retry": "Compare next files",
+    "leftDocument": "Sent contract addendum",
+    "rightDocument": "Signed contract addendum",
+    "dropLabel": "Select PDF file by clicking the button or dragging it here",
+    "limitLabel": "Fill (372) × 208 Hug",
+    "compareFiles": "Compare files",
+    "backToComparison": "Back to Comparison",
+    "results": {
+      "title": "Comparison Results",
+      "success": {
+        "title": "Match Rate 100%",
+        "description": "Both documents are identical, no differences were found."
+      },
+      "error": {
+        "title": "Something went wrong",
+        "description": "Please try uploading the files again",
+        "retryButton": "Try Again"
+      },
+      "differences": {
+        "matchPercentage": "Match Rate {percentage}%"
+      }
+    }
+  },
+  "ServiceProvider": {
+    "title": "Service Provider Information",
+    "poskytovatelSluzeb": "Service Provider",
+    "adresa": "Address",
+    "zastoupeny": "Represented By",
+    "ic": "ID",
+    "icz": "ICZ",
+    "podepsany": "Signed By"
+  },
+  "AuditPage": {
+    "title": "Audit",
+    "success": "Success",
+    "failure": "Failed",
+    "dataLoadingError": "Error loading data.",
+    "CSVExport": "Export to CSV",
+    "CSVDownloadSuccess": "Data exported successfully.",
+    "CSVDownloadError": "Failed to export data. Please try again.",
+    "jsonExport": "Export to json",
+    "exportButtonTooltip": "Export 1000 records max.",
+    "details": "Details",
+    "context": "Context",
+    "json": "Json",
+    "copy": "Copy",
+    "headers": {
+      "id": "ID",
+      "timestamp": "Time of event",
+      "application": "Application",
+      "domain": "Domain",
+      "component": "Component",
+      "sessionId": "Session ID",
+      "identityId": "ID identity",
+      "entityId": "ID entity",
+      "success": "Success",
+      "authentication": "Authentication",
+      "rbac": "RBAC",
+      "abac": "ABAC",
+      "operation": "Operation",
+      "messageBody": "Message body"
+    },
+    "filter": {
+      "from": "Date from",
+      "to": "Date to",
+      "idOrEntityOrSession": "Log ID, Entity ID or Session ID",
+      "identityId": "User",
+      "searchAriaLabel": "Search",
+      "clear": "Clear filter",
+      "successAll": "All"
+    }
+  },
+  "cscToasts": {
+    "newVersionUnknownMethod": "An unkwnown method was used to create a new version of the codebook.",
+    "create": {
+      "400": "The codebook could not be created. Please try again.",
+      "401": "The codebook could not be created. Please sign in and try again.",
+      "403": "You do not have the required permission to create a codebook.",
+      "500": "The codebook could not be created. An unexpected error occurred in the system.",
+      "504": "The codebook could not be created. Maintenance is currently in progress."
+    },
+    "import": {
+      "204": "The codebook was successfully imported.",
+      "400": "The codebook could not be imported. Please try again.",
+      "401": "The codebook could not be imported. Please sign in and try again.",
+      "403": "You do not have the required permission to import a codebook.",
+      "500": "The codebook could not be imported. An unexpected error occurred in the system.",
+      "504": "The codebook could not be imported. Maintenance is currently in progress."
+    }
+  },
+  "QRCodes": {
+    "po": "Bulk",
+    "fo": "Individual",
+    "copySSN": "Copy SSN",
+    "labelFo": "Insurer number",
+    "labelPo": "Payer number",
+    "pdfBtn": "Generate PDF",
+
+    "InsurerInfo": {
+      "ssn": "Insurance number: ",
+      "ico": "Payer number: ",
+      "permanentAddress": "Permanent address",
+      "mailAdress": "Mailing address",
+      "street": "Street",
+      "zipCode": "ZIP",
+      "town": "Town"
+    },
+
+    "paymentDetails": {
+      "paymentTitle": "Payment detail",
+      "label1": "Payment type",
+      "label2": "Amount",
+      "label3": "Variable symbol",
+      "errMessage": "Add amount",
+      "errVs": "Add VS",
+      "warningVS": "Non-standard VS",
+      "paymentTypes": {
+        "1": "1 - Insurance premium",
+        "2": "2 - Penalty",
+        "3": "3 - PV fine",
+        "7": "7 - PV penalty",
+        "8": "8 - PV insurance premium",
+        "E": "E - VN penalty",
+        "F": "F - VN insurance premium",
+        "X": "X - ER costs",
+        "R": "R - Recourse/compensation",
+        "N": "N - Unauthorized drawn care",
+        "P": "P - Flat-rate proceeding costs"
+      }
+    }
+  },
+  "ComplaintActions": {
+    "approve": "Approve",
+    "requestOpinion": "Request Opinion",
+    "reject": "Reject"
+  },
+  "ComplaintDraftActions": {
+    "submitForReview": "Submit for Review",
+    "submitForCheck": "Submit for Review",
+    "kliprSolve": "Solve",
+    "void": "Void",
+    "cancel": "Cancel"
+  },
+  "ComplaintSubjectStep": {
+    "title": "Complaint Subject",
+    "back": "Back"
+  },
+  "ConsentStep": {
+    "DataReconciliationTitle": "Data Reconciliation",
+    "DataReconciliationDescription": "Print the complaint, have the insured person check it, sign it, and insert it into the E-Spis.",
+    "DataReconciliationButton": "Print complaint",
+    "backButton": "Back"
+  },
+  "ComplaintReferenceNumber": {
+    "title": "Reference Number",
+    "description": "After inserting the document into E-Spis, copy the reference number into the field below.",
+    "inputLabel": "Reference Number"
+  },
+  "ComplaintHandler": {
+    "title": "Complaint Handler",
+    "description": "Who will resolve the complaint",
+    "forwardToBackOffice": "Forward to Back Office",
+    "clientDesk": "Client Desk (KLIPR)"
+  },
+  "CommentsSection": {
+    "title": "Comments",
+    "externalCommentLabel": "External comment",
+    "externalCommentHelper": "The content of this message is available to the insured person",
+    "internalCommentLabel": "Internal comment",
+    "internalCommentHelper": "For internal purposes - the insured person will not know the content."
+  },
+  "AttachmentsUpload": {
+    "uploadButton": "Upload file",
+    "limitLabel1": "Supported formats are PDF, JPG, PNG and GIF.",
+    "limitLabel2": "You can attach up to {maxFiles} files. Maximum file size is {maxFileSize} MB.",
+    "unsupportedFormatError": "Unsupported file format.",
+    "maxFileSizeError": "Maximum file size is {size} MB.",
+    "maxFilesError": "You can attach a maximum of {count} files.",
+    "removeFileAriaLabel": "Remove file",
+    "browseFilesAriaLabel": "Browse files"
+  },
+  "ClientTable": {
+    "firstName": "First name",
+    "surname": "Last name",
+    "applicant": "Applicant's first and last name",
+    "mobilePhone": "Phone",
+    "email": "Email",
+    "bank": "Account number",
+    "address": "Contact address",
+    "dataBox": "Data box",
+    "judgmentDate": "Judgment date",
+    "referenceNumber": "Reference number",
+    "result": "Result",
+    "approvedAmount": "Approved amount",
+    "resolver": "Resolver",
+    "resolverGroup": "Resolver group",
+    "comment": "Comment"
+  },
+  "ApprovalModal": {
+    "title": "Approval of claim",
+    "demandedAmount": "Requested amount",
+    "approvedAmount": "Approved amount",
+    "proceedingNumber": "Proceeding number",
+    "externalComment": "External comment",
+    "internalComment": "Internal comment"
+  },
+  "RejectionModal": {
+    "proceedingNumber": "Proceeding Number",
+    "externalComment": "External Comment",
+    "internalComment": "Internal Comment",
+    "title": "Claim rejection"
+  },
+  "InvalidityPeriodsForm": {
+    "invaliditySectionTitle": "Invalidity",
+    "invaliditySectionDescription": "Select the period of 2024 for which the insured person is requesting a limit adjustment.",
+    "recognizedFromLabel": "Recognized from",
+    "validUntilLabel": "Valid until",
+    "ongoingCheckboxLabel": "currently valid",
+    "requiredLimitLabel": "Required limit",
+    "requiredLimitPlaceholder": "Select limit",
+    "limitOption3rdDegree": "3rd degree invalidity with invalidity pension",
+    "limitOption2ndDegree": "2nd degree invalidity",
+    "limitOption1stDegree": "1st degree invalidity",
+    "removeButtonAriaLabel": "Remove period",
+    "addPeriodButton": "Add period",
+    "termsSectionTitle": "Terms",
+    "submissionDateLabel": "Submission date",
+    "settlementDeadlineLabel": "Settlement deadline"
+  },
+  "GeneralComplaintForm": {
+    "commentsSectionTitle": "General complaint",
+    "externalCommentLabel": "External comment",
+    "externalCommentPlaceholder": "",
+    "externalCommentHelper": "This text will be visible to the insured person",
+    "internalCommentLabel": "Internal comment",
+    "internalCommentPlaceholder": "",
+    "internalCommentHelper": "This text will not be visible to the insured person",
+    "attachmentsSectionTitle": "Attachments",
+    "attachmentsOptionalText": "",
+    "attachmentsDescription": "Upload any receipts, invoices or powers of attorney.",
+    "backButton": "Back",
+    "continueButton": "Continue"
+  }
+}

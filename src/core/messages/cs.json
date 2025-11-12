@@ -1,0 +1,1685 @@
+{
+  "common": {
+    "close": "Zrušit",
+    "save": "Uložit",
+    "error": "Něco se pokazilo. Zkuste to za chvíli znovu.",
+    "networkError": "Chybí připojení k internetu.",
+    "loading": "Načítání...",
+    "noResult": "Žádné výsledky",
+    "approve": "Schválit",
+    "reject": "Zamítnout",
+    "sendForApprovalSuccess": "Koncept byl poslán na schválení.",
+    "sendForApprovalError": "Koncept se nepodařilo odeslat na schválení.",
+    "sendForReworkSuccess": "Koncept byl poslán na přepracování.",
+    "sendForReworkError": "Koncept se nepodařilo odeslat na přepracování.",
+    "unPublishPlanned": "Čiselník byl úspěšně depublikován.",
+    "unPublishError": "Publikování se nepodařilo zrušit.",
+    "publishConcept": "Koncept byl publikován.",
+    "publishConceptErrorGeneral": "Koncept není možné publikovat",
+    "publishConceptError": "Koncept musí být publikován do budoucnosti",
+    "publishConceptErrorCode": "Koncept nelze publikovat - kód není unikátní",
+    "publishConceptErrorWrongType": "Koncept nelze publikovat - hodnoty mají špatný datový typ",
+    "publishConcpetErrorDuplicate": "Koncept nelze publikovat - ve sloupci {columnName} jsou duplicitní hodnoty",
+    "publishConceptErrorStructure": "Doplňte prosím názvy sloupců, nebo typ sloupce",
+    "publishConceptErrorNoColumns": "Tabulka musí obsahovat alespoň jeden sloupec",
+    "publishConceptErrorEmptyContent": "Tabulka musí obsahovat alespoň jeden řádek",
+    "requiredFields": "Vyplňte prosím všechna povinná pole.",
+    "formEmpty": "Vyplňte prosím všechna povinná pole.",
+    "deleteConceptSuccess": "Koncept ",
+    "deleteConceptSuccess2": " byl smazán.",
+    "cancel": "Zavřít",
+    "invalidDate": "Zadejte datum, které je v budoucnosti.",
+    "copyLinkMessage": "Odkaz byl zkopírován do schránky.",
+    "copySsnMessage": "Čislo pojištěnce bylo zkopírováno do schránky",
+    "copyIcoMessage": "Čislo plátce bylo zkopírováno do schránky",
+    "copySsnError": "Číslo pojištění nelze zkopírovat do schránky",
+    "copyIcoError": "Čislo plátce nelze zkopírovat do schránky",
+    "deleteConceptError": "Koncept se nepodařilo smazat.",
+    "requiredFieldMessage": "Toto pole je povinné.",
+    "insuredPersonNotFound": "Pojištěnce se nepovedlo najít",
+    "cannotGeneratePDF": "Vytvoření PDF dokumentu selhalo. Zkuste to znovu.",
+    "technicalErrorTryAgain": "Došlo k technické chybě. Zkuste to znovu.",
+    "pagination": {
+      "page": "Stránka",
+      "previousPage": "Předchozí stránka",
+      "nextPage": "Další stránka",
+      "paginationNavigation": "Navigace stránkováním"
+    },
+    "userPhoto": "Fotografie uživatele",
+    "userMenu": "Menu uživatele",
+    "dates": {
+      "month": "Měsíc",
+      "previousMonth": "Předchozí měsíc",
+      "nextMonth": "Další měsíc",
+      "days": {
+        "monday": "Pondělí",
+        "tuesday": "Úterý",
+        "wednesday": "Středa",
+        "thursday": "Čtvrtek",
+        "friday": "Pátek",
+        "saturday": "Sobota",
+        "sunday": "Neděle"
+      }
+    },
+    "printingError": "Při přípravě tisku došlo k chybě. Zkuste to prosím znovu.",
+    "printingLoading": "Příprava pro tisk...",
+    "savingChanges": "Ukládám změny...",
+    "saveSuccess": "Změny byly úspěšně uloženy.",
+    "saveError": "Při ukládání došlo k chybě. Zkuste to prosím znovu.",
+    "missingRole": "Nemáte potřebná oprávnění (roli) pro zobrazení této komponenty.",
+    "closeToast": "Zavřít toast",
+    "errorEmptyGuarantors": "Číselník musí mít alespoň jednoho garanta.",
+    "currencies": {
+      "crown": "Kč"
+    }
+  },
+  "metadata": {
+    "homepage": {
+      "title": "Vítejte",
+      "description": "Vítejte v Našem Informačním Systému."
+    },
+    "audit": {
+      "title": "Auditní logy",
+      "description": "Auditní záznamy NIS"
+    },
+    "auditDetail": {
+      "title": "Detail auditu",
+      "description": "Detailní záznam auditu"
+    },
+    "codeLists": {
+      "title": "Správa číselníků",
+      "description": "Centrální správa číselníků"
+    },
+    "codeListDetail": {
+      "title": "Detail číselníku",
+      "description": "Detail číselníku"
+    },
+    "settings": {
+      "title": "Nastavení",
+      "description": "Nastavení NIS"
+    },
+    "fees": {
+      "title": "Limity a doplatky",
+      "description": "Limity a doplatky"
+    },
+    "qr": {
+      "title": "QR platba",
+      "description": "QR platba"
+    },
+    "pdfComparison": {
+      "title": "Porovnání PDF",
+      "description": "Porovnání PDF dokumentů"
+    },
+    "administrativeProceedings": {
+      "title": "Správní řízení",
+      "description": "",
+      "adminProcessDetail": {
+        "title": "Detail správního řízení",
+        "description": ""
+      },
+      "casesOverview": {
+        "title": "Přehled případů",
+        "description": ""
+      },
+      "commissionHearings": {
+        "title": "Jednání komise",
+        "description": ""
+      }
+    },
+    "requests": {
+      "title": "eŽádanky",
+      "description": "Správa eŽádanek"
+    }
+  },
+  "unsavedChangesModal": {
+    "title": "Opravdu chcete odejít?",
+    "body": "Zatím jste neuložili svou práci. Pokud teď odejdete, všechna neuložená data budou ztracena.",
+    "cancel": "Zpět k úpravám",
+    "leave": "Odejít bez uložení"
+  },
+  "keys": {
+    "name": "Název",
+    "type": "Typ",
+    "status": "Stav",
+    "validFrom": "Platnost od"
+  },
+  "LogoutPage": {
+    "title": "Byli jste odhlášeni, přihlaste se prosím znovu."
+  },
+  "HomePage": {
+    "title": "Vítejte v Našem informačním systému ♥️",
+    "subtitle": "Dnes je ",
+    "applications": "Doporučené aplikace",
+    "KDPApplication": "Limity a doplatky",
+    "CSCApplication": "Správa číselníků",
+    "Audit": "Auditní logy",
+    "ReportingApplication": "Reporting",
+    "AdministrativeProcessApplication": "Spravní řízení",
+    "PdfComparison": "Porovnání PDF",
+    "RequestsApplication": "eŽádanky",
+    "QrPayments": "QR platby"
+  },
+  "ErrorPages": {
+    "NotFound": {
+      "General": {
+        "title": "Tato stránka neexistuje",
+        "body": "Omlouváme se, ale požadovaná stránka již neexistuje nebo byla přesunuta.",
+        "button": "Přejít na hlavní stránku "
+      },
+      "CodeLists": {
+        "title": "Tento číselník již neexistuje",
+        "body": "Číselník byl zřejmě smazán nebo nahrazen jiným. Můžete se vrátit na přehled číselníků a zkusit ho dohledat ručně.",
+        "button": "Přejít na přehled číselníků"
+      }
+    }
+  },
+  "LocaleSwitcher": {
+    "locale": "{locale, select, en {🇺🇸 English} cs {🇨🇿 Čeština} other {Unknown}}"
+  },
+
+  "navigaton": {
+    "home": "Úvodní přehled",
+    "fees": "Limity a doplatky",
+    "settings": "Nastavení",
+    "administration": "Administrace",
+    "bugReport": "Nahlásit problém",
+    "csc": "Správa číselníků",
+    "administrativeProceedings": "Správní řízení",
+    "eRequests": "eŽádanky",
+    "audit": "Auditní logy",
+    "pdfComparison": "Porovnání PDF",
+    "qrcodes": "QR platba"
+  },
+  "Header": {
+    "signIn": "Přihlásit se",
+    "signOut": "Odhlásit se",
+    "title": "Možnosti účtu",
+    "titleModal": "Neuložené změny",
+    "body": "Máte neuložené změny. Opravdu chcete opustit stránku?",
+    "cancel": "Zůstat",
+    "leave": "Odejít"
+  },
+  "PoplatkyDoplatky": {
+    "title": "Limity a doplatky"
+  },
+  "KDPResultHeader": {
+    "socialNum": "Číslo pojištěnce",
+    "limit": "K dosažení limitu zbývá uhradit",
+    "limitAcomplished": "Limit dosažen",
+    "limitAcomplishedDay": "Limit dosažen ",
+    "limitReached": "Limit byl dosažen. Další doplatky hradí pojišťovna",
+    "hasToPay": "Nastavený limit",
+    "kdpResultInfo": "Doplatky na léčiva nebo potraviny pro zvláštní lékařské účely",
+    "LimReached": "Byl dosažen limit",
+    "infoButton": "Více informací",
+    "complaintStatus": {
+      "registered": "Registrováno"
+    }
+  },
+  "KDPPage": {
+    "title": "Centrum limitů a doplatků",
+    "loading": "Načítání dat pojištěnce...",
+    "bodyTitle": "Data poskytuje SÚKL - Státní ústav pro kontrolu léčiv",
+    "changeLimit": "Byl změněn limit doplatků hrazených pojištěncem z {from} na {to}.",
+    "loadMore": "Načíst starší záznamy",
+    "printMessage": "Tento přehled obsahuje doplatky na léčiva nebo potraviny pro zvláštní lékařské účely hrazené pojištěncem od 1. 1. 2025. Pokud máte zájem o starší záznamy, zažádejte si o přehled úhrad zdravotní péče podle zákona č. 48/1997 Sb., který obsahuje doplatky uhrazené do 31. 12. 2024.",
+    "limitReachedMessage": "Byl dosažen ochranný limit ve výši {amount}. Započitatelné doplatky za léky nyní hradí zdravotní pojišťovna.",
+    "generatedAt": "Sestava byla vytvořena",
+    "sumInsuer": "Doplatky hrazené pojištěncem za rok",
+    "sumVZP": "Doplatky hrazené pojišťovnou za rok",
+    "preparingDocument": "Připravuji dokument...",
+    "tryAgainLater": "Zkuste to prosím později",
+    "overPaid": "Pojištěnec přesáhl limit hrazených doplatků",
+    "tryAgain": "Zkusit znovu",
+    "clear": "Vymazat",
+    "tabs": {
+      "overview": "Přehled",
+      "complaints": "Reklamace",
+      "assessment": "K posouzení",
+      "insuredPersons": "Pojištěnci",
+      "statement": "Stanovisko",
+      "judgment": "Posouzení"
+    },
+    "assessmentTab": {
+      "searchPlaceholder": "Hledat...",
+      "searchAriaLabel": "Vyhledat"
+    },
+    "insuredPersonsTab": {
+      "comingSoon": "Tato funkce bude brzy k dispozici."
+    },
+    "statementTab": {
+      "request": "Žádost",
+      "requestedDate": "Zažádáno",
+      "department": "Útvar",
+      "messageText": "Text zprávy",
+      "expertStatement": "Odborné stanovisko",
+      "answeredDate": "Odpovězeno",
+      "author": "Autor",
+      "statement": "Stanovisko"
+    },
+    "judgmentTab": {
+      "title": "Posouzení",
+      "comingSoon": "Tato funkce bude brzy k dispozici."
+    },
+    "complaintsTab": {
+      "noInsuredInfo": "Nejsou dostupné informace o pojištěnci pro reklamace.",
+      "searchPlaceholder": "Hledat...",
+      "searchAriaLabel": "Vyhledat",
+      "newComplaint": "Nová reklamace",
+      "modalTitle": "Nová reklamace",
+      "whoSubmitsComplaint": "Kdo podává reklamaci",
+      "insuredPerson": "Pojištěnec osobně",
+      "legalRepresentative": "Zákonný zástupce",
+      "authorizedPerson": "Zmocněnec s plnou mocí",
+      "courtAppointedGuardian": "Zástupce ustanovený soudem",
+      "applicantNameLabel": "Jméno a příjmení žadatele",
+      "applicantNamePlaceholder": "Josef Novák",
+      "cancel": "Zrušit",
+      "submit": "Vytvořit",
+      "breadcrumbTitle": "Seznam reklamací",
+      "complaintTypeTitle": "Typ reklamace",
+      "continue": "Pokračovat",
+      "complaintTypes": {
+        "invalid": "Invalidita",
+        "insuredNumberChange": "Změna čísla pojištěnce",
+        "general": "Obecná reklamace"
+      }
+    },
+    "opinionTab": {
+      "modalTitle": "Žádost o odborné stanovisko",
+      "recipientLabel": "Koho se ptám",
+      "ozpUzp": "OZP / ÚZP",
+      "opsp": "OPSP",
+      "messageLabel": "Text zprávy",
+      "messagePlaceholder": "Popište, o jaké stanovisko žádáte...",
+      "cancel": "Zrušit",
+      "submit": "Odeslat"
+    },
+    "label": "ZADEJTE ČÍSLO POJIŠTĚNCE",
+    "errors": {
+      "errorData": "Data se nepodařilo načíst",
+      "serverError": "Něco se pokazilo",
+      "forbiddenError": "Bohužel nemáte oprávnění pro zobrazení údajů.",
+      "noVZPError": "Zadaný pojištěnec není pojištěncem VZP",
+      "noVZPAnyMoreError": "Pojištěnec již není klientem VZP. Poslední evidovaný výdej je ke dni ",
+      "notFound": "Nebyly nalezeny žádné záznamy",
+      "errorNotFound": "Tento pojištěnec není evidován u VZP, a proto nemáme k dispozici údaje o jeho limitu.",
+      "errorPreparingDocument": "Při přípravě dokumentu došlo k chybě",
+      "badGatewayError": "Data se nepodařilo načíst. Zkuste to za chvíli znovu.",
+      "getwayTimeoutError": "Něco se pokazilo. Zkuste to za chvíli znovu"
+    },
+    "changeLimitPDF": "Byl změněn limit doplatků hrazených pojištěncem z ",
+    "changeLimitPDF2": " na ",
+    "limitReachedMessagePDF": "Byl dosažen ochranný limit ve výši ",
+    "limitReachedMessagePDF2": ". Započitatelné doplatky za léky nyní hradí zdravotní pojišťovna.",
+
+    "PersonalStep": {
+      "back": "Zpět",
+      "continue": "Pokračovat",
+      "reloadTitle": "Aktualizace údajů",
+      "reloadDescription": "Aktualizovali jste údaje v RSZP? Stiskněte tlačítko pro jejich načtení.",
+      "reloadBtn": "Načíst údaje",
+      "comsTitle": "Komunikace",
+      "comsDescription": "Pokud se nepodaří reklamaci vyřešit na pobočce, jak máme pojištěnce kontaktovat?",
+      "address": "Kontaktní adresa",
+      "dataBox": "Datová schránka"
+    },
+
+    "settlementPage": {
+      "inputLabel": "Výše náhrady *",
+      "externalLabel": "Externí komentář *",
+      "internalLabel": "Interní komentář *",
+      "helperExternal": "Tento text uvidí pojištěnec",
+      "helperInternal": "Tento text se pojištěnci nezobrazí",
+      "printTitle": "Odsouhlasení rozhodnutí",
+      "printDescription": "Vytiskněte rozhodnutí, nechte jej pojištěnce zkontrolovat, podepsat a vložte do jej do E-Spisu.",
+      "printBtn": "Vytisknout",
+      "radioTitle": "Vypořádání reklamace",
+      "radioDescription": "Vypořádání",
+      "radioApproved": "Schváleno",
+      "radioDenied": "Zamítnuto",
+      "bottomText": "Nyní odešlete Back office pracovníkům ke kontrole."
+    }
+  },
+  "KDPTable": {
+    "VYD": "Výdej",
+    "LP": "Položky výdeje",
+    "ZapocitatelnyDoplatek": "Započitatelné doplatky celkem",
+    "ZapocitatelnyDoplatekTT": "Výši započitatelného doplatku stanovuje SÚKL. Jedná se o sumu, která je pojištěnci započtena do ochranného limitu.",
+    "ZapocitatelnyDoplatekPacient": "Doplatky hrazené pojištěncem",
+    "ZapocitatelnyDoplatekPacientTT": "Výši doplatku určuje rozdíl mezi maximální cenou v lékárně a výší úhrady z veřejného zdravotního pojištění.",
+    "ZapocitatelnyDoplatekZP": "Doplatky hrazené pojišťovnou",
+    "ZapocitatelnyDoplatekZPTT": "Výše, kterou hradí zdravotní pojišťovna, výši úhrady stanovuje SÚKL.",
+    "ZbytekDoLimitu": "Do limitu zbývá pojištěnci uhradit",
+    "rows": "položky",
+    "complaintsTable": {
+      "complaintName": "Název reklamace",
+      "status": "Stav",
+      "created": "Datum vytvoření",
+      "period": "Období"
+    }
+  },
+  "KDPModal": {
+    "title": "Limit doplatků hrazených pojištěncem",
+    "description": "Limit doplatků hrazených pojištěncem je <b>roční limit na započitatelné doplatky</b> za předepsané léčivé přípravky a potraviny pro zvláštní lékařské účely, které jsou částečně hrazené ze zdravotního pojištění a byly vydané na území ČR.",
+    "subtitle": "Rozdělení výše limitů dle zákona o veřejném zdravotním pojištění:",
+    "listItem1": "<b>500 Kč</b> u pojištěnců <b>starších 70 let</b> (včetně kalendářního roku, ve kterém dovršili 70. rok věku)",
+    "listItem2": "<b>500 Kč</b> u pojištěnců, kteří jsou poživateli invalidního důchodu pro <b>invaliditu třetího stupně</b> a doložili tuto skutečnost kopií rozhodnutí o invalidním důchodu pro invaliditu třetího stupně, a u pojištěnců, kteří byli uznáni <b>invalidními ve druhém nebo třetím stupni</b>, avšak invalidní důchod jim nebyl přiznán pro nesplnění podmínky doby pojištění, a doložili tuto skutečnost kopií posudku o posouzení zdravotního stavu (od doby doložení dané skutečnosti a jen po dobu jejího trvání)",
+    "listItem3": "<b>1 000 Kč</b> u dětí <b>mladších 18 let</b> a u pojištěnců <b>starších 65 let </b>(vždy včetně kalendářního roku, ve kterém dovršili daný rok věku)",
+    "listItem4": "<b>5 000 Kč</b> u <b>ostatních</b> pojištěnců."
+  },
+  "SearchInsuranceForm": {
+    "placeholder": "Číslo pojištěnce",
+    "formLabel": "Číslo pojištěnce",
+    "inputLabel": "Číslo pojištěnce",
+    "search": "Načítání...",
+    "clear": "Smazat",
+    "loading": "Loading...",
+    "successMessage": "Platné číslo pojištěnce",
+    "errorMessage": "Zadejte platné číslo pojištěnce",
+    "lengthError": "Zkontrolujte počet znaků",
+    "legacyNumberWarning": "Číslo je platné pouze pro ročníky do roku 1954"
+  },
+  "MonthsHeader": {
+    "1": "Leden",
+    "2": "Únor",
+    "3": "Březen",
+    "4": "Duben",
+    "5": "Květen",
+    "6": "Červen",
+    "7": "Červenec",
+    "8": "Srpen",
+    "9": "Září",
+    "10": "Říjen",
+    "11": "Listopad",
+    "12": "Prosinec",
+    "LimReached": "Byl dosažen limit"
+  },
+  "SearchPrescriptionForm": {
+    "yearSelect": "Vybrat rok",
+    "monthSelect": "Vybrat měsíc",
+    "searchInput": "Vyhledat předpis",
+    "searchPlaceholder": "Hledat",
+    "prescriptionSearch": "Vyhledávání předpisů",
+    "showDetails": "Zobrazit názvy výdejů a položek",
+    "search": "Hledat",
+    "clear": "Smazat",
+    "allMonths": "Všechny měsíce",
+    "months": {
+      "1": "Leden",
+      "2": "Únor",
+      "3": "Březen",
+      "4": "Duben",
+      "5": "Květen",
+      "6": "Červen",
+      "7": "Červenec",
+      "8": "Srpen",
+      "9": "Září",
+      "10": "Říjen",
+      "11": "Listopad",
+      "12": "Prosinec"
+    }
+  },
+  "DownloadPrintButtons": {
+    "downloadPDF": "Stáhnout PDF",
+    "print": "Vytisknout",
+    "buttonGroup": "Stáhnout nebo vytisknout",
+    "orientation": {
+      "portrait": "Na výšku",
+      "landscape": "Na šířku"
+    }
+  },
+  "Table": {
+    "dataEdit": "Úprava dat číselníku",
+    "noData": "Tabulka neobsahuje žádné data",
+    "duplicateColumns": "Tabulka obsahuje duplicitní sloupce! ",
+    "noCSCData": "Tento číselník neobsahuje žádná data",
+    "emptySearchMessage": "Nebyly nalezeny žádné výsledky",
+    "columnHeaderPlaceholder": "Název sloupce",
+    "emptyHeaderError": "Název hlavičky nemůže být prázdný",
+    "atLeastOneColumnHasDataError": "Tabulka musí obsahovat data",
+    "columnTypes": {
+      "SelectType": "Vyberte typ",
+      "String": "Text",
+      "DateTime": "Datum",
+      "Integer": "Číslo",
+      "columnTypeError": "Prosím vyberte typ pro všechny sloupce před uložením"
+    },
+    "lockedColumnsTypeMessage": "Datový typ nelze změnit po vyplnění polí v daném sloupci. Pokud chcete změnit datový typ, obsah polí vymažte nebo přidejte nový sloupec.",
+    "missedColumnTypeMessage": "Nejprve prosím definujte typ sloupce"
+  },
+  "TableSettings": {
+    "TableSettingsButton": "Nastavení tabulky",
+    "ResetFiltersButton": "Zrušit filtr",
+    "SelectAllButton": "Vybrat vše",
+    "ValidFromFilter": "Platnost od",
+    "ValidUntilFilter": "Platnost do",
+    "VersionFilter": "Verze"
+  },
+  "TableFooter": {
+    "rowsPerPage": "záznamů na stránce"
+  },
+  "TableActionsMenu": {
+    "Edit": "Upravit",
+    "Approval": "Odeslat ke schválení",
+    "Export": "Exportovat",
+    "NewVersion": "Vytvořit novou verzi",
+    "CancelApproval": "Vrátit k přepracování",
+    "Deactivate": "Deaktivovat",
+    "Publish": "Publikovat",
+    "Unpublish": "Depublikovat",
+    "CopyLink": "Zkopírovat odkaz",
+    "Delete": "Smazat"
+  },
+  "TableErrors": {
+    "invalidNumber": "Zadejte platné číslo",
+    "invalidDate": "Zadejte platné datum"
+  },
+  "RowActions": {
+    "RowActionsButton": "Akce",
+    "Details": "Detail",
+    "Edit": "Upravit",
+    "Approval": "Schválit",
+    "NewVersion": "Nová Verze",
+    "CancelApproval": "Zrušit schválení",
+    "Deactivate": "Deaktivovat",
+    "Publish": "Zveřejnit",
+    "CopyLink": "Kopírovat odkaz",
+    "Delete": "Smazat"
+  },
+  "Tooltip": {
+    "skip": "Přeskočit",
+    "next": "Další",
+    "of": "ze"
+  },
+  "CSCFilter": {
+    "searchPlaceholder": "Hledat",
+    "searchInput": "Vyhledat předpis",
+    "typePlaceholder": "Typ: Vše",
+    "guarantorPlaceholder": "Garant: Vše",
+    "statePlaceholder": "Stav: Vše",
+    "resetFilter": "Zrušit filtr",
+    "showSubconcepts": "Zobrazit podřazené koncepty",
+    "searchAriaLabel": "Hledat číselník",
+    "typeSelect": "Vyberte typ",
+    "guarantorSelect": "Vyberte garanta",
+    "stateSelect": "Vyberte stav",
+    "clear": "Smazat",
+    "type": "Typ: ",
+    "state": "Stav: ",
+    "selectAll": "Vybrat vše"
+  },
+  "CSCHeader": {
+    "title": "Centrální správa číselníků",
+    "ButtonNew": "Nový číselník",
+    "ButtonSetting": "Nastavení tabulky",
+    "dropDownCreate": "Vytvořit",
+    "dropDownImport": "Importovat",
+    "CloseBtn": "Zrušit",
+    "BackBtn": "Zpět",
+    "ContinueBtn": "Importovat",
+    "importTitle": " Import souboru",
+    "tryAgain": "Zkusit znovu",
+    "fileUploadLabel": "Podporované formáty jsou CSV, XML, XLSX. Maximální velikost jednoho souboru je 10 MB.",
+    "parentInfo": "Vychází z číselníku {title} platného od {validFrom}",
+    "parentInfoPrefix": "Vychází z číselníku",
+    "parentInfoSuffix": "platného od {validFrom}",
+    "importErrorStructure": "Nepodporovaný formát souboru pro strukturu.",
+    "importErrorData": "Nepodporovaný formát souboru pro data.",
+    "importErrorStructureAndData": "Nepodporovaný formát souboru pro data a strukturu.",
+    "importError": "Číselník se nepodařilo importovat. Zkuste to prosím znovu."
+  },
+  "CSCFormModal": {
+    "cscName": "Název číselníku",
+    "cscNamePlaceholder": "Vyplňte",
+    "identifier": "Identifikátor",
+    "identifierPlaceholder": "Vyplňte",
+    "cscDescription": "Popis",
+    "optional": "Nepovinné",
+    "cscDescriptionPlaceholder": "Popište účel a použití číselníku",
+    "garant": "Garant",
+    "editor": "Editor",
+    "CloseBtn": "Zrušit",
+    "ContinueBtn": "Pokračovat",
+    "SaveBtn": "Uložit",
+    "ImportBtn": "Importovat data",
+    "ManualBtn": "Vložit data ručně",
+    "garantPlaceholder": "Vyberte",
+    "importTitle": "Importovat číselník",
+    "newTitle": "Založení nového číselníku - Koncept",
+    "editTitle": "Nová verze",
+    "validFor": "Platnost od",
+    "from": "Od",
+    "perviousDate": "Původní platnost byla od ",
+    "maxLength100": "Maximální délka je 100 znaků",
+    "nameTooLong": "Název číselníku nesmí být delší než 100 znaků",
+    "descriptionTooLong": "Popis číselníku nesmí být delší než 500 znaků",
+    "duplicateError": "Číselník s tímto názvem již existuje. Prosím zvolte jiný název.",
+    "formSubmitSuccess": "Číselník byl úspěšně vytvořen.",
+    "type": {
+      "title": "Typ",
+      "internal": "Interní",
+      "intPublic": "Interní - veřejný",
+      "intPaid": "Interní - placený",
+      "external": "Externí"
+    },
+    "data": {
+      "title": "Zdroj dat",
+      "dataImport": "Importovat",
+      "dataTakeover": "Zkopírovat z aktivní verze",
+      "dataHand": "Zadat data ručně"
+    }
+  },
+  "CSCTabsContainer": {
+    "tabs": {
+      "codelist": "Data číselníku",
+      "details": "Podrobnosti",
+      "versions": "Verze",
+      "concepts": "Koncepty"
+    },
+    "CSMainInfo": {
+      "title": "Název číselníku",
+      "id": "GUID",
+      "guarantor": "Garant",
+      "validity": "Platnost od",
+      "type": "Typ",
+      "status": "Stav"
+    },
+    "detailsTab": {
+      "title": "Název číselníku",
+      "identifier": "GUID",
+      "description": "Popis",
+      "guarantor": "Garant",
+      "editor": "Editor",
+      "type": "Typ",
+      "validity": "Platnost od",
+      "created": "Vytvořeno",
+      "lastUpdate": "Poslední aktualizace",
+      "version": "Verze",
+      "status": "Stav",
+      "editorTitle": "Úprava editorů",
+      "guarantorTitle": "Úprava garantů",
+      "descriptionTitle": "Úprava popisu",
+      "textarea": "Popište účel a použití číselníku"
+    },
+    "codelistTab": {
+      "placeholders": {
+        "enterNumber": "Zadejte číslo",
+        "enterText": "Zadejte text",
+        "dateFormat": "DD.MM.YYYY"
+      }
+    },
+    "filter": {
+      "types": {
+        "external": "Externí",
+        "internal": "Interní",
+        "internalPaid": "Interní - Placený",
+        "internalPublic": "Interní - Veřejný"
+      }
+    }
+  },
+  "statuses": {
+    "planned": "Naplánovaný",
+    "expired": "Expirovaný",
+    "active": "Aktivní",
+    "concept": "Koncept",
+    "waitingforapproval": "Ve schvalování"
+  },
+  "VersionsTab": {
+    "searchPlaceholder": "Hledat...",
+    "typePlaceholder": "Typ",
+    "statePlaceholder": "Stav",
+    "resetFilter": "Zrušit filtr",
+    "name": "Název",
+    "type": "Typ",
+    "state": "Stav",
+    "validUntil": "Platnost do",
+    "actions": "Akce"
+  },
+  "FileUpload": {
+    "UploadBtn": "Nahrát soubory",
+    "selectFileType": "Vyberte typ souboru",
+    "data": "Data",
+    "structure": "Struktura",
+    "removeFile": "Odebrat soubor",
+    "dataAndStructure": "Data a struktura",
+    "errorNotSupported": "Nepodporovaný formát souboru",
+    "warningNotSupported": "Porovnávat lze pouze PDF soubory",
+    "warningAboveDataLimit": "Soubor je příliš velký, povolená velikost je 20 MB",
+    "uploadSuccess": "Soubor byl úspěšně nahrán",
+    "processing": "Načítáme zdrojová data číselníku...",
+    "processingSubtitle": "Prosím, neodcházejte. Tento krok může zabrat i několik minut.",
+    "importError": "Chyba, import souborů se nezdařil. Nahrajte prosím správné soubory.",
+    "importErrorSubtitle": "Došlo k chybě při importu souborů. Zkuste prosím nahrát soubory znovu.",
+    "retryUpload": "Nahrát znovu",
+    "fileUploadInstruction": "Nahrajte soubory CSV (data) a XML (struktura), nebo jeden soubor XLSX (obsahuje obojí).",
+    "fileUploadInstructionWithFiles": "Nahrajte jeden soubor s daty a jeden se strukturou.",
+    "errorMissingDataFile": "Pro úspěšný import nahrajte ještě soubor s daty.",
+    "errorMissingStructureFile": "Pro úspěšný import nahrajte ještě soubor se strukturou.",
+    "errorDuplicateFileType": "Nahráli jste více souborů stejného typu. Nahrajte buď soubory CSV a XML nebo XLSX.",
+    "errorStructureFileInvalid": "Soubor struktury obsahoval chyby a jeho import se neprovedl. Nahrajte soubor struktury znovu."
+  },
+  "CSCButtons": {
+    "SaveConcept": "Uložit",
+    "SaveAndPublish": "Uložit a publikovat",
+    "SaveAndSendForApproval": "Uložit a odeslat ke schválení",
+    "SendForApproval": "Odeslat ke schválení",
+    "CopyLink": "Zkopírovat odkaz",
+    "EditConcept": "Upravit",
+    "DeleteConcept": "Smazat",
+    "DeleteCodebook": "Smazat číselník",
+    "PublishConcept": "Publikovat",
+    "ReworkConcept": "Vrátit k přepracování",
+    "DepublishConcept": "Depublikovat",
+    "NewVersion": "Vytvořit novou verzi",
+    "toolTipTextDisabledSave": "Uložení dat není možné – některé hodnoty v tabulce nemají správný formát.",
+    "toolTipTextDisabledSave&Publish": "Uložení a publikování dat není možné – některé hodnoty v tabulce nemají správný formát.",
+    "ButtonTitles": {
+      "CopyLink": "Zkopírovat odkaz",
+      "EditConcept": "Upravit",
+      "DeleteConcept": "Smazat",
+      "SaveAndSendForApproval": "Uložit a odeslat ke schválení",
+      "DeleteCodebook": "Smazat číselník",
+      "PublishConcept": "Publikovat",
+      "SendForApproval": "Odeslat ke schválení",
+      "DepublishConcept": "Depublikovat",
+      "ReworkConcept": "Vrátit k přepracování",
+      "SaveConcept": "Uložit koncept",
+      "SaveAndPublish": "Uložit a publikovat",
+      "NewVersion": "Vytvořit novou verzi"
+    }
+  },
+  "UserSelect": {
+    "choose": "Vyberte…",
+    "selectedUser": "Vybraný uživatel ",
+    "addUser": "Přidat uživatele",
+    "removeUser": "Odebrat uživatele",
+    "userOptions": "Možnosti uživatele",
+    "searchInput": "Hledat",
+    "newUser": "Přidat nového uživatele",
+    "newEditor": "Přidat nového editora",
+    "newGarant": "Přidat nového garanta",
+    "newRequester": "Přidat nového zadavatele",
+    "newResponsible": "Přidat nového řešitele"
+  },
+  "RowOptions": {
+    "deleteRow": "Smazat řádek",
+    "addRowBelow": "Přidat řádek pod",
+    "addRowAbove": "Přidat řádek nad"
+  },
+  "ColumnOptions": {
+    "deleteColumn": "Smazat sloupec",
+    "addColumnRight": "Přidat sloupec za",
+    "addColumnLeft": "Přidat sloupec před"
+  },
+  "CSCTableHeaders": {
+    "name": "Název",
+    "type": "Typ",
+    "validFrom": "Platnost od",
+    "state": "Stav"
+  },
+  "StatusRowActions": {
+    "deleteHead": "Opravdu chcete smazat koncept ",
+    "deleteBody": "Vyplněná data a údaje budou trvale odstraněna.",
+    "unPublishHead": "Opravdu chcete zrušit publikování?",
+    "unPublishBody": "Data a údaje číselníku budou uživatelům skryty.",
+    "unPublishButton": "Ano, depublikovat",
+    "PublishConceptHeader": "Opravdu chcete publikovat ",
+    "PublishConceptHeader2": " s platností od ",
+    "PublishConceptBody": "Data a údaje číselníku budou veřejné pro všechny uživatele.",
+    "PublishButton": "Ano, publikovat",
+    "deleteRowHead": "Opravdu chcete smazat řádek č.",
+    "deleteRowBody": "Vyplněná data budou trvale odstraněna.",
+    "deleteColumnHead": "Opravdu chcete smazat sloupec ",
+    "deleteColumnBody": "Vyplněná data budou trvale odstraněna.",
+    "approvalHead": "Opravdu chcete číselník odeslat ke schválení?",
+    "approvalBody": "",
+    "reworkHead": "Opravdu chcete číselník vrátit k přepracování?",
+    "reworkBody": "",
+    "send": "Ano, odeslat",
+    "return": "Ano, vrátit",
+    "cancel": "Zrušit",
+    "delete": "Ano, smazat",
+    "proceed": "Pokračovat"
+  },
+  "CSCDetailPage": {
+    "DeleteConceptHeader": "Opravdu chcete smazat koncept ",
+    "DeleteConceptBody": "Vyplněná data a údaje budou trvale odstraněna.",
+    "DeletConfirm": "Ano, smazat",
+    "Cancel": "Zrušit",
+    "PublishConceptHeader": "Opravdu chcete publikovat ",
+    "PublishConceptHeader2": " s platností od ",
+    "PublishConfirm": "Ano, publikovat",
+    "loading": "Načítání...",
+    "error": {
+      "createVersionFailed": "Nepodařilo se vytvořit novou verzi. Zkuste to prosím znovu.",
+      "importError": "Číselník se nepodařilo importovat. Zkuste to prosím znovu."
+    },
+    "fileUploadLabel": "Podporované formáty jsou CSV, XML a XLSX. ",
+    "fileUploadLimit": "Maximální velikost je 10 MB."
+  },
+  "DateRangeHeader": {
+    "dateRangeHeaderLabel": "Rozsah dat",
+    "dateRange": "Rozsah",
+    "dataSource": "Zdroj"
+  },
+  "Darkmode": {
+    "dark": "Tmavý režim",
+    "light": "Světlý režim"
+  },
+  "bugReport": {
+    "modalTitle": "Nahlásit problém",
+    "titleLabel": "Název",
+    "descriptionLabel": "Něco nefunguje, nebo máte nápad na vylepšení? Dejte nám vědět, vaše zpětná vazba je důležitá!",
+    "descriptionPlaceholder": "Vaše zpráva",
+    "captureScreenshot": "Pořídit snímek obrazovky",
+    "screenshotAlt": "Pořízený snímek obrazovky",
+    "submit": "Odeslat",
+    "cancel": "Zrušit",
+    "failedToCollectLogs": "Nepodařilo se shromáždit systémové logy",
+    "submitSuccess": "Formulář byl úspěšně odeslán",
+    "submitError": "Nepodařilo se odeslat problém. Prosím zkuste to znovu.",
+    "descriptionError": "Popis může obsahovat maximálně 1000 znaků",
+    "attachmentsError": "Přidejte snímek obrazovky"
+  },
+  "Screenshots": {
+    "cancelBtn": "Zrušit",
+    "makeBtn": "Pořídit snímek",
+    "failed": "Bohužel snímek obrazovky se nepodařilo vytvořit.",
+    "screenshotIn": "Snímek bude pořízen za"
+  },
+  "EPrescriptionHeader": {
+    "eRecept": "eRecept"
+  },
+  "administrativeProceedings": {
+    "title": "Správní řízení",
+    "pageTitle": "Základní část řízení",
+    "columns": {
+      "agendaNumber": "Agendové číslo",
+      "agendaCode": "Agenda",
+      "recordNumber": "Číslo spisu",
+      "insurancePayer": "Plátce",
+      "status": "Stav",
+      "responsibleUsers": "Řešitel",
+      "resolutionDeadline": "Zbývá"
+    },
+    "noData": "Nenalezeny žádné záznamy",
+    "noDataCellPlaceholder": "---",
+    "remainingDays": "{count, plural, =1 {# den} few {# dny} other {# dnů}}",
+    "openMoreOptionsMenu": "Otevřít nabídku více možností",
+    "listOfMoreOptions": "Seznam více možností",
+    "filter": {
+      "all": "Vše",
+      "fullTextPlaceholder": "Hledat",
+      "fullTextAriaLabel": "Fulltextové vyhledávání",
+      "responsibleUserIdPlaceholder": "Řesitel: vše",
+      "responsibleUserIdAriaLabel": "Řesitel",
+      "adminProcessStatusCodePlaceholder": "Stav: vše",
+      "adminProcessStatusCodeAriaLabel": "Stav správního řízení"
+    },
+    "newCaseModal": {
+      "newCaseButton": "Nový případ",
+      "title": "Nový případ",
+      "insurancePayerNumberLabel": "Číslo pojištěnce",
+      "insurancePayerNumberPlaceholder": "Číslo pojištěnce nebo RČ",
+      "agendaCodeLabel": "Věc správního řízení",
+      "agendaCodePlaceholder": "Vyberte...",
+      "recordFolderNumberLabel": "UID spisu",
+      "recordFolderNumberPlaceholder": "UID spisu",
+      "recordFolderNumberHint": "Zkopírujte ze Spisové služby",
+      "recordFolderNumberTooltip": "Identifikační číslo spisu ve Spisové službě. Nepoužíváme číslo spisu, protože API rozhraní Spisové služby podle něho nevyhledávají.",
+      "cancelButton": "Zrušit",
+      "createButton": "Založit případ",
+      "formError": "Chybně vyplněný formulář: {error}",
+      "errorMessages": {
+        "somethingWrong": "Nastala chyba na straně serveru. Zkuste to prosím znovu později.",
+        "insurancePayerNumberDigitsOnly": "Číslo pojištěnce je povinné a musí obsahovat pouze číslice.",
+        "insurancePayerNumberMinLength": "Číslo pojištěnce musí mít alespoň 9 číslic.",
+        "insurancePayerNumberMaxLength": "Číslo pojištěnce musí mít maximálně 10 číslic.",
+        "agendaCodeInvalid": "Vyberte věc správního řízení.",
+        "recordFolderNumberInvalid": "Neplatné UID spisu."
+      },
+      "successMessage": "Nový případ byl založen."
+    },
+    "workflowSteps": {
+      "requestStep": {
+        "title": "Žádost o zahájení správního řízení",
+        "group": "Evidence případu",
+        "button": "Zahájit zpracování",
+        "note": {
+          "title": "Pořízení dat žádosti není součástí POC1",
+          "body": "Pro POC2 je třeba rozhodnout, která data budou pořízena manuálně případně zda bude využito technologie vytěžování textu žádosti."
+        },
+        "basicInfo": {
+          "title": "Základní údaje",
+          "fields": {
+            "submissionDate": "Datum podání žádosti",
+            "timeToProcess": "Do vyřízení žádosti zbývá",
+            "requestReason": "Důvod žádosti"
+          }
+        },
+        "contacts": {
+          "title": "Kontaktní údaje žádosti",
+          "fields": {
+            "name": "Jméno příjmení / Název plátce",
+            "address": "Adresa TP / Sídlo plátce",
+            "email": "Kontaktní email",
+            "phone": "Telefon",
+            "dataBox": "Datová schránka",
+            "bankAccount": "Bankovní spojení"
+          }
+        },
+        "attachments": {
+          "title": "Přílohy žádosti",
+          "fields": {
+            "requestCause": "Odůvodnění žádosti",
+            "reasonsEvidence": "Doklady o závažných důvodech",
+            "otherAttachments": "Ostatní přílohy spisu"
+          }
+        }
+      },
+      "casePreparation": {
+        "title": "Příprava případu referentem správního řízení",
+        "group": "Šetření případu",
+        "button": "Potvrdit úplnost žádosti",
+        "payerId": {
+          "title": "Identifikace plátce",
+          "fields": {
+            "name": "Jméno",
+            "surname": "Příjmení",
+            "familyId": "Rodné číslo",
+            "ICO": "IČO",
+            "DIC": "DIČ"
+          }
+        },
+        "contactDetails": {
+          "title": "Kontaktní údaje žádosti",
+          "fields": {
+            "address": "Kontaktní adresa",
+            "email": "Kontaktní email",
+            "phone": "Telefon",
+            "dataBox": "Datová schránka"
+          }
+        },
+        "penaltyAmount": {
+          "title": "Dlužné částky či sankce",
+          "fields": {
+            "insuranceDebt": "Dluh na pojistném",
+            "penaltyDebt": "Dluh na penále"
+          }
+        },
+        "formalRequirements": {
+          "title": "Formální náležitosti žádosti",
+          "fields": {
+            "requestCause": "Odůvodnění žádosti",
+            "reasonsEvidence": "Doklady o závažných důvodech"
+          }
+        },
+        "note": {
+          "title": "Poznámka",
+          "fields": {
+            "placeholder": "Zde zadejte svou podrobnou odpověď. Můžete popsat své nápady, poskytnout zpětnou vazbu nebo se podělit o své myšlenky.",
+            "example": "např. stav zpracování, požadavky na doplnění podkladů",
+            "attention": "Případ si žádá vyšší pozornost"
+          }
+        }
+      },
+      "draftControl": {
+        "title": "Návrh rozhodnutí a kontrola překročení podpory de minimis",
+        "group": "Šetření případu",
+        "button": "Předat návrhové komisi",
+        "formalRequirements": {
+          "title": "Formální náležitosti žádosti",
+          "fields": {
+            "requestCause": "Odůvodnění žádosti",
+            "reasonsEvidence": "Doklady o závažných důvodech"
+          }
+        },
+        "caseDocuments": {
+          "title": "Podklady k případu",
+          "fields": {
+            "insuranceDebt": "Dluh na pojistném",
+            "penaltyDebt": "Dluh na penále"
+          }
+        },
+        "draftDecision": {
+          "title": "Návrh rozhodnutí",
+          "fields": {
+            "discussionResult": "Výsledek projednání",
+            "discussionResultOptions": {
+              "fullyGranted": "Žádosti o OT se vyhovuje",
+              "partiallyGranted": "Žádosti o OT se vyhovuje částečně",
+              "notGranted": "Žádosti o OT se nevyhovuje"
+            },
+            "penaltyAmount": "Původní výše penále",
+            "penaltyFeeWaived": "Výše prominutého penále",
+            "finalPenalty": "Konečná výše penále"
+          }
+        },
+        "note": {
+          "title": "Poznámka",
+          "fields": {
+            "example": "např. stav zpracování, požadavky na doplnění podkladů",
+            "attention": "Případ si žádá vyšší pozornost"
+          }
+        }
+      },
+      "commissionRecommend": {
+        "title": "Doporučení komise oprávněné úřední osobě",
+        "group": "Správní rozhodnutí",
+        "buttons": []
+      },
+      "recommendationDecision": {
+        "title": "Rozhodnutí oprávněné úřední osoby na doporučení komise",
+        "group": "Správní rozhodnutí",
+        "buttons": []
+      },
+      "decisionPrepare": {
+        "title": "Vypravení rozhodnutí",
+        "group": "Realizace rozhodnutí",
+        "buttons": []
+      },
+      "forceEntry": {
+        "title": "Nabytí právní moci",
+        "group": "Realizace rozhodnutí",
+        "buttons": []
+      },
+      "decisionSettlement": {
+        "title": "Vypořádání správního rozhodnutí",
+        "group": "Realizace rozhodnutí",
+        "buttons": []
+      }
+    },
+    "penaltyCalculationModal": {
+      "title": "Výpočet penále",
+      "buttonTitle": "Výpočet rozhodnutí ve věci OT",
+      "prescribedPenalty": "Vyměřené / předepsané / vyčíslené penále",
+      "penaltyAfterPriorityWaiver": "Penále po přednostním prominutí",
+      "priorityWaiver": "Přednostní prominutí",
+      "penaltyAfterPriorityAndBasicWaiver": "Penále po přednostním a základním prominutí",
+      "basicWaiver": "Základní prominutí",
+      "resultingPenaltyToBePaid": "Výsledné penále k úhradě",
+      "reducedWaiver": "Snížené prominutí - malus",
+      "waivedAmount": "Prominutá částka",
+      "selectReasons": "Vyberte důvody",
+      "selectReasonsDescription": "Při jejichž naplnění bude penále prominuto v plné výši nebo bude sníženo.",
+      "paymentsWithDifferentVariableSymbol": "Z plateb pojistného uhrazeného pod jiným variabilním symbolem nebo jiné zdravotní pojišťovně v ČR.",
+      "refundOfOverpayment": "Které vzniklo neoprávněným vrácením přeplatku.",
+      "crimeCommitted": "Vyměřené plátci, který prokáže, že proti němu či jeho majetku byl spáchán trestný čin.",
+      "amount": "Částka",
+      "rate": "Sazba",
+      "CZK": "Kč",
+      "cancelButton": "Zrušit",
+      "confirmButton": "Uložit"
+    }
+  },
+  "requests": {
+    "title": "eŽádanky",
+    "actions": {
+      "approve": "Schválit",
+      "reject": "Zamítnout",
+      "cancel": "Zrušit"
+    },
+    "requestDetail": {
+      "pageTitle": "Žádanka",
+      "pageTitleDraft": "Rozpracovaná žádanka",
+      "currentPage": "Detail žádanky",
+      "buttons": {
+        "submitForApproval": "Odeslat ke schválení",
+        "cancelRequest": "Stornovat",
+        "confirmDecision": "Potvrdit rozhodnutí",
+        "returnToRequester": "Vrátit zadavateli",
+        "returnToApproval": "Vrátit k opětovnému schválení"
+      },
+      "tabs": {
+        "items": {
+          "title": "Položky",
+          "count": "položek",
+          "addItem": "Přidat položku",
+          "addFreeItem": "Přidat volnou položku",
+          "addItemFromCatalog": "Přidat položku z katalogu",
+          "emptyItemsMessage": "Žádanka neobsahuje žádné položky",
+          "tableRowActions": {
+            "showDetails": "Zobrazit detail položky",
+            "deleteItem": "Odebrat položku",
+            "createNewItem": "Vytvořit novou žádanku s touto položkou"
+          },
+          "itemFromCatalogModal": {
+            "title": "Přidání položky z katalogu",
+            "description": "Položku můžete přidat výběrem z katalogu nebo zadat ručně jako volnou položku.",
+            "searchPlaceholder": "Hledat v katalogu",
+            "noResultsMessage": "Nenašli jsme žádnou položku. Zkuste zadat jinou.",
+            "myFavorites": "Moje oblíbené ({count})",
+            "resultItemsCount": "{count, plural, =0 {Nalezeno 0 položek} one {Nalezena {count} položka} few {Nalezeny {count} položky} other {Nalezeno {count} položek}}",
+            "closeButton": "Zavřít",
+            "approveButton": "Potvrdit výběr",
+            "searchLabel": "Název položky nebo číslo v SAP",
+            "loading": "Načítání...",
+            "onSuccess": "Změny byly úspěšně použity",
+            "onError": "Nepodařilo se přidat vybranou položku",
+            "onDeleteError": "Položka byla úspěšně smazána.",
+            "onDeleteSuccess": "Položku se nepodařilo smazat",
+            "tableHeaders": {
+              "title": "Název",
+              "numberInSAP": "Číslo v SAP",
+              "sapNumber": "Číslo v SAP",
+              "price": "Cena s DPH",
+              "amount": "Množství"
+            }
+          },
+          "emptyItemsModal": {
+            "createTitle": "Přidání volné položky",
+            "editEmptyTitle": "Detail volné položky",
+            "editCatalogueTitle": "Detail položky z katalogu",
+            "basicInfo": "Základní údaje",
+            "attachments": "Přílohy",
+            "fieldsLabels": {
+              "title": "Položka",
+              "description": "Popis",
+              "numberInSAP": "Číslo v SAP",
+              "supplierNumber": "Číslo u dodavatele",
+              "measureUnit": "Měrná jednotka",
+              "amount": "Množství",
+              "priceWithVAT": "Cena s DPH",
+              "contract": "Smlouva",
+              "category": "Kategorie",
+              "noCategory": "Žádné kategorie nejsou k dispozici",
+              "noContract": "Bez smlouvy",
+              "subCategory": "Podkategorie",
+              "expectedDeliveryDate": "Očekávaný termín dodání",
+              "status": "Stav",
+              "newStatus": "Nová",
+              "approver": "Schvalovatel",
+              "approvalProcess": "Proces schvalování",
+              "hyperTextLink": "Hypertextový odkaz",
+              "bindingToContract": "Vazba na smlouvu",
+              "attachments": "Přílohy",
+              "comment": "Komentář",
+              "reason": "Důvod",
+              "itemJustification": "Odůvodnění položky",
+              "sameAsRequest": "Stejné jako žádanka",
+              "different": "Jiné",
+              "notRequired": "nepovinné",
+              "total": "Celkem za"
+            },
+            "fileUpload": {
+              "button": "Nahrát soubor",
+              "helperText": "Podporované formáty jsou PDF, JPG, PNG a GIF. Můžete přiložit až 5 souborů. Maximální velikost jednoho souboru je 10 MB",
+              "removeFile": "Odstranit soubor",
+              "selectFiles": "Vybrat soubory",
+              "uploadSuccess": "Soubor byl úspěšně nahrán",
+              "errorMessages": {
+                "uploadError": "Soubor se nepodařilo nahrát",
+                "sizeLimit": "Soubor přesahuje limit",
+                "attachmentLimit": "Soubor přesahuje počet příloh",
+                "wrongFormat": "Soubor nemá podporovaný formát",
+                "nameSimilarity": "Soubor má stejný název jako již nahraný",
+                "noData": "Soubor neobsahuje žádná data"
+              }
+            },
+            "buttons": {
+              "confirm": "Přidat",
+              "saveChanges": "Uložit změny",
+              "cancel": "Zrušit"
+            },
+            "validationErrors": {
+              "fileFormat": "Podporované formáty: JPG, PNG, GIF. Max. {MAX_FILE_SIZE_MB} MB na soubor. Max. {MAX_FILES} souborů",
+              "maximumSize": "Soubor {name} překračuje maximální velikost {maxFileSizeMB} MB",
+              "notSupportedFormat": "Soubor {name} není podporovaný formát",
+              "form": {
+                "titleRequired": "Název je povinný ",
+                "amountRequired": "Množství je povinné",
+                "priceRequired": "Cena je povinná"
+              }
+            },
+            "toastMessages": {
+              "updateItemSuccess": "Položka byla úspěšně aktualizována.",
+              "updateItemError": "Nepodařilo se aktualizovat položku."
+            }
+          },
+          "itemsActions": {
+            "addItemSuccess": "Položka byla úspěšně přidána.",
+            "addItemError": "Přidání položky se nezdařilo. Zkuste to prosím znovu.",
+            "validation": {
+              "titleRequired": "Název je povinný",
+              "measureUnitRequired": "Měrná jednotka je povinná",
+              "amountRequired": "Množství je povinné",
+              "priceRequired": "Cena je povinná",
+              "categoryRequired": "Kategorie je povinná",
+              "expectedDeliveryDateRequired": "Očekávaný termín dodání je povinný"
+            }
+          },
+          "requestConfirmModal": {
+            "title": "Opravdu chcete založit novou žádanku s touto položkou?",
+            "subTitle": "Pokračováním přejdete do procesu založení nové žádanky, do které Vám automaticky přidáme tuto položku.",
+            "confirmButton": "Ano, založit",
+            "cancelButton": "Zrušit"
+          }
+        },
+        "basicInfo": "Základní údaje",
+        "approval": {
+          "title": "Historie schvalování",
+          "noDataMessage": "Historie schvalování se zobrazí až po odeslání žádanky ke schválení.",
+          "level": "Úroveň schvalování",
+          "approver": "Schvalovatel",
+          "performedBy": "Provedl",
+          "receivedAt": "Přijato dne",
+          "resolvedAt": "Rozhodnuto dne",
+          "itemsToApprove": "Položky ke schválení",
+          "resolution": "Rozhodnutí",
+          "status": {
+            "pending": "Ve schvalování",
+            "approved": "Schváleno",
+            "rejected": "Zamítnuto",
+            "returned": "Vráceno",
+            "withdrawn": "Staženo"
+          }
+        },
+        "comments": {
+          "title": "Komentáře",
+          "noDataMessage": "Žádné komentáře k dispozici.",
+          "commentsForm": {
+            "newComment": "Vložit komentář",
+            "inputPlaceholder": "Můžete napsat komentář..."
+          },
+          "toastMessages": {
+            "success": "Komentář byl úspěšně přidán",
+            "error": "Chyba při přidávání komentáře"
+          }
+        }
+      }
+    },
+    "requestsTable": {
+      "id": "ID žádanky",
+      "items": "Položky",
+      "justification": "Odůvodnění",
+      "requester": "Zadavatel",
+      "recipient": "Pro osobu",
+      "approver": "Schvalovatel",
+      "costCenter": "Nákladové středisko",
+      "createdAt": "Vytvořeno",
+      "status": "Stav",
+      "moreItems": "+{count} dalších položek",
+      "withoutID": "Bez ID"
+    },
+    "itemsTable": {
+      "title": "Název položky",
+      "description": "Popis",
+      "attachments": "Přílohy",
+      "numberInSAP": "Číslo v SAP",
+      "category": "Kategorie",
+      "quantity": "Množství",
+      "priceWithDPH": "Cena s DPH",
+      "approver": "Schvalovatel",
+      "status": "Stav",
+      "decision": "Moje rozhodnutí",
+      "pricePerItem": "Kč za 1 ks",
+      "selectedItems": "{count, plural, =0 {Žádné položky nevybrány} one {# položka vybrána} few {# položky vybrány} other {# položek vybráno}}",
+      "attachmentsCount": "{count, plural, one {Položka obsahuje # přílohu} few {Položka obsahuje # přílohy} other {Položka obsahuje # příloh}}",
+      "actions": {
+        "deleteItem": "Smazat"
+      },
+      "tableHeaderButtons": {
+        "newRequestFromCurrentItem": "Nová žádanka s výběrem",
+        "markAsApproved": "Schválit",
+        "markAsRejected": "Zamítnout",
+        "markAsProcessedWithoutPurchase": "Vyřídit bez nákupu",
+        "markAsRemoved": "Odebrat položku",
+        "Delete": "Smazat"
+      },
+      "completeWithoutPurchaseConfirmation": {
+        "onSuccess": "Položka byla úspěšně označena jako vyřízená bez nákupu",
+        "onError": "Nepodařilo se označit položku jako vyřízenou bez nákupu. Zkuste to prosím znovu."
+      },
+      "deleteConfirmation": {
+        "title": "Chcete odebrat vybranou položku?",
+        "confirm": "Odebrat",
+        "cancel": "Zrušit",
+        "onSuccess": "Položka byla úspěšně smazána!",
+        "onError": "Položku se nepodařilo smazat. Zkuste to prosím znovu později."
+      },
+      "newRequestFromSelectedItems": {
+        "title": "Opravdu chcete založit novou žádanku s touto položkou?",
+        "description": "Potvrzením založíte novou žádanku. Všechny položky z přehledu níže do ní budou automaticky přidány.",
+        "confirm": "Ano, založit",
+        "cancel": "Zavřít",
+        "onSuccess": "Nový požadavek s vybranými položkami byl úspěšně vytvořen",
+        "onError": "Nepodařilo se vytvořit nový požadavek s vybranými položkami."
+      },
+      "approveConfirmation": {
+        "title": "Opravdu chcete schválit vybrané položky?",
+        "confirm": "Ano, schválit",
+        "cancel": "Zavřít",
+        "onSuccess": "Žádanka byla úspěšně schválena",
+        "onError": "Nepodařilo se schválit žádanku"
+      },
+      "declineConfirmation": {
+        "title": "Opravdu chcete zamítnout vybrané položky?",
+        "reason": "Odůvodnění zamítnutí",
+        "label": "Odůvodnění zamítnutí",
+        "placeholder": "Napište...",
+        "requiredFieldMessage": "Toto pole je povinné.",
+        "confirm": "Ano, zamítnout",
+        "cancel": "Zavřít",
+        "onSuccess": "Žádanka byla úspěšně zamítnuta",
+        "onError": "Nepodařilo se zamítnout žádanku"
+      },
+      "returnToRequester": {
+        "title": "Opravdu chcete vrátit žádanku zadavateli?",
+        "requester": "Zadavatel",
+        "reason": "Odůvodnění vrácení",
+        "confirm": "Ano, vrátit",
+        "cancel": "Zavřít",
+        "onSuccess": "Žádanka byla úspěšně vrácena zadavateli",
+        "onError": "Nepodařilo se vrátit žádanku zadavateli"
+      },
+      "returnToApprover": {
+        "title": "Opravdu chcete vrátit žádanku k opětovnému schválení?",
+        "placeholder": "Napište...",
+        "approver": "Schvalovatel",
+        "reason": "Odůvodnění vrácení",
+        "confirm": "Ano, vrátit",
+        "cancel": "Zavřít",
+        "onSuccess": "Žádanka byla úspěšně vrácena schvalovateli",
+        "onError": "Nepodařilo se vrátit žádanku schvalovateli"
+      }
+    },
+    "newRequestModal": {
+      "title": "Nová žádanka",
+      "subtitle": "Základní údaje",
+      "fieldsLabels": {
+        "requester": "Zadavatel",
+        "description": "Popis",
+        "id": "ID žádanky",
+        "recipient": "Pro osobu",
+        "approver": "Schvalovatel",
+        "createdAt": "Vytvořeno",
+        "status": "Stav",
+        "address": "Dodací adresa",
+        "costCenter": "Nákladové středisko",
+        "orderLabel": "Zakázka",
+        "reason": "Důvod",
+        "contract": "Kontrakt",
+        "requestCause": "Odůvodnění žádanky",
+        "fieldStatus": "Nepovinné",
+        "defaultCause": "Nástup nového zaměstnance",
+        "causePlaceHolder": "Napište...",
+        "selectAddressLabel": "Vybrat ze seznamu",
+        "inputAddressLabel": "Zadat ručně"
+      },
+      "submitButton": "Založit žádanku",
+      "cancelButton": "Zrušit",
+      "validationErrorsMessages": {
+        "requesterRequired": "Zadavatel je povinný",
+        "recipientRequired": "Odpovědná osoba je povinná",
+        "requestCauseRequired": "Odůvodnění žádanky je povinné",
+        "addressRequired": "Dodací adresa je povinná",
+        "noAddressFound": "Nenalezeny žádné adresy"
+      },
+      "successMessage": "Žádanka byla vytvořena."
+    },
+    "submitForApprovalModal": {
+      "title": "Opravdu chcete odeslat žádanku ke schválení?",
+      "description": "Odesláním žádanky ke schválení bude žádance přiřazeno vlastní ID. Schvalovací proces bude nastaven samostatně pro každou položku podle typu.",
+      "requestCause": "Odůvodnění žádanky",
+      "confirmButton": "Ano, odeslat ke schválení",
+      "cancelButton": "Zrušit",
+      "successMessage": "Žádanka byla úspěšně odeslána ke schválení",
+      "errorMessage": "Nepodařilo se odeslat žádanku ke schválení"
+    },
+    "cancelRequestModal": {
+      "title": "Chcete stornovat žádanku?",
+      "description": "Stornováním žádanky ukončíte všechna právě probíhající schvalování.",
+      "confirmButton": "Stornovat",
+      "cancelButton": "Zrušit",
+      "successMessage": "Žádanka byla úspěšně zrušena",
+      "errorMessage": "Nepodařilo se zrušit žádanku"
+    },
+    "returnRequestModal": {
+      "title": "Opravdu chcete vrátit žádanku zadavateli?",
+      "requester": "Zadavatel",
+      "inputLabel": "Odůvodnění vrácení",
+      "inputPlaceholder": "Napište...",
+      "confirmButton": "Ano, vrátit",
+      "cancelButton": "Zrušit",
+      "successMessage": "Žádanka byla úspěšně vrácena zadavateli",
+      "errorMessage": "Nepodařilo se vrátit žádanku zadavateli"
+    },
+    "emptyRequestsMessage": "Žádné žádanky nenalezeny",
+    "filters": {
+      "searchPlaceholder": "Hledat",
+      "requesterPlaceholder": "Zadavatel",
+      "recipientPlaceholder": "Pro osobu",
+      "approverPlaceholder": "Schvalovatel",
+      "costCenterPlaceholder": "Nákladové středisko",
+      "statusPlaceholder": "Stav",
+      "clear": "Smazat",
+      "resetFilter": "Zrušit filtr",
+      "showClosedRequests": "Zobrazit i uzavřené",
+      "all": "Vše",
+      "status": {
+        "new": "Rozpracováno",
+        "inProgress": "Rozpracováno",
+        "inReview": "Ve schvalování",
+        "draft": "Koncept",
+        "approved": "Schváleno",
+        "closed": "Uzavřeno",
+        "withdrawn": "Zamítnuto"
+      },
+      "labels": {
+        "search": "ID žádanky",
+        "requester": "Zadavatel",
+        "recipient": "Pro osobu",
+        "approver": "Schvalovatel",
+        "costCenter": "Nákladové středisko",
+        "status": "Stav"
+      }
+    },
+    "approver": {
+      "header": {
+        "outOfOffice": "Mimo kancelář"
+      },
+      "tabs": {
+        "pendingApproval": {
+          "name": "Ke schválení",
+          "filters": {
+            "showAs": "Zobrazit jako",
+            "items": "Položky",
+            "requests": "Žádanky"
+          },
+          "noPendingRequests": "Aktuálně nemáte žádnou žádanku ke schválení"
+        },
+        "myRequests": {
+          "name": "žádanky",
+          "filters": {
+            "showClosedRequests": "Zobrazit i uzavřené"
+          },
+          "noMyRequests": "Aktuálně nemáte žádnou žádanku"
+        }
+      }
+    }
+  },
+  "stepper": {
+    "badgeStatuses": {
+      "completed": "Dokončeno",
+      "opened": "Otevřeno",
+      "pending": "Čeká se"
+    }
+  },
+  "stepProgressBar": {
+    "progressBarLabel": "Kroky postupu",
+    "stepsListLabel": "Seznam kroků postupu"
+  },
+  "AuditPage": {
+    "title": "Auditní logy",
+    "success": "OK",
+    "failure": "Incident",
+    "dataLoadingError": "Chyba při načítaní údajů.",
+    "CSVExport": "Export do CSV",
+    "CSVDownloadSuccess": "CSV export byl úspešne stažen.",
+    "CSVDownloadError": "Chyba při stahovaní CSV exportu.",
+    "jsonExport": "Export do json",
+    "exportButtonTooltip": "Vyexportuje maximálně 1000 záznamů.",
+    "details": "Výpis",
+    "context": "Kontext",
+    "json": "Json",
+    "copy": "Kopírovat",
+    "headers": {
+      "id": "ID",
+      "timestamp": "Datum a čas",
+      "application": "Aplikace",
+      "domain": "Doména",
+      "sessionId": "Session ID",
+      "component": "Komponenta",
+      "identityId": "Identity ID",
+      "entityId": "Entity ID",
+      "success": "Výsledek",
+      "authentication": "Uživatel",
+      "rbac": "RBAC",
+      "abac": "ABAC",
+      "operation": "Operace",
+      "messageBody": "Tělo zprávy"
+    },
+    "filter": {
+      "from": "Datum od",
+      "to": "Datum do",
+      "idOrEntityOrSession": "ID Logu, Entity ID nebo Session ID",
+      "identityId": "Uživatel",
+      "searchAriaLabel": "Hledat",
+      "clear": "Smazat",
+      "successAll": "Vše"
+    }
+  },
+  "PdfComparison": {
+    "title": "Porovnání PDF",
+    "upload": {
+      "title": "Vyberte PDF soubor",
+      "description": "Vyberte PDF soubor, který chcete porovnat"
+    },
+    "error": {
+      "uploadFailed": "Dokumenty se nepodařilo porovnat",
+      "serverError": "Na straně serveru došlo k chybě",
+      "unauthorized": "Nemáte oprávnění pro porovnání dokumentů",
+      "invalidFileType": "Soubor není ve formátu PDF",
+      "invalidStructure": "Soubor nesplňuje strukturu přílohy smlouvy",
+      "corruptedFile": "Soubor je poškozený",
+      "comparisonFailed": "Nepodařilo se načíst výsledky porovnání"
+    },
+    "retry": "Porovnat další soubory",
+    "leftDocument": "Odeslaný dodatek ke smlouvě",
+    "rightDocument": "Podepsaný dodatek ke smlouvě",
+    "dropLabel": "Vyberte PDF soubor kliknutím na tlačítko, nebo ho přetáhněte sem",
+    "limitLabel": "Fill (372) × 208 Hug",
+    "compareFiles": "Porovnat soubory",
+    "backToComparison": "Zpět na porovnání",
+    "results": {
+      "title": "Výsledky porovnání",
+      "success": {
+        "title": "Míra shody 100 %",
+        "description": "Oba dokumenty jsou identické, žádné rozdíly nebyly nalezeny."
+      },
+      "error": {
+        "title": "Něco se nepovedlo",
+        "description": "Zkuste prosím soubory nahrát znovu",
+        "retryButton": "Zkusit znovu"
+      },
+      "differences": {
+        "matchPercentage": "Míra shody {percentage} %"
+      }
+    }
+  },
+  "ServiceProvider": {
+    "title": "Informace o poskytovateli služeb",
+    "poskytovatelSluzeb": "Poskytovatel služeb",
+    "adresa": "Adresa",
+    "zastoupeny": "Zastoupený",
+    "ic": "IČ",
+    "icz": "IČZ",
+    "podepsany": "Podepsaný"
+  },
+  "cscToasts": {
+    "newVersionUnknownMethod": "Nebyl vybrán způsob vytvoření nové verze číselníku.",
+    "create": {
+      "204": "Číselník byl úspěšně vytvořen.",
+      "400": "Číselník se nepodařilo vytvořit. Zkuste to znovu.",
+      "401": "Číselník se nepodařilo vytvořit. Přihlašte se a zkuste to znovu.",
+      "403": "Nemáte požadované právo pro tvorbu číselníku.",
+      "500": "Číselník se nepodařilo vytvořit. V systému došlo k neočekávané chybě.",
+      "504": "Číselník se nepodařilo vytvořit. Právě probíhá údržba."
+    },
+    "import": {
+      "204": "Číselník byl úspěšně importován.",
+      "400": "Číselník se nepodařilo importovat. Zkuste to znovu.",
+      "401": "Číselník se nepodařilo importovat. Přihlašte se a zkuste to znovu.",
+      "403": "Nemáte požadované právo pro import číselníku.",
+      "500": "Číselník se nepodařilo importovat. V systému došlo k neočekávané chybě.",
+      "504": "Číselník se nepodařilo importovat. Právě probíhá údržba."
+    }
+  },
+  "QRCodes": {
+    "title": "QR platby",
+    "po": "Hromadný",
+    "fo": "Individuální",
+    "copySSN": "Kopírovat ČP",
+    "labelFo": "Číslo pojištěnce",
+    "labelPo": "Číslo plátce",
+    "pdfBtn": "Generovat PDF",
+
+    "InsurerInfo": {
+      "ssn": "Číslo pojištěnce: ",
+      "ico": "Číslo plátce: ",
+      "permanentAddress": "Trvalá adresa",
+      "mailAdress": "Doručovací adresa",
+      "street": "Ulice",
+      "zipCode": "PSČ",
+      "town": "Obec"
+    },
+
+    "paymentDetails": {
+      "paymentTitle": "Detail platby",
+      "label1": "Typ platby",
+      "label2": "Částka ",
+      "label3": "Variabilní symbol",
+      "errMessage": "Doplňte částku",
+      "errVs": "Doplňte VS",
+      "warningVS": "Nestandartní VS",
+      "paymentTypes": {
+        "1": " 1 - pojistné",
+        "2": " 2 - penále",
+        "3": " 3 - PV pokuta",
+        "7": " 7 - PV penále",
+        "8": " 8 - PV pojistné",
+        "E": " E - VN penále",
+        "F": " F - VN pojistné",
+        "X": " X - náklady ER",
+        "R": " R - regres/náhrada",
+        "N": " N - neopr. čepr. péče",
+        "P": " P - paušální nákl. řízení"
+      }
+    }
+  },
+  "BOTable": {
+    "name": "Název",
+    "firstName": "Jméno a příjmení",
+    "lastName": "Příjmení",
+    "status": "Stav",
+    "result": "Výsledek",
+    "assignedGroup": "Přiřazená skupina",
+    "assignee": "Řešitel",
+    "regionalOffice": "RP",
+    "createdDate": "Termín vyřízení",
+    "expiryDate": "Datum vyřízení"
+  },
+  "ComplaintActions": {
+    "approve": "Schválit",
+    "requestOpinion": "Zažádat o odborné stanovisko",
+    "reject": "Zamítnout"
+  },
+  "ComplaintDraftActions": {
+    "submitForReview": "Odeslat k posouzení",
+    "submitForCheck": "Odeslat ke kontrole",
+    "kliprSolve": "Vypořádat",
+    "void": "Stornovat",
+    "cancel": "Zrušit"
+  },
+  "ComplaintSubjectStep": {
+    "title": "Předmět reklamace",
+    "back": "Zpět"
+  },
+  "ConsentStep": {
+    "DataReconciliationTitle": "Odsouhlasení údajů",
+    "DataReconciliationDescription": "Vytiskněte reklamaci, nechte ji pojištěnce zkontrolovat, podepsat a vložte do ji do E-Spisu.",
+    "DataReconciliationButton": "Tisk reklamace",
+    "backButton": "Zpět"
+  },
+  "ComplaintReferenceNumber": {
+    "title": "Číslo jednací",
+    "description": "Po vložení dokumentu do E-Spisu zkopírujte do níže uvedeného pole číslo jednací.",
+    "inputLabel": "Číslo jednací"
+  },
+  "ComplaintHandler": {
+    "title": "Řešitel",
+    "description": "Kdo vyřeší reklamaci",
+    "forwardToBackOffice": "Předání na Back Office",
+    "clientDesk": "KLIPR"
+  },
+  "CommentsSection": {
+    "title": "Komentáře",
+    "externalCommentLabel": "Externí komentář",
+    "externalCommentHelper": "Obsah tohoto sdělení je dán k dispozici pojištěnci",
+    "internalCommentLabel": "Interní komentář",
+    "internalCommentHelper": "Pro interní potřeby - pojištěnec se obsah nedozví."
+  },
+  "AttachmentsUpload": {
+    "uploadButton": "Nahrát soubor",
+    "limitLabel1": "Podporované formáty jsou PDF, JPG, PNG a GIF.",
+    "limitLabel2": "Můžete přiložit až {maxFiles} souborů. Maximální velikost jednoho souboru je {maxFileSize} MB.",
+    "unsupportedFormatError": "Nepodporovaný formát souboru.",
+    "maxFileSizeError": "Maximální velikost souboru je {size} MB.",
+    "maxFilesError": "Můžete přiložit maximálně {count} souborů.",
+    "removeFileAriaLabel": "Odebrat soubor",
+    "browseFilesAriaLabel": "Procházet soubory"
+  },
+  "ClientTable": {
+    "firstName": "Jméno",
+    "surname": "Příjmení",
+    "applicant": "Jméno a přijmení žadatele",
+    "mobilePhone": "Telefon",
+    "email": "E-mail",
+    "bank": "Číslo účtu",
+    "address": "Kontaktní adresa",
+    "dataBox": "Datová schránka",
+    "judgmentDate": "Datum posouzení",
+    "referenceNumber": "Číslo jednací",
+    "result": "Výsledek",
+    "approvedAmount": "Schválená částka",
+    "resolver": "Řešitel",
+    "resolverGroup": "Řešitelská skupina",
+    "comment": "Komentář"
+  },
+  "ApprovalModal": {
+    "title": "Schválení reklamace",
+    "demandedAmount": "Požadovaná náhrada",
+    "approvedAmount": "Schválená náhrada",
+    "proceedingNumber": "Číslo jednací",
+    "externalComment": "Externí komentář",
+    "internalComment": "Interní komentář"
+  },
+  "RejectionModal": {
+    "proceedingNumber": "Číslo jednací",
+    "externalComment": "Externí komentář",
+    "internalComment": "Interní komentář",
+    "title": "Zamítnutí reklamace"
+  },
+  "InvalidityPeriodsForm": {
+    "invaliditySectionTitle": "Invalidita",
+    "invaliditySectionDescription": "Zvolte období roku 2024, za které pojištěnec žádá úpravu limitů.",
+    "recognizedFromLabel": "Přiznáno od",
+    "validUntilLabel": "Konec platnosti",
+    "ongoingCheckboxLabel": "dosud platné",
+    "requiredLimitLabel": "Požadovaný limit",
+    "requiredLimitPlaceholder": "Vyberte limit",
+    "limitOption3rdDegree": "3. stupeň invalidity s invalidním důchodem",
+    "limitOption2ndDegree": "2. stupeň invalidity",
+    "limitOption1stDegree": "1. stupeň invalidity",
+    "removeButtonAriaLabel": "Odebrat období",
+    "addPeriodButton": "Přidat období",
+    "termsSectionTitle": "Termíny",
+    "submissionDateLabel": "Datum podání",
+    "settlementDeadlineLabel": "Lhůta pro vypořádání"
+  },
+  "GeneralComplaintForm": {
+    "commentsSectionTitle": "Obecná reklamace",
+    "externalCommentLabel": "Externí komentář",
+    "externalCommentPlaceholder": "",
+    "externalCommentHelper": "Tento text uvidí pojištěnec",
+    "internalCommentLabel": "Interní komentář",
+    "internalCommentPlaceholder": "",
+    "internalCommentHelper": "Tento text se pojištěnci nezobrazí",
+    "attachmentsSectionTitle": "Přílohy",
+    "attachmentsOptionalText": "",
+    "attachmentsDescription": "Nahrajte případné účtenky, faktury anebo plné moci.",
+    "backButton": "Zpět",
+    "continueButton": "Pokračovat"
+  }
+}

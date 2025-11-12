@@ -1,0 +1,181 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+
+import InlineMessage, {
+  Default,
+  LimitAchived,
+  LimitDown,
+  withButton,
+} from './InlineMessage.stories';
+
+<Meta of={InlineMessage} />
+
+#### Design: <a href="https://www.figma.com/design/HtK3DbPIxodKas2jSTtrlH/Design-system?node-id=310-3817&t=RIiZ84LWlGKezUmV-0" target="_blank" rel="noopener">Figma</a>
+
+# InlineMessage
+
+The `InlineMessage` component is used to display brief, inline messages to the user. These messages can convey different types of information, such as success, warning, error, or informational messages.
+
+<Canvas of={Default} />
+
+## Usage
+
+The `InlineMessage` component can be used to provide feedback to the user in various scenarios. It supports different message types, which can be customized using the `type` prop.
+
+### Props
+
+<Canvas of={Default} />
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+
+### Default
+
+<Canvas of={Default} />
+
+### Limit Achieved
+
+<Canvas of={LimitAchived} />
+
+### withButton
+
+<Canvas of={withButton} />
+
+### Limit Down
+
+<Canvas of={LimitDown} />
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.container {
+  width: 100%;
+  border-radius: var(--radius-s);
+  padding: var(--spacing-xs);
+  gap: var(--spacing-3xs);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 56px;
+
+  &.centered {
+    justify-content: center;
+  }
+
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+  }
+
+  &.default {
+    background-color: var(--background-panel);
+  }
+
+  &.error {
+    background-color: var(--support-negative-subtle);
+    color: var(--text-on-negative-subtle);
+
+    .icon {
+      color: var(--icon-on-negative-subtle);
+    }
+  }
+
+  &.success {
+    background-color: var(--support-positive-subtle);
+    color: var(--text-on-positive-subtle);
+
+    .icon {
+      color: var(--icon-on-positive-subtle);
+    }
+  }
+
+  &.info {
+    background-color: var(--support-info-subtle);
+    color: var(--text-on-info-subtle);
+
+    .icon {
+      color: var(--icon-on-info-subtle);
+    }
+  }
+
+  &.warning {
+    background-color: var(--support-warning-subtle);
+    color: var(--text-on-warning-subtle);
+
+    .icon {
+      color: var(--icon-on-warning-subtle);
+    }
+  }
+
+  @media print {
+    margin-top: var(--units-20);
+    box-shadow: inset 0 0 0 1000px var(--color-black-50);
+
+    .text {
+      font-family: Roboto, sans-serif !important;
+      font-weight: var(--font-weight-100) !important;
+      font-size: var(--size-14) !important;
+    }
+
+    .icon {
+      display: none;
+    }
+  }
+}
+
+:global(.dark) .container {
+  &.default {
+    background-color: var(--background-panel);
+  }
+
+  &.error {
+    background-color: var(--support-negative);
+    color: var(--text-on-negative);
+
+    .icon {
+      color: var(--color-white);
+
+      svg path {
+        fill: var(--color-white);
+      }
+    }
+  }
+
+  &.success {
+    background-color: var(--support-positive);
+    color: var(--text-on-positive);
+
+    .icon {
+      color: var(--icon-on-positive);
+    }
+  }
+
+  &.info {
+    background-color: var(--support-info);
+    color: var(--text-on-info);
+
+    .icon {
+      color: var(--icon-on-info);
+    }
+  }
+
+  &.warning {
+    background-color: var(--support-warning);
+    color: var(--text-on-warning);
+
+    .icon {
+      color: var(--icon-on-warning);
+    }
+  }
+}
+
+```
+</details>

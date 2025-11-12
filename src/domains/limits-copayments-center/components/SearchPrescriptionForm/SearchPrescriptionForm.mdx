@@ -1,0 +1,91 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+import SearchPrescriptionForm, { Default, WithFilters } from './SearchPrescriptionForm.stories';
+
+<Meta of={SearchPrescriptionForm} />
+
+#### Design: <a href="https://www.figma.com/design/X6VaqX3yF7GOyaVg2qLbdY/MVP-design?node-id=1604-2617&t=kfL91pY8Qql0GiWe-4" target="_blank" rel="noopener">Figma</a>
+
+# SearchPrescriptionForm
+
+SearchPrescriptionForm is a component that provides filters for prescription data. It includes:
+- Year selection
+- Month selection (with "All months" option)
+- Search input for identifiers
+
+<Canvas of={Default} />
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+
+### Default
+<Canvas of={Default} />
+
+### With filters
+<Canvas of={WithFilters} />
+
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.form {
+  --input-width: 220px;
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-s);
+  margin-bottom: var(--spacing-md);
+  flex-direction: row !important;
+  overflow: visible;
+  align-items: center;
+
+  & .filters {
+    display: flex;
+    gap: var(--spacing-s);
+    flex-direction: row !important;
+    overflow: visible;
+    align-items: center;
+  }
+}
+
+.year-select {
+  width: var(--input-width);
+}
+
+.month-select {
+  width: var(--input-width);
+}
+
+.search-input {
+  width: var(--input-width);
+}
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3xs);
+}
+
+@media (max-width: 768px) {
+  .form {
+    flex-direction: column;
+  }
+
+  .filters {
+    flex-wrap: wrap;
+  }
+
+  .year-select,
+  .month-select,
+  .search-input {
+    width: 100%;
+  }
+}
+
+```
+</details>

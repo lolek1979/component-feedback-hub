@@ -1,0 +1,305 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+
+import Tooltip, { Top, Bottom, Right, Left, TopRight } from './Tooltip.stories';
+
+<Meta of={Tooltip} />
+
+#### Design: <a href="https://www.figma.com/design/X6VaqX3yF7GOyaVg2qLbdY/MVP-design?node-id=187-2903&t=ow3QAVj3ZFmTFmbg-4" target="_blank" rel="noopener">Figma</a>
+
+# Tooltip
+
+A component that displays informative text when users hover over, focus on, or tap an element. Available in various placements.
+
+<Canvas of={Top} />
+
+## Properties
+
+<Controls of={Top} />
+
+## Examples
+
+### Top
+<Canvas of={Top} />
+
+### Bottom
+<Canvas of={Bottom} />
+
+### Left
+<Canvas of={Left} />
+
+### Right
+<Canvas of={Right} />
+
+### TopRight
+<Canvas of={TopRight} />
+
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.tooltip {
+  --tooltip-z-index: 999;
+
+  width: max-content;
+  min-height: var(--units-20);
+  max-width: 250px;
+  word-wrap: break-word;
+  text-align: left;
+  border-radius: var(--radius-s);
+  padding: var(--spacing-3xs) var(--spacing-2xs);
+  position: absolute;
+  animation: fade-in 0.2s ease forwards;
+  pointer-events: auto;
+
+  &.inverse {
+    background-color: var(--background-inverse);
+    color: var(--text-on-color);
+
+    & .contentWrapper {
+      & .title,
+      .content,
+      .footer,
+      span {
+        color: var(--text-on-color);
+      }
+    }
+
+    :global(.dark) & {
+      background-color: var(--background-elevated);
+
+      span {
+        color: var(--text-primary);
+      }
+    }
+  }
+
+  &.default {
+    background-color: var(--background-elevated);
+    color: var(--text-primary);
+
+    :global(.dark) & {
+      background-color: var(--background-inverse);
+    }
+  }
+
+  &[aria-hidden='true'] {
+    opacity: 0;
+  }
+
+  &[aria-hidden='false'] {
+    opacity: 1;
+  }
+
+  &.tooltipTop::before,
+  &.tooltipTopStart::before,
+  &.tooltipTopEnd::before,
+  &.tooltipBottom::before,
+  &.tooltipBottomStart::before,
+  &.tooltipBottomEnd::before,
+  &.tooltipLeft::before,
+  &.tooltipRight::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    border-width: var(--units-4);
+    border-style: solid;
+    filter: drop-shadow(0 2px 4px var(--shadow-primary));
+  }
+
+  /* --- TOP --- */
+  &.tooltipTop::before {
+    top: calc(100% + 0.6px);
+    left: 50%;
+    margin-left: calc(var(--units-4) * -1);
+    border-color: var(--shadow-primary) transparent transparent transparent;
+  }
+
+  &.tooltipTopStart::before {
+    top: calc(100% + 0.6px);
+    left: var(--units-8);
+    border-color: var(--shadow-primary) transparent transparent transparent;
+  }
+
+  &.tooltipTopEnd::before {
+    top: calc(100% + 0.6px);
+    right: var(--units-8);
+    border-color: var(--shadow-primary) transparent transparent transparent;
+  }
+
+  &.tooltipBottom::before {
+    bottom: calc(100% + 0.6px);
+    left: 50%;
+    margin-left: calc(var(--units-4) * -1);
+    border-color: transparent transparent var(--shadow-primary) transparent;
+  }
+
+  &.tooltipBottomStart::before {
+    bottom: calc(100% + 0.6px);
+    left: var(--units-8);
+    border-color: transparent transparent var(--shadow-primary) transparent;
+  }
+
+  &.tooltipBottomEnd::before {
+    bottom: calc(100% + 0.6px);
+    right: var(--units-8);
+    border-color: transparent transparent var(--shadow-primary) transparent;
+  }
+
+  &.tooltipLeft::before {
+    top: 50%;
+    left: calc(100% + 0.6px);
+    margin-top: calc(var(--units-4) * -1);
+    border-color: transparent transparent transparent var(--shadow-primary);
+  }
+
+  &.tooltipRight::before {
+    top: 50%;
+    right: calc(100% + 0.6px);
+    margin-top: calc(var(--units-4) * -1);
+    border-color: transparent var(--shadow-primary) transparent transparent;
+  }
+
+  &.tooltipTop::after,
+  &.tooltipTopStart::after,
+  &.tooltipTopEnd::after,
+  &.tooltipBottom::after,
+  &.tooltipBottomStart::after,
+  &.tooltipBottomEnd::after,
+  &.tooltipLeft::after,
+  &.tooltipRight::after {
+    content: '';
+    position: absolute;
+    border-width: var(--units-4);
+    border-style: solid;
+  }
+
+  &.default.tooltipTop::after,
+  &.default.tooltipTopStart::after,
+  &.default.tooltipTopEnd::after {
+    top: 100%;
+    border-color: var(--background-elevated) transparent transparent transparent;
+
+    :global(.dark) & {
+      border-color: var(--background-inverse) transparent transparent transparent;
+    }
+  }
+
+  &.inverse.tooltipTop::after,
+  &.inverse.tooltipTopStart::after,
+  &.inverse.tooltipTopEnd::after {
+    top: 100%;
+    border-color: var(--background-inverse) transparent transparent transparent;
+
+    :global(.dark) & {
+      border-color: var(--background-elevated) transparent transparent transparent;
+    }
+  }
+
+  &.tooltipTop::after {
+    left: 50%;
+    margin-left: calc(var(--units-4) * -1);
+  }
+
+  &.tooltipTopStart::after {
+    left: var(--units-8);
+  }
+
+  &.tooltipTopEnd::after {
+    right: var(--units-8);
+  }
+
+  &.default.tooltipBottom::after,
+  &.default.tooltipBottomStart::after,
+  &.default.tooltipBottomEnd::after {
+    bottom: 100%;
+    border-color: transparent transparent var(--background-elevated) transparent;
+
+    :global(.dark) & {
+      border-color: transparent transparent var(--background-inverse) transparent;
+    }
+  }
+
+  &.inverse.tooltipBottom::after,
+  &.inverse.tooltipBottomStart::after,
+  &.inverse.tooltipBottomEnd::after {
+    bottom: 100%;
+    border-color: transparent transparent var(--background-inverse) transparent;
+
+    :global(.dark) & {
+      border-color: transparent transparent var(--background-elevated) transparent;
+    }
+  }
+
+  &.tooltipBottom::after {
+    left: 50%;
+    margin-left: calc(var(--units-4) * -1);
+  }
+
+  &.tooltipBottomStart::after {
+    left: var(--units-8);
+  }
+
+  &.tooltipBottomEnd::after {
+    right: var(--units-8);
+  }
+
+  &.default.tooltipLeft::after {
+    top: 50%;
+    left: 100%;
+    margin-top: calc(var(--units-4) * -1);
+    border-color: transparent transparent transparent var(--background-elevated);
+
+    :global(.dark) & {
+      border-color: transparent transparent transparent var(--background-inverse);
+    }
+  }
+
+  &.inverse.tooltipLeft::after {
+    top: 50%;
+    left: 100%;
+    margin-top: calc(var(--units-4) * -1);
+    border-color: transparent transparent transparent var(--background-inverse);
+
+    :global(.dark) & {
+      border-color: transparent transparent transparent var(--background-elevated);
+    }
+  }
+
+  &.default.tooltipRight::after {
+    top: 50%;
+    right: 100%;
+    margin-top: calc(var(--units-4) * -1);
+    border-color: transparent var(--background-elevated) transparent transparent;
+
+    :global(.dark) & {
+      border-color: transparent var(--background-inverse) transparent transparent;
+    }
+  }
+
+  &.inverse.tooltipRight::after {
+    top: 50%;
+    right: 100%;
+    margin-top: calc(var(--units-4) * -1);
+    border-color: transparent var(--background-inverse) transparent transparent;
+
+    :global(.dark) & {
+      border-color: transparent var(--background-elevated) transparent transparent;
+    }
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+```
+</details>

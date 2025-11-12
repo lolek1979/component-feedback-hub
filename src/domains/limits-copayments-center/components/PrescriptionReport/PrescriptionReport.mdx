@@ -1,0 +1,55 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+
+import PrescriptionReport, { Default } from './PrescriptionReport.stories';
+
+<Meta title="Organisms/PrescriptionReport" component={PrescriptionReport} />
+
+#### Design: <a href="https://www.figma.com/design/X6VaqX3yF7GOyaVg2qLbdY/MVP-design?node-id=1161-968&t=fq8HpKEt0NnRgrnL-4" target="_blank" rel="noopener">Figma</a>
+# PrescriptionReport
+
+PrescriptionReport is a component for print PDF.
+
+<Canvas of={Default} />
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+
+### Default
+<Canvas of={Default} />
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.report {
+  --spacing-md: 24px;
+  --max-width: 1200px;
+  --report-padding: 32px;
+
+  padding: var(--report-padding);
+  max-width: var(--max-width);
+
+  & .month-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  & .limit-message {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: 100%;
+    margin: 0 0 var(--spacing-md) 0;
+  }
+}
+
+```
+</details>

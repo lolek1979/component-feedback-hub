@@ -1,0 +1,41 @@
+# ComplaintSubjectStep
+
+A step component in the complaint creation flow for selecting complaint subject.
+
+## Features
+- Step title display
+- Navigation buttons (back and continue)
+- Integration with complaint store
+- Responsive design
+
+## Usage
+
+```tsx
+<ComplaintSubjectStep />
+```
+
+## Integration
+
+This component uses the `useComplaintStore` hook to manage step navigation:
+- `nextStep()` - Navigate to the next step
+- `previousStep()` - Navigate to the previous step
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.stepContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s);
+}
+
+.buttonGroup {
+  display: flex;
+  gap: var(--spacing-2xs);
+  align-items: center;
+}
+```
+</details>

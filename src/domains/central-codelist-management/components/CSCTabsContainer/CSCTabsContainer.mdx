@@ -1,0 +1,41 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+
+import CSCTabsContainer, { Default } from './CSCTabsContainer.stories';
+
+<Meta of={CSCTabsContainer} />
+
+#### Design: <a href="https://www.figma.com/design/X6VaqX3yF7GOyaVg2qLbdY/MVP-design?node-id=2553-9879&t=tm1Me6vbjl10up0P-4" target="_blank" rel="noopener">Figma</a>
+
+# CSCTabsContainer
+
+A container component that displays content in tabs, including a codelist view, details view, and concepts & versions view. The component allows users to switch between different views while maintaining a consistent layout and navigation structure.
+
+<Controls of={Default} />
+
+### Default
+<Canvas of={Default} />
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.container {
+  width: 100%;
+}
+
+.tab-content {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: inherit;
+}
+
+.tab-icon {
+  width: 24px;
+  height: 24px;
+}
+
+```
+</details>

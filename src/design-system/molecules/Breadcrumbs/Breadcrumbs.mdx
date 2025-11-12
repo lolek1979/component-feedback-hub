@@ -1,0 +1,138 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+
+import Breadcrumbs, { Default, WithLastCurrent, TwoElements, BackLinkIcon } from './Breadcrumbs.stories';
+
+<Meta of={Breadcrumbs} />
+
+#### Design: <a href="https://www.figma.com/design/HtK3DbPIxodKas2jSTtrlH/Design-system?node-id=1-9" target="_blank" rel="noopener">Figma</a>
+
+# Breadcrumbs
+
+---
+
+A breadcrumb is a navigation aid that shows users their location within a website's hierarchy. It provides a clickable trail from the homepage to the current page, making site navigation easier and more intuitive.mbs is used to select multiple items from a collection.
+
+<Canvas of={Default} />
+
+## Properties
+
+
+<Controls of={Default} />
+
+## Examples
+
+### Default
+
+<Canvas of={Default} />
+
+### BackLinkIcon
+
+<Canvas of={BackLinkIcon} />
+
+### WithLastCurrent
+
+<Canvas of={WithLastCurrent} />
+
+### TwoElements
+
+<Canvas of={TwoElements} />
+
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.breadGroup {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--spacing-3xs);
+  user-select: none;
+  align-self: flex-start;
+
+  & :first-child {
+    color: var(--link-primary);
+  }
+
+  .separator {
+    font-size: var(--size-14);
+  }
+
+  .backLink {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+    & .backLinkIcon {
+      path {
+        fill: var(--icon-brand);
+      }
+    }
+
+    &.noUnderline {
+      text-decoration: none !important;
+
+      & .bread {
+        text-decoration: none !important;
+      }
+    }
+  }
+
+  .bread {
+    text-decoration: none;
+    color: var(--link-primary);
+
+    &:hover {
+      color: var(--link-primary-hover);
+    }
+
+    &:active {
+      color: var(--link-primary-active);
+    }
+
+    &:focus-visible {
+      border: var(--border-m) solid var(--support-info);
+      border-radius: var(--radius-s);
+    }
+
+    &.current {
+      color: var(--color-text-primary);
+
+      &:hover {
+        color: var(--link-primary-hover);
+      }
+
+      &:active {
+        color: var(--link-primary-active);
+      }
+    }
+  }
+}
+
+:global(.dark) .breadGroup {
+  .bread {
+    color: var(--link-primary);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--link-primary-hover);
+    }
+
+    &:active {
+      color: var(--link-primary-active);
+    }
+
+    &.current {
+      color: var(--icon-on-color);
+    }
+  }
+
+  .separator {
+    color: var(--text-on-color);
+  }
+}
+
+```
+</details>

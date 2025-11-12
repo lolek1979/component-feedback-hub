@@ -1,0 +1,23 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-xs);
+  width: 100%;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.item {
+  flex: 1 1 calc(var(--spacing-l) * 5);
+  min-width: calc(var(--spacing-l) * 5);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.itemSuccess {
+  flex: 0 0 10%;
+  min-width: calc(var(--spacing-s) * 4);
+  display: flex;
+  flex-direction: column;
+}

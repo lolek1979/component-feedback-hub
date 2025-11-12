@@ -1,0 +1,49 @@
+# ComplaintDraftActions
+
+Action buttons component for complaint drafts, providing submit and cancel functionality.
+
+## Features
+- Submit for review button
+- Cancel button
+- Conditional enabling based on current step
+- Accessibility support with aria-labels
+- Responsive design
+
+## Props
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `onSubmitForReview` | `() => void` | - | Submit for review handler |
+| `onCancel` | `() => void` | - | Cancel action handler |
+| `disabled` | `boolean` | `false` | Disable all buttons |
+| `currentStep` | `number` | `0` | Current step number (submit enabled only on step 4) |
+
+## Usage
+
+```tsx
+<ComplaintDraftActions
+  onSubmitForReview={handleSubmit}
+  onCancel={handleCancel}
+  currentStep={4}
+  disabled={false}
+/>
+```
+
+## Behavior
+
+- **Submit button**: Enabled only when `currentStep === 4` and not `disabled`
+- **Cancel button**: Enabled when not `disabled`
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.actions {
+  display: flex;
+  gap: var(--spacing-xs);
+  align-items: center;
+}
+```
+</details>

@@ -1,0 +1,147 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+
+import Textarea, { Default, Disabled, ReadOnly, Error } from './Textarea.stories';
+
+<Meta of={Textarea} />
+
+#### Design: <a href="" target="_blank" rel="noopener">Figma</a>
+
+# Textarea
+
+A flexible component for multi-line text input, supporting various states such as default, disabled, and read-only.
+
+<Canvas of={Default} />
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+
+### Default
+
+<Canvas of={Default} />
+
+### Disabled
+
+<Canvas of={Disabled} />
+
+### Error
+
+<Canvas of={Error} />
+
+### ReadOnly
+
+<Canvas of={ReadOnly} />
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.textareaWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4xs);
+  width: 100%;
+
+  & .labelRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  & .textarea {
+    --textarea-primary-margin: 0 auto;
+
+    min-height: 80px;
+    max-height: 300px;
+    padding: var(--spacing-4xs);
+    margin: var(--textarea-primary-margin);
+    border: var(--border-s) solid var(--border-primary);
+    border-radius: var(--radius-xs);
+    font-size: var(--size-14);
+    color: var(--text-primary);
+    background-color: var(--field-primary);
+    box-sizing: border-box;
+    resize: vertical;
+    width: 100%;
+    padding-top: var(--units-8);
+    padding-left: var(--units-12);
+
+    &:hover {
+      background-color: var(--field-primary-hover);
+    }
+
+    &:focus {
+      outline: var(--border-s) solid var(--support-info);
+      border: var(--border-s) solid var(--support-info);
+    }
+
+    &:disabled {
+      background-color: var(--field-disabled);
+      color: var(--text-disabled);
+      cursor: not-allowed;
+    }
+
+    &[readonly] {
+      background-color: var(--field-disabled);
+      color: var(--text-disabled);
+    }
+
+    &::placeholder {
+      font-size: var(--size-14);
+    }
+  }
+
+  & .counter {
+    text-align: end;
+    color: var(--text-secondary);
+  }
+
+  & .error {
+    outline: var(--border-s) solid var(--support-negative) !important;
+    animation: shake 0.3s linear;
+    border: none;
+  }
+
+  @keyframes shake {
+    0% {
+      transform: translateX(0);
+    }
+
+    20% {
+      transform: translateX(-4px);
+    }
+
+    40% {
+      transform: translateX(4px);
+    }
+
+    60% {
+      transform: translateX(-4px);
+    }
+
+    80% {
+      transform: translateX(4px);
+    }
+
+    100% {
+      transform: translateX(0);
+    }
+  }
+}
+
+:global(.dark) .textarea {
+  background-color: var(--palette-grey-950);
+  color: var(--text-on-color);
+
+  &:hover {
+    background-color: var(--palette-grey-950);
+  }
+}
+
+```
+</details>

@@ -1,0 +1,87 @@
+import { Canvas, Meta, Controls } from '@storybook/blocks';
+
+import MonthHeader, { Default, LimitReached } from './MonthHeader.stories';
+
+<Meta of={MonthHeader} />
+
+
+#### Design: <a href="https://www.figma.com/design/X6VaqX3yF7GOyaVg2qLbdY/MVP-design?node-id=1161-1752&t=SVfQb4QhxYR51KJP-4" target="_blank" rel="noopener">Figma</a>
+
+# MonthHeader
+
+Description.
+
+<Canvas of={Default} />
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+
+### Default
+<Canvas of={Default} />
+
+### LimitReached
+<Canvas of={LimitReached} />
+
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.month-header {
+  display: flex;
+  justify-content: space-between;
+  padding-top: var(--spacing-m);
+
+  .month {
+    color: var(--text-primary);
+  }
+
+  .limit {
+    gap: var(--spacing-3xs);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .limit-reached {
+    color: var(--support-positive);
+    gap: var(--spacing-3xs);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .green-text {
+    color: var(--support-positive);
+  }
+
+  .icon-info {
+    & path {
+      fill: var(--icon-info);
+    }
+  }
+
+  @media print {
+    flex-direction: row !important;
+    align-items: center !important;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+:global(.dark) .month-header {
+  .month {
+    color: var(--text-on-color);
+  }
+}
+
+```
+</details>

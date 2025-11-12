@@ -1,0 +1,106 @@
+import { Canvas, Meta, Controls } from '@storybook/addon-docs/blocks';
+
+import Divider, { Default, Vertical, Subtle, Dotted, Prominent } from './Divider.stories';
+
+<Meta of={Divider} />
+
+#### Design: <a href="https://www.figma.com/design/X6VaqX3yF7GOyaVg2qLbdY/MVP-design?node-id=1707-6978&t=biofGcUy4z6GKoKK-4" target="_blank" rel="noopener">Figma</a>
+
+# Divider
+
+The `Divider` component is used to visually separate content in a layout. It can be oriented horizontally or vertically and can have different variants such as "primary", "subtle", "dotted", or "prominent". The component is highly customizable with additional class names and styles.
+
+<Canvas of={Default} />
+
+## Properties
+
+<Controls of={Default} />
+
+## Examples
+
+### Default
+
+<Canvas of={Default} />
+
+### Vertical
+
+<Canvas of={Vertical} />
+
+### Subtle
+
+<Canvas of={Subtle} />
+
+### Dotted
+
+<Canvas of={Dotted} />
+
+### Prominent
+
+<Canvas of={Prominent} />
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.divider {
+  background-color: var(--border-primary);
+
+  &.dividerHorizontal {
+    height: var(--units-1);
+    width: 100%;
+  }
+
+  &.dividerVertical {
+    width: var(--units-1);
+    height: 100%;
+    margin: var(--spacing-xs);
+    background-color: var(--border-primary);
+  }
+
+  &.dividerSubtle {
+    background-color: var(--border-subtle);
+  }
+
+  &.dividerProminent {
+    background-color: var(--border-prominent);
+  }
+
+  &.dividerDotted {
+    background-color: transparent;
+
+    &.dividerHorizontal {
+      height: 0;
+      display: block;
+      border-top-width: var(--border-s);
+      border-top-style: solid;
+      border-image: repeating-linear-gradient(
+          to right,
+          var(--border-subtle) 0,
+          var(--border-subtle) var(--units-2),
+          transparent var(--units-2),
+          transparent var(--units-4)
+        )
+        1;
+    }
+
+    &.dividerVertical {
+      width: 0;
+      display: block;
+      border-left-width: var(--border-s);
+      border-left-style: solid;
+      border-image: repeating-linear-gradient(
+          to bottom,
+          var(--border-subtle) 0,
+          var(--border-subtle) var(--units-2),
+          transparent var(--units-2),
+          transparent var(--units-4)
+        )
+        1;
+    }
+  }
+}
+
+```
+</details>

@@ -1,0 +1,33 @@
+.requestCauseContainer {
+  padding-top: var(--spacing-s);
+  padding-bottom: var(--spacing-3xs);
+}
+
+.actionsModalButtons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: var(--spacing-2xs);
+  padding-top: var(--spacing-xs);
+  margin-top: var(--units-24);
+}
+
+.requestCauseTextarea {
+  min-height: var(--units-24);
+}
+
+.itemDetails {
+  margin-bottom: var(--units-16);
+}
+
+.itemsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--units-16);
+}
+
+.rejectConfirmContent {
+  display: flex;
+  flex-direction: column;
+  gap: var(--units-8);
+}

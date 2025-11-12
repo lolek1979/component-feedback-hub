@@ -1,0 +1,101 @@
+# ComplaintsStepper
+
+A horizontal stepper component for displaying progress through complaint creation steps.
+
+## Features
+- Horizontal step progression display
+- Active/inactive step states
+- Numbered step indicators
+- Step separators
+- Responsive typography
+- Accessible design
+
+## Props
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `steps` | `Step[]` | Array of step objects |
+
+### Step Object
+
+```typescript
+interface Step {
+  label: string;      // Step label text
+  isActive: boolean;  // Active state flag
+}
+```
+
+## Usage
+
+```tsx
+const steps = [
+  { label: 'Complaint Type', isActive: true },
+  { label: 'Subject', isActive: false },
+  { label: 'Details', isActive: false },
+  { label: 'Attachments', isActive: false },
+  { label: 'Review', isActive: false },
+];
+
+<ComplaintsStepper steps={steps} />
+```
+
+## Visual Structure
+
+- Each step displays a numbered circle and label
+- Active steps are highlighted with brand color
+- Inactive steps use secondary text color
+- Steps are separated by arrow icons
+- Numbers are displayed in circles (1, 2, 3, etc.)
+
+## CSS Source
+
+<details>
+<summary>View CSS Source</summary>
+
+```css
+.stepper {
+  display: flex;
+  align-items: center;
+}
+
+.stepItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3xs);
+}
+
+.inactiveText {
+  color: var(--text-secondary);
+}
+
+.activeText {
+  color: var(--text-brand);
+}
+
+.stepNumberCircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--table-primary);
+  flex-shrink: 0;
+}
+
+.inactiveNumberText {
+  color: var(--text-secondary);
+  text-align: center;
+}
+
+.activeNumberText {
+  color: var(--text-primary);
+  text-align: center;
+}
+
+.separator {
+  flex-shrink: 0;
+  margin: 0 var(--spacing-3xs);
+}
+```
+</details>

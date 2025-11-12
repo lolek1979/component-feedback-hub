@@ -1,0 +1,196 @@
+.tableContainer {
+  color: var(--color-text-primary);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.requestsPage {
+  padding: var(--spacing-m);
+}
+
+.approverHeaderActions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: var(--table-primary);
+  border-bottom: var(--border-s) solid var(--border-prominent);
+  height: 56px;
+  width: 99.5%;
+  padding: var(--spacing-xs);
+
+  .actionsRow {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-2xs);
+  }
+
+  .selectedItemsCount {
+    margin: var(--spacing-3xs) var(--spacing-2xs) 0 0;
+  }
+}
+
+.tableHeader th {
+  background: var(--table-primary);
+  height: 56px;
+  font-weight: var(--font-weight-400);
+  font-size: var(--size-14);
+  vertical-align: middle;
+  color: var(--color-text-primary);
+}
+
+.tableBody td {
+  padding: var(--spacing-xs);
+  border-bottom: var(--border-s) solid var(--border-prominent);
+  color: var(--color-text-primary);
+
+  .payer {
+    display: flex;
+    flex-direction: column;
+
+    small {
+      font-size: var(--size-12) !important;
+    }
+  }
+
+  .agenda {
+    color: var(--color-support-info);
+  }
+}
+
+.filterContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-s);
+
+  .filterCell {
+    width: 290px;
+  }
+}
+
+.userCell {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3xs);
+}
+
+.avatar {
+  width: var(--spacing-s);
+  height: var(--spacing-s);
+  font-size: var(--size-10);
+}
+
+.itemCount {
+  border-bottom: var(--radius-3xs) dotted var(--text-primary);
+}
+
+.quantityContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--units-16);
+  justify-content: flex-end;
+}
+
+.buttonCell {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.deleteModalContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: var(--spacing-2xs);
+  padding-top: var(--spacing-xs);
+}
+
+.firstTableHeader {
+  border-bottom: var(--border-s) solid var(--border-prominent);
+}
+
+.checkBoxContainer {
+  display: flex;
+  flex-direction: row;
+  gap: var(--units-16);
+}
+
+.costContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4xs);
+}
+
+.costPerItem {
+  display: flex;
+  gap: var(--spacing-4xs);
+}
+
+.addRemoveButton {
+  width: var(--spacing-m);
+  height: var(--spacing-m);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    margin-top: var(--spacing-4xs);
+  }
+}
+
+.removeButton {
+  width: var(--spacing-m);
+  height: var(--spacing-m);
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    margin-top: var(--spacing-4xs);
+  }
+}
+
+.modalConfirmContent {
+  padding-left: var(--spacing-s);
+}
+
+.modalConfirmButtons {
+  display: flex;
+  gap: var(--spacing-s);
+  justify-content: flex-end;
+  padding-top: var(--spacing-m);
+}
+
+.inlineCells {
+  display: flex;
+  gap: var(--spacing-m);
+  align-items: center;
+}
+
+.tableActionsButtons {
+  display: flex;
+  gap: var(--spacing-2xs);
+  max-width: 95px;
+}
+
+.emptyCell {
+  padding-left: var(--units-10);
+}
+
+@media (min-width: 1890px) {
+  .tableActionsButtons {
+    max-width: 75px;
+  }
+}
+
+@media (min-width: 1500px) and (max-width: 1889px) {
+  .tableActionsButtons {
+    max-width: 115px;
+  }
+}

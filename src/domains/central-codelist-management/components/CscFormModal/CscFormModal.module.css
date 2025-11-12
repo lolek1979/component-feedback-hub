@@ -1,0 +1,99 @@
+.modalContent {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  overflow: visible;
+
+  .inputContainer {
+    & textarea {
+      width: 100%;
+      max-width: 454px;
+      min-height: 120px;
+    }
+  }
+
+  .formRow {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    & .desCaption {
+      display: flex;
+      flex-direction: column;
+      color: var(--text-primary);
+
+      & :last-child {
+        color: var(--text-tertiary);
+      }
+    }
+
+    & .datePickerContainer {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+      gap: 16px;
+      width: 50%;
+
+      & .dateInfo {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        gap: 4px;
+      }
+    }
+
+    & .radioGroupContainer {
+      width: 50%;
+    }
+  }
+
+  .radioGroup {
+    align-items: start;
+
+    & div {
+      align-items: start;
+    }
+  }
+
+  .buttonGroup {
+    display: flex;
+    gap: var(--spacing-2xs);
+    justify-content: end;
+  }
+}
+
+.formField {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  & .inputContainer {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+  }
+
+  & .desCaption {
+    display: flex;
+    flex-direction: column;
+    color: var(--text-primary);
+
+    & :last-child {
+      color: var(--text-tertiary);
+    }
+  }
+}
+
+.closeModalButtons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+:global(.dark) .modalContent {
+  .dateInfo {
+    color: var(--color-white);
+  }
+}

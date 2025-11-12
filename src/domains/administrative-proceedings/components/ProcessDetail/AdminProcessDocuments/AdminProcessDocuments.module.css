@@ -1,0 +1,29 @@
+.documentButton {
+  border-radius: var(--units-16);
+  padding: var(--spacing-xs);
+}
+
+.documentsGroup {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  padding: var(--spacing-xs) var(--spacing-3xs);
+
+  .groupName {
+    width: 100%;
+  }
+}
+
+.documentsList {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: var(--units-10);
+  min-height: var(--units-40);
+}
+
+.documentsListOver {
+  border-radius: var(--radius-xs);
+  background-color: var(--palette-alpha-50);
+  transition: background-color 0.2s ease-in-out;
+}

@@ -1,0 +1,29 @@
+{
+  "routes": [
+    {
+      "route": "/*",
+      "allowedRoles": ["authenticated"]
+    }
+  ],
+  "responseOverrides": {
+    "401": {
+      "statusCode": 302,
+      "redirect": "/.auth/login/aad"
+    }
+  },
+  "auth": {
+    "identityProviders": {
+      "azureActiveDirectory": {
+        "userDetailsClaim": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+        "registration": {
+          "openIdIssuer": "https://login.microsoftonline.com/1174b7b3-9af8-43df-a3b2-06d8ee22d679",
+          "clientIdSettingName": "AAD_MANAGER_APPLICATION_ID_DESIGNSYSTEM",
+          "clientSecretSettingName": "AAD_MANAGER_CLIENT_SECRET_DESIGNSYSTEM"
+        }
+      }
+    }
+  },
+  "navigationFallback": {
+    "rewrite": "/index.html"
+  }
+}
